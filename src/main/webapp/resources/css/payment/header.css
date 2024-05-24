@@ -5,6 +5,8 @@ header{
 }
 
 img{
+    position: absolute;
+    left: 90px;
     width: 150px;
     height: 150px;
 }
@@ -16,7 +18,7 @@ img{
 .header-font-1{
     text-align: center;
     position: absolute;
-    left: 220px;
+    left: 310px;
     top: 75px;
     font-size: 25px;
     color: #4c4c4c
@@ -25,7 +27,7 @@ img{
 .header-font-2{
     text-align: center;
     position: absolute;
-    left: 510px;
+    left: 600px;
     top: 75px;
     font-size: 25px;
     color: #c0c0c0
@@ -34,7 +36,7 @@ img{
 .header-font-number-1{
     position: absolute;
     top:75px;
-    left: 180px;
+    left: 270px;
     display: inline-block;
 
     text-align: center;
@@ -51,7 +53,7 @@ img{
 .header-font-number-2{
     position: absolute;
     top:75px;
-    left: 470px;
+    left: 560px;
     display: inline-block;
 
     text-align: center;
@@ -69,7 +71,7 @@ img{
     display: inline-block;
     text-align: center;
     position: absolute;
-    left: 420px;
+    left: 510px;
     top: 75px;
     font-size: 25px;
     color: #c0c0c0
