@@ -71,7 +71,12 @@
                     </tbody>
                 </table>
 
-
+                <div class="insert">
+                    <form method="POST" onsubmit="return false;" enctype="multipart/form-data">
+                        <input type="file" onchange="addFile(this);" multiple />
+                        <div class="file-list"></div>
+                    </form>
+                </div>
 
                 <button type="submit" class="detail_submit">등록</button>
             </form>
@@ -83,3 +88,4 @@
         </div>
 </body>
 </html>
+<script src="../../resources/js/boardjs/fileupload.js"></script>

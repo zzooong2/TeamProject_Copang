@@ -22,7 +22,7 @@
 }
 
 .checkThead {
-    background-color: lightgray;
+    background-color: #c0c0c0;
 }
 
 .checkThead th {
@@ -48,6 +48,28 @@
 
 input:focus {
     outline: none;
+}
+
+
+/* -------------------- File Upload -------------------- */
+.insert {
+    margin-top: 10px;
+}
+.insert .file-list {
+    margin-top: 5px;
+    height: 50px;
+    overflow: auto;
+    border: 1px solid #c0c0c0;
+    padding: 10px;
+}
+.insert .file-list .filebox p {
+    font-size: 14px;
+    margin-top: 10px;
+    display: inline-block;
+}
+.insert .file-list .filebox .delete i{
+    color: #ff5353;
+    margin-left: 5px;
 }
 
 /* -------------------- Submit Button -------------------- */
