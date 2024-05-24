@@ -16,7 +16,7 @@ p{
 }
 #main{
     width: 1000px;
-    height: 700px;
+    height: 100%;
      display: flex;
      justify-content: space-evenly;
 }
