@@ -1,0 +1,19 @@
+/* 헤더영역 */
+header{
+    width: 100%;
+    height: 150px;
+
+}
+.logo{
+}
+/* 로고 배치용 text (지울예정) */
+.logo p{
+    font-size: 40px;
+    text-align: center;
+}
+/* 네비게이션 영역 */
+.nav{
+}
+/*  */
+.nav p{
+}
