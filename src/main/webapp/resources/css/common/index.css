@@ -6,10 +6,7 @@
 body{
     width: 100%;
     height: 1080px;
-
-
 }
-
 /*영역구분 텍스트*/
 p{
 	font-size : 40px;
@@ -17,6 +14,6 @@ p{
 }
 #main{
     width: 1000px;
-    height: 700px;
+    height: 100%;
     background-color: rgb(176, 176, 176);
 }
