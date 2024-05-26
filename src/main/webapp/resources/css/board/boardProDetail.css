@@ -57,14 +57,13 @@ input:focus {
 }
 .insert .file-list {
     margin-top: 5px;
-    height: 50px;
+    height: 70px;
     overflow: auto;
     border: 1px solid #c0c0c0;
-    padding: 10px;
 }
 .insert .file-list .filebox p {
     font-size: 14px;
-    margin-top: 10px;
+    margin-left: 10px;
     display: inline-block;
 }
 .insert .file-list .filebox .delete i{

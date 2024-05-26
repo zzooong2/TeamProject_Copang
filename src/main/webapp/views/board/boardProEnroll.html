@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COPANG</title>
     <link rel="icon" href="../../resources/img/tapIcon.png">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProDetail2.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProDetail.css">
     <link rel="stylesheet" type="text/css" href="../../resources/css/common/header.css">
     <link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
     <link rel="stylesheet" type="text/css" href="../../resources/css/common/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../../resources/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
-    <script type="text/javascript" src="../../resources/js/boardjs/smarteditor.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../resources/javaScript/boardProEnroll/smarteditor.js" charset="UTF-8"></script>
 </head>
 <body>
     <header>
@@ -28,11 +28,11 @@
     <hr>
     <div id="main">
         <section class="main_container">
-            <form action="/form/proDetail2.do" method="POST">
+            <form action="/form/proDetail.do" method="POST">
                 
                 <input type="text" class="detailTitle" name="detailTitle" id="detail_Title" placeholder="제목을 입력하세요.">
                 
-                <textarea id="editorTxt" class="detailContents" name="detailContents" id="editorTxt" placeholder="내용을 입력하세요."></textarea>
+                <textarea id="editorTxt" class="detailContents" name="detailContents" placeholder="내용을 입력하세요."></textarea>
                 
                 <table class="checkTable">
                     <thead class="checkThead">
@@ -88,4 +88,4 @@
         </div>
 </body>
 </html>
-<script src="../../resources/js/boardjs/fileupload.js"></script>
+<script src="../../resources/javaScript/boardProEnroll/fileUpload.js"></script>
