@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COPANG</title>
+    <link rel="icon" href="../../resources/img/tapIcon.png">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProDetail1.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/common/header.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/common/footer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../resources/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="../../resources/js/boardjs/smarteditor.js" charset="UTF-8"></script>
+</head>
+<body>
+    <header>
+        <!-- 로고 -->
+        <div class="logo">
+
+        </div>
+        <p>header<p>
+        <!-- 네비게이션 -->
+        <div class="nav">
+
+        </div>
+    </header>
+    <hr>
+    <div id="main">
+        <section class="main_container">
+            <form action="/form/proDetail1.do" method="POST">
+                <div class="Title_align">
+                    <span class="Title_reader">제목</span>
+                    <input type="text" class="detailTitle" name="detailTitle" id="detail_Title" placeholder="서비스를 잘 드러낼 수 있는 제목을 입력해주세요"><span>드립니다.</span>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <span class="dropbtn_icon">more_horiz</span>
+                        <span class="dropbtn_content">Select a menu...</span>
+                        <span class="dropbtn_click" style="font-family: Material Icons; font-size : 16px; color : #3b3b3b; float:right;" onclick="dropdown()">arrow_drop_down</span>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="fastfood" onclick="showMenu(this.innerText)">Burgerking</div>
+                        <div class="fastfood" onclick="showMenu(this.innerText)">Mcdonals</div>
+                        <div class="fastfood" onclick="showMenu(this.innerText)">Lotteria</div>
+                        <div class="fastfood" onclick="showMenu(this.innerText)">Mom's touch</div>
+                        <div class="fastfood" onclick="showMenu(this.innerText)">In n out</div>
+                        <div class="fastfood" onclick="showMenu(this.innerText)">Subway</div>
+                        <div class="fastfood" onclick="showMenu(this.innerText)">Shake shack</div>
+                    </div>
+                </div>
+
+
+
+                <button type="submit" class="detail_submit">다음</button>
+            </form>
+        </section>
+    </div>
+    <hr>
+    <div id="footer">
+        <p>footer<p>
+        </div>
+</body>
+</html>
+<script src="../../resources/js/boardjs/board/boardProEnroll1.js"></script>
