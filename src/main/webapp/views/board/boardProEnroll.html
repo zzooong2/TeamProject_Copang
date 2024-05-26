@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/common/footer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
-    <script type="text/javascript" src="../../resources/javaScript/boardProEnroll/smarteditor.js" charset="UTF-8"></script>
 </head>
 <body>
     <header>
@@ -89,3 +88,21 @@
 </body>
 </html>
 <script src="../../resources/javaScript/boardProEnroll/fileUpload.js"></script>
+<script>
+    let oEditors = [];
+
+    smartEditor = function () {
+        console.log("Naver SmartEditor")
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: oEditors,
+            elPlaceHolder: "editorTxt",
+            sSkinURI: "../../resources/static/smarteditor/SmartEditor2Skin.html",
+            fCreator: "createSEditor2"
+        })
+    }
+
+    $(document).ready(function () {
+        smartEditor()
+    })
+
+</script>

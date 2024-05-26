@@ -4,6 +4,8 @@
     margin-bottom: 10px;
     width: 99%;
     height: 30px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
 }
 
 /* -------------------- Text Area -------------------- */
@@ -13,11 +15,12 @@
     width: 99%;
     height: 300px;
     resize: none;
+    border: 1px solid #c0c0c0;
 }
 
 /* -------------------- Table -------------------- */
 .checkTable {
-    margin-top: 5px;
+    margin-top: 10px;
     border-spacing: 0px;
 }
 

@@ -17,6 +17,6 @@ p{
 #main{
     width: 1000px;
     height: 100vh;
-     display: flex;
-     justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
 }
