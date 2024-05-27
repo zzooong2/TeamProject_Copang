@@ -1,8 +1,9 @@
 /* 전체 영역 공백제거 */
-*{
-    margin: 0 auto;
+* {
+	margin: 0 auto;
 }
 /* 바디영역 */
+<<<<<<< HEAD
 body{
     width: 100%;
     height: 100vh;
@@ -19,4 +20,23 @@ p{
     height: 100%;
     display: flex;
     justify-content: space-evenly;
+=======
+body {
+	width: 100%;
+	height: 1080px;
+}
+
+/* 노멀라이즈 */
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+>>>>>>> 4a61168c4148d7b07aef663f0e6fd3a3ce5d469d
+}
+
+#main {
+	width: 1000px;
+	height: 100%;
+	display: flex;
+	justify-content: space-evenly;
 }

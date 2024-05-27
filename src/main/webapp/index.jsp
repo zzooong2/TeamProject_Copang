@@ -6,11 +6,10 @@
 	<%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
-	<%@ include file="/views/common/header.jsp"%>
 	<div id="main">
-	<p>main</p>
+	<%@ include file="/views/common/header.jsp"%>
+    
     </div>
-    <hr>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
