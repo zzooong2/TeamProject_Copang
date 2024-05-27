@@ -1,18 +1,93 @@
 /* 헤더영역 */
+<<<<<<< HEAD
 header{
     width: 100%;
     height: 150px;
+=======
+header {
+	width: 100%;
+	height: 150px;
+	position: fixed;
 }
-.logo{
+
+/* 로고 div의 영역 */
+.logo {
+	width: 20%;
+	height: 150px;
+	float: left;
+>>>>>>> 014b6a15cc153ef6a6066fccb0b5e648da1a9310
 }
-/* 로고 배치용 text (지울예정) */
-.logo p{
-    font-size: 40px;
-    text-align: center;
+
+.logo img {
+	width: 150px;
+	height: 150px;
+	padding-left: 50px;
 }
+
+/* 검색창 블록영역 */
+.search {
+	width: 30%;
+	height: 150px;
+	padding-top: 25px;
+	float: left;
+}
+
+/* 텍스트 입력창 */
+.search input {
+	width: 80%;
+	height: 30px;
+	font-size: 18px;
+	border: 3px #ff8e47 solid;
+	border-radius: 20px;
+	margin-top: 40px;
+}
+
+.icon {
+	position: relative;
+}
+
+.search img {
+	width: 20px;
+	height: 20px;
+	border: 1px solid #fff;
+	border-radius: 15px;
+	color: #fff;
+	cursor: pointer;
+	position: absolute;
+	right: 115px;
+	bottom: 8px;
+}
+
 /* 네비게이션 영역 */
-.nav{
+.nav {
+	width: 50%;
+	height: 150px;
+	float: right;
 }
-/*  */
-.nav p{
+
+.nav ul {
+	margin: 0;
+	padding-top: 60px;
+}
+
+.categoryMenu {
+	display: inline-block;
+	margin-right: 50px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.nav ul li {
+	display: inline-block;
+	margin-right: 30px;
+	font-size: 25px;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }

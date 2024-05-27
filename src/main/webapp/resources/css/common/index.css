@@ -16,7 +16,11 @@ p{
 }
 #main{
     width: 1000px;
+<<<<<<< HEAD
     height: 100vh;
+=======
+    height: 100%;
+>>>>>>> 014b6a15cc153ef6a6066fccb0b5e648da1a9310
     display: flex;
     justify-content: space-evenly;
 }
