@@ -1,4 +1,29 @@
 /*푸터 영역*/
-footer{
-	
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #ff8e47;
+
+}
+
+h3 {
+    color: #fff;
+}
+
+p {
+    color: #fff;
+}
+
+.team {
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 40%;
+    float: left;
+}
+
+.academy {
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 40%;
+    float: left;
 }
