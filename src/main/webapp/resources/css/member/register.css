@@ -1,47 +1,48 @@
-/* styles.css */
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-} */
 
-.register-container {
+.agree_container {
+    border: 2px solid #ccc; 
+    padding: 20px; 
+    padding-bottom: 0px;
+    height: 130px
+}
+
+.register-page .register-container {
     background-color: #fff;
-    padding: 60px;
+    padding: 70px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 450px;
-    height: 900px
+    height: 900px;
 }
 
-.register-container h2 {
+.register-page .register-container h2 {
     margin-bottom: 20px;
     color: #333;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
-label {
-    font-weight: bold;
+.register-page label {
+	font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-select {
-    width: 70%;
+.register-page input[type="text"],
+.register-page input[type="email"],
+.register-page input[type="password"],
+.register-page input[type="tel"],
+.register-page select {
+    width: 100%;
     padding: 10px;
     margin: 5px 0 10px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
-button {
+.register-page button {
     width: 100%;
     background-color: #ff8e47;
     color: white;
@@ -50,48 +51,55 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
-button:hover {
+.register-page button:hover {
     background-color: #ff8e47;
-    
 }
 
-input[type="radio"] {
+.register-page input[type="radio"] {
     margin-right: 5px;
 }
 
-label[for="expert"],
-label[for="client"] {
-    margin-right: 15px;
+.register-page label[for="expert"],
+.register-page label[for="client"] {
+    margin-right: 2px;
+    font-weight:normal;
+}
+.register-page div[id="business"] {
+	margin-right: 2px;
+    font-weight:normal;
 }
 
-.consent-section {
+.register-page .consent-section {
     font-size: 12px;
     color: #666;
+    font-family: 'Roboto', sans-serif;
 }
 
-.consent-section label {
+.register-page .consent-section label {
     display: block;
-    margin: 5px 0;
+    margin: 2px 0;
 }
 
-.consent-section .required {
+.register-page .consent-section .required {
     color: #ff6666;
 }
 
-.consent-section .optional {
+.register-page .consent-section .optional {
     color: #999;
 }
 
-.consent-section label span {
+.register-page .consent-section label span {
     font-weight: bold;
 }
 
-.consent-section label input {
+.register-page .consent-section label input {
     margin-right: 5px;
+    font-weight:normal;
 }
 
-.consent-section label span[style*="underline"] {
+.register-page .consent-section label span[style*="underline"] {
     text-decoration: underline;
 }
