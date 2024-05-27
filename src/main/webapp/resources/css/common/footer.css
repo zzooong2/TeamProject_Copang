@@ -1,8 +1,4 @@
 /*푸터 영역*/
-<<<<<<< HEAD
-footer{
-	background-color: #ff8e47;
-=======
 footer {
     width: 100%;
     height: 200px;
@@ -30,5 +26,4 @@ p {
     margin-left: 50px;
     width: 40%;
     float: left;
->>>>>>> 4a61168c4148d7b07aef663f0e6fd3a3ce5d469d
 }

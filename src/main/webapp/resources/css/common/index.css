@@ -3,24 +3,6 @@
 	margin: 0 auto;
 }
 /* 바디영역 */
-<<<<<<< HEAD
-body{
-    width: 100%;
-    height: 100vh;
-
-}
-
-/*영역구분 텍스트*/
-p{
-	font-size : 40px;
-	text-align : center;
-}
-#main{
-    width: 80vw;
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-=======
 body {
 	width: 100%;
 	height: 1080px;
@@ -31,7 +13,6 @@ ul, li {
 	margin: 0;
 	padding: 0;
 	list-style: none;
->>>>>>> 4a61168c4148d7b07aef663f0e6fd3a3ce5d469d
 }
 
 #main {
