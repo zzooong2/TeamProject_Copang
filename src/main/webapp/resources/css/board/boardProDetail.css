@@ -1,193 +1,263 @@
 .detail_containor {
-    display: flex;
-    justify-content: space-evenly;
+	margin-top: 100px;
 }
 
-
-
+.detail_containor {
+	display: flex;
+	justify-content: space-evenly;
+}
 
 /* ---------- Left Box ---------- */
 .left_contents {
-    display: flex;
-    flex-wrap: wrap;
-    width: 600px;
-    height: 100vh;
+	display: inline-block;
+	width: 600px;
 }
 
 .img_main {
-    margin-top: 50px;
-    width: 580px;
+	margin-top: 50px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	width: 580px;
 }
 
-/* .left_TabList {
-    margin-top: 10px;
+.star_style {
+	color: rgb(248, 174, 0);
+	font-size: 30px;
+}
+
+.star_point {
+	font-size: 25px;
+	color: #434343;
+	font-weight: bold;
+}
+
+/* -------------- Left Tab Contents -------------- */
+
+/* <<<  2  >>> */
+.left_TabList {
+	margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .tabMenuLabel {
-    margin: 0;
-    padding: 10px 22px;
+	margin: 0;
+	padding: 10px 22px;
 }
 
 input[type="radio"] {
-    display: none;
+	display: none;
 }
 
-input[type="radio"]:checked + label {
-    background-color: gray;
-    color: #c0c0c0;
+input[type="radio"]:checked+label {
+	background-color: rgb(240, 240, 240);
+	color: #434343;
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+	border-right: 1px solid black;
 }
 
-input[type="radio"] + label {
-    display: inline-block;
-    padding: 20px;
-    background-color: rgb(228, 228, 228);
-    color: black;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
+input[type="radio"]+label {
+	display: inline-block;
+	padding: 22px;
+	background-color: white;
+	color: black;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	border-left: 1px solid #e3e3e3;
+	border-top: 1px solid #e3e3e3;
+	border-right: 1px solid #e3e3e3;
 }
 
 .conbox {
-    width: 550px;
-    height: 600px;
-    margin: 0 auto;
-    display: none;
+	width: 580px;
+	height: 100%;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin: 0 auto;
+	display: none;
 }
 
-input[id="tabList01"] ~ .con1 {display: block;}
-input[id="tabList02"] ~ .con2 {display: block;}
-input[id="tabList03"] ~ .con3 {display: block;}
-input[id="tabList04"] ~ .con4 {display: block;}
-input[id="tabList05"] ~ .con5 {display: block;} */
-
-nav {
-    display: block;
-    unicode-bidi: isolate;
+input[id="tabList01"]:checked ~ .con1 {
+	display: block;
 }
 
-.guide {
-    width: 580px;
-    z-index: 2;
-    position: sticky;
-    margin-bottom: 48px;
-    
+input[id="tabList02"]:checked ~ .con2 {
+	display: block;
 }
 
-.guide_list {
-    display: flex;
-    unicode-bidi: isolate;
+input[id="tabList03"]:checked ~ .con3 {
+	display: block;
 }
 
-.guide_tab1 {
-    position: relative;
-    flex: 1;
-    justify-content: space-around;
-    align-items: center;
-    cursor: pointer;
-    height: 60px;
-    padding: 0 4px;
-    -webkit-box-align: center;
-    font-weight: 700;
-    color: #303441;
-    border-top: 1px solid #c0c0c0;
-    border-right: 1px solid #c0c0c0;
-    border-left: 1px solid #c0c0c0;
-    border-bottom: 0;
+input[id="tabList04"]:checked ~ .con4 {
+	display: block;
 }
 
-.guide_tab2 {
-    position: relative;
-    -webkit-box-align: center;
+input[id="tabList05"]:checked ~ .con5 {
+	display: block;
 }
 
+.leftTabList_title {
+	padding-top : 20px;
+	font-size: 16px;
+	font-weight: bolder;
+	text-align: left;
+	align-items: center;
+	height: 50px;
+}
 
+.leftPayList {
+	border-top: 2px solid black;
+	border-spacing: 0;
+}
 
+.tableTitle {
+	background-color: #c3c0c0;
+	border-bottom: #c0c0c0;
+	height: 50px;
+}
+
+.tableLine {
+	border-bottom: 1px solid #c0c0c0;
+	text-align: center;
+	height: 70px;
+}
+
+.leftPayList td {
+	font-size: 14px;
+}
+
+.tableLine2 {
+	border-bottom: 2px solid black;
+}
+
+.leftBuy {
+	background-color: #ff8e47;
+	width: 110px;
+	height: 40px;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+/* <<<  3  >>> */
+.leftTabList_Retouch {
+	list-style-type: none;
+	padding: 0;
+}
+
+.leftTabList_Retouch_title, .leftTabList_Cencle_title {
+	font-size: 20px;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.leftTabList_Retouch_contents, .leftTabList_Cencle_contents {
+	width: 100%;
+	text-align: left;
+	font-size: 14px;
+	font-weight: bold;
+	color: gray;
+	margin-bottom: 20px;
+}
+
+/* <<<  4  >>> */
+.leftTabList_Cencle {
+	list-style-type: none;
+}
 
 /* ---------- Right Box ---------- */
 .right_up {
-    margin-top: 50px;
+	margin-top: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .img_link {
-    padding: 4px;
-    width: 35px;
-    border: 1px soli #fff;
-    border-radius: 50px;
+	padding: 4px;
+	width: 35px;
+	border: 1px soli #fff;
+	border-radius: 50px;
 }
 
 .img_link:hover {
-    background-color: lightgray;
+	background-color: lightgray;
 }
 
-
 .right_contents {
-    display: block;
-    width: 450px;
+	display: block;
+	width: 450px;
 }
 
 .pay_Type {
-    padding: 20px;
-    width: 400px;
-    height: 500px;
-    border: 1px solid #c0c0c0;
-    border-radius: 5px;
+	padding: 20px;
+	width: 400px;
+	height: 500px;
+	border: 1px solid #c0c0c0;
+	border-radius: 5px;
 }
 
 .sample1 {
-    margin-top: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    display: block;
+	margin-top: 20px;
+	font-size: 16px;
+	font-weight: bold;
+	text-align: left;
+	display: block;
 }
 
 .sample2, .sample3 {
-    font-size: 12px;
-    text-align: left;
-    font-weight: bold;
-    display: block;
+	font-size: 12px;
+	text-align: left;
+	font-weight: bold;
+	display: block;
 }
 
 .check_list_IT {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 .check_list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 24px;
 }
 
 .check_list_text {
-    font-size: 14px;
-    color: gray;
-    font-weight: bold;
-    margin: 0;
+	font-size: 14px;
+	color: gray;
+	font-weight: bold;
+	margin: 0;
 }
 
 .check_png {
-    margin: 0;
-    width: 16px;
-    height: 16px;
+	margin: 0;
+	width: 16px;
+	height: 16px;
 }
 
-
 .business_inner {
-    margin: 0;
-    font-size: 14px;
-    color: #c0c0c0;
+	margin: 0;
+	font-size: 14px;
+	color: #c0c0c0;
 }
 
 /* ---------- Right Button ---------- */
-
 .buy_button {
-    margin-top: 20px;
-    width: 360px;
-    height: 50px;
-    color: black;
-    font-weight: bolder;
-    background-color: #ff8e47;
-    border: none;
-    border-radius: 5px;
+	margin-top: 20px;
+	width: 400px;
+	height: 50px;
+	color: black;
+	font-weight: bolder;
+	background-color: #ff8e47;
+	border: none;
+	border-radius: 5px;
 }

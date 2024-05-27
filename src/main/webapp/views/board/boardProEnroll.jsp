@@ -1,38 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <!DOCTYPE html>
+    <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COPANG</title>
+   	<%@ include file="/views/common/head.jsp"%>
     <link rel="icon" href="../../resources/img/tapIcon.png">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProDetail.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/header.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/footer.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProEnroll.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../resources/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
     <script type="text/javascript" src="../../resources/js/boardjs/smarteditor.js" charset="UTF-8"></script>
 </head>
+<head>
+	<%@ include file="/views/common/head.jsp"%>
+</head>
 <body>
-    <header>
-        <!-- 로고 -->
-        <div class="logo">
-
-        </div>
-        <p>header<p>
-        <!-- 네비게이션 -->
-        <div class="nav">
-
-        </div>
-    </header>
-    <hr>
+	<%@ include file="/views/common/header.jsp"%>
     <div id="main">
         <section class="main_container">
             <form action="/form/proDetail.do" method="POST">
                 
                 <input type="text" class="detailTitle" name="detailTitle" id="detail_Title" placeholder="제목을 입력하세요.">
                 
-                <textarea id="editorTxt" class="detailContents" name="detailContents" id="editorTxt" placeholder="내용을 입력하세요."></textarea>
+                <input type="text" class="secondTitle" name="secondTitle" id="second_Title" placeholder="페이지를 간단하게 소개하세요.">
+
+                <textarea id="editorTxt" class="detailContents" name="detailContents" placeholder="내용을 입력하세요."></textarea>
                 
                 <table class="checkTable">
                     <thead class="checkThead">
@@ -88,4 +81,23 @@
         </div>
 </body>
 </html>
+<script src="../../resources/js/boardProEnroll/fileUpload.js"></script>
+<script>
+    let oEditors = [];
+
+    smartEditor = function () {
+        console.log("Naver SmartEditor")
+        nhn.husky.EZCreator.createInIFrame({
+            oAppRef: oEditors,
+            elPlaceHolder: "editorTxt",
+            sSkinURI: "../../resources/static/smarteditor/SmartEditor2Skin.html",
+            fCreator: "createSEditor2"
+        })
+    }
+
+    $(document).ready(function () {
+        smartEditor()
+    })
+
+</script>
 <script src="../../resources/js/boardjs/fileupload.js"></script>

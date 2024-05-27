@@ -85,7 +85,7 @@
                     <div class="conbox con2">
                         <p class="leftTabList_title">가격 정보</p>
                         <table class="leftPayList">
-                            <thead>
+                            <thead lass="tableLine0">
                                 <th class="tableTitle"></th>
                                 <th class="tableTitle">STANDARD</th>
                                 <th class="tableTitle">DELUXE</th>

@@ -3,7 +3,7 @@
     <header>
         <!-- 로고 -->
         <div class="logo">
-            <a href="#"><img src="/resources/img/Logo.png" alt="logo"></a>
+            <a href="#"><img src="../../resources/img/Logo.png" alt="logo"></a>
         </div>
         <!-- Search(돋보기) -->
         <div class="search">

@@ -1,33 +1,27 @@
 /* 헤더영역 */
-<<<<<<< HEAD
-header{
-    width: 100%;
-    height: 150px;
-=======
 header {
 	width: 100%;
-	height: 150px;
+	height: 100px;
 	position: fixed;
 }
 
 /* 로고 div의 영역 */
 .logo {
 	width: 20%;
-	height: 150px;
+	height: 100px;
 	float: left;
->>>>>>> 014b6a15cc153ef6a6066fccb0b5e648da1a9310
 }
 
 .logo img {
 	width: 150px;
-	height: 150px;
+	height: 100px;
 	padding-left: 50px;
 }
 
 /* 검색창 블록영역 */
 .search {
 	width: 30%;
-	height: 150px;
+	height: 100px;
 	padding-top: 25px;
 	float: left;
 }
@@ -61,7 +55,7 @@ header {
 /* 네비게이션 영역 */
 .nav {
 	width: 50%;
-	height: 150px;
+	height: 100px;
 	float: right;
 }
 
