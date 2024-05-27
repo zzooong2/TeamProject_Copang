@@ -6,12 +6,12 @@
 	<%@ include file="/views/common/head.jsp"%>
 	<link rel="stylesheet" href="/resources/css/member/login.css">
 </head>
-<body>
+<body>s
 	<%@ include file="/views/common/header.jsp"%>
 	
-	<div id="main" style="padding-top: 200px;">
+	<div id="main" style="padding-top: 100px;">
 		<div class="login-container" >
-        <h2 class="로그인">로그인</h2>
+        <h2 class="로그인">COPANG</h2>
         <form action="login" method="post">
             <label for="email">이메일</label>
             <br>

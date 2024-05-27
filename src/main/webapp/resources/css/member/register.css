@@ -11,10 +11,11 @@
 
 .register-container {
     background-color: #fff;
-    padding: 20px;
+    padding: 60px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 450px;
+    height: 900px
 }
 
 .register-container h2 {
@@ -31,7 +32,7 @@ input[type="email"],
 input[type="password"],
 input[type="tel"],
 select {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     margin: 5px 0 10px 0;
     display: inline-block;
