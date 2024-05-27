@@ -3,14 +3,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<%@ include file="views/common/head.jsp"%>
+	<%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
-	<%@ include file="views/common/header.jsp"%>
+	<%@ include file="/views/common/header.jsp"%>
 	<div id="main">
 	<p>main</p>
     </div>
     <hr>
-	<%@ include file="views/common/footer.jsp"%>
+	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
+
