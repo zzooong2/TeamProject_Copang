@@ -44,8 +44,7 @@
                     </c:when>
                     <c:otherwise>
                         <c:forEach var="item" item="${list}">
-                            <div class="item_list"
-                                onclick="location.href='/board/boardProDetail.do?boardNo=${item.boardNo}'">
+                            <div class="item_list" onclick="location.href='/board/boardProDetail.do?boardNo=${item.boardNo}'">
                                 <img src="${item.imageURL}" alt="${item.bTitle}">
                                 <td>${item.bTitle}</td>
                                 <td>${item.bPay}</td>
