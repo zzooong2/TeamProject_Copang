@@ -1,0 +1,45 @@
+/* price */
+.order-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: 50px;
+    flex-basis: 300px;
+    position: relative;
+    padding-top: 15px;
+    top: 3%;
+}
+
+.amount-item-1{
+    flex-shrink: 1;
+    position: absolute;
+    left: 5%;
+    color: #7c7c7c;
+}
+
+.amount-item-2{
+    flex-grow: 3;
+    position: absolute;
+    right: 10%;
+    color: #7c7c7c;
+}
+
+.amount-item-3{
+    flex-shrink: 1;
+    flex-grow: 3;
+    right: 5%;
+    color: #7c7c7c;
+}
+
+.amount-sum{
+    margin-top: 5%;
+    border-top: 0.1px solid #cacaca;
+    width: 90%;
+    position: absolute;
+    left: 5%;
+}
+
+.amount-value{
+    position: absolute;
+    right: 5%;
+}

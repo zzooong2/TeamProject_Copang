@@ -3,20 +3,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<%@ include file="views/common/head.jsp"%>
+	<%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
-	<%@ include file="views/common/header.jsp"%>
+	<%@ include file="/views/common/header.jsp"%>
 	<div id="main">
 	<p>main</p>
     </div>
     <hr>
-	<%@ include file="views/common/footer.jsp"%>
+	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
 
+<<<<<<< HEAD
 
 
 
 
  
+=======
+>>>>>>> 014b6a15cc153ef6a6066fccb0b5e648da1a9310
