@@ -3,8 +3,8 @@
     position: absolute;
     left: 55%;
     top: 26%;
-    width: 35%;
-    height: 100vh;
+    width: 31%;
+    height: 91%;
     border: 0.1px solid #cacaca;
     border-radius: 5px;
 }
@@ -14,7 +14,6 @@
     position: relative;
     top: 3%;
     left: 7%;
-    width: 90%;
 }
 
 /* 의뢰내용 제목태그 */
@@ -22,7 +21,7 @@
     position: relative;
     border: 0.1px solid #e0e0e0;
     border-radius: 5px;
-    width: 95%;
+    width: 87%;
     height: 50px;
     font-size: 15px;
     background-color: #e0e0e0;

@@ -152,8 +152,8 @@
             </div>
             <button class="submit-btn">등록</button>
         </div>
-
     </section>
+    <%-- <%@ include file="/views/common/footer.jsp"%> --%>
 </body>
 </html>
 
