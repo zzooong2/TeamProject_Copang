@@ -3,6 +3,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,eclipse,visualstudiocode,windows,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,eclipse,visualstudiocode,windows,java
 
+
+
 ### Eclipse ###
 .metadata
 bin/
@@ -15,6 +17,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+DatabaseConnection.java
 
 # External tool builders
 .externalToolBuilders/
