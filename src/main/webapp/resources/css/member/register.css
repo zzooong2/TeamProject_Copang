@@ -1,9 +1,9 @@
 
 .agree_container {
     border: 2px solid #ccc; 
-    padding: 20px; 
-    padding-bottom: 0px;
-    height: 130px
+    padding: 30px; 
+    padding: 5px;
+    height: 110px
 }
 
 .register-page .register-container {
@@ -103,20 +103,4 @@
 
 .register-page .consent-section label span[style*="underline"] {
     text-decoration: underline;
-}
-
-/* 인풋 칸 옆에 버튼 추가 */
-.tel-input-container {
-    display: inline-flex; /* 입력란과 버튼을 한 줄에 배치하기 위해 flex 사용 */
-    align-items: center; /* 입력란과 버튼을 수직 정렬 */
-}
-
-.tel-input-container input[type="tel"] {
-    flex: 1; /* 입력란이 가능한 한 최대의 너비를 차지하도록 설정 */
-    margin-right: 5px; /* 입력란과 버튼 사이의 간격 조정 */
-}
-
-.tel-input-container button[type="submit"] {
-    width: 80px; /* 버튼 너비 설정 */
-    height: auto; /* 버튼 높이 자동 조정 */
 }

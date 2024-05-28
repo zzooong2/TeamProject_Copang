@@ -1,9 +1,5 @@
 let pwdFlag = false; // 패스워드 플래그
 let pwdFlag2 = false; // 패스워드 플래그
-let nameFlag = false; // 이름 플래그
-let emailFlag = false; // 이메일 플래그
-let userTypeFlag = false; // 회원 유형 플래그
-let businessFieldFlag = false; // 비즈니스 분야 플래그
 
 window.onload = function() {
 	const header = document.getElementsByTagName("header")[0];
@@ -35,17 +31,17 @@ window.onload = function() {
 }
 // 이름 유효성 검사
 function inputname() {
+	console.log("??");
    const Patternname = /^[가-힣]+$/;
     const name = document.getElementById("user_name").value;
     const textname = document.getElementById("textname");
+	console.log(name);
 
     if(Patternname.test(name)) {
         textname.innerHTML = " ";
-		nameFlag = true;
     } else {
         textname.innerHTML = "올바른 이름을 입력하세요.";
         textname.style.color = "red";
-		nameFlag = false;
     }
 }
 
@@ -57,11 +53,9 @@ function inputemail() {
 
     if (Patternemail.test(email)) {
 		textemail.innerHTML = " ";
-		emailFlag = true;
     } else {
         textemail.innerHTML = "올바른 이메일을 입력하세요.";
 		textemail.style.color = "red";
-		emailFlag = false;
     }
 }
 
@@ -79,7 +73,7 @@ function inputpwd() {
     } else if(pwdFlag && pwd2 !== ''){
         textpwd2.innerHTML = "비밀번호가 일치하지 않습니다.";
         textpwd2.style.color = "red";
-		pwdFlag2 = false;	
+		pwdFlag2 = false;
 	}
 	if(patternpwd.test(pwd)) {
         textpwd.innerHTML = "사용 가능한 비밀번호입니다.";
@@ -192,6 +186,7 @@ if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)
     alert("비밀번호가 일치하지 않습니다.");
 	} else if(!patternphone.test(phone)) {
 	alert('유효한 핸드폰 번호를 입력하세요.');	
+	} else if(patternphone.test(phone)) {
 	} else if(!expert.checked && !client.checked){
 	alert("회원 유형을 체크하세요.");	
 	} else if(!it.checked && !video.checked && !design.checked && !marketing.checked && !education.checked) {
@@ -203,6 +198,9 @@ if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)
 		// from 태그 가져와서 submit 이벤트 발생
 		console.log("else");
 	}
-	return false;
 };
+
+document.getElementById("requestCodeBtn").addEventListener("click", function() {
+document.getElementById("verificationCodeContainer").style.display = "block";
+});
 
