@@ -1,0 +1,110 @@
+.main_container {
+    padding-top: 100px;
+}
+
+
+/* -------------------- Text Title -------------------- */
+.detailTitle {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 99%;
+    height: 30px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+.secondTitle {
+    margin-bottom: 10px;
+    width: 99%;
+    height: 30px;
+    border: 1px solid #c0c0c0;
+    border-radius: 5px;
+}
+
+/* -------------------- Text Area -------------------- */
+.detailContents {
+    display: block;
+    margin: 10px 0px;
+    width: 99%;
+    height: 300px;
+    resize: none;
+    border: 1px solid #c0c0c0;
+}
+
+/* -------------------- Table -------------------- */
+.checkTable {
+    margin-top: 10px;
+    border-spacing: 0px;
+}
+
+.checkThead {
+    background-color: #c0c0c0;
+}
+
+.checkThead th {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.checkTbody td {
+    font-size: 12px;
+}
+
+.checkThead th, .checkTbody td {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #c0c0c0;
+    text-align: center;
+}
+
+.inputStyle {
+    width: 150px;
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+/* -------------------- File Upload -------------------- */
+.insert {
+    margin-top: 10px;
+}
+.insert .file-list {
+    margin-top: 5px;
+    height: 70px;
+    overflow: auto;
+    border: 1px solid #c0c0c0;
+}
+.insert .file-list .filebox p {
+    font-size: 14px;
+    margin-left: 10px;
+    display: inline-block;
+    color : gray;
+}
+.insert .file-list .filebox .delete i{
+    color: #ff5353;
+    margin-left: 5px;
+}
+
+/* -------------------- Submit Button -------------------- */
+.detail_submit {
+    margin-top: 10px;
+    margin-left: 88%;
+    width: 100px;
+    height: 35px;
+    background-color: #ff8e47;
+    border: 1px solid #ffd4ba;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+.inputStyle {
+    border: none;
+    font-size: 14px;
+}
+
+
