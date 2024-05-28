@@ -2,7 +2,6 @@
 header {
 	width: 80vw;
 	height: 100px;
-	position: fixed;
 	background-color: white;
 }
 
@@ -13,19 +12,11 @@ header {
 
 .header_all {
 	display: flex;
+	position: fixed;
 	align-items: center;
 }
 
-.searchBar {
-	display: flex;
-	align-items: center;
-}
-
-.searchBar_align {
-	display: flex;
-	width: 100%;
-	align-items: center;
-}
+/* 로고 */
 
 .Logo {
 	width: 100px;
@@ -34,13 +25,41 @@ header {
 	padding-left: 50px;
 }
 
-.search_body {
-	height: 44px;
-	width: 100%;
-	margin: 0;
-	border: none;
-	border-top: 5px solid #ff8e47;
-	border-bottom: 5px solid #ff8e47;
+/* 서치바 */
+
+.search-box {
+    height: 30px;
+    width: 500px;
+    margin-left: 20px;
+    border: none;
+    border: 5px solid #ff8e47;
+    border-radius: 20px;
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding-left: 10px;
+    color: #999;
+    font-size: 16px;
+    line-height: 30px;
+    width: 200px;
+}
+
+.search-btn {
+    color: #ff8e47;
+    float: right;
+    width: 40px;
+    height: 100%;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 네비게이션 영역 */
@@ -65,7 +84,7 @@ header {
 	display: none;
 	position: absolute;
 	width: 100px;
-	background-color: aquamarine;
+	background-color: #fff;
 }
 
 .categoryMenu:hover .subMenu {
