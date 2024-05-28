@@ -6,7 +6,7 @@
 	<%@ include file="/views/common/head.jsp"%>
 	<link rel="stylesheet" href="/resources/css/member/login.css">
 </head>
-<body>s
+<body>
 	<%@ include file="/views/common/header.jsp"%>
 	
 	<div id="main" style="padding-top: 100px;">
