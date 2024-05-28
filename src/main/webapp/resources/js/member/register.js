@@ -1,5 +1,6 @@
 let pwdFlag = false; // 패스워드 플래그
 let pwdFlag2 = false; // 패스워드 플래그
+let Flag = false; // 인증 플래그
 
 window.onload = function() {
 	const header = document.getElementsByTagName("header")[0];
@@ -31,11 +32,9 @@ window.onload = function() {
 }
 // 이름 유효성 검사
 function inputname() {
-	console.log("??");
    const Patternname = /^[가-힣]+$/;
     const name = document.getElementById("user_name").value;
     const textname = document.getElementById("textname");
-	console.log(name);
 
     if(Patternname.test(name)) {
         textname.innerHTML = " ";
@@ -142,19 +141,33 @@ function updateAgreeAllCheckbox() {
     agreeAllCheckbox.checked = Array.from(checkboxes).every(checkbox => checkbox.checked);
 }
 
-
+// 핸드폰 번호 유효성 검사 
+function inputphone() {
+	const patternphone = /^[0-9]{10,11}$/;
+	const phone = document.getElementById('phone').value;
+	const textphone = document.getElementById("textphone");
+	
+	if(patternphone.test(phone)) {
+        textphone.innerHTML = " ";
+		document.getElementById("requestCodeBtn").addEventListener("click", function() {
+		document.getElementById("verificationCodeContainer").style.display = "block";
+		});
+    } else {
+        textphone.innerHTML = "올바른 번호를 입력하세요.";
+        textphone.style.color = "red";
+    }
+}
+// 유효성 검사 후 회원가입 버튼 눌리게
 function registerClick() {
 	const Patternname = /^[가-힣]+$/;
 	const Patternemail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	const patternpwd = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-])[a-zA-Z0-9!@#$%^&*()_+=-]{8,16}$/
-	const patternphone = /^[0-9]{10,11}$/;
 	
 	const space = /\s/;
     const name = document.getElementById("user_name").value;
     const email = document.getElementById("email").value;
     const pwd = document.getElementById("password").value;
     const pwd2 = document.getElementById("confirm_password").value;
-	const phone = document.getElementById('phone').value;
 	const check14 = document.getElementById("over_14");
 	const checkService = document.getElementById("terms_of_service");
 	const checkPolicy = document.getElementById("privacy_policy");
@@ -184,15 +197,14 @@ if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)
 	alert("비밀번호 확인을 입력해주세요.");
 	} else if (pwd !== pwd2) {
     alert("비밀번호가 일치하지 않습니다.");
-	} else if(!patternphone.test(phone)) {
-	alert('유효한 핸드폰 번호를 입력하세요.');	
-	} else if(patternphone.test(phone)) {
 	} else if(!expert.checked && !client.checked){
 	alert("회원 유형을 체크하세요.");	
 	} else if(!it.checked && !video.checked && !design.checked && !marketing.checked && !education.checked) {
 	alert("비즈니스 분야를 체크하세요.");		
 	} else if(!check14.checked || !checkService.checked || !checkPolicy.checked) {
 	alert("필수 동의칸을 체크하세요.");
+	} else if(!Flag) {
+	alert("인증 실패했습니다.");	
 	} else {
 		document.getElementById('registerForm').submit();
 		// from 태그 가져와서 submit 이벤트 발생
@@ -200,7 +212,4 @@ if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)
 	}
 };
 
-document.getElementById("requestCodeBtn").addEventListener("click", function() {
-document.getElementById("verificationCodeContainer").style.display = "block";
-});
 
