@@ -1,0 +1,54 @@
+.account-transfer, .mobile-payment, .card-payment{
+    display: none;
+}
+
+/* payment */
+.payment{
+    position: absolute;
+    left: 10%;
+    top: 26%;
+    width: 40%;
+    height: 100vh;
+    border: none;
+}
+
+.payment-detail {
+    height: 240px;
+    position: relative;
+    top: 5%;
+    border: 0.1px solid #cacaca;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.account{
+    border-top: 0.1px solid #cacaca;
+    border-bottom: 0.1px solid #cacaca;
+    border-radius: 5px;
+    height: 90%;
+    width: 90%;
+    position: relative;
+    top: 5%;
+    left: 5%;
+}
+
+.tax-receipt{
+    position: absolute;
+    top: 35%;
+    left: 2%;
+    text-align: left;
+}
+
+label{
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 10px;
+    font-size: 15px;
+    padding-left: 70px;
+    padding-right: 70px;
+    border: 0.1px solid #cacaca;
+    border-radius: 5px;
+    height: 20%;
+    padding-top: 1.5%;
+}

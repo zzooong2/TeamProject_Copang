@@ -1,0 +1,89 @@
+body{
+    margin: 0;
+}
+
+.none{
+    border-top: 0.1px solid #cacaca;
+    width: 100%;
+}
+
+.payment-text{
+    position: absolute;
+    left: 10%;
+    top: 21%;
+}
+
+/* order */
+.order-list {
+    height: 250px;
+    border: 0.1px solid #cacaca;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.order-list > table {
+    position: relative;
+    top: 20%;
+    left: 3%;
+}
+
+.order-list > table > thead > tr > td{
+    border-bottom: 0.1px solid #cacaca;;
+}
+
+.order-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-height: 100px;
+    flex-basis: 400px;
+    position: relative;
+    top: 10%;
+}
+
+.item-1{
+    flex-grow: 1;
+}
+
+.item-2{
+    flex-shrink: 1;
+    flex-grow: 4;
+}
+
+.item-1 > img{
+    object-fit: contain;
+    width: 150px;
+    height: 100px;
+    position: relative;
+    left: 5%;
+}
+
+.order-list > h4 {
+    position: relative;
+    left: 2%;
+    top: 7%;
+}
+
+/* table */
+.table-object-count{
+    display: inline-block;
+    background-color: #cacaca;
+    border: none;
+    border-radius: 5px;
+}
+
+.table-object-number{
+    display: inline-block;
+}
+
+/* price */
+.price{
+    height: 378px;
+    position: relative;
+    top: 10%;
+    border: 0.1px solid #cacaca;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
