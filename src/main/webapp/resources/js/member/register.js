@@ -149,77 +149,60 @@ function updateAgreeAllCheckbox() {
 }
 
 
-// 회원가입 양식 제출 함수
-function submitRegistrationForm() {
-    const form = document.querySelector('form');
-    const formData = new FormData(form);
-
-    // AJAX 요청 생성
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-                // 성공적으로 처리된 경우
-                const response = xhr.responseText;
-                // 응답 처리
-                handleResponse(response);
-            } else {
-                // 오류가 발생한 경우
-                console.error('오류 발생:', xhr.status);
-            }
-        }
-    };
-
-    // POST 요청 설정
-    xhr.open('POST', form.action, true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send(new URLSearchParams(formData).toString());
-}
-
-// 응답 처리 함수
-function handleResponse(response) {
-    // 응답을 처리하는 코드를 여기에 작성하세요.
-    console.log('서버 응답:', response);
-    // 예: 응답이 성공적이면 다음 페이지로 리다이렉트
-    // window.location.href = '/success-page';
-}
-
-// 회원가입 버튼 클릭 시 폼 제출
-document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
-    event.preventDefault(); // 기본 동작 중지
-    // 여기서 필요한 유효성 검사를 추가할 수 있습니다.
-    submitRegistrationForm(); // 폼 제출
-});
-
 function registerClick() {
 	const Patternname = /^[가-힣]+$/;
 	const Patternemail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 	const patternpwd = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-])[a-zA-Z0-9!@#$%^&*()_+=-]{8,16}$/
+	const patternphone = /^[0-9]{10,11}$/;
 	
 	const space = /\s/;
     const name = document.getElementById("user_name").value;
     const email = document.getElementById("email").value;
     const pwd = document.getElementById("password").value;
     const pwd2 = document.getElementById("confirm_password").value;
+	const phone = document.getElementById('phone').value;
+	const check14 = document.getElementById("over_14");
+	const checkService = document.getElementById("terms_of_service");
+	const checkPolicy = document.getElementById("privacy_policy");
+	const expert = document.getElementById("expert");
+	const client = document.getElementById("client");
+	const it = document.getElementById("business_it");
+	const video = document.getElementById("business_video");
+	const design = document.getElementById("business_design");
+	const marketing = document.getElementById("business_marketing");
+	const education = document.getElementById("business_education");
 
 if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)) {
     alert("띄어쓰기 불가입니다.");
-} else if (!name) {
+	} else if (!name) {
     alert("이름을 입력해주세요.");
-} else if (!Patternname.test(name)) {
+	} else if (!Patternname.test(name)) {
 	alert("올바른 이름을 입력해주세요.");
-} else if (!email) {
+	} else if (!email) {
     alert("이메일을 입력해주세요.");
-} else if (!Patternemail.test(email)) {
+	} else if (!Patternemail.test(email)) {
     alert("올바른 이메일 주소를 입력해주세요.");
-} else if (!pwd) {
+	} else if (!pwd) {
     alert("비밀번호를 입력해주세요.");
-} else if (!patternpwd.test(pwd)) {
+	} else if (!patternpwd.test(pwd)) {
     alert("비밀번호는 8-16자 사이의 문자, 숫자, 특수문자를 포함해야 합니다.");
-} else if(!pwd2) {
+	} else if(!pwd2) {
 	alert("비밀번호 확인을 입력해주세요.");
-} else if (pwd !== pwd2) {
+	} else if (pwd !== pwd2) {
     alert("비밀번호가 일치하지 않습니다.");
-}
-}
+	} else if(!patternphone.test(phone)) {
+	alert('유효한 핸드폰 번호를 입력하세요.');	
+	} else if(!expert.checked && !client.checked){
+	alert("회원 유형을 체크하세요.");	
+	} else if(!it.checked && !video.checked && !design.checked && !marketing.checked && !education.checked) {
+	alert("비즈니스 분야를 체크하세요.");		
+	} else if(!check14.checked || !checkService.checked || !checkPolicy.checked) {
+	alert("필수 동의칸을 체크하세요.");
+	} else {
+		document.getElementById('registerForm').submit();
+		// from 태그 가져와서 submit 이벤트 발생
+		console.log("else");
+	}
+	return false;
+};
 
