@@ -1,7 +1,8 @@
 /* 헤더영역 */
 header {
-	width: 100vh;
+	width: 80vw;
 	height: 100px;
+	position: fixed;
 	background-color: white;
 }
 
@@ -12,7 +13,6 @@ header {
 
 .header_all {
 	display: flex;
-	/* position: fixed; */
 	align-items: center;
 }
 
