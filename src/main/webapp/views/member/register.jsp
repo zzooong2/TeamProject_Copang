@@ -11,13 +11,14 @@
     <body>
         <%@ include file="/views/common/header.jsp" %>
     
+    <br><br><br><br><br><br><br><br>
     <div id="main" class="register-page">
         <div class="register-container">
             <h2 class="가입">간단한 정보만 입력! 가입완료!</h2>
             <form id="registerForm" action="/registerForm" method="post">
                 <label for="username">이름</label>
                 <br>
-                <input type="text" id="user_name" name="user_name" placeholder="이름을 입력해 주세요." onkeyup="inputname()" required>
+                <input type="text" id="user_name" name="user_name" placeholder="이름을 입력해 주세요." oninput="inputname()" required>
                 <div id="textname"></div>
 
                 <label for="email">이메일</label> <br>
@@ -31,16 +32,16 @@
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="비밀번호를 한번 더 입력해 주세요." onkeyup="inputpwd()" required>
                 <div id="textpwd2"></div>
 				
-				<form action="/send-sms" method="post">
+				
                 <label for="phone">연락처</label> <br>
-                <input type="tel" id="phone" name="phone" placeholder="연락처를 입력해 주세요. (-)미포함" required>
-                <button type="submit" name="requestCode">인증번호 받기</button>
-                </form>
-                <form action="/send-sms" method="post">
-    			<input type="text" name="verificationCode" placeholder="인증번호 입력" required>
-    			<button type="submit" name="verifyCode">인증 확인</button>
-				</form>
-                <br>
+				<input type="tel" id="phone" name="phone" placeholder="연락처를 입력해 주세요. (-)미포함" required>
+				<button type="button" name="requestCode" id="requestCodeBtn">인증번호 받기</button>
+				<br>
+				<div id="verificationCodeContainer" style="display: none;">
+    			<label for="verificationCode">인증번호</label> <br>
+    			<input type="text" id="verificationCode" name="verificationCode" placeholder="인증번호를 입력해 주세요." required>
+    			<button type="button" id="verifyCodeBtn">확인</button>
+				</div>
 
                 <label>회원 유형</label> <br>
                 <input type="radio" id="expert" name="user_type" value="expert" required onclick="toggleBusinessField()">
@@ -72,7 +73,8 @@
             </form>
         </div>
     </div>
-    <hr>
+    <br><br><br><br><br><br><br><br><br>
+    
     <%@ include file="/views/common/footer.jsp" %>
         <script src="/resources/js/member/register.js"></script>
 </body>
