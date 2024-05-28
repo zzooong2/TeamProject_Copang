@@ -4,12 +4,13 @@
 <html lang="en">
 <head>
 	<%@ include file="/views/common/head.jsp"%>
+	<link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
 </head>
-<body>
-	<div id="main">
+<body >
 	<%@ include file="/views/common/header.jsp"%>
-    
-    </div>
+	<main class="main">
+    	
+    </main>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>

@@ -8,5 +8,4 @@
     <script src="https://kit.fontawesome.com/1992e1ad9e.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>IndexPage</title>
-    <hr>
      
