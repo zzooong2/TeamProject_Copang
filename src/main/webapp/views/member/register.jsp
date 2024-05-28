@@ -5,7 +5,7 @@
     <head>
         <%@ include file="/views/common/head.jsp" %>
             <link rel="stylesheet" href="/resources/css/member/register.css">
-        
+        	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   <!-- 제이쿼리 주소? -->
     </head>
 
     <body>
@@ -35,7 +35,9 @@
 				
                 <label for="phone">연락처</label> <br>
 				<input type="tel" id="phone" name="phone" placeholder="연락처를 입력해 주세요. (-)미포함" required>
-				<button type="button" name="requestCode" id="requestCodeBtn">인증번호 받기</button>
+				<div id="textphone"></div>
+				
+				<button type="button" name="requestCode" id="requestCodeBtn" onclick="inputphone()">인증번호 받기</button>
 				<br>
 				<div id="verificationCodeContainer" style="display: none;">
     			<label for="verificationCode">인증번호</label> <br>
@@ -48,7 +50,7 @@
                 <label for="expert">전문가</label>
                 <input type="radio" id="client" name="user_type" value="client" required onclick="toggleBusinessField()">
                 <label for="client">의뢰자</label>
-                <br><br>
+                <br>
 
                 <label for="business_field">비즈니스 분야</label> <br>
                 <div id="business_field">
@@ -77,5 +79,44 @@
     
     <%@ include file="/views/common/footer.jsp" %>
         <script src="/resources/js/member/register.js"></script>
+        
+        <script>
+        let verificationCode = 0;
+
+        $(document).ready(function() {
+            // 인증번호 받기 버튼 클릭 이벤트
+            $('#requestCodeBtn').on('click', function() {
+                var phone = $('#phone').val();
+                $.ajax({
+                    url: '/send-sms',  // 서블릿의 URL
+                    type: 'POST',
+                    data: { phone: phone },
+                    success: function(response) {
+                    	console.log(response);
+                    	verificationCode = response;
+                        alert('인증번호가 전송되었습니다.');
+                        $('#verificationCodeContainer').show(); // 인증번호 입력란 보이기
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+
+            // 인증번호 입력란에서 키 입력 이벤트
+            $('#verifyCodeBtn').on('click', function() {
+                var userInputCode = $('#verificationCode').val();
+                if(userInputCode === verificationCode) {
+                    alert('인증에 성공했습니다.');
+                    Flag = true;
+                } else {
+                    alert('인증번호가 올바르지 않습니다.');
+                    Flag = false;
+                }
+            });
+        });
+    </script>
+        
+        
 </body>
 </html>
