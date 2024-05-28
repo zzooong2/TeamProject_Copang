@@ -1,0 +1,30 @@
+
+
+.boardList_container {
+    display: flex;
+}
+
+.boardList_category {
+    width: 200px;
+    height: 100vh;
+}
+
+.boardList_categoryList {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.boardList_categoryList li {
+    margin: 10px 0;
+    padding-left: 10px;
+    list-style-type: none;
+    font-size: 14px;
+}
+
+.boxList {
+    width: 700px;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap : 50px 25px;
+}

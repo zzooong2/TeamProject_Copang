@@ -3,6 +3,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,eclipse,visualstudiocode,windows,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,eclipse,visualstudiocode,windows,java
 
+
+
 ### Eclipse ###
 .metadata
 bin/
@@ -15,6 +17,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+C:\dev\work-space\SemiProject\SemiProject\src\main\java\kr\co\copang\common\DatabaseConnection.java
 
 # External tool builders
 .externalToolBuilders/
