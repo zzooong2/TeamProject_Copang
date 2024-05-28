@@ -17,17 +17,23 @@ import net.nurigo.sdk.message.service.DefaultMessageService;
 
 @WebServlet("/send-sms")
 public class TestSms extends HttpServlet {
-	private String apiKey;
-    private String apiSecret;
-    final String FROM = "01050962429";
     
     DefaultMessageService messageService;
+    String FROM;
 
     
     @Override
     public void init() throws ServletException {
         // 서블릿이 초기화될 때 API 키와 시크릿 키를 설정합니다.
-        this.messageService = NurigoApp.INSTANCE.initialize("NCSQAGRNBVMJMSTJ", "0BOKIJB8IT8MXHGE0L9CIYWVDTMAE5WB", "https://api.coolsms.co.kr");
+    	
+    	apiKey keys = new apiKey();
+    	String apiKey = keys.getApiKey();
+    	String apiSecret = keys.getApiSecret();
+    	FROM = keys.getFROM();
+    	
+    	
+    	
+        this.messageService = NurigoApp.INSTANCE.initialize(apiKey, apiSecret, "https://api.coolsms.co.kr");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
