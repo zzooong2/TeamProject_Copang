@@ -24,22 +24,67 @@
     color: #7c7c7c;
 }
 
-.amount-item-3{
+.fee-item-1{
     flex-shrink: 1;
-    flex-grow: 3;
-    right: 5%;
+    position: absolute;
+    left: 5%;
     color: #7c7c7c;
 }
 
-.amount-sum{
-    margin-top: 5%;
-    border-top: 0.1px solid #cacaca;
+.fee-item-2{
+    flex-grow: 3;
+    position: absolute;
+    right: 10%;
+    color: #7c7c7c;
+}
+
+.point-item-1{
+    flex-shrink: 1;
+    position: absolute;
+    left: 5%;
+    color: #7c7c7c;
+}
+
+.point-item-2{
+    flex-grow: 3;
+    position: absolute;
+    right: 10%;
+    color: #7c7c7c;
+}
+
+.total-item-1{
+    flex-shrink: 1;
+    position: absolute;
+    left: 5%;
+    color: #333333;
+}
+
+.total-item-2{
+    flex-grow: 3;
+    position: absolute;
+    right: 10%;
+    color: #333333;
+    font-weight: bold;
+}
+
+.empty-space{
+    border-top: 0.1px solid #cacaca;;
     width: 90%;
     position: absolute;
     left: 5%;
+    top: 47%;
 }
 
-.amount-value{
-    position: absolute;
-    right: 5%;
+.payment-btn{
+    margin-top: 3%;
+    border: none;
+    width: 90%;
+    height: 5%;
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 5px;
+    color: white;
+    background-color: #ff8e47;
+    position: relative;
+    left: 5%;
 }

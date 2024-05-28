@@ -87,14 +87,3 @@ body{
     font-size: 12px;
 }
 
-/* request */
-.request-detail{
-    position: absolute;
-    left: 55%;
-    top: 26%;
-    width: 35%;
-    height: 100vh;
-    border: 0.1px solid #cacaca;
-    border-radius: 5px;
-    text-align: center;
-}
