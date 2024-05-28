@@ -81,6 +81,7 @@ input:focus {
     font-size: 14px;
     margin-left: 10px;
     display: inline-block;
+    color : gray;
 }
 .insert .file-list .filebox .delete i{
     color: #ff5353;

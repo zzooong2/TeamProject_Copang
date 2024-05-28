@@ -1,9 +1,8 @@
 /*푸터 영역*/
 footer {
-    width: 100%;
+    /* width: 100%; */
     height: 200px;
     background-color: #ff8e47;
-
 }
 
 h3 {

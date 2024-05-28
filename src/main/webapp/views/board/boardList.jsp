@@ -1,35 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COPANG</title>
-
     <link rel="icon" href="../../resources/img/tapIcon.png">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/header.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/footer.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardList.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProList.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
-    
-    <header>
-        <!-- 로고 -->
-        <div class="logo">
-
-        </div>
-        <p>header<p>
-        <!-- 네비게이션 -->
-        <div class="nav">
-
-        </div>
-    </header>
-
+	<%@ include file="/views/common/header.jsp"%>
     <div id="main">
-        <div class="container">
-            <div class="category">
-                <ul class="category_List"><strong>카테고리</strong>
+        <div class="boardList_container">
+            <div class="boardList_category">
+                <ul class="boardList_categoryList"><strong>카테고리</strong>
                     <li>IT·프로그래밍</li>
                     <li>디자인</li>
                     <li>영상·사진·음향</li>
@@ -93,11 +79,8 @@
             </c:choose>
         </ul>
     </nav>
-    <hr>
 
-    <div id="footer">
-        <p>footer<p>
-        </div>
 
+	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>

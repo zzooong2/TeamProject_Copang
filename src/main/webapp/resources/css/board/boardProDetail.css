@@ -14,10 +14,14 @@
 }
 
 .img_main {
-	margin-top: 50px;
 	margin-left: 10px;
 	margin-bottom: 10px;
 	width: 580px;
+}
+
+.left_star {
+	display: flex;
+	justify-content: center;
 }
 
 .star_style {
@@ -44,11 +48,10 @@
 .tabMenuLabel {
 	margin: 0;
 	padding: 10px 22px;
+	text-align: center;
 }
 
-input[type="radio"] {
-	display: none;
-}
+input[type="radio"] {display: none;}
 
 input[type="radio"]:checked+label {
 	background-color: rgb(240, 240, 240);
@@ -102,16 +105,19 @@ input[id="tabList05"]:checked ~ .con5 {
 
 .leftTabList_title {
 	padding-top : 20px;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: bolder;
 	text-align: left;
 	align-items: center;
 	height: 50px;
+	color : black;
+	
 }
 
 .leftPayList {
 	border-top: 2px solid black;
 	border-spacing: 0;
+	
 }
 
 .tableTitle {
@@ -124,18 +130,22 @@ input[id="tabList05"]:checked ~ .con5 {
 	border-bottom: 1px solid #c0c0c0;
 	text-align: center;
 	height: 70px;
-}
-
-.leftPayList td {
 	font-size: 14px;
 }
+
 
 .tableLine2 {
 	border-bottom: 2px solid black;
 }
 
+.tableTitle, .tableLine {
+	width: 15%;
+}
+
+
 .leftBuy {
 	background-color: #ff8e47;
+	color : white;
 	width: 110px;
 	height: 40px;
 	border: none;
@@ -175,7 +185,6 @@ input[id="tabList05"]:checked ~ .con5 {
 
 /* ---------- Right Box ---------- */
 .right_up {
-	margin-top: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -197,7 +206,8 @@ input[id="tabList05"]:checked ~ .con5 {
 	width: 450px;
 }
 
-.pay_Type {
+.right_payTabList {
+	margin-top: 5px;
 	padding: 20px;
 	width: 400px;
 	height: 500px;
@@ -205,7 +215,56 @@ input[id="tabList05"]:checked ~ .con5 {
 	border-radius: 5px;
 }
 
-.sample1 {
+/* ---------------------------------------------------------------- */
+.rightBox_businessMenuPay {
+	font-size: 20px;
+	font-weight: bolder;
+}
+
+.right_payTabList {
+	margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.rightTabMenuLabel {
+	margin: 0;
+	padding: 10px 22px;
+	flex: 1;
+	text-align: center;
+}
+
+/* .rightTabMenuLabel [name*="rightTabMenu"] {flex:1} */
+
+.rightConbox {
+	width: 580px;
+	height: 100%;
+	border-top: 1px solid black;
+	margin: 0 auto;
+	display: none;
+}
+
+input[id="rightTabList01"]:checked ~ .rightCon1 {
+	display: block;
+}
+
+input[id="rightTabList02"]:checked ~ .rightCon2 {
+	display: block;
+}
+
+input[id="rightTabList03"]:checked ~ .rightCon3 {
+	display: block;
+}
+
+
+
+
+
+
+/* ---------------------------------------------------------------- */
+
+.rightBox_sample1 {
 	margin-top: 20px;
 	font-size: 16px;
 	font-weight: bold;
@@ -213,49 +272,49 @@ input[id="tabList05"]:checked ~ .con5 {
 	display: block;
 }
 
-.sample2, .sample3 {
+.vat {
 	font-size: 12px;
-	text-align: left;
-	font-weight: bold;
-	display: block;
+	font-weight:600;
+	color: #c0c0c0;
 }
 
-.check_list_IT {
+.rightBox_check_list_IT {
 	margin-top: 20px;
 }
 
-.check_list {
+.rightBox_check_list {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 24px;
 }
 
-.check_list_text {
+.rightBox_check_list_text {
 	font-size: 14px;
 	color: gray;
 	font-weight: bold;
 	margin: 0;
 }
 
-.check_png {
+.rightBox_check_png {
 	margin: 0;
 	width: 16px;
 	height: 16px;
 }
 
-.business_inner {
+.rightBox_business_inner {
 	margin: 0;
 	font-size: 14px;
 	color: #c0c0c0;
 }
 
 /* ---------- Right Button ---------- */
-.buy_button {
+.rightBox_buy_button {
 	margin-top: 20px;
 	width: 400px;
 	height: 50px;
-	color: black;
+	color: white;
+	font-size: 18px;
 	font-weight: bolder;
 	background-color: #ff8e47;
 	border: none;

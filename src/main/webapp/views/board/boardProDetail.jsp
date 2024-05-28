@@ -5,55 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COPANG</title>
-
     <link rel="icon" href="../../resources/img/tapIcon.png">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/header.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/common/footer.css">
     <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProDetail.css">
-
+    <%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
-    <header>
-        <!-- 로고 -->
-        <div class="logo">
-            <a href="#"><img src="../../resources/img/Logo.png" alt="logo"></a>
-        </div>
-        <!-- Search(돋보기) -->
-        <div class="search">
-            <form action="">
-                <div class="icon">
-                    <input type="text" name="search" value="">
-                    <img src="../../resources/img/search.png" alt="search icon">
-                </div>
-            </form>
-        </div>
-
-        <!-- 네비게이션 -->
-        <div class="nav">
-            <ul>
-                <li class="categoryMenu">분야 카테고리
-                    <div class="subMenu">
-                        <a href="#"></a>
-                        <a href="#"></a>
-                </li>
-
-                <li><a href="#">마이페이지</a>
-
-                </li>
-
-                <li><a href="#">로그인</a>
-
-                </li>
-
-                <li><a href="#">회원가입</a>
-
-                </li>
-
-            </ul>
-
-        </div>
-    </header>
+   	<%@ include file="/views/common/header.jsp"%>
 
     <div id="main">
         <section class="detail_containor">
@@ -66,14 +23,15 @@
                     <img src="../../resources/upload/9o1E31716716556.jpg" alt="잡오브브라더스" class="img_main">
                 </div>
             
-
-                <p class="star_style">★★★★★ <span class="star_point">5.0</span></p>
+                <div class="left_star">
+                    <p class="star_style">★★★★★ <span class="star_point">5.0</span></p>
+                </div>
 
                 <section class="left_TabList">
                     <input type="radio" name="tabmenu01" id="tabList01" checked>
                     <label class="tabMenuLabel" for="tabList01">서비스 설명</label>
                     <input type="radio" name="tabmenu01" id="tabList02">
-                    <label class="tabMenuLabel tabpoint" for="tabList02">가격 정보</label>
+                    <label class="tabMenuLabel tabpoint" id="con2" onclick="testPadding(this.id)"  for="tabList02">가격 정보</label>
                     <input type="radio" name="tabmenu01" id="tabList03">
                     <label class="tabMenuLabel tabpoint" for="tabList03">수정·재진행</label>
                     <input type="radio" name="tabmenu01" id="tabList04">
@@ -92,7 +50,7 @@
                                 <th class="tableTitle">PREMIUM</th>
                             </thead>
                             <tbody>
-                                <tr class="tableLine">
+                                <tr>
                                     <td class="tableLine">기능 구현</td>
                                     <td class="tableLine">응용프로그램</td>
                                     <td class="tableLine">웹</td>
@@ -144,10 +102,7 @@
                     </div>
                     <div class="conbox con5"></div>
                 </section>
-    
             </div>
-    
-    
     
             <!---------------------------- Contents Right ---------------------------->
     
@@ -157,77 +112,187 @@
                     <p style="font-size: 20px;">Title : 전문가 등록 제목 소스 기재</p>
                 </div>
 
-
-
-
-
-                <div class="pay_Type">
-                    (BUSINESS_MENU)<span>(VAT포함)</span><br>
-                    (SECOND_TITLE)<br>
-                    <div class="second_title">
-                        <span class="sample1">기획, 기능개발, 맞춤디자인 홈페이지</span>
-                        <span class="sample2">'진짜'들만 할 수 있는</span>
-                        <span class="sample3">기획, 기능 개발, 맞춤형 디자인 서비스 제작</span>
+                <section class="right_payTabList">
+                    <input type="radio" name="rightTabMenu01" id="rightTabList01" checked>
+                    <label class="rightTabMenuLabel" for="rightTabList01">STANDARD</label>
+                    <input type="radio" name="rightTabMenu01" id="rightTabList02">
+                    <label class="rightTabMenuLabel tabpoint" for="rightTabList02">DELUXE</label>
+                    <input type="radio" name="rightTabMenu01" id="rightTabList03">
+                    <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
+                
+                    <div class="rightConbox rightCon1">
+                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
+                        <p class="vat">(VAT포함)</p>
+                        <div class="rightBox_second_title">
+                            <span class="rightBox_sample1">${secondTitle}</span>
+                        </div>
+                        <div class="rightBox_check_list_IT">
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                        </div>
+                        <div class="rightBox_check_list_inner">
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_TYPE)페이지</span>
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_FUNCTION)일</span>
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_RETOUCH)회</span>
+                            </div>
+                        </div>
+                        <button class="rightBox_buy_button" onclick="">구매하기</button>
                     </div>
-                    <div class="check_list_IT">
-                        <div class="check_list">
-                            <span class="check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png"
-                                alt="check_png" class="check_png">
+                    <div class="rightConbox rightCon2">
+                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
+                        <p class="vat">(VAT포함)</p>
+                        <div class="rightBox_second_title">
+                            <span class="rightBox_sample1">${secondTitle}</span>
                         </div>
-                        <div class="check_list">
-                            <span class="check_list_text">반응형 웹</span><img src="../../resources/img/check.png"
-                                alt="check_png" class="check_png">
+                        <div class="rightBox_check_list_IT">
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
                         </div>
-                        <div class="check_list">
-                            <span class="check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png"
-                                alt="check_png" class="check_png">
+                        <div class="rightBox_check_list_inner">
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_TYPE)페이지</span>
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_FUNCTION)일</span>
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_RETOUCH)회</span>
+                            </div>
                         </div>
-                        <div class="check_list">
-                            <span class="check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png"
-                                alt="check_png" class="check_png">
-                        </div>
-                        <div class="check_list">
-                            <span class="check_list_text">광고 기능</span><img src="../../resources/img/check.png"
-                                alt="check_png" class="check_png">
-                        </div>
-                        <div class="check_list">
-                            <span class="check_list_text">요건정의서</span><img src="../../resources/img/check.png"
-                                alt="check_png" class="check_png">
-                        </div>
-                        <div class="check_list">
-                            <span class="check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png"
-                                alt="check_png" class="check_png">
-                        </div>
+                        <button class="rightBox_buy_button" onclick="">구매하기</button>
                     </div>
-                    <div class="check_list_inner">
-                        <div class="check_list">
-                            <span class="check_list_text">페이지</span><span
-                                class="business_inner">(BUSINESS_MENU-BM_TYPE)페이지</span>
+                    <div class="rightConbox rightCon3">
+                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
+                        <p class="vat">(VAT포함)</p>
+                        <div class="rightBox_second_title">
+                            <span class="rightBox_sample1">${secondTitle}</span>
                         </div>
-                        <div class="check_list">
-                            <span class="check_list_text">작업일</span><span
-                                class="business_inner">(BUSINESS_MENU-BM_FUNCTION)일</span>
+                        <div class="rightBox_check_list_IT">
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+                                    class="rightBox_check_png">
+                            </div>
                         </div>
-                        <div class="check_list">
-                            <span class="check_list_text">수정 횟수</span><span
-                                class="business_inner">(BUSINESS_MENU-BM_RETOUCH)회</span>
+                        <div class="rightBox_check_list_inner">
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_TYPE)페이지</span>
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_FUNCTION)일</span>
+                            </div>
+                            <div class="rightBox_check_list">
+                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_RETOUCH)회</span>
+                            </div>
                         </div>
+                        <button class="rightBox_buy_button" onclick="">구매하기</button>
                     </div>
-                    <button class="buy_button" onclick="">구매하기</button>
-                </div>
+                </section>
+
+
+
+
+
+
+
+
+                <!-- <div class="pay_Type">
+                    
+                </div> -->
             </div>
         </section>
-    
-    
     </div>
-
-
-    <div id="footer">
-        <p>footer<p>
-    </div>
-
-
-
-    
+	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
+
+
+<script>
+    function testPadding(id) {
+        console.log(id);
+        if(id === 'con2') {
+            document.getElementById('main').style.paddingBottom = '300px'; 
+        }
+    }
+
+</script>

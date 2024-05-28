@@ -9,10 +9,7 @@
     <link rel="icon" href="../../resources/img/tapIcon.png">
     <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProEnroll.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../../resources/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
-    <script type="text/javascript" src="../../resources/js/boardjs/smarteditor.js" charset="UTF-8"></script>
-</head>
-<head>
+    <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
 	<%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
@@ -75,29 +72,8 @@
             </form>
         </section>
     </div>
-    <hr>
-    <div id="footer">
-        <p>footer<p>
-        </div>
+    <%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
 <script src="../../resources/js/boardProEnroll/fileUpload.js"></script>
-<script>
-    let oEditors = [];
-
-    smartEditor = function () {
-        console.log("Naver SmartEditor")
-        nhn.husky.EZCreator.createInIFrame({
-            oAppRef: oEditors,
-            elPlaceHolder: "editorTxt",
-            sSkinURI: "../../resources/static/smarteditor/SmartEditor2Skin.html",
-            fCreator: "createSEditor2"
-        })
-    }
-
-    $(document).ready(function () {
-        smartEditor()
-    })
-
-</script>
-<script src="../../resources/js/boardjs/fileupload.js"></script>
+<script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
