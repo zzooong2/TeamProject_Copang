@@ -11,11 +11,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
 	<link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
+	<script src="../../resources/js/boardProEnroll/fileUpload.js"></script>
+	<script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
 	<%@ include file="/views/common/head.jsp"%>
 </head>
 	<%@ include file="/views/common/header.jsp"%>
 <body>
-	<div id="main">
+	<main class="main">
 		<div class="main_container">
 			<form action="/BoardPro/enroll.do" method="POST" enctype="multipart/form-data">
 
@@ -37,7 +39,7 @@
 					<tbody class="checkTbody">
 						<tr>
 							<td>1</td>
-							<td name="business_type_standard" value="STANDARD">STANDARD</td>
+							<td name="business_type_standard">STANDARD</td>
 							<td><input class="inputStyle" name="standard_function" type="text"></td>
 							<td><input class="inputStyle" name="standard_workDate" type="text"></td>
 							<td><input class="inputStyle" name="standard_retouch" type="text"></td>
@@ -45,7 +47,7 @@
 						</tr>
 						<tr>
 							<td>2</td>
-							<td name="business_type_deluxe" value="DELUXE">DELUXE</td>
+							<td name="business_type_deluxe">DELUXE</td>
 							<td><input class="inputStyle" name="deluxe_function" type="text"></td>
 							<td><input class="inputStyle" name="deluxe_workDate" type="text"></td>
 							<td><input class="inputStyle" name="deluxe_retouch" type="text"></td>
@@ -53,7 +55,7 @@
 						</tr>
 						<tr>
 							<td>3</td>
-							<td name="business_type_premium" value="PREMIUM">PREMIUM</td>
+							<td name="business_type_premium">PREMIUM</td>
 							<td><input class="inputStyle" name="premium_funcion" type="text"></td>
 							<td><input class="inputStyle" name="premium_workDate" type="text"></td>
 							<td><input class="inputStyle" name="premium_retouch" type="text"></td>
@@ -66,13 +68,12 @@
 					<div class="file-list"></div>
 				</div>
 
-				<button type="submit" class="detail_submit">등록</button>
+				<button type="submit" class="detail_submit" onclick="save()">등록</button>
 			</form>
 		</div>
-	</div>
+	</main>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
-<script src="../../resources/js/boardProEnroll/fileUpload.js"></script>
-<script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
+
 

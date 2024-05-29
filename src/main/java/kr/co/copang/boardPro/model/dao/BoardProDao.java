@@ -71,18 +71,18 @@ public class BoardProDao {
 	}
 	
 	
-	public int getEnroll(BoardProDto boardProDto) {
+	public int getEnroll(BoardProDto boardDto) {
 		
-		String query = "INSERT INTO CATEGORY_BOARD VALUES(CATEGORY_BOARD_SEQ.NEXTVAL, ?, ?, ?, DEFAULT, NULL, NULL, DEFAULT, ?)";
+		String query = "INSERT INTO CATEGORY_BOARD VALUES(CATEGORY_BOARD_SEQ.NEXTVAL, ?, ?, DEFAULT, NULL, NULL, DEFAULT, ?, ?)";
 		
 		int result = 0;
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, boardProDto.getBoardProTitle());
-			pstmt.setString(2, boardProDto.getBoardProSecondTitle());
-			pstmt.setString(3, boardProDto.getBoardProContents());
-			pstmt.setInt(4, boardProDto.getUserNo());
+			pstmt.setString(1, boardDto.getBoardProTitle());
+			pstmt.setString(2, boardDto.getBoardProContents());
+			pstmt.setInt(3, boardDto.getUserNo());
+			pstmt.setString(4, boardDto.getBoardProSecondTitle());
 			
 			result = pstmt.executeUpdate();
 			
@@ -93,22 +93,77 @@ public class BoardProDao {
 		return result;
 	}
 	
-	public int getTypeEnroll(BoardProDto boardProDto) {
-		
-		String query = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+	public int getBoardNo(BoardProDto boardDto) {
+		String query = "SELECT B_NO FROM CATEGORY_BOARD"
+				+ "		WHERE USER_NO = ?"
+				+ "		ORDER BY B_NO DESC"
+				+ "		FETCH FIRST 1 ROW ONLY";
 		
 		int result = 0;
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, boardProDto.getBoardProNo());
-			pstmt.setString(2, boardProDto.getBusinessType());
-			pstmt.setInt(3, boardProDto.getBusinessFunction());
-			pstmt.setInt(4, boardProDto.getBusinessRetouch());
-			pstmt.setInt(5, boardProDto.getBusinessPay());
-			pstmt.setInt(6, boardProDto.getBusinessDate());
+			pstmt.setInt(1, boardDto.getUserNo());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				int boardNo = rs.getInt("B_NO");
+				
+				return boardNo;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	
+	public int getTypeEnroll(ArrayList<BoardProDto> business, int businessNo) {
+		
+		String query1 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'STANDARD', ?, ?, ?, ?)";
+		String query2 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'DELUXE', ?, ?, ?, ?)";
+		String query3 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'PREMIUM', ?, ?, ?, ?)";
+		
+		
+		
+		int result = 0;
+		
+		try {
+			pstmt = con.prepareStatement(query1);
+			pstmt.setInt(1, businessNo);
+			pstmt.setInt(2, business.get(0).getBusinessFunction());
+			pstmt.setInt(3, business.get(0).getBusinessRetouch());
+			pstmt.setInt(4, business.get(0).getBusinessPay());
+			pstmt.setInt(5, business.get(0).getBusinessDate());
+
+			result = pstmt.executeUpdate();
+			
+			pstmt.close();
+			
+			pstmt = con.prepareStatement(query2);
+			pstmt.setInt(1, businessNo);
+			pstmt.setInt(2, business.get(1).getBusinessFunction());
+			pstmt.setInt(3, business.get(1).getBusinessRetouch());
+			pstmt.setInt(4, business.get(1).getBusinessPay());
+			pstmt.setInt(5, business.get(1).getBusinessDate());
+
+			result = pstmt.executeUpdate();
+			
+			pstmt.close();
+			
+			pstmt = con.prepareStatement(query3);
+			pstmt.setInt(1, businessNo);
+			pstmt.setInt(2, business.get(2).getBusinessFunction());
+			pstmt.setInt(3, business.get(2).getBusinessRetouch());
+			pstmt.setInt(4, business.get(2).getBusinessPay());
+			pstmt.setInt(5, business.get(2).getBusinessDate());
 			
 			result = pstmt.executeUpdate();
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -145,14 +200,18 @@ public class BoardProDao {
 		return null;
 	}
 	
-	public int fileUpload(BoardProDto boardProDto) {
+	public int fileUpload(BoardProDto boardDto, int businessNo) {
 		
-		String query = "INSERT INTO UPLOAD VALUES(UPLOAD_SEQ.NEXTVAL, ?, ?)";
+		String query = "INSERT INTO UPLOAD VALUES(UPLOAD_SEQ.NEXTVAL, ?, ?, ?)";
+		
+		System.out.println("5. boardDto.getFilePath : " + boardDto.getFilePath());
+		System.out.println("6. boardDto.getFileName : " + boardDto.getFileName());
 		
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, boardProDto.getFilePath());
-			pstmt.setString(2, boardProDto.getFileName());
+			pstmt.setString(1, boardDto.getFilePath());
+			pstmt.setString(2, boardDto.getFileName());
+			pstmt.setInt(3, businessNo);
 			
 			int result = pstmt.executeUpdate();
 			

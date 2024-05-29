@@ -85,58 +85,42 @@
 
 
 /* -------------------- Right Contents -------------------- */
-.Detail_right_Contents {
-    float: right;
-    width: 80vh;
-    height: 100vh;
-}
-
-/* 토글 버튼 스타일 */
-.toggle_button {
-    position: relative;
-    display: inline-block;
-    width: 60px; /* 토글 버튼의 가로 길이 */
-    height: 34px; /* 토글 버튼의 세로 길이 */
-}
-
-/* 토글 슬라이더(배경) */
-.right_toggle_checkbox {
-    position: absolute;
+.right_toggle_label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     cursor: pointer;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #ccc; /* 비활성화 상태 배경 색 */
-    transition: .4s;
-    border-radius: 34px; /* 슬라이더를 원형으로 만듦 */
 }
 
-/* 토글 슬라이더(켜기/끄기) */
-.right_toggle_checkbox:before {
-    position: absolute;
+.right_toggle_checkbox {
+    appearance: none;
+    position: relative;
+    border: max(2px, 0.1em); solid gray;
+    border-radius: 1.25em;
+    width: 2.25em;
+    height: 1.25em;
+}
+
+.right_toggle_checkbox::before {
     content: "";
-    height: 26px; /* 슬라이더 내부 원의 지름 */
-    width: 26px; /* 슬라이더 내부 원의 지름 */
-    left: 4px;
-    bottom: 4px;
-    background-color: white; /* 슬라이더 내부 원의 배경색 */
-    transition: .4s;
-    border-radius: 50%; /* 슬라이더 내부 원을 원형으로 만듦 */
+    position: absolute;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transform: scale(0.8);
+    background-color: gray;
+    transition: left 250ms linear;
 }
 
-/* 토글 슬라이더 스위치를 켜는 상태 */
-.right_toggle_checkbox:checked + .right_toggle_label .right_toggle_checkbox:before {
-    transform: translateX(26px); /* 슬라이더를 오른쪽으로 이동하여 켜기 상태로 변경 */
+.right_toggle_checkbox:checked::before {
+    background-color: white;
+    left: 1em;
 }
 
-/* 슬라이더가 켜질 때 슬라이더 배경색 변경 */
-.right_toggle_checkbox:checked + .right_toggle_label .right_toggle_checkbox {
-    background-color: #2196F3; /* 활성화 상태 배경 색 */
+.right_toggle_checkbox:checked {
+    background-color: #ff8e47;
+    border-color: #ff8e47;
 }
-
-
-
-
 
 

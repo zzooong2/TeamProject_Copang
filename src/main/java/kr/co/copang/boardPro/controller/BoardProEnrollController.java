@@ -2,6 +2,7 @@ package kr.co.copang.boardPro.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
@@ -27,51 +28,51 @@ public class BoardProEnrollController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-	
+		
+		
 		String title = request.getParameter("detailTitle");
 		String seondTitle = request.getParameter("secondTitle");
 		String content = request.getParameter("detailContents");
 		
-		String bs = request.getParameter("business_type_standard");
 		int sf = Integer.parseInt(request.getParameter("standard_function"));
-		int sw = Integer.parseInt(request.getParameter("standard_workDate"));
 		int sr = Integer.parseInt(request.getParameter("standard_retouch"));
 		int sp = Integer.parseInt(request.getParameter("standard_pay"));
+		int sw = Integer.parseInt(request.getParameter("standard_workDate"));
 		
-		String bd = request.getParameter("business_type_deluxe");
 		int df = Integer.parseInt(request.getParameter("deluxe_function"));
-		int dw = Integer.parseInt(request.getParameter("deluxe_workDate"));
 		int dr = Integer.parseInt(request.getParameter("deluxe_retouch"));
 		int dp = Integer.parseInt(request.getParameter("deluxe_pay"));
+		int dw = Integer.parseInt(request.getParameter("deluxe_workDate"));
 		
-		String bp = request.getParameter("business_type_premium");
+		
 		int pf = Integer.parseInt(request.getParameter("premium_funcion"));
-		int pw = Integer.parseInt(request.getParameter("premium_workDate"));
 		int pr = Integer.parseInt(request.getParameter("premium_retouch"));
 		int pp = Integer.parseInt(request.getParameter("premium_pay"));
+		int pw = Integer.parseInt(request.getParameter("premium_workDate"));
 		
 		HttpSession session = request.getSession();
-		int memberNo = (int)session.getAttribute("userNo");
-	
+//		int memberNo = (int)session.getAttribute("userNo");
+		int memberNo = 3;
+		
 		BoardProDto boardDto = new BoardProDto(); 
 		boardDto.setBoardProTitle(title);
 		boardDto.setBoardProSecondTitle(seondTitle);
 		boardDto.setBoardProContents(content);
-		boardDto.setBusinessType(bs);
-		boardDto.setBusinessFunction(sf);
-		boardDto.setBusinessRetouch(sr);
-		boardDto.setBusinessPay(sp);
-		boardDto.setBusinessType(bd);
-		boardDto.setBusinessFunction(df);
-		boardDto.setBusinessRetouch(dr);
-		boardDto.setBusinessPay(dp);
-		boardDto.setBusinessType(bp);
-		boardDto.setBusinessFunction(pf);
-		boardDto.setBusinessRetouch(pr);
-		boardDto.setBusinessPay(pp);
+		boardDto.setUserNo(memberNo);
+		
+		ArrayList<BoardProDto> business = new ArrayList<>();
+		
+		BoardProDto standardDto = new BoardProDto(sf, sr, sp, sw); 
+		BoardProDto deluxeDto = new BoardProDto(df, dr, dp, dw); 
+		BoardProDto primiumDto = new BoardProDto(pf, pr, pp, pw); 
+		
+		business.add(standardDto);
+		business.add(deluxeDto);
+		business.add(primiumDto);
+		
 		
 		Collection<Part> parts = request.getParts();
 		String uploadDirectory = "C:\\dev\\work-space\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\upload";
@@ -85,24 +86,38 @@ public class BoardProEnrollController extends HttpServlet {
 		
 		BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
 		int result = boardProService.enroll(boardDto);
-		int typeResult = boardProService.typeEnroll(boardDto);; 
 		
+		int businessNo = boardProService.getBoardNo(boardDto);
+		int typeResult = boardProService.typeEnroll(business, businessNo);
 		
-		BoardProDto boardProDto = boardProService.selectNo(boardDto);
+		BoardProDto fileUploadDto = boardProService.selectNo(boardDto);
+		
+		System.out.println("1. fileUploadDto : " + fileUploadDto);
 		
 		for(Part part : parts) {
 			fileName = getFileName(part);
 			if(fileName != null) {
 				part.write(filePath + File.separator + fileName);
 				
-				boardProDto.setFilePath(uploadDirectory);
-				boardProDto.setFileName(fileName);
-				int resultUpload = boardProService.fileUpload(boardProDto);
+				fileUploadDto.setFilePath(uploadDirectory);
+				fileUploadDto.setFileName(fileName);
+				
+				System.out.println("2. uploadDirectory : " + uploadDirectory);
+				System.out.println("3. fileName : " + fileName);
+				
+				int resultUpload = boardProService.fileUpload(boardDto, businessNo);
+				
+				System.out.println("4. resultUpload : " + resultUpload);
+				
 			}
 		}
 		
 		if(result == 1) {
-			response.sendRedirect("/freeBoard/list.do?cpage=1&category=fb_title&search-text=");
+			response.sendRedirect("/");
+			/*
+			 * response.sendRedirect(
+			 * "/BoardPro/list.do?cpage=1&category=fb_title&search-text=");
+			 */
 		}
 	
 	}

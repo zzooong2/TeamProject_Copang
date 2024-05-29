@@ -20,8 +20,8 @@ public class BoardProServiceImpl implements BoardProService {
 	}
 	
 	@Override
-	public int enroll(BoardProDto boardProDto) {
-		return boardProDao.getEnroll(boardProDto);
+	public int enroll(BoardProDto boardDto) {
+		return boardProDao.getEnroll(boardDto);
 	}
 	
 	@Override
@@ -30,8 +30,8 @@ public class BoardProServiceImpl implements BoardProService {
 	}
 	
 	@Override
-	public int fileUpload(BoardProDto boardProDto) {
-		return boardProDao.fileUpload(boardProDto);
+	public int fileUpload(BoardProDto boardDto, int businessNo) {
+		return boardProDao.fileUpload(boardDto, businessNo);
 	}
 	
 	@Override
@@ -40,8 +40,13 @@ public class BoardProServiceImpl implements BoardProService {
 	}
 	
 	@Override
-	public int typeEnroll(BoardProDto boardProDto) {
-		return boardProDao.getTypeEnroll(boardProDto);
+	public int getBoardNo(BoardProDto boardDto) {
+		return boardProDao.getBoardNo(boardDto);
+	}
+	
+	@Override
+	public int typeEnroll(ArrayList<BoardProDto> business, int businessNo) {
+		return boardProDao.getTypeEnroll(business, businessNo);
 	}
 	
 	

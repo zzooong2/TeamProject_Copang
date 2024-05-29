@@ -10,24 +10,24 @@
     <%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
-   	<%@ include file="/views/common/header.jsp"%>
+    <%@ include file="/views/common/header.jsp"%>
 
-    <div id="main">
-        <section class="detail_containor">
+    <main class="main_Detail">
+        <div class="detail_containor">
     
 
             <!---------------------------- Contents Left ---------------------------->
     
             <div class="left_contents">
-                <div class="main_img">
-                    <img src="../../resources/upload/9o1E31716716556.jpg" alt="잡오브브라더스" class="img_main">
+                <div class="left_contents_main_img">
+                    <img src="../../resources/img/K2fkU1707798820.png" alt="잡오브브라더스" class="left_contents_img_main">
                 </div>
             
                 <div class="left_star">
                     <p class="star_style">★★★★★ <span class="star_point">5.0</span></p>
                 </div>
 
-                <section class="left_TabList">
+                <div class="left_TabList">
                     <input type="radio" name="tabmenu01" id="tabList01" checked>
                     <label class="tabMenuLabel" for="tabList01">서비스 설명</label>
                     <input type="radio" name="tabmenu01" id="tabList02">
@@ -101,7 +101,7 @@
 
                     </div>
                     <div class="conbox con5"></div>
-                </section>
+                </div>
             </div>
     
             <!---------------------------- Contents Right ---------------------------->
@@ -109,7 +109,7 @@
             <div class="right_contents">
                 <div class="right_up">
                     <img src="../../resources/img/Link_img.png" alt="공유하기_Link_img" class="img_link">
-                    <p style="font-size: 20px;">Title : 전문가 등록 제목 소스 기재</p>
+                    <span class="right_up_text">Title : 전문가 등록 제목 소스 기재</span>
                 </div>
 
                 <section class="right_payTabList">
@@ -121,8 +121,8 @@
                     <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
                 
                     <div class="rightConbox rightCon1">
-                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
-                        <p class="vat">(VAT포함)</p>
+                        <span class="rightBox_businessMenuPay">(BUSINESS_MENU)</span>
+                        <span class="vat">(VAT포함)</span>
                         <div class="rightBox_second_title">
                             <span class="rightBox_sample1">${secondTitle}</span>
                         </div>
@@ -170,8 +170,8 @@
                         <button class="rightBox_buy_button" onclick="">구매하기</button>
                     </div>
                     <div class="rightConbox rightCon2">
-                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
-                        <p class="vat">(VAT포함)</p>
+                        <span class="rightBox_businessMenuPay">(BUSINESS_MENU)</span>
+                        <span class="vat">(VAT포함)</span>
                         <div class="rightBox_second_title">
                             <span class="rightBox_sample1">${secondTitle}</span>
                         </div>
@@ -219,8 +219,8 @@
                         <button class="rightBox_buy_button" onclick="">구매하기</button>
                     </div>
                     <div class="rightConbox rightCon3">
-                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
-                        <p class="vat">(VAT포함)</p>
+                        <span class="rightBox_businessMenuPay">(BUSINESS_MENU)</span>
+                        <span class="vat">(VAT포함)</span>
                         <div class="rightBox_second_title">
                             <span class="rightBox_sample1">${secondTitle}</span>
                         </div>
@@ -277,9 +277,9 @@
 
 
             </div>
-        </section>
-    </div>
-	<%-- <%@ include file="/views/common/footer.jsp"%> --%>
+        </div>
+    </main>
+	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
 

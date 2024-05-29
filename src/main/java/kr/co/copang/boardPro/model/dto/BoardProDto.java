@@ -23,7 +23,7 @@ public class BoardProDto {
 	private String partName;
 	
 	private int businessMenuNo;
-	private String businessType;
+	
 	private int businessFunction;
 	private int businessRetouch;
 	private int businessPay;
@@ -33,7 +33,16 @@ public class BoardProDto {
 	private String filePath;
 	private String fileName;
 	
+	public BoardProDto() {
+		super();
+	}
 	
+	public BoardProDto(int businessFunction,int businessRetouch,int businessPay, int businessDate) {
+		this.businessFunction = businessFunction;
+		this.businessRetouch = businessRetouch;
+		this.businessPay = businessPay;
+		this.businessDate = businessDate;
+	}
 	
 	
 //	------------------------------------ Getter ------------------------------------
@@ -100,10 +109,6 @@ public class BoardProDto {
 	
 	public int getBusinessMenuNo() {
 		return businessMenuNo;
-	}
-	
-	public String getBusinessType() {
-		return businessType;
 	}
 	
 	public int getBusinessFunction() {
@@ -201,10 +206,6 @@ public class BoardProDto {
 	
 	public void setBusinessMenuNo(int businessMenuNo) {
 		this.businessMenuNo = businessMenuNo;
-	}
-	
-	public void setBusinessType(String businessType) {
-		this.businessType = businessType;
 	}
 	
 	public void setBusinessFunction(int businessFunction) {

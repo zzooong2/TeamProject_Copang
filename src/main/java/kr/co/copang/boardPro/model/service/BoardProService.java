@@ -9,15 +9,17 @@ public interface BoardProService {
 	
 	public ArrayList<BoardProDto> getList(PageInfo pi, String category);
 	
-	public int enroll(BoardProDto boardProDto);
+	public int enroll(BoardProDto boardDto);
 	
 	public BoardProDto selectNo(BoardProDto boardProDto);
 	
-	public int fileUpload(BoardProDto boardProDto);
+	public int fileUpload(BoardProDto boardDto, int businessNo);
 	
 	public int getListCount(String category);
 	
-	public int typeEnroll(BoardProDto boardProDto);
+	public int getBoardNo(BoardProDto boardDto);
+	
+	public int typeEnroll(ArrayList<BoardProDto> business, int businessNo);
 	
 	
 	
