@@ -1,0 +1,31 @@
+.search_container .container {
+    text-align: center;
+}
+
+.search_container .button-group {
+    margin-bottom: 20px;
+}
+
+.search_container button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search_container .form {
+    margin-top: 20px;
+}
+
+.search_container .hidden {
+    display: none;
+}
+
+.search_container .input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    font-size: 16px;
+}

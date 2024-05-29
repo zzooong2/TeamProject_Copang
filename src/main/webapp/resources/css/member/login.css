@@ -82,3 +82,12 @@ button:hover {
 .extra-options .find-info:hover {
     text-decoration: underline;
 }
+
+.loginLogo {
+	height : 150px;
+	width : 150px;
+	display: flex;
+    justify-content: center;
+}
+
+
