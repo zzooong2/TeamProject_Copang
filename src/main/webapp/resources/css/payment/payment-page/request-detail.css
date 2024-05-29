@@ -3,8 +3,8 @@
     position: absolute;
     left: 55%;
     top: 26%;
-    width: 31%;
-    height: 91%;
+    width: 34%;
+    height: 100vh;
     border: 0.1px solid #cacaca;
     border-radius: 5px;
 }

@@ -1,0 +1,126 @@
+body{
+    margin: 0;
+}
+
+.none{
+    border-top: 0.1px solid #cacaca;
+    width: 100%;
+}
+
+.order-list {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    width: 90%;
+    height: 30%;
+    border: 0.1px solid #cacaca;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.order-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-height: 100px;
+    flex-basis: 400px;
+    position: relative;
+}
+
+.item-1{
+    flex-grow: 0.2;
+}
+
+.item-2{
+    flex-shrink: 1;
+    flex-grow: 0.5;
+    font-size: 25px;
+}
+
+.item-3{
+    flex-grow: 2;
+    border-left: 0.1px solid #cacaca;
+    font-size: 25px;
+}
+
+.item-4{
+    flex-grow: 2;
+    font-size: 25px;
+}
+
+.item-1 > img{
+    object-fit: contain;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    left: 5%;
+}
+
+.amount-item-1{
+    position: relative;
+    left: 3%;
+    color: #a3a3a3;
+}
+
+.amount-item-2{
+    flex-grow: 1;
+    position: relative;
+    left: 60%;
+    color: #ff8e47;
+}
+
+.fee-item-1{
+    position: relative;
+    left: 3%;
+    color: #a3a3a3;
+}
+
+.fee-item-2{
+    position: relative;
+    left: 60%;
+    color: #ff8e47;
+}
+
+.point-item-1{
+    position: relative;
+    left: 3%;
+    color: #a3a3a3;
+}
+
+.point-item-2{
+    position: relative;
+    left: 60%;
+    color: #ff8e47;
+}
+
+.total-item-1{
+    
+    position: relative;
+    left: 3%;
+}
+
+.total-item-2{
+    position: relative;
+    left: 60%;
+    color: #ff8e47;
+}
+
+.order-list > h1 {
+    position: relative;
+    left: 3%;
+    top: 2%;
+    font-size: 25px;
+}
+
+.complete-text{
+    position: absolute;
+    top: 20%;
+    left: 45%;
+    font-size: 25px;
+    color: #a3a3a3;
+}
+
+h4 {
+    margin: 10px;
+}
+
