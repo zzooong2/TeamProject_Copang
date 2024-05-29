@@ -7,9 +7,6 @@ public class BoardProDto {
 	private String boardProSecondTitle;
 	private String boardProContents;
 	
-
-	
-
 	private int boardProViews;
 	private String boardProIndate;
 	private String boardProUpdate;
@@ -30,6 +27,7 @@ public class BoardProDto {
 	private int businessFunction;
 	private int businessRetouch;
 	private int businessPay;
+	private int businessDate;
 	
 	private int fileNo;
 	private String filePath;
@@ -118,6 +116,10 @@ public class BoardProDto {
 	
 	public int getBusinessPay() {
 		return businessPay;
+	}
+	
+	public int getBusinessDate() {
+		return businessDate;
 	}
 	
 	public int getFileNo() {
@@ -215,6 +217,10 @@ public class BoardProDto {
 	
 	public void setBusinessPay(int businessPay) {
 		this.businessPay = businessPay;
+	}
+	
+	public void setBusinessDate(int businessDate) {
+		this.businessDate = businessDate;
 	}
 	
 	public void setFileNo(int fileNo) {

@@ -1,14 +1,13 @@
 package kr.co.copang.common;
 
 import java.io.IOException;
-import java.util.Collection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 @WebServlet("/Form/*")
 public class FormController extends HttpServlet {
@@ -29,18 +28,22 @@ public class FormController extends HttpServlet {
 		String action = request.getPathInfo();
 		String nextPage = "";
 	
-		Collection<Part> parts = request.getParts();
-		String uploadDirectory = "C:\\dev\\work-space\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\upload";
-	
-		File filePath
-	
-	
-	
-	
-	
-	
-	
-	
+		if(action.equals("/enrollForm.do")) {
+			nextPage = "/views/board/boardProEnroll.jsp";
+		} else if(action.equals("")) {
+			
+		}
+		
+		
+		
+		
+		if(nextPage != null && nextPage.isEmpty()) {
+			RequestDispatcher view = request.getRequestDispatcher(nextPage);
+			view.forward(request, response);
+		} else {
+			response.sendRedirect("/views/error.jsp");
+		}
+		
 	
 	}
 

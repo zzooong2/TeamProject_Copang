@@ -5,19 +5,9 @@
 /* 바디영역 */
 body {
 	width: 100%;
-	height: 1080px;
 }
 
-/* 노멀라이즈 */
-ul, li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#main {
-	width: 1000px;
-	height: 100%;
-	display: flex;
-	justify-content: space-evenly;
+.main {
+	width: 70vh;
+	
 }

@@ -276,13 +276,10 @@
 
 
 
-                <!-- <div class="pay_Type">
-                    
-                </div> -->
             </div>
         </section>
     </div>
-	<%@ include file="/views/common/footer.jsp"%>
+	<%-- <%@ include file="/views/common/footer.jsp"%> --%>
 </body>
 </html>
 

@@ -1,0 +1,142 @@
+/* -------------------- Detail Page Contents -------------------- */
+
+
+
+/* -------------------- Top Contents -------------------- */
+.Detail_top {
+    width: 100vh;
+    height: 100px;
+    box-shadow: 0px 3px 5px gray;
+    display: flex;
+    /* justify-content: space-evenly; */
+    align-items: center;
+}
+
+.Logo_img {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.Detail_down {
+    width: 100vh;
+    display: flex;
+}
+
+.submit_button {
+    margin-right: 30px;
+    width: 100px;
+    height: 30px;
+    background-color: #ff8e47;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+}
+
+/* -------------------- Left Contents -------------------- */
+.Detail_left_Contents {
+    float: left;
+    width: 20vh;
+    height: 100vh;
+    border-right: 2px solid #c0c0c0;
+    box-shadow: 2px 0px 5px lightgray;
+}
+
+.Detail_left_guide {
+    display : flex;
+    align-items: center;
+}
+
+.Detail_left_number {
+    margin: 0;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+}
+
+.Detail_left_numbercheck {
+    background-color: #ff8e47;
+    color: white;
+}
+
+.left_text_main {
+    margin: 0;
+    margin-left: 10px;
+    color: rgb(53, 53, 53);
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.Detail_left_text {
+    margin: 0;
+    margin-left: 10px;
+    color: lightgray;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+/* -------------------- Right Contents -------------------- */
+.Detail_right_Contents {
+    float: right;
+    width: 80vh;
+    height: 100vh;
+}
+
+/* 토글 버튼 스타일 */
+.toggle_button {
+    position: relative;
+    display: inline-block;
+    width: 60px; /* 토글 버튼의 가로 길이 */
+    height: 34px; /* 토글 버튼의 세로 길이 */
+}
+
+/* 토글 슬라이더(배경) */
+.right_toggle_checkbox {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #ccc; /* 비활성화 상태 배경 색 */
+    transition: .4s;
+    border-radius: 34px; /* 슬라이더를 원형으로 만듦 */
+}
+
+/* 토글 슬라이더(켜기/끄기) */
+.right_toggle_checkbox:before {
+    position: absolute;
+    content: "";
+    height: 26px; /* 슬라이더 내부 원의 지름 */
+    width: 26px; /* 슬라이더 내부 원의 지름 */
+    left: 4px;
+    bottom: 4px;
+    background-color: white; /* 슬라이더 내부 원의 배경색 */
+    transition: .4s;
+    border-radius: 50%; /* 슬라이더 내부 원을 원형으로 만듦 */
+}
+
+/* 토글 슬라이더 스위치를 켜는 상태 */
+.right_toggle_checkbox:checked + .right_toggle_label .right_toggle_checkbox:before {
+    transform: translateX(26px); /* 슬라이더를 오른쪽으로 이동하여 켜기 상태로 변경 */
+}
+
+/* 슬라이더가 켜질 때 슬라이더 배경색 변경 */
+.right_toggle_checkbox:checked + .right_toggle_label .right_toggle_checkbox {
+    background-color: #2196F3; /* 활성화 상태 배경 색 */
+}
+
+
+
+
+
+
