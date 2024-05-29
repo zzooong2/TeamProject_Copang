@@ -1,23 +1,47 @@
-/* 전체 영역 공백제거 */
-* {
-	margin: 0 auto;
+/* 전체 영역 센터 정렬 */
+*{
+    margin: 0 auto;
 }
 /* 바디영역 */
-body {
-	width: 100%;
-	height: 1080px;
+body{
+    width: 100%;
 }
 
-/* 노멀라이즈 */
-ul, li {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+
+.img_animaion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-image: url("/resources/img/main1.jpg"), url("/resources/img/main2.jpg");
+    background-size: cover;
+    animation: fade 4s ease-in infinite;
 }
 
-#main {
-	width: 1000px;
-	height: 100%;
-	display: flex;
-	justify-content: space-evenly;
+
+/* 페이드 인 아웃 */
+@keyframes fade{
+    0%{
+        /* opacity: 0.5; */
+        /* transform: scale(1.3); */
+    }
+    50%{
+        /* opacity: 1; */
+        /* transform: scale(1.0); */
+    }
+    100%{
+        /* opacity: 0.5; */
+        /* transform: scale(1.3); */
+    }
+}
+
+/* 메인영역 */
+.main{
+    width: 60%;
+    height: 100vh;
+}
+
+
+.img_animaion, footer {
+    transition-property: none !important;
 }
