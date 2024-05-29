@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<header>
 	<!-- 로고 -->
 	<header class="header_all">
 		<!-- Search(돋보기) -->
