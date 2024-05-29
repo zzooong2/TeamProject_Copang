@@ -1,10 +1,16 @@
 /* 헤더영역 */
+.header_group {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+}
+
 header {
 	width: 80vw;
 	height: 100px;
 	background-color: white;
 	justify-content: center;
-	position: relative;
+	
 }
 
 .formSetting {
@@ -14,10 +20,8 @@ header {
 
 .header_all {
 	display: flex;
-	/*position: fixed;*/
 	align-items: center;
 	z-index: 0;
-	position: absolute;
 }
 
 /* 로고 */
@@ -47,7 +51,7 @@ header {
 	color: #999;
 	font-size: 16px;
 	line-height: 30px;
-	width: 200px;
+	width: 89%;
 }
 
 .search-btn {

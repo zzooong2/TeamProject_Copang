@@ -4,16 +4,17 @@
 <html lang="en">
 <head>
 <%@ include file="/views/common/head.jsp"%>
-<link rel="stylesheet" type="text/css"
-	href="../../resources/css/common/index.css">
+<link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
 </head>
 <body>
+	<%@ include file="/views/common/header.jsp"%>
+		
 	<div class="img_animaion">
-		<%@ include file="/views/common/header.jsp"%>
 
 		<main class="main"></main>
 
 	</div>
+	
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>

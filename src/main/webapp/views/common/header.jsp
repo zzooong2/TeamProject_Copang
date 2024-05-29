@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- 로고 -->
-<header class="header_all" style="top: 0px;">
+
+<div class="header_group">
+<header class="header_all">
 	<ul class="top_menu">
 		<li class="categoryMenu">분야 카테고리
 			<ul class="subMenu">
@@ -34,3 +35,6 @@
 
 	</div>
 </header>
+</div>
+    <!-- 헤더 구분 선 -->
+<hr>
