@@ -2,10 +2,8 @@ package kr.co.copang.boardPro.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.Collection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,15 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItemFactory;
-import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import javax.servlet.http.Part;
 
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.boardPro.model.service.BoardProServiceImpl;
 
 @WebServlet("/BoardPro/enroll.do")
+
 public class BoardProEnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -101,147 +97,51 @@ public class BoardProEnrollController extends HttpServlet {
 
 //		---------------------------------------------------------------------
 		
-/*		Collection<Part> parts = request.getParts();
+		Collection<Part> parts = request.getParts();
 		String uploadDirectory = "C:\\dev\\work-space\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\upload";
 		
+		// 파일 업로드 디렉토리가 존재하지 않으면 생성
 		File filePath = new File(uploadDirectory);
-		if(!filePath.exists() ) {
+		if(!filePath.exists()) {
 			filePath.mkdirs();
 		}
 		
 		String fileName = null;
 		
-		BoardProDto fileUploadDto = boardProService.selectNo(boardDto);
+		int fileResult = 0;
 		
-		System.out.println("1. fileUploadDto : " + fileUploadDto);
-		
-		for(Part part : parts) {*/
-			
-//			for문 동작 여부 확인 ------------------------------------------------------
-/*
- * System.out.println("2. for문 시작");
- * 
- * fileName = getFileName(part); if(fileName != null) { part.write(filePath +
- * File.separator + fileName);
- * 
- * fileUploadDto.setFilePath(uploadDirectory);
- * fileUploadDto.setFileName(fileName);
- */
+		for(Part part : parts) {
+			fileName = getFileName(part);
+			if(fileName != null) {
+				part.write(filePath + File.separator + fileName);
 				
-//				uploadDirectory 값이 생성 되는지 확인 ----------------------------------
-//				System.out.println("3. uploadDirectory : " + uploadDirectory);
-
-//				fileName 값이 생성 되는지 확인 -----------------------------------------
-//				System.out.println("4. fileName : " + fileName);
-				
-//				첨부파일 등록 실행 ----------------------------------------------------
-//				int resultUpload = boardProService.fileUpload(boardDto, businessNo);
-				
-//				resultUpload 등록 반환값이 들어 오는지 확인 ------------------------------
-//				System.out.println("5. resultUpload : " + resultUpload);
-				
-//			} else {
-//				System.out.println("6. fileName에 값이 없습니다.");
-				
-//			}
-//		}
-		
-		
-		
-		
-//		---------------------------------------------------------------------		
-		
-		String uploadDirectory = "C:\\dev\\work-space\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\upload";
-		int size = 10 * 520 * 520;
-		
-		File curretDir = new File(uploadDirectory);
-		DiskFileItemFactory factory = new DiskFileItemFactory();
-		factory.setRepository(curretDir);
-		factory.setSizeThreshold(size);
-		
-		ServletFileUpload upload = new ServletFileUpload(factory);
-		try {
-			List<FileItem> items = upload.parseRequest(request);
-			
-			for(FileItem  d : items) { 
-				System.out.println("a : " + d);
+				boardDto.setFilePath(uploadDirectory);
+				boardDto.setFileName(fileName);
+				fileResult = boardProService.fileUpload(boardDto, businessNo);
 			}
-			System.out.println("dd");
-			
-			for(FileItem fi : items) {
-				if(fi.isFormField() ) {
-					System.out.println(fi.getFieldName() + " = " + fi.getString("utf-8"));
-				}
-				else {
-					System.out.println(fi.getFieldName());
-					String origin = fi.getName();
-					System.out.println(origin);
-					String ext = origin.substring(origin.lastIndexOf(".")); // 확장자 가져오기 
-					
-					UUID uuid = UUID.randomUUID(); // 단점 보완! 이름 고유값 줌으로써!
-					String name = uuid + ext;
-					
-					System.out.println(fi.getSize());
-					
-					File upPath = new File(curretDir + "\\" + getTodayStr());  // 날짜별 구분 여러모로 좋음
-					if(!upPath.exists()) {
-						upPath.mkdirs();
-					}
-					
-					fi.write(new File(upPath, name));
-				}                                       
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		if(result == 1) {
+		if(result == 1 && fileResult == 1) {
 			response.sendRedirect("/");
 			/*
 			 * response.sendRedirect(
 			 * "/BoardPro/list.do?cpage=1&category=fb_title&search-text=");
 			 */
+		} else {
+			response.sendRedirect("/error.jsp");
 		}
 	
 	}
 	
-//	private String getFileName(Part part) {
-//        String contentDisposition = part.getHeader("content-disposition");
-//        System.out.println("토큰 : " + contentDisposition);
-//        String[] tokens = contentDisposition.split(";");
-//        for (String token : tokens) {
-//            if (token.trim().startsWith("filename")) {
-//                return token.substring(token.indexOf('=') + 2, token.length() - 1);
-//            }
-//        }
-//        return null;
-//    }
-	
-	
-	private String getTodayStr() {
-		return new SimpleDateFormat("yyyy/MM/dd").format(System.currentTimeMillis()); // 포맷한 날짜 개념으로 파일 뎁스생김.
-	}
+	private String getFileName(Part part) {
+        String contentDisposition = part.getHeader("content-disposition");
+        String[] tokens = contentDisposition.split(";");
+        for (String token : tokens) {
+            if (token.trim().startsWith("filename")) {
+                return token.substring(token.indexOf('=') + 2, token.length() - 1);
+            }
+        }
+        return null;
+    }
 	
 }

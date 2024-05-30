@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
 	<link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
-	<script src="../../resources/js/boardProEnroll/fileUpload.js"></script>
+
 	<script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
 	<%@ include file="/views/common/head.jsp"%>
 </head>
@@ -64,11 +64,11 @@
 					</tbody>
 				</table>
 				<div class="insert">
-					<input type="file" name="file" multiple/>
-					<!-- <div class="file-list"></div> -->
+					<input type="file" name="file" id="file" multiple/>
+					<div class="file-list"></div>
 				</div>
 
-				<button type="button" class="detail_submit" onclick="save(); submitForm();">등록</button>
+				<button type="submit" class="detail_submit" onclick="save();">등록</button>
 			</form>
 		</div>
 	</main>
@@ -76,4 +76,4 @@
 </body>
 </html>
 
-
+	<script src="../../resources/js/boardProEnroll/fileUpload.js"></script>

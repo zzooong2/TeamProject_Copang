@@ -217,9 +217,6 @@ public class BoardProDao {
 			
 			int result = pstmt.executeUpdate();
 			
-			pstmt.close();
-			con.close();
-			
 			return result;
 			
 		} catch (SQLException e) {
@@ -248,5 +245,162 @@ public class BoardProDao {
 
 		return 0;
 	}
+	
+	public void getWriter(BoardProDto boardProDto) {
+		
+		String query = "SELECT USER_NAME FROM MEMBER"
+				+ "		WHERE USER_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProDto.getUserNo());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			String userName = rs.getString("USER_NAME");
+			boardProDto.setUserName(userName);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public BoardProDto getDetailN(int boardProNo) {
+		
+		String query = "SELECT * FROM CATEGORY_BOARD cb"
+				+ "		JOIN BUSINESS_MENU bm ON cb.B_NO = bm.B_NO"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int bNo = rs.getInt("B_NO");
+				String bTitle = rs.getString("B_TITLE");
+				String bContents = rs.getString("B_CONTENT");
+				String bSecondTitle = rs.getString("B_SECONDTITLE");
+				String bIndate = rs.getString("");
+				
+				
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+public BoardProDto getDetailS(int boardProNo) {
+	
+	String standardQuery = "SELECT * FROM BUSINESS"
+			+ "				WHERE B_NO = ?"
+			+ "				AND BM_TYPE = STANDARD";
+	
+	try {
+		pstmt = con.prepareStatement(standardQuery);
+		pstmt.setInt(1, boardProNo);
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			int sNo = rs.getInt("B_NO");
+			int sFuntion = rs.getInt("BM_FUNTION");
+			int sRetouch = rs.getInt("BM_RETOUCH");
+			int sPay = rs.getInt("BM_PAY");
+			int sWorkdate = rs.getInt("BM_WORKDATE");
+			
+			BoardProDto sBoardProDto = new BoardProDto();
+			sBoardProDto.setBoardProNo(sNo);
+			sBoardProDto.setBusinessFunction(sFuntion);
+			sBoardProDto.setBusinessRetouch(sRetouch);
+			sBoardProDto.setBusinessPay(sPay);
+			sBoardProDto.setBusinessDate(sWorkdate);
+			
+			return sBoardProDto;
+		}
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return null;
+}	
+	
+public BoardProDto getDetailD(int boardProNo) {
+	
+	String deluxeQuery = "SELECT * FROM BUSINESS"
+			+ "				WHERE B_NO = ?"
+			+ "				AND BM_TYPE = DELUXE";
+		
+		try {
+			pstmt = con.prepareStatement(deluxeQuery);
+			pstmt.setInt(1, boardProNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int dNo = rs.getInt("B_NO");
+				int dFuntion = rs.getInt("BM_FUNTION");
+				int dRetouch = rs.getInt("BM_RETOUCH");
+				int dPay = rs.getInt("BM_PAY");
+				int dWorkdate = rs.getInt("BM_WORKDATE");
+				
+				BoardProDto dBoardProDto = new BoardProDto();
+				dBoardProDto.setBoardProNo(dNo);
+				dBoardProDto.setBusinessFunction(dFuntion);
+				dBoardProDto.setBusinessRetouch(dRetouch);
+				dBoardProDto.setBusinessPay(dPay);
+				dBoardProDto.setBusinessDate(dWorkdate);
+				
+				return dBoardProDto;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}	
+	
+public BoardProDto getDetailP(int boardProNo) {
+	
+	String premiumQuery = "SELECT * FROM BUSINESS"
+			+ "				WHERE B_NO = ?"
+			+ "				AND BM_TYPE = PREMIUM";
+		
+		try {
+			pstmt = con.prepareStatement(premiumQuery);
+			pstmt.setInt(1, boardProNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int pNo = rs.getInt("B_NO");
+				int pFuntion = rs.getInt("BM_FUNTION");
+				int pRetouch = rs.getInt("BM_RETOUCH");
+				int pPay = rs.getInt("BM_PAY");
+				int pWorkdate = rs.getInt("BM_WORKDATE");
+				
+				BoardProDto pBoardProDto = new BoardProDto();
+				pBoardProDto.setBoardProNo(pNo);
+				pBoardProDto.setBusinessFunction(pFuntion);
+				pBoardProDto.setBusinessRetouch(pRetouch);
+				pBoardProDto.setBusinessPay(pPay);
+				pBoardProDto.setBusinessDate(pWorkdate);
+				
+				return pBoardProDto;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	
+	
 	
 }

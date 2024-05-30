@@ -51,5 +51,27 @@ public class BoardProServiceImpl implements BoardProService {
 		return boardProDao.getTypeEnroll(business, businessNo);
 	}
 	
+	@Override
+	public BoardProDto getDetail(int boardProNo) {
+		
+		BoardProDto result = boardProDao.getDetailN(boardProNo);
+		BoardProDto resultS = boardProDao.getDetailS(boardProNo);
+		BoardProDto resultD = boardProDao.getDetailD(boardProNo);
+		BoardProDto resultP = boardProDao.getDetailP(boardProNo);
+		
+		boardProDao.getWriter(result);
+		boardProDao.getWriter(resultS);
+		boardProDao.getWriter(resultD);
+		boardProDao.getWriter(resultP);
+		
+		int resultView = boardProDao.setViews(result.getBoardProNo());
+		
+		int(resultView == 1) {
+			return result;
+		}
+		return null;
+	}
+	
+	
 	
 }

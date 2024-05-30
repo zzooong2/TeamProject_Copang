@@ -23,5 +23,6 @@ public interface BoardProService {
 	
 	public int typeEnroll(ArrayList<BoardProDto> business, int businessNo);
 	
+	public BoardProDto getDetail(int boardProNo);
 	
 }

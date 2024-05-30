@@ -20,7 +20,7 @@
     
             <div class="left_contents">
                 <div class="left_contents_main_img">
-                    <img src="../../resources/img/K2fkU1707798820.png" alt="잡오브브라더스" class="left_contents_img_main">
+                    <img src="../../resource0s/img/${result.fileName}" alt="잡오브브라더스" class="left_contents_img_main">
                 </div>
             
                 <div class="left_star">
@@ -51,14 +51,14 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="tableLine">기능 구현</td>
-                                    <td class="tableLine">응용프로그램</td>
-                                    <td class="tableLine">웹</td>
-                                    <td class="tableLine">보안</td>
+                                    <td class="tableLine">페이지</td>
+                                    <td class="tableLine">${result.funtionStanard}</td>
+                                    <td class="tableLine">${result.funtionDeluxe}</td>
+                                    <td class="tableLine">${result.funtionPrimium}</td>
                                 </tr>
                                 <tr>
                                     <td class="tableLine">수정 횟수</td>
-                                    <td class="tableLine">${BUSINESS_RETOUCH}</td>
+                                    <td class="tableLine">${result.BUSINESS_RETOUCH}</td>
                                     <td class="tableLine">${BUSINESS_RETOUCH}</td>
                                     <td class="tableLine">${BUSINESS_RETOUCH}</td>
                                 </tr>
