@@ -1,31 +1,107 @@
+
+
+.hr_text {
+	border: none;
+    border-top: 2px solid #ccc; /* 얇고 연한 색상 */
+}
+
+.copang {
+	font-family: 'Metro Sans', sans-serif;
+	text-align: center;
+	display: flex;
+	padding-left: 400px;
+}
+
+.idPwdSearch {
+	padding-bottom: 60px;
+}
+
+/* searchPwd.css */
+.search_container {
+    padding: 30px; 
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh; /* 전체 뷰포트 높이 사용 */
+}
+
 .search_container .container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;
+    width: 400px;
+    height: auto; /* 고정된 높이 제거 */
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
-.search_container .button-group {
-    margin-bottom: 20px;
-}
-
-.search_container button {
-    margin: 5px;
+.search_button {
+    background-color: white;
+    color: gray;
+    font-weight: bold;
     padding: 10px 20px;
-    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #ccc;
     cursor: pointer;
+    transition: font-size 0.2s ease, color 0.2s ease; /* 글씨 크기와 색 변화 애니메이션 추가 */
+}
+
+.search_button:hover {
+    font-size: 18px; /* 호버 시 글씨 크기 증가 */
+}
+
+.search_button.active {
+    color: black;  /* 클릭 시 글씨 색 변경 */
+    font-size: 18px; 
+}
+
+.certification_button {
+    font-weight: bold;
+    width: 100%;
+    background-color: #ff8e47;
+    color: white;
+    padding: 10px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 }
 
 .search_container .form {
     margin-top: 20px;
 }
 
-.search_container .hidden {
-    display: none;
+.search_container input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin: 5px 0 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.search_container .input {
-    display: block;
-    margin: 10px auto;
-    padding: 10px;
-    width: 80%;
-    max-width: 300px;
-    font-size: 16px;
+.container label {
+	font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
+
+.container .searchLogo {
+	height : 150px;
+	width : 150px;
+	display: flex;
+    justify-content: center;
+}
+
+.search_container .hidden {
+    display: none;
 }

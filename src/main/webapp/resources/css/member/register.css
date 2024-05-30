@@ -10,11 +10,11 @@
     background-color: #fff;
     padding : 70px;
     padding-top: 20px;
-    padding-bottom: 130px;
+    padding-bottom: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     width: 450px;
-    height: 900px;
+    height: auto;
 }
 
 .register-page .register-container h2 {
@@ -35,13 +35,14 @@
 .register-page input[type="tel"],
 .register-page select {
     width: 100%;
-    padding: 10px;
+    padding: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     margin: 5px 0 10px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
 }
 
 .register-page button {

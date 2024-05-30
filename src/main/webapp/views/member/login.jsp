@@ -9,8 +9,9 @@
 <body>
 	<%@ include file="/views/common/header.jsp"%>
 	
-	<div id="main" style="padding-top: 100px;">
-		<div class="login-container" >
+	
+	<div id="main" class="login-page" style="padding-top: 100px; padding-bottom: 100px;">
+		<div class="login_container" >
         <h2 class="로그인">COPANG</h2>
         <form action="login" method="post">
             <label for="email">이메일</label>
@@ -37,15 +38,12 @@
 </div>
 	
 	
-    <hr>
 	<%@ include file="/views/common/footer.jsp"%>
 <script>
 	window.onload = function() {
 	const header = document.getElementsByTagName("header")[0];
 	header.style.position = "unset";
 	}
-	
-	
 </script>
 </body>
 </html>
