@@ -19,7 +19,7 @@
 <body>
 	<main class="main">
 		<div class="main_container">
-			<form action="/BoardPro/enroll.do" method="POST" enctype="multipart/form-data">
+			<form action="/BoardPro/enroll.do" id="enrollForm" method="POST" enctype="multipart/form-data">
 
 				<input type="text" class="detailTitle" name="detailTitle" id="detail_Title" placeholder="제목을 입력하세요."> 
 				
@@ -64,11 +64,11 @@
 					</tbody>
 				</table>
 				<div class="insert">
-					<input type="file" onchange="addFile(this);" multiple />
-					<div class="file-list"></div>
+					<input type="file" name="file" multiple/>
+					<!-- <div class="file-list"></div> -->
 				</div>
 
-				<button type="submit" class="detail_submit" onclick="save()">등록</button>
+				<button type="button" class="detail_submit" onclick="save(); submitForm();">등록</button>
 			</form>
 		</div>
 	</main>

@@ -2,6 +2,8 @@ package kr.co.copang.boardPro.model.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.Part;
+
 import kr.co.copang.boardPro.model.dao.BoardProDao;
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.common.PageInfo;
@@ -48,11 +50,6 @@ public class BoardProServiceImpl implements BoardProService {
 	public int typeEnroll(ArrayList<BoardProDto> business, int businessNo) {
 		return boardProDao.getTypeEnroll(business, businessNo);
 	}
-	
-	
-	
-	
-	
 	
 	
 }

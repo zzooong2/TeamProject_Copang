@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.servlet.http.Part;
+
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.common.DatabaseConnection;
 import kr.co.copang.common.PageInfo;
@@ -246,22 +248,5 @@ public class BoardProDao {
 
 		return 0;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
