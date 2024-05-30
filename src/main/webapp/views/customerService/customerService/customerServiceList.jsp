@@ -9,7 +9,7 @@
     
 	<%@ include file="/views/common/head.jsp"%>
 	
-	<link rel="stylesheet" href="../../../resources/css/customerService/notice/noticeList.css">
+	<link rel="stylesheet" href="../../../resources/css/customerService/customerService/customerServiceList.css">
 	
 </head>
 <body>
@@ -18,49 +18,49 @@
 	<main class="main">
         <section class="board-section">
         <div class="page-navigation">
-            Copang  >  공지사항
+            Copang  >  고객센터
         </div>
 
         <div class="notice-title">
-            Notice
+            Customer Service
         </div>
        
 
         <input type="text" id="serach-keyword" class="search" placeholder="검색할 키워드를 입력해주세요.">
 	
-		<button class="write-notice" onclick="location.href='/views/customerService/notice/noticeEnroll.jsp'">작 성</button>
+		<button class="write-notice" onclick="location.href='/views/customerService/customerService/customerServiceEnroll.jsp'">작 성</button>
 		
         <div class="board-table">
             <table>
                 <thead>
                     <tr>
-                        <td>공지사항</td>
+                        <td>고객센터</td>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td> <a href="/views/customerService/notice/noticeDetail.jsp">코팡 서비스 점검안내 (06/31 00:00 ~ 06:00)</a></td>
+                        <td> <a href="/views/customerService/customerService/customerServiceDetail.jsp">CSS가 적용되지 않아요..</td>
                     </tr>
                     <tr>
-                        <td> 전기배선 설치, 인터넷 수리로 인한 검증절차 변경 안내</td>
+                        <td> 작업이 너무 힘드네요..</td>
                     </tr>
                     <tr>
-                        <td> 코팡보증 이용약관 변경 안내</td>
+                        <td> 도와주실분!!</td>
                     </tr>
                     <tr>
-                        <td> 페이스북 간편 회원가입/로그인 서비스 종료 안내</td>
+                        <td> 안양에는 유실물보관소가 맛있습니다.</td>
                     </tr>
                     <tr>
-                        <td> 코팡 서비스 점검안내 (06/31 00:00 ~ 06:00)</td>
+                        <td> 안양 그린 컴퓨터 아트 학원</td>
                     </tr>
                     <tr>
-                        <td> 전기배선 설치, 인터넷 수리로 인한 검증절차 변경 안내</td>
+                        <td> 결제페이지 API 연동도 해야해요</td>
                     </tr>
                     <tr>
-                        <td> 코팡보증 이용약관 변경 안내</td>
+                        <td> GitHub, Jira 공부하세요!!!!! GitHub, Jira 공부하세요!!!!! GitHub, Jira 공부하세요!!!!!</td>
                     </tr>
                     <tr>
-                        <td> 페이스북 간편 회원가입/로그인 서비스 종료 안내</td>
+                        <td> 페이스북 간편 회원가입/로그인 안되네요??</td>
                     </tr>
                 </tbody>
             </table>

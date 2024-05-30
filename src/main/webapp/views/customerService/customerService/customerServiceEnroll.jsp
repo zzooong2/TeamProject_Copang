@@ -1,12 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoPang</title>
-
-    <link rel="stylesheet" href="../../../resources/css/customerService/notice/notice-enroll.css">
-
+    
+	
+	
     <!-- tab-icon -->
     <link rel="icon" href="../../../resources/img/tapIcon.png" />
 
@@ -16,33 +18,39 @@
     <!-- smarteditor js -->
     <script src="../../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
     <script src="../../../resources/js/payment/payment/smartEditor.js"></script>
+
+	<%@ include file="/views/common/head.jsp"%>
+	<link rel="stylesheet" href="../../../resources/css/customerService/customerService/customerServiceEnroll.css">
 </head>
 <body>
-    <div class="head"> head </div>
+	<%@ include file="/views/common/header.jsp"%>
+	
     <main class="main">
-        <div class="page-navigation">
-            Copang  >  공지사항  >  작성
-        </div>
-
-        <div class="notice-text">
-            Notice
-        </div>
         <section class="enroll-section">
-            <form action="/noticeBoard/enroll.do" method="POST">
+	        <div class="page-navigation">
+	            Copang  >  고객센터  >  작성
+	        </div>
+	
+	        <div class="notice-text">
+	            Customer Service
+	        </div>
+        
+            <form action="/customerServiceBoard/enroll.do" method="POST">
                 <!-- type을 hidden 으로 설정하여 사용자에게는 보이지 않는 고객번호를 전달 -->
                 <!-- <input type="hidden" name="member-no" value="${sessionScope.userNo}">  -->
-                
+
                 <input type="text" id="notice-title" class="notice-title" placeholder="제목을 입력해주세요." required>
                 
                 <textarea id="editorTxt" class="notice-content" rows="35" cols="100" required></textarea>
                 
                 <input type="text" id="notice-writer" class="notice-writer" value="관리자" disabled>
                 
-                <button type="submit" onclick="save()" class="enroll-btn">작성</button>
+                <button class="enroll-btn" onclick="location.href='/views/customerService/customerService/customerServiceList.jsp'">작 성</button>
+                <!-- <button type="submit" onclick="save()" class="enroll-btn">작성</button> -->
             </form>
         </section>
     </main>
-
-    <div class="footer"> footer </div>
+	
+	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
