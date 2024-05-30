@@ -57,20 +57,3 @@ function count(type)  {
     amountFee.innerHTML = calFee.toLocaleString() + "<span>원</span>";
     totalAmount.innerHTML = calTotal.toLocaleString() + "<span>원</span>";
 }
-
-
-// if(type === 'plus' && object >= 1) {
-//     object = parseInt(object) + 1;
-//     date = parseInt(date) + 1;
-//     priceElement.innerHTML = parseInt(price) + parseInt(objectPrice);
-//     finalAmount.innerHTML = parseInt(amount) + parseInt(objectPrice) + "<span>원</span>";
-//     amountFee.innerHTML = Math.round((parseInt(amount) + parseInt(objectPrice)) * feePercent) + "<span>원</span>";
-    
-//     // totalAmount.innerHTML =  + "<span>원</span>";
-// }else if(type === 'minus' && object >= 1)  {
-//     object = parseInt(object) - 1;
-//     date = parseInt(date) - 1;
-//     priceElement.innerHTML = parseInt(price) - parseInt(objectPrice);
-//     finalAmount.innerHTML = parseInt(amount) - parseInt(objectPrice) + "<span>원</span>";
-//     amountFee.innerHTML = parseInt(fee) - Math.round(objectPrice*feePercent) + "<span>원</span>";
-// }

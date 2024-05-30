@@ -7,6 +7,10 @@ body{
     width: 100%;
 }
 
+.payment-section{
+	height: 1200px;
+}
+
 .payment-text{
     position: absolute;
     left: 10%;
