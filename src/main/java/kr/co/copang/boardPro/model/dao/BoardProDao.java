@@ -399,7 +399,22 @@ public BoardProDto getDetailP(int boardProNo) {
 		return null;
 	}
 	
-	
+	public void getFileName(BoardProDto boardDto) {
+		
+		String query = "SELECT * FROM UPLOAD"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
 	
 	
 	

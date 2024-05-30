@@ -27,6 +27,9 @@ public class BoardProDetailController extends HttpServlet {
 		BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
 		BoardProDto result = boardProService.getDetail(boardProNo);
 		
+		
+		
+		
 		boardProService.getFileName(result);
 		
 		request.setAttribute("result", result);

@@ -25,4 +25,5 @@ public interface BoardProService {
 	
 	public BoardProDto getDetail(int boardProNo);
 	
+	public void getFileName(BoardProDto boardDto);
 }

@@ -7,6 +7,7 @@ import javax.servlet.http.Part;
 import kr.co.copang.boardPro.model.dao.BoardProDao;
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.common.PageInfo;
+import kr.co.green.board.model.dto.FreeDtoImpl;
 
 public class BoardProServiceImpl implements BoardProService {
 	
@@ -58,20 +59,26 @@ public class BoardProServiceImpl implements BoardProService {
 		BoardProDto resultS = boardProDao.getDetailS(boardProNo);
 		BoardProDto resultD = boardProDao.getDetailD(boardProNo);
 		BoardProDto resultP = boardProDao.getDetailP(boardProNo);
+
+		ArrayList<BoardProDto> list = new ArrayList<>();
+		list.add(result);
+		list.add(resultS);
+		list.add(resultD);
+		list.add(resultP);
 		
 		boardProDao.getWriter(result);
-		boardProDao.getWriter(resultS);
-		boardProDao.getWriter(resultD);
-		boardProDao.getWriter(resultP);
 		
 		int resultView = boardProDao.setViews(result.getBoardProNo());
 		
-		int(resultView == 1) {
-			return result;
+		if(resultView == 1) {
+			return list;
 		}
 		return null;
 	}
 	
-	
+	@Override
+	public void getFileName(BoardProDto boardDto) {
+		boardProDao.getFileName(boardDto);
+	}
 	
 }
