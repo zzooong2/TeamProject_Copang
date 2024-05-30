@@ -1,19 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoPang</title>
-
-    <link rel="stylesheet" href="../../../resources/css/customerService/notice/notice-detail.css">
-
+    
     <!-- tab-icon -->
     <link rel="icon" href="../../../resources/img/tapIcon.png" />
 
+	<link rel="stylesheet" href="../../../resources/css/customerService/notice/noticeDetail.css">
+	
+	<%@ include file="/views/common/head.jsp"%>
+	
 </head>
 <body>
-    <div class="head"> head </div>
-    <main class="main">
+	<%@ include file="/views/common/header.jsp"%>
+	
+	<main class="main">
         <div class="page-navigation">
             Copang  >  공지사항  >  게시글
         </div>
@@ -38,9 +43,7 @@
             </form>
         </section>
     </main>
-
-    <div class="footer"> footer </div>
+	
+	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
-
-<script src="../../../resources/js/customerService/notice/goBack.js"></script>
