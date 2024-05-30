@@ -9,9 +9,10 @@
 <body>
 	<%@ include file="/views/common/header.jsp"%>
 	
-	<div id="main" style="padding-top: 200px;">
-		<div class="login-container" >
-        <h2 class="로그인">로그인</h2>
+	
+	<div id="main" class="login-page" style="padding-top: 100px; padding-bottom: 100px;">
+		<div class="login_container" >
+        <h2 class="로그인">COPANG</h2>
         <form action="login" method="post">
             <label for="email">이메일</label>
             <br>
@@ -29,14 +30,20 @@
             <div class="extra-options">
                 <input type="checkbox" id="remember_me" name="remember_me">
                 <label for="remember_me">로그인 상태 유지</label>
-                <a href="#" class="find-info">아이디/비밀번호 찾기</a>
+                <a href="searchPwd.jsp" class="find-info">아이디/비밀번호 찾기</a><br>
             </div>
+                <img class="loginLogo" src="/resources/img/Logo.png" alt="logo">
         </form>
     </div>
 </div>
 	
 	
-    <hr>
 	<%@ include file="/views/common/footer.jsp"%>
+<script>
+	window.onload = function() {
+	const header = document.getElementsByTagName("header")[0];
+	header.style.position = "unset";
+	}
+</script>
 </body>
 </html>
