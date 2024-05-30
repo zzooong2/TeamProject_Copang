@@ -1,6 +1,7 @@
 package kr.co.copang.boardPro.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,14 +26,16 @@ public class BoardProDetailController extends HttpServlet {
 		int boardProNo = Integer.parseInt(request.getParameter("B_NO"));
 	
 		BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
-		BoardProDto result = boardProService.getDetail(boardProNo);
 		
 		
+		ArrayList<BoardProDto> result = boardProService.getDetail(boardProNo);
 		
 		
-		boardProService.getFileName(result);
-		
-		request.setAttribute("result", result);
+		request.setAttribute("result", result.equals(0));
+		request.setAttribute("resultS", result.equals(1));
+		request.setAttribute("resultD", result.equals(2));
+		request.setAttribute("resultP", result.equals(3));
+		request.setAttribute("resultF", result.equals(4));
 		
 		RequestDispatcher view = request.getRequestDispatcher("/views/board/boardProDetail.jsp");
 		view.forward(request, response);

@@ -47,7 +47,7 @@ public class BoardProListController extends HttpServlet {
 		request.setAttribute("row", row);
 		request.setAttribute("pi", pi);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/board/boardList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/views/board/boardProList.jsp");
 		view.forward(request, response);
 		
 	}

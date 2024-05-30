@@ -2,12 +2,9 @@ package kr.co.copang.boardPro.model.service;
 
 import java.util.ArrayList;
 
-import javax.servlet.http.Part;
-
 import kr.co.copang.boardPro.model.dao.BoardProDao;
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.common.PageInfo;
-import kr.co.green.board.model.dto.FreeDtoImpl;
 
 public class BoardProServiceImpl implements BoardProService {
 	
@@ -53,12 +50,13 @@ public class BoardProServiceImpl implements BoardProService {
 	}
 	
 	@Override
-	public BoardProDto getDetail(int boardProNo) {
+	public ArrayList<BoardProDto> getDetail(int boardProNo) {
 		
 		BoardProDto result = boardProDao.getDetailN(boardProNo);
 		BoardProDto resultS = boardProDao.getDetailS(boardProNo);
 		BoardProDto resultD = boardProDao.getDetailD(boardProNo);
 		BoardProDto resultP = boardProDao.getDetailP(boardProNo);
+		BoardProDto resultF = boardProDao.getDetailF(boardProNo);
 
 		ArrayList<BoardProDto> list = new ArrayList<>();
 		list.add(result);
@@ -74,11 +72,6 @@ public class BoardProServiceImpl implements BoardProService {
 			return list;
 		}
 		return null;
-	}
-	
-	@Override
-	public void getFileName(BoardProDto boardDto) {
-		boardProDao.getFileName(boardDto);
 	}
 	
 }

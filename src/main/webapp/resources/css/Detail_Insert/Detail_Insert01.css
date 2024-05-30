@@ -1,20 +1,23 @@
 /* -------------------- Detail Page Contents -------------------- */
 .main {
     display: flex;
+    justify-content: center;
+    height: auto;
     padding-top: 20px;
 }
 
+.BoardProEnroll_formStyle {
+    margin: 0;
+}
+
+.Detail_down {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+}
 
 /* -------------------- Top Contents -------------------- */
-/* .Detail_top {
-    width: 100vh;
-    height: 100px;
-    box-shadow: 0px 3px 5px gray;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-} */
-
 .Logo_img {
     width: 100px;
     height: 100px;
@@ -26,17 +29,6 @@
     height: auto;
     margin: 0;
     display: flex;
-}
-
-.submit_button {
-    margin-right: 30px;
-    width: 100px;
-    height: 30px;
-    background-color: #ff8e47;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-weight: bolder;
 }
 
 /* -------------------- Left Contents -------------------- */
@@ -83,13 +75,12 @@
 .Detail_left_text {
     margin: 0;
     margin-left: 10px;
+    width: 120px;
     color: lightgray;
     font-weight: bold;
     font-size: 18px;
 }
-
-
-/* -------------------- Right Contents -------------------- */
+/* -------------------- Right Contents 1-------------------- */
 .Detail_right_Contents {
     margin-left: -1px;
     width: 80%;
@@ -97,196 +88,87 @@
     border: 2px solid #ebebeb;
 }
 
-.Detail_right_TopTitle {
-    height: 50px;
-    padding-top: 50px;
-    display: flex;
-    align-items: center;
+.Detail_right_Contents1_unit1 {
+    width: 80px;
 }
 
-.Detail_right_PayData {
-    margin-left: 30px;
-    font-size: 20px;
+.Detail_right_Contents1_unit2 {
+    width: 120px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+}
+
+.Detail_right_Contents1_Title {
+    margin-top: 50px;
+}
+
+.Detail_right_Contents1_Title_Input{
+    height: 45px;
+    width: 500px;
+    border: none;
     font-weight: bold;
     color: rgb(80, 80, 80);
 }
 
-.toggle_button {
-    margin-right: 20px;
-}
-
-.right_toggle_label {
-    display: inline-flex;
+.Detail_right_Contents1_box1 {
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+    height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
 }
 
-.right_toggle_checkbox {
-    appearance: none;
-    position: relative;
-    border: max(2px, 0.1em); solid gray;
-    border-radius: 1.25em;
-    width: 2.25em;
-    height: 1.25em;
+.Detail_right_Contents1_box2 {
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 20px;
+    height: 300px;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    display: flex;
+    align-items: center;
 }
 
-.right_toggle_checkbox::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    transform: scale(0.8);
-    background-color: gray;
-    transition: left 250ms linear;
-}
-
-.right_toggle_checkbox:checked::before {
-    background-color: white;
-    left: 1em;
-}
-
-.right_toggle_checkbox:checked {
-    background-color: #ff8e47;
-    border-color: #ff8e47;
+.Detail_right_Contents1_Category_Style {
+    height: 50px;
+    width: 600px;
+    border: none;
+    font-weight: bold;
+    color: rgb(80, 80, 80);
 }
 
 
 
-.Detail_right_Type_Text {
+/* ------------------ Page Move Button -------------------- */
+
+.boardProEnroll_Button_All{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.boardProEnroll_ButtonStyle1 {
+    display: none;
+    width: 100px;
+    height: 50px;
+    font-weight: bolder;
+}
+
+.boardProEnroll_ButtonStyle2 {
     display: block;
-    margin-left: 30px;
-    margin-right: 30px;
-    font-size: 25px;
-    border-bottom: 2px solid rgb(80, 80, 80);
-}
-
-
-.type_box1 {
-    border: 1px solid rgb(218, 218, 218);
-    border-radius: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 20px;
+    width: 100px;
     height: 50px;
-    font-size: 14px;
-    font-weight: bold;
-    color: gray;
-    display: flex;
-    align-items: center;
+    margin-right: 10px;
+    font-weight: bolder;
 }
-
-.type_box1_text {
-    width: 150px;
-    display: inline-block;
-}
-
-.type_box2 {
-    border: 1px solid rgb(218, 218, 218);
-    border-radius: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 20px;
-    height: 80px;
-    font-size: 14px;
-    font-weight: bold;
-    color: gray;
-    display: flex;
-    align-items: center;
-}
-
-.type_box3 {
-    border: 1px solid rgb(218, 218, 218);
-    border-radius: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 20px;
-    height: 50px;
-    font-size: 14px;
-    font-weight: bold;
-    color: gray;
-    display: flex;
-    align-items: center;
-}
-
-.input_select:focus {
-    outline: none;
-}
-
-.type_box_Input {
-    margin-left: 60px;
-    height: 45px;
-    width: 80%;
-    border: none;
-    font-weight: bold;
-    color: rgb(80, 80, 80);
-}
-
-.type_box_Input2 {
-    margin-left: 60px;
-    height: 75px;
-    width: 80%;
-    border: none;
-    font-weight: bold;
-    color: rgb(80, 80, 80);
-}
-
-.type_box_Input3 {
-    margin-left: 70px;
-    height: 45px;
-    width: 80%;
-    border: none;
-    font-weight: bold;
-    color: rgb(80, 80, 80);
-}
-
-.type_box_Input4 {
-    margin-left: 60px;
-    height: 45px;
-    width: 80%;
-    border: none;
-    font-weight: bold;
-    color: rgb(80, 80, 80);
-}
-
-.type_box_Input5 {
-    margin-left: 60px;
-    height: 45px;
-    width: 80%;
-    border: none;
-    font-weight: bold;
-    color: rgb(80, 80, 80);
-}
-
-.type_box_Input6 {
-    margin-left: 30px;
-    height: 45px;
-    width: 70%;
-    border: none;
-    font-weight: bold;
-    color: rgb(80, 80, 80);
-}
-
-.pay_won {
-    width: 50px;
-}
-
-.type_box_Input::placeholder,
-.type_box_Input2::placeholder,
-.type_box_Input3::placeholder,
-.type_box_Input4::placeholder,
-.type_box_Input5::placeholder,
-.type_box_Input6::placeholder {
-    font-weight: bold;
-    color: lightgray;
-}
-
-.Detail_right_check {
-    color: #ff8e47;
-    font-weight: bold;
-}
-
-
-

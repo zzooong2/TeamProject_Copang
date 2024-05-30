@@ -186,6 +186,7 @@ input[id="tabList05"]:checked ~ .con5 {
 /* <<<  4  >>> */
 .leftTabList_Cencle {
 	list-style-type: none;
+	padding: 0;
 }
 
 /* ---------- Right Box ---------- */
