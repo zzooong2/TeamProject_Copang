@@ -1,33 +1,27 @@
 /* styles.css */
-/* body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-} */
-
-.login-container {
+.login-page .login_container {
     background-color: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
     width: 300px;
+    height: 500px;
 }
 
-.login-container h2 {
-    margin-bottom: 20px;
+.login-page .login_container h2 {
+	
+	margin-bottom: 20px;
     color: #333;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
-label {
+.login-page label {
     font-weight: bold;
 }
 
-input[type="email"],
-input[type="password"] {
+.login-page input[type="email"],
+.login-page input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 5px 0 10px 0;
@@ -37,7 +31,7 @@ input[type="password"] {
     box-sizing: border-box;
 }
 
-button {
+.login-page button {
     width: 100%;
     background-color: #ff8e47;
     color: white;
@@ -48,33 +42,42 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.login-page button:hover {
     background-color: #ff8e47;
 }
 
-.extra-options {
+.login-page .extra-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.extra-options input[type="checkbox"] {
+.login-page .extra-options input[type="checkbox"] {
     margin-right: 5px;
 }
 
-.extra-options label {
+.login-page .extra-options label {
     font-size: 12px;
     font-weight: bold;
     color: gray;
 }
 
-.extra-options .find-info {
+.login-page .extra-options .find-info {
     font-size: 12px;
     font-weight: bold;
     color: gray;
     text-decoration: none;
 }
 
-.extra-options .find-info:hover {
+.login-page .extra-options .find-info:hover {
     text-decoration: underline;
 }
+
+.login-page .loginLogo {
+	height : 150px;
+	width : 150px;
+	display: flex;
+    justify-content: center;
+}
+
+
