@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 	
 	
-
 		// 아이디 찾기 버튼 클릭 이벤트 리스너
     /*$('#find-id-button').on('click', function() {
         $('#id_form').removeClass('hidden'); // 아이디 찾기 폼 보이기
@@ -48,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $('#find-pw-button').addClass('active'); // 비밀번호 찾기 버튼 활성화
         $('#find-id-button').removeClass('active'); // 아이디 찾기 버튼 비활성화
     });*/
+
 		// 인증번호 받기 버튼 클릭 이벤트 (아이디 찾기)
 		let verificationCode = 0;
 		$(document).ready(function() {
