@@ -2,8 +2,9 @@
 header {
 	width: 80vw;
 	height: 100px;
-	position: fixed;
 	background-color: white;
+	justify-content: center;
+	position: relative;
 }
 
 .formSetting {
@@ -13,34 +14,55 @@ header {
 
 .header_all {
 	display: flex;
+	/*position: fixed;*/
 	align-items: center;
+	z-index: 0;
+	/* position: absolute; */
 }
 
-.searchBar {
-	display: flex;
-	align-items: center;
-}
-
-.searchBar_align {
-	display: flex;
-	width: 100%;
-	align-items: center;
-}
-
+/* 로고 */
 .Logo {
 	width: 100px;
 	height: 100px;
 	margin: 0;
+	padding: 0;
 	padding-left: 50px;
 }
 
-.search_body {
-	height: 44px;
-	width: 100%;
-	margin: 0;
+/* 서치바 */
+.search-box {
+	height: 30px;
+	width: 500px;
+	margin-left: 20px;
 	border: none;
-	border-top: 5px solid #ff8e47;
-	border-bottom: 5px solid #ff8e47;
+	border: 5px solid #ff8e47;
+	border-radius: 20px;
+}
+
+.search-txt {
+	border: none;
+	background: none;
+	outline: none;
+	float: left;
+	padding-left: 10px;
+	color: #999;
+	font-size: 16px;
+	line-height: 30px;
+	width: 200px;
+}
+
+.search-btn {
+	color: #ff8e47;
+	float: right;
+	width: 40px;
+	height: 100%;
+	border-radius: 50%;
+	background: white;
+	border: none;
+	font-size: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* 네비게이션 영역 */
@@ -51,21 +73,39 @@ header {
 	margin-left: 30px;
 	display: flex;
 	justify-content: end;
-	gap: 20px
+	gap: 20px;
 }
 
+.nav li {
+	width: 70px;
+	display: inline-block;
+}
+
+/* 2Depth */
 .categoryMenu {
 	width: 100px;
 	font-size: 15px;
 	font-weight: bold;
 	position: relative;
+	list-style: none;
+}
+
+.categoryMenu li {
+	list-style: none;
 }
 
 .categoryMenu .subMenu {
 	display: none;
 	position: absolute;
 	width: 100px;
-	background-color: aquamarine;
+	background-color: #fff;
+	float: left;
+}
+
+.categoryMenu .subMenu li {
+	margin-top: 10px;
+	text-align: center;
+	line-height: 50px;
 }
 
 .categoryMenu:hover .subMenu {

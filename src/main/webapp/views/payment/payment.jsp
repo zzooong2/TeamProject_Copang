@@ -6,12 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주문확인 및 결제</title>
-    <link rel="stylesheet" href="../../resources/css/payment/header.css">
-    <link rel="stylesheet" href="../../resources/css/common/footer.css">
-    <link rel="stylesheet" href="../../resources/css/payment/order-list.css">
-    <link rel="stylesheet" href="../../resources/css/payment/payment-role.css">
-    <link rel="stylesheet" href="../../resources/css/payment/price.css">
-    <link rel="stylesheet" href="../../resources/css/payment/request-detail.css">
+    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/header.css">
+    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/orderList.css">
+    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/paymentRole.css">
+    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/price.css">
+    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/requestDetail.css">
 
     <!-- tab-icon -->
     <link rel="icon" href="../../resources/img/tapIcon.png" />
@@ -22,6 +21,8 @@
 
     <!-- jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- smart Editor -->
     <script src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
     <script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
 
@@ -39,7 +40,7 @@
         </div>
     </header>
 
-    <section>
+    <section class="payment-section">
         <div class="none"></div>
 
         <div class="payment-text">
@@ -153,10 +154,10 @@
             <button class="submit-btn">등록</button>
         </div>
     </section>
-    <%-- <%@ include file="/views/common/footer.jsp"%> --%>
+    <%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
 
 <!-- JavaScript -->
-<script src="../../resources/js/object-count.js"></script>
-<script src="../../resources/js/payment-role.js"></script>
+<script src="../../resources/js/payment/payment/objectCount.js"></script>
+<script src="../../resources/js/payment/payment/paymentRole.js"></script>

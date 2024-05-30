@@ -1,12 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주문 완료</title>
 
-    <link rel="stylesheet" href="../../resources/css/payment/complete-order/complete-header.css">
-    <link rel="stylesheet" href="../../resources/css/payment/complete-order/complete-order-list.css">
+    <link rel="stylesheet" href="../../resources/css/payment/completeOrder/completeHeader.css">
+    <link rel="stylesheet" href="../../resources/css/payment/completeOrder/completeOrderList.css">
 
 </head>
 <body>
@@ -25,7 +27,7 @@
         <div class="none"></div>
     </section>
 
-    <section>
+    <section class="complete-order-section">
         <div class="order-list">
             <h1>주문내역</h1>
             <div class="order-flex">
@@ -69,5 +71,6 @@
         
         <h1 class="complete-text">주문이 완료되었습니다.</h1>
     </section>
+    <%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>

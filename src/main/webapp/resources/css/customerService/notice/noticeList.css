@@ -1,0 +1,119 @@
+/* ------------- 작업공간 ------------- */
+.board-section{
+	margin-top: 10%;
+}
+
+
+/* ------------- page navigation ------------- */
+.board-section > .page-navigation{
+    position: relative;
+    left: 15%;
+    top: 40%;
+    font-size: 15px;
+    color: #9c9c9c;
+	padding-top: 40px;
+}
+
+/* ------------- page title ------------- */
+.notice-title{
+    position: relative;
+    left: 15%;
+    font-size: 40px;
+}
+
+/* ------------- notice table ------------- */
+.board-table{
+    position: relative;
+    width: 90%;
+    left: 5%;
+}
+
+table{
+    width: 90%;
+}
+
+thead > tr {
+    font-size: 20px;
+    color: #ff8e47;
+}
+
+tbody > tr > td{
+    font-size: 15px;
+    border-bottom: 0.1px solid #c9c9c9;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* ------------- search ------------- */
+.board-section > .search{
+    float: right;
+    position: relative;
+    top: 10.5%;
+    right: 5%;
+    width: 300px;
+    height: 30px;
+    border: 0.1px solid #c9c9c9;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+/* ------------- pagination ------------- */
+.pagination {
+    display: flex;
+    list-style: none;
+    width: 20px;
+    position: relative;
+    left: -10%;
+    padding-top: 100px;
+}
+
+.page-link {
+    position: relative;
+    display: inline-block;
+    color: #ff8e47;
+    border: 0.1px solid #d3d3d3;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 8px 16px 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-link {
+    transition: none;
+  }
+}
+
+.page-link:hover {
+	z-index: 2;
+	border-radius: 24px;
+	color: #ff8e47;
+	text-decoration: underline;
+}
+
+/* ------------- 공지사항 작성 버튼 ------------- */
+.write-notice{
+    position: relative;
+    margin-top: 3%;
+    left: 89%;
+    border: 0.1px solid #d3d3d3;
+    border-radius: 5px;
+    width: 70px;
+    height: 30px;
+    color: #ff8e47;
+    background-color: white;
+    font-size: 15px;
+}
+
+.write-notice:hover{
+    background-color: #ff8e47;
+    color: white;
+}
+
+
+
+
+
+
+

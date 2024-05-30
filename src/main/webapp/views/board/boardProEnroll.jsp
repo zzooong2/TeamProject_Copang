@@ -10,12 +10,13 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProEnroll.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+	<link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
 	<%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
-    <div id="main">
-        <section class="main_container">
+    <main class="main">
+        <div class="main_container">
             <form action="/form/proDetail.do" method="POST">
                 
                 <input type="text" class="detailTitle" name="detailTitle" id="detail_Title" placeholder="제목을 입력하세요.">
@@ -70,8 +71,8 @@
 
                 <button type="submit" class="detail_submit">등록</button>
             </form>
-        </section>
-    </div>
+        </div>
+    </main>
     <%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
