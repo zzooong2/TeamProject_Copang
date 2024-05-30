@@ -7,5 +7,6 @@
     <link rel="stylesheet" href="/resources/css/common/footer.css">
     <script src="https://kit.fontawesome.com/1992e1ad9e.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/resources/js/common/header.js"></script>
     <title>CoPang</title>
      
