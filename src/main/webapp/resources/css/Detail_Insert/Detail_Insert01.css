@@ -31,6 +31,8 @@
     display: flex;
 }
 
+
+
 /* -------------------- Left Contents -------------------- */
 .Detail_left_Contents {
     margin: 0;
@@ -64,14 +66,6 @@
     color: white;
 }
 
-.left_text_main {
-    margin: 0;
-    margin-left: 10px;
-    color: rgb(53, 53, 53);
-    font-weight: bolder;
-    font-size: 18px;
-}
-
 .Detail_left_text {
     margin: 0;
     margin-left: 10px;
@@ -80,6 +74,25 @@
     font-weight: bold;
     font-size: 18px;
 }
+
+#Detail_left_guide_Change1 {
+    background-color: #ff8e47;
+    color: white;
+}
+
+#Detail_left_Chane_text1 {
+    color: black
+}
+
+.left_text_main {
+    margin: 0;
+    margin-left: 10px;
+    color: rgb(53, 53, 53);
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+
 /* -------------------- Right Contents 1-------------------- */
 .Detail_right_Contents {
     margin-left: -1px;
