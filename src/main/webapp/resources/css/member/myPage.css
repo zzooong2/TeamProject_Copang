@@ -2,12 +2,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-profile_Page {
-	padding-top : 50px;
-	padding-left : 100px;
-	
-}
-
 .container {
     display: flex;
     height: 100vh;
@@ -21,7 +15,7 @@ profile_Page {
 
 .sidebar h2 {
     font-size: 1.5em;
-    margin-top : 100px;
+    margin-top: 100px;
     margin-bottom: 60px;
 }
 
@@ -31,7 +25,7 @@ profile_Page {
 }
 
 .sidebar ul li {
-	text-align: center;
+    text-align: center;
     font-family: 'Roboto', sans-serif;
     margin: 20px 0;
     cursor: pointer;
@@ -42,53 +36,45 @@ profile_Page {
 
 .sidebar ul li:hover {
     background-color: #ccc;
-	font-weight: bold;
+    font-weight: bold;
 }
+
 .sidebar ul li.active {
     color: black;  /* 클릭 시 글씨 색 변경 */
-	font-weight: bold;
+    font-weight: bold;
     font-size: 18px; 
 }
-
-
 
 .content {
     flex-grow: 1;
     padding: 20px;
+    
 }
 
 .section {
     display: none;
-}
-
-.section h2 {
-    font-size: 1.5em;
-}
-
-/* 내 정보 수정 페이지 CSS */
-
-/* 프로필 섹션 */
-.profile_section {
-    padding: 30px; 
-    height: 110px;
-}
-
-/* 프로필 페이지 스타일 */
-.profile_page {
     background-color: #fff;
-    padding: 70px;
+    padding: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
     border-radius: 5px;
-    width: 450px;
-    height: auto;
+    width: 80%; /* 모든 섹션에 동일한 너비 적용 */
+    margin: auto; /* 섹션을 가운데로 정렬 */
 }
 
-.profile_page h2 {
-    margin-bottom: 20px;
+.section h2 {
+	padding-bottom: 100px;
+    padding-top: 50px;
+    font-size: 1.5em;
+    text-align: left;
     color: #333;
-    text-align: center;
     font-family: 'Roboto', sans-serif;
+}
+
+/* 프로필 페이지 CSS */
+
+.profile_page {
+    padding: 0;
 }
 
 .profile_page label {
@@ -101,8 +87,8 @@ profile_Page {
 .profile_page input[type="password"],
 .profile_page input[type="tel"],
 .profile_page select {
-    width: 100%;
-    padding: 5px;
+    width: 60%;
+    padding: 10px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     margin: 5px 0 10px 0;
@@ -114,15 +100,16 @@ profile_Page {
 
 .profile_page button {
     font-weight: bold;
-    width: 100%;
+    width: 100px;
     background-color: #ff8e47;
     color: white;
-    padding: 10px 10px;
-    margin: 8px 0;
+    padding: 10px;
+    margin: 5px 0 10px 5px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
+    display: inline-block;
 }
 
 .profile_page button:hover {
@@ -131,17 +118,6 @@ profile_Page {
 
 .profile_page input[type="radio"] {
     margin-right: 5px;
-}
-
-.profile_page label[for="expert"],
-.profile_page label[for="business_it"],
-.profile_page label[for="business_video"],
-.profile_page label[for="business_design"],
-.profile_page label[for="business_marketing"],
-.profile_page label[for="business_education"],
-.profile_page label[for="client"] {
-    margin-right: 2px;
-    font-weight: normal;
 }
 
 .profile_page .consent-section {
@@ -175,3 +151,160 @@ profile_Page {
 .profile_page .consent-section label span[style*="underline"] {
     text-decoration: underline;
 }
+
+/* 유형 페이지 CSS */
+
+.field_page {
+    padding: 0;
+}
+
+.field_page label {
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.field_page input[type="checkbox"] {
+    margin-right: 5px;
+    font-weight: normal;
+}
+
+.field_page button {
+    font-weight: bold;
+    width: 120px;
+    background-color: #ff8e47;
+    color: white;
+    padding: 10px;
+    margin: 5px 0 10px 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+}
+
+.field_page button:hover {
+    background-color: #ff8e47;
+}
+
+/* 비밀번호 변경 페이지 CSS */
+
+.password_page {
+    padding: 0;
+    margin: 0 auto; /* 페이지 중앙 정렬 */
+}
+
+.password_page label {
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    margin: 15px 0 5px 0; /* 레이블과 입력 필드 사이의 간격 추가 */
+}
+
+.password_page input[type="password"] {
+    width: 60%; /* 전체 너비 사용 */
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin: 5px 0 10px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.password_page button {
+    font-weight: bold;
+    background-color: #ff8e47;
+    color: white;
+    padding: 10px;
+    margin: 20px auto 0 auto; /* 버튼을 중앙에 배치 */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.password_page button:hover {
+    background-color: #ff8e47;
+}
+
+/* 결제 내역 테이블 스타일 */
+.payment_section {
+    display: flex;
+    justify-content: center; /* 섹션을 가운데 정렬 */
+}
+
+.payment_content {
+    width: 60%; /* 섹션의 너비를 고정 */
+}
+
+.payment_table {
+    width: 100%; /* 테이블 너비를 섹션 너비에 맞게 설정 */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.payment_table th,
+.payment_table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.payment_table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.payment_notice {
+    width: 100%; /* 공지사항 너비를 섹션 너비에 맞게 설정 */
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.payment_notice .notice_title {
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+/* 추가한 CSS 스타일 */
+        .delete_form {
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+        }
+
+        .reasons {
+            margin-bottom: 20px;
+        }
+
+        .reasons label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .additional_info {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .additional_info ul {
+            padding-left: 20px;
+        }
+
+        .additional_info ul li {
+            margin-bottom: 10px;
+        }
+
+        #deleteButton {
+            float: right;
+        }

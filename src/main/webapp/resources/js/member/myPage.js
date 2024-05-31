@@ -24,15 +24,6 @@ function enablePhoneInput() {
     document.getElementById("phone").disabled = true;
     document.getElementById("phoneInputSection").style.display = "block";
 }
-
-
-/* 회원 유형 클릭시 */
-function enableUserType() {
-    var userTypeCheckboxes = document.getElementsByName("userType");
-    for (var i = 0; i < userTypeCheckboxes.length; i++) {
-        userTypeCheckboxes[i].disabled = false;
-    }
-}
 /* 비즈니스 유형 클릭시 */
 function enableBusinessField() {
     var businessFieldCheckboxes = document.getElementsByName("businessField");
@@ -40,3 +31,14 @@ function enableBusinessField() {
         businessFieldCheckboxes[i].disabled = false;
     }
 }
+
+/* 회원탈퇴 버튼 클릭 */
+document.getElementById('password').addEventListener('input', function() {
+            var password = document.getElementById('password').value;
+            var deleteButton = document.getElementById('deleteButton');
+            if (password.length > 0) {
+                deleteButton.disabled = false;
+            } else {
+                deleteButton.disabled = true;
+            }
+        });
