@@ -11,70 +11,69 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
 	<link rel="stylesheet" type="text/css" href="../../resources/css/common/index.css">
+
+	<script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
 	<%@ include file="/views/common/head.jsp"%>
 </head>
-<body>
 	<%@ include file="/views/common/header.jsp"%>
-    <main class="main">
-        <div class="main_container">
-            <form action="/form/proDetail.do" method="POST">
-                
-                <input type="text" class="detailTitle" name="detailTitle" id="detail_Title" placeholder="제목을 입력하세요.">
-                
-                <input type="text" class="secondTitle" name="secondTitle" id="second_Title" placeholder="페이지를 간단하게 소개하세요.">
+<body>
+	<main class="main">
+		<div class="main_container">
+			<form action="/BoardPro/enroll.do" id="enrollForm" method="POST" enctype="multipart/form-data">
 
-                <textarea id="editorTxt" class="detailContents" name="detailContents" placeholder="내용을 입력하세요."></textarea>
-                
-                <table class="checkTable">
-                    <thead class="checkThead">
-                        <th>NO</th>
-                        <th>의뢰타입</th>
-                        <th>기능추가</th>
-                        <th>작업일자</th>
-                        <th>수정회수</th>
-                        <th>작업비용</th>
-                    </thead>
-                    <tbody class="checkTbody">
-                        <tr> 
-                            <td>1</td>
-                            <td>STANDARD</td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="pay01" type="text"></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>DELUXE</td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="pay02" type="text"></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>PREMIUM</td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="" type="text"></td>
-                            <td><input class="inputStyle" name="pay03" type="text"></td>
-                        </tr>
-                    </tbody>
-                </table>
+				<input type="text" class="detailTitle" name="detailTitle" id="detail_Title" placeholder="제목을 입력하세요."> 
+				
+				<input type="text" class="secondTitle" name="secondTitle" id="second_Title" placeholder="페이지를 간단하게 소개하세요.">
 
-                <div class="insert">
-                    <form method="POST" onsubmit="return false;" enctype="multipart/form-data">
-                        <input type="file" onchange="addFile(this);" multiple />
-                        <div class="file-list"></div>
-                    </form>
-                </div>
+				<textarea id="editorTxt" class="detailContents" name="detailContents" placeholder="내용을 입력하세요."></textarea>
 
-                <button type="submit" class="detail_submit">등록</button>
-            </form>
-        </div>
-    </main>
-    <%@ include file="/views/common/footer.jsp"%>
+				<table class="checkTable">
+					<thead class="checkThead">
+						<th>NO</th>
+						<th>의뢰타입</th>
+						<th>자료수량</th>
+						<th>작업일자</th>
+						<th>수정회수</th>
+						<th>작업비용</th>
+					</thead>
+					<tbody class="checkTbody">
+						<tr>
+							<td>1</td>
+							<td name="business_type_standard">STANDARD</td>
+							<td><input class="inputStyle" name="standard_function" type="text"></td>
+							<td><input class="inputStyle" name="standard_workDate" type="text"></td>
+							<td><input class="inputStyle" name="standard_retouch" type="text"></td>
+							<td><input class="inputStyle" name="standard_pay" type="text"></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td name="business_type_deluxe">DELUXE</td>
+							<td><input class="inputStyle" name="deluxe_function" type="text"></td>
+							<td><input class="inputStyle" name="deluxe_workDate" type="text"></td>
+							<td><input class="inputStyle" name="deluxe_retouch" type="text"></td>
+							<td><input class="inputStyle" name="deluxe_pay" type="text"></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td name="business_type_premium">PREMIUM</td>
+							<td><input class="inputStyle" name="premium_funcion" type="text"></td>
+							<td><input class="inputStyle" name="premium_workDate" type="text"></td>
+							<td><input class="inputStyle" name="premium_retouch" type="text"></td>
+							<td><input class="inputStyle" name="premium_pay" type="text"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="insert">
+					<input type="file" name="file" id="file" multiple/>
+					<div class="file-list"></div>
+				</div>
+
+				<button type="submit" class="detail_submit" onclick="save();">등록</button>
+			</form>
+		</div>
+	</main>
+	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
-<script src="../../resources/js/boardProEnroll/fileUpload.js"></script>
-<script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
+
+	<script src="../../resources/js/boardProEnroll/fileUpload.js"></script>
