@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Form/*")
+@WebServlet("/form/*")
 public class FormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,17 +23,18 @@ public class FormController extends HttpServlet {
 		
 		String action = request.getPathInfo();
 		String nextPage = "";
-	
+		
 		if(action.equals("/enrollForm.do")) {
 			nextPage = "/views/board/boardProEnroll.jsp";
-		} else if(action.equals("")) {
-			
+		} else if(action.equals("/customerServiceEnrollForm.do")) {
+			nextPage = "/views/customerService/customerService/customerServiceEnroll.jsp"; // Q&A 작성
+		} else if (action.equals("/customerServiceListForm.do")){
+			nextPage = "/views/customerService/customerService/customerServiceList.jsp"; // Q&A 목록
 		}
 		
 		
 		
-		
-		if(nextPage != null && nextPage.isEmpty()) {
+		if(nextPage != null && !nextPage.isEmpty()) {
 			RequestDispatcher view = request.getRequestDispatcher(nextPage);
 			view.forward(request, response);
 		} else {

@@ -27,11 +27,13 @@
 		<!-- 네비게이션 -->
 		<div class="nav">
 
-			<li><a href="#">로그인</a></li>
+			<li><a href="/views/member/login.jsp">로그인</a></li>
 
-			<li><a href="#">회원가입</a></li>
+			<li><a href="/views/member/register.jsp">회원가입</a></li>
+			
+			<li><a href="/customerService/list.do">SERVICE</a></li>
 
-
+			<!-- <li><a href="">NOTICE</a></li> -->
 
 		</div>
 	</header>
