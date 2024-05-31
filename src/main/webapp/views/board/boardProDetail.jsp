@@ -10,24 +10,24 @@
     <%@ include file="/views/common/head.jsp"%>
 </head>
 <body>
-   	<%@ include file="/views/common/header.jsp"%>
+    <%@ include file="/views/common/header.jsp"%>
 
-    <div id="main">
-        <section class="detail_containor">
+    <main class="main_Detail">
+        <div class="detail_containor">
     
 
             <!---------------------------- Contents Left ---------------------------->
     
             <div class="left_contents">
-                <div class="main_img">
-                    <img src="../../resources/upload/9o1E31716716556.jpg" alt="잡오브브라더스" class="img_main">
+                <div class="left_contents_main_img">
+                    <img src="${resultF.fPath}" alt="${resultF.fName}" class="left_contents_img_main">
                 </div>
             
                 <div class="left_star">
                     <p class="star_style">★★★★★ <span class="star_point">5.0</span></p>
                 </div>
 
-                <section class="left_TabList">
+                <div class="left_TabList">
                     <input type="radio" name="tabmenu01" id="tabList01" checked>
                     <label class="tabMenuLabel" for="tabList01">서비스 설명</label>
                     <input type="radio" name="tabmenu01" id="tabList02">
@@ -51,22 +51,28 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="tableLine">기능 구현</td>
-                                    <td class="tableLine">응용프로그램</td>
-                                    <td class="tableLine">웹</td>
-                                    <td class="tableLine">보안</td>
+                                    <td class="tableLine">페이지</td>
+                                    <td class="tableLine">${resultS.sFuntion}</td>
+                                    <td class="tableLine">${resultD.dFuntion}</td>
+                                    <td class="tableLine">${resultP.pFuntion}</td>
                                 </tr>
                                 <tr>
                                     <td class="tableLine">수정 횟수</td>
-                                    <td class="tableLine">${BUSINESS_RETOUCH}</td>
-                                    <td class="tableLine">${BUSINESS_RETOUCH}</td>
-                                    <td class="tableLine">${BUSINESS_RETOUCH}</td>
+                                    <td class="tableLine">${resultS.sRetouch}</td>
+                                    <td class="tableLine">${resultD.dRetouch}</td>
+                                    <td class="tableLine">${resultP.pRetouch}</td>
+                                </tr>
+                                <tr>
+                                    <td class="tableLine">작업일</td>
+                                    <td class="tableLine">${resultS.sWorkdate}</td>
+                                    <td class="tableLine">${resultD.dWorkdate}</td>
+                                    <td class="tableLine">${resultP.pWorkdate}</td>
                                 </tr>
                                 <tr class="tableLine2">
-                                    <td class="tableLine">작업일</td>
-                                    <td class="tableLine">${BUSINESS_DATE}</td>
-                                    <td class="tableLine">${BUSINESS_DATE}</td>
-                                    <td class="tableLine">${BUSINESS_DATE}</td>
+                                    <td class="tableLine">금액</td>
+                                    <td class="tableLine">${resultS.sPay}</td>
+                                    <td class="tableLine">${resultD.dPay}</td>
+                                    <td class="tableLine">${resultP.pPay}</td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -101,7 +107,7 @@
 
                     </div>
                     <div class="conbox con5"></div>
-                </section>
+                </div>
             </div>
     
             <!---------------------------- Contents Right ---------------------------->
@@ -109,7 +115,7 @@
             <div class="right_contents">
                 <div class="right_up">
                     <img src="../../resources/img/Link_img.png" alt="공유하기_Link_img" class="img_link">
-                    <p style="font-size: 20px;">Title : 전문가 등록 제목 소스 기재</p>
+                    <span class="right_up_text">${result.bTitle}</span>
                 </div>
 
                 <section class="right_payTabList">
@@ -121,10 +127,10 @@
                     <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
                 
                     <div class="rightConbox rightCon1">
-                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
-                        <p class="vat">(VAT포함)</p>
+                        <span class="rightBox_businessMenuPay">${resultS.sPay}</span>
+                        <span class="vat">(VAT포함)</span>
                         <div class="rightBox_second_title">
-                            <span class="rightBox_sample1">${secondTitle}</span>
+                            <span class="rightBox_sample1">${result.bSecondTitle}</span>
                         </div>
                         <div class="rightBox_check_list_IT">
                             <div class="rightBox_check_list">
@@ -158,22 +164,22 @@
                         </div>
                         <div class="rightBox_check_list_inner">
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_TYPE)페이지</span>
+                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultS.sFuntion}</span>페이지</span>
                             </div>
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_FUNCTION)일</span>
+                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultS.sWorkdate}</span>일</span>
                             </div>
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_RETOUCH)회</span>
+                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.sRetouch}</span>회</span>
                             </div>
                         </div>
                         <button class="rightBox_buy_button" onclick="">구매하기</button>
                     </div>
                     <div class="rightConbox rightCon2">
-                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
-                        <p class="vat">(VAT포함)</p>
+                        <span class="rightBox_businessMenuPay">${resultD.dPay}</span>
+                        <span class="vat">(VAT포함)</span>
                         <div class="rightBox_second_title">
-                            <span class="rightBox_sample1">${secondTitle}</span>
+                            <span class="rightBox_sample1">${result.bSecondTitle}</span>
                         </div>
                         <div class="rightBox_check_list_IT">
                             <div class="rightBox_check_list">
@@ -207,22 +213,22 @@
                         </div>
                         <div class="rightBox_check_list_inner">
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_TYPE)페이지</span>
+                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultD.dFuntion}</span>페이지</span>
                             </div>
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_FUNCTION)일</span>
+                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultD.dWorkdate}</span>일</span>
                             </div>
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_RETOUCH)회</span>
+                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.dRetouch}</span>회</span>
                             </div>
                         </div>
                         <button class="rightBox_buy_button" onclick="">구매하기</button>
                     </div>
                     <div class="rightConbox rightCon3">
-                        <p class="rightBox_businessMenuPay">(BUSINESS_MENU)</p>
-                        <p class="vat">(VAT포함)</p>
+                        <span class="rightBox_businessMenuPay">${resultP.dPay}</span>
+                        <span class="vat">(VAT포함)</span>
                         <div class="rightBox_second_title">
-                            <span class="rightBox_sample1">${secondTitle}</span>
+                            <span class="rightBox_sample1">${result.bSecondTitle}</span>
                         </div>
                         <div class="rightBox_check_list_IT">
                             <div class="rightBox_check_list">
@@ -256,13 +262,13 @@
                         </div>
                         <div class="rightBox_check_list_inner">
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_TYPE)페이지</span>
+                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultS.pFuntion}</span>페이지</span>
                             </div>
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_FUNCTION)일</span>
+                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultS.pWorkdate}</span>일</span>
                             </div>
                             <div class="rightBox_check_list">
-                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner">(BUSINESS_MENU-BM_RETOUCH)회</span>
+                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.pRetouch}</span>회</span>
                             </div>
                         </div>
                         <button class="rightBox_buy_button" onclick="">구매하기</button>
@@ -276,12 +282,9 @@
 
 
 
-                <!-- <div class="pay_Type">
-                    
-                </div> -->
             </div>
-        </section>
-    </div>
+        </div>
+    </main>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>

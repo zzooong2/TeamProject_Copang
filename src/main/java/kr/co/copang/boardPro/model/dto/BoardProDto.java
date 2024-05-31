@@ -7,9 +7,6 @@ public class BoardProDto {
 	private String boardProSecondTitle;
 	private String boardProContents;
 	
-
-	
-
 	private int boardProViews;
 	private String boardProIndate;
 	private String boardProUpdate;
@@ -26,16 +23,26 @@ public class BoardProDto {
 	private String partName;
 	
 	private int businessMenuNo;
-	private String businessType;
+	
 	private int businessFunction;
 	private int businessRetouch;
 	private int businessPay;
+	private int businessDate;
 	
 	private int fileNo;
 	private String filePath;
 	private String fileName;
 	
+	public BoardProDto() {
+		super();
+	}
 	
+	public BoardProDto(int businessFunction,int businessRetouch,int businessPay, int businessDate) {
+		this.businessFunction = businessFunction;
+		this.businessRetouch = businessRetouch;
+		this.businessPay = businessPay;
+		this.businessDate = businessDate;
+	}
 	
 	
 //	------------------------------------ Getter ------------------------------------
@@ -104,10 +111,6 @@ public class BoardProDto {
 		return businessMenuNo;
 	}
 	
-	public String getBusinessType() {
-		return businessType;
-	}
-	
 	public int getBusinessFunction() {
 		return businessFunction;
 	}
@@ -118,6 +121,10 @@ public class BoardProDto {
 	
 	public int getBusinessPay() {
 		return businessPay;
+	}
+	
+	public int getBusinessDate() {
+		return businessDate;
 	}
 	
 	public int getFileNo() {
@@ -201,10 +208,6 @@ public class BoardProDto {
 		this.businessMenuNo = businessMenuNo;
 	}
 	
-	public void setBusinessType(String businessType) {
-		this.businessType = businessType;
-	}
-	
 	public void setBusinessFunction(int businessFunction) {
 		this.businessFunction = businessFunction;
 	}
@@ -215,6 +218,10 @@ public class BoardProDto {
 	
 	public void setBusinessPay(int businessPay) {
 		this.businessPay = businessPay;
+	}
+	
+	public void setBusinessDate(int businessDate) {
+		this.businessDate = businessDate;
 	}
 	
 	public void setFileNo(int fileNo) {
