@@ -81,10 +81,38 @@ header {
     gap: 20px;
 }
 .nav li{
+	padding: 5px;
     width: 70px;
     display: inline-block;
+    text-align: center;
 }   
 
+.login a:hover{
+    padding-bottom: 32px;
+    border-bottom: 10px solid #ff8e47;
+}
+
+.register{
+    padding: 5px;
+    height: 100%;
+    width: 70px;
+    background-color: #ff8e47;
+    border-radius: 10px;
+}
+.register a{
+    color: #fff;
+}
+
+.register:hover{
+    height: 100%;
+    width: 70px;
+    border:none;
+    background-color: #fff;
+}
+
+.register a:hover{
+    color: #000;
+}
 
 /* 2Depth */
 
