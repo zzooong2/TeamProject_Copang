@@ -1,7 +1,4 @@
 /* -------------------- Right Contents 2-------------------- */
-
-
-
 .Detail_right_TopTitle {
     height: 50px;
     padding-top: 50px;
@@ -15,7 +12,6 @@
     font-weight: bold;
     color: rgb(80, 80, 80);
 }
-
 
 
 
@@ -96,6 +92,11 @@
     margin: 0;
 }
 
+.input_select:focus {
+    outline: none;
+    background-color: rgb(240, 252, 255);
+}
+
 .Detail_right_Type_Text {
     display: block;
     margin-top: 20px;
@@ -106,7 +107,7 @@
 }
 
 
-.type_box1 {
+.Detail_right_type_box1 {
     border: 1px solid rgb(218, 218, 218);
     border-radius: 5px;
     margin-left: 30px;
@@ -120,13 +121,13 @@
     align-items: center;
 }
 
-.type_box1_text {
+.Detail_right_box1_text {
     width: 180px;
     margin: 0;
     display: inline-block;
 }
 
-.type_box2 {
+.Detail_right_type_box2 {
     border: 1px solid rgb(218, 218, 218);
     border-radius: 5px;
     margin-left: 30px;
@@ -140,12 +141,13 @@
     align-items: center;
 }
 
-.type_box3 {
+.Detail_right_type_box3 {
     border: 1px solid rgb(218, 218, 218);
     border-radius: 5px;
     margin-left: 30px;
     margin-right: 30px;
     margin-top: 20px;
+    margin-bottom: 20px;
     height: 50px;
     font-size: 14px;
     font-weight: bold;
@@ -154,13 +156,11 @@
     align-items: center;
 }
 
-.input_select:focus {
-    outline: none;
-}
+
 
 .type_box_Input {
-    height: 45px;
-    width: 580px;
+    height: 30px;
+    width: 600px;
     border: none;
     font-weight: bold;
     color: rgb(80, 80, 80);
@@ -223,11 +223,13 @@
 
 
 /* ------------------------ Right Toggle On ------------------------------ */
+.toggleContent {
+    margin-left: 30px;
+    margin-right: 30px;
+}
 
 .Detail_right_Type2_Title {
     margin: 0;
-    margin-right: 50px;
-    padding-right: 50px;
     display: flex;
     justify-content: space-between;
 }
@@ -236,8 +238,8 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    margin-left: 200px;
-    margin-right: 30px;
+    margin-left: 150px;
+    padding-right: 50px;
     font-size: 25px;
     border-bottom: 2px solid rgb(80, 80, 80);
 }
@@ -250,20 +252,16 @@
 .Detail_right_Type2_Box {
     border: 1px solid rgb(218, 218, 218);
     margin-top: -1px;
-    margin-right: 30px;
     height: 50px;
     font-size: 14px;
     font-weight: bold;
     color: gray;
     display: flex;
     align-items: center;
-    padding-left: 20px;
 }
 
 .Detail_right_Type2_Box1 {
     border: 1px solid rgb(218, 218, 218);
-    margin-right: 30px;
-    padding-right: 20px;
     margin-top: 20px;
     height: 100px;
     font-size: 14px;
@@ -271,30 +269,56 @@
     color: gray;
     display: flex;
     align-items: center;
-    padding-left: 20px;
 }
 
 .Detail_right_Type2_Box2 {
     border: 1px solid rgb(218, 218, 218);
     margin-top: -1px;
-    margin-right: 30px;
-    padding-right: 20px;
-    height: 200px;
+    height: 180px;
     font-size: 14px;
     font-weight: bold;
     color: gray;
     display: flex;
     align-items: center;
-    padding-left: 20px;
 }
 
-.Detail_right_Type2_Text {
-    width: 140px;
+.Detail_right_Type2_ON_smallbox{
+    width: 25%;
     height: 100%;
     margin: 0;
     display: flex;
-    border-right: 1px solid rgb(218, 218, 218);
     align-items: center;
+    border-right: 1px solid rgb(218, 218, 218);
+    font-size: 12px;
+}
+
+.Detail_right_Type2_ON_smallbox2{
+    width: 120px;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: rgb(240, 240, 240);
+    border-right: 1px solid rgb(218, 218, 218);
+    font-size: 12px;
+}
+
+.Detail_right_Type2_ON_selectbox {
+    width: 30%;
+    height: 100%;
+    margin: 0;
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgb(218, 218, 218);
+    font-size: 12px;
+
+}
+
+.Detail_right_Type2_Text {
+    align-items: center;
+    margin: 0;
+    margin-left: 10px;
 }
 
 .Detail_right_Type2_check {
@@ -306,10 +330,36 @@
 
 .Detail_right_Type2_input {
     margin: 0;
-    width: 220px;
-    height: 90%;
+    padding: 0;
+    padding-left: 5px;
+    width: 30%;
+    height: 100%;
+    border: none;
+    border-right: 1px solid rgb(218, 218, 218);
+    background-color: none;
+    font-size: 12px;
+}
+
+.Detail_right_Type2_input2 {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    height: 100%;
     border: none;
     background-color: none;
+    font-size: 12px;
+}
+
+.Detail_right_Type2_select {
+    margin: 0;
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: none;
+    font-weight: bolder;
+    color: rgb(180, 180, 180);
+    font-size: 12px;
 }
 
 .Detail_right_Type2_input:focus {
@@ -317,6 +367,7 @@
 }
 
 .Detail_right_Type2_input::placeholder,
+.Detail_right_Type2_input2::placeholder,
 .type_box_Input6::placeholder {
     font-weight: bold;
     color: rgb(180, 180, 180);
@@ -328,10 +379,13 @@
 }
 
 .Detail_right_Type2_unit {
+    width: 10%;
     margin: 0;
 }
 
-
+.Detail_right_Type2_Box_margin {
+    margin-bottom: 20px;
+}
 
 
 

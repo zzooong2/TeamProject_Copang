@@ -1,0 +1,186 @@
+/* -------------------- Detail Page Contents -------------------- */
+/* .main {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    padding-top: 20px;
+} */
+
+.BoardProEnroll_formStyle {
+    margin: 0;
+}
+
+.Detail_down {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+}
+
+/* -------------------- Down Contents -------------------- */
+
+.Detail_down {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    display: flex;
+}
+
+
+
+/* -------------------- Left Contents -------------------- */
+.Detail_left_Contents {
+    margin: 0;
+    padding-top: 50px;
+    width: 20%;
+    height: auto;
+    border: 2px solid #ebebeb;
+}
+
+.Detail_left_guide {
+    display : flex;
+    align-items: center;
+}
+
+#Detail_left_guide1 {
+    margin: 0;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: #ff8e47;
+}
+
+#Detail_left_text1 {
+    margin: 0;
+    margin-left: 10px;
+    width: 120px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.Detail_left_number {
+    margin: 0;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+}
+
+
+
+
+.Detail_left_numbercheck {
+    background-color: #ff8e47;
+    color: white;
+}
+
+.Detail_left_text {
+    margin: 0;
+    margin-left: 10px;
+    width: 120px;
+    color: lightgray;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#Detail_left_guide_Change1 {
+    background-color: #ff8e47;
+    color: white;
+}
+
+#Detail_left_Chane_text1 {
+    color: black
+}
+
+.left_text_main {
+    margin: 0;
+    margin-left: 10px;
+    color: rgb(53, 53, 53);
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+
+/* -------------------- Right Contents 3-------------------- */
+.Detail_right_Contents3 {
+    margin-left: -1px;
+    width: 80%;
+    height: auto;
+    border: 2px solid #ebebeb;
+}
+
+.Detail_right_Contents3_box_text {
+    height: 300px;
+}
+
+.Detail_right_Contents3_box {
+    margin: 0;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    display: flex;
+    border: 1px solid rgb(218, 218, 218);
+}
+
+.Detail_right_Contents3_box_Title {
+    width: 120px;
+    height: 200px;
+    padding-top: 10px;
+    margin: 0;
+    margin-top: 3px;
+}
+
+.Detail_right_Contents3_Textarea {
+    width: 95%;
+    height: 300px;
+}
+
+.Detail_right_Contents3_box_check {
+    color: #ff8e47;
+    font-weight: bold;
+}
+
+.Detail_right_Contents4_imagePreview {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+}
+
+.Detail_right_Contents4_imagePreview img {
+    width: 100%;
+    height: auto;
+}
+
+.Detail_right_Contents4_deleteButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+}
+

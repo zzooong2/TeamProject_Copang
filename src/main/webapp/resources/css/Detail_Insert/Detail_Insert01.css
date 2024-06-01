@@ -1,10 +1,7 @@
 /* -------------------- Detail Page Contents -------------------- */
-.main {
-    display: flex;
-    justify-content: center;
+/* .main {
     height: auto;
-    padding-top: 20px;
-}
+} */
 
 .BoardProEnroll_formStyle {
     margin: 0;
@@ -47,6 +44,45 @@
     align-items: center;
 }
 
+/* .Detail_left_number {
+    margin: 0;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+} */
+
+
+#Detail_left_guide1 {
+    margin: 0;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: #ff8e47;
+}
+
+#Detail_left_text1 {
+    margin: 0;
+    margin-left: 10px;
+    width: 120px;
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .Detail_left_number {
     margin: 0;
     margin-left: 20px;
@@ -60,6 +96,9 @@
     color: gray;
     font-weight: bold;
 }
+
+
+
 
 .Detail_left_numbercheck {
     background-color: #ff8e47;
@@ -116,6 +155,8 @@
     margin-top: 50px;
 }
 
+
+
 .Detail_right_Contents1_Title_Input{
     height: 45px;
     width: 500px;
@@ -123,6 +164,13 @@
     font-weight: bold;
     color: rgb(80, 80, 80);
 }
+
+.Detail_right_type_box {
+    width: 20%;
+    padding-left: 30px;
+}
+
+
 
 .Detail_right_Contents1_box1 {
     border: 1px solid rgb(218, 218, 218);
@@ -160,12 +208,20 @@
     color: rgb(80, 80, 80);
 }
 
+.Detail_right_Contents1_imgbox {
+    margin: 20px 0;
+    text-align: center;
+}
 
+.Detail_right_Contents1_img {
+    margin: 10px auto;
+}
 
 /* ------------------ Page Move Button -------------------- */
 
 .boardProEnroll_Button_All{
     display: flex;
+    float: right;
     margin-top: 10px;
     margin-bottom: 30px;
     gap: 10px;
@@ -173,15 +229,47 @@
 
 .boardProEnroll_ButtonStyle1 {
     display: none;
+    margin-right: 10px;
     width: 100px;
     height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(230, 230, 230);
+    color: gray;
     font-weight: bolder;
 }
 
+.boardProEnroll_ButtonStyle1:hover {
+    background-color: rgb(180, 180, 180);
+    color: white;
+}
+
+
 .boardProEnroll_ButtonStyle2 {
     display: block;
+    margin-right: 10px;
     width: 100px;
     height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(230, 230, 230);
+    color: gray;
+    font-weight: bolder;
+}
+
+.boardProEnroll_ButtonStyle2:hover {
+    background-color: rgb(180, 180, 180);
+    color: white;
+}
+
+.boardProEnroll_ButtonStyle3 {
+    display: none;
     margin-right: 10px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff8e47;
+    color: white;
     font-weight: bolder;
 }
