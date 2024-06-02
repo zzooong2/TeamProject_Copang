@@ -14,8 +14,8 @@
     <link rel="stylesheet" type="text/css" href="../../resources/css/Detail_Insert/Detail_Insert04.css">
     <script src="https://kit.fontawesome.com/1992e1ad9e.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
-    <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+    <!-- <script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
+    <script type="text/javascript" src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script> -->
     
     
     <!-- <%@ include file="/views/common/head.jsp"%> -->
@@ -58,7 +58,7 @@
 
 
     <main class="main">
-        <!-- <form class="BoardProEnroll_formStyle" action="/BoardPro/enroll.do" id="enrollForm" method="POST" enctype="multipart/form-data"> -->
+        <form class="BoardProEnroll_formStyle" action="/BoardPro/enroll.do" id="enrollForm" method="POST" enctype="multipart/form-data">
             <div class="Detail_down">
     
                 <!-- =============================================================== Left Contents =============================================================== -->
@@ -75,9 +75,6 @@
                     </div>
                     <div class="Detail_left_guide">
                         <div class="Detail_left_number Detail_left_guide4" id="Detail_left_guide4">4</div><span class="Detail_left_text Detail_left_text4" id="Detail_left_text4">이미지</span>
-                    </div>
-                    <div class="Detail_left_guide">
-                        <div class="Detail_left_number Detail_left_guide5" id="Detail_left_guide5">5</div><span class="Detail_left_text Detail_left_text5" id="Detail_left_text5">요청사항</span>
                     </div>
                 </div>
                 
@@ -136,9 +133,7 @@
                                 <input type="checkbox" class="right_toggle_checkbox" id="right_toggle_slider">
                                 <span class="toggle_slider"></span>
                             </div>
-                            <label for="right_toggle_slider" class="toggle-label" id="right_toggle_sliderLabel"><span>패키지로
-                                    가격
-                                    설정</span></label>
+                            <label for="right_toggle_slider" class="toggle-label" id="right_toggle_sliderLabel"><span>패키지로 가격 설정</span></label>
                         </div>
                     </div>
     
@@ -262,8 +257,8 @@
     
                     <!-- -------------------------------- Toggle On -------------------------------- -->
     
-                    <div class="toggleContent" id="toggleContent" style="display: none;">
-                        <div class="Detail_right_Type2_ON" id="toggleContentOn">
+                    <div class="toggleContent" id="toggleContentOn" style="display: none;">
+                        <div class="Detail_right_Type2_ON">
                             <div class="Detail_right_Type2_TextAll">
                                 <span class="Detail_right_Type2_Title">STANDARD</span>
                                 <span class="Detail_right_Type2_Title">DELUXE</span>
@@ -631,9 +626,17 @@
 
                 <!-- =============================================================== Right Contents 3 =============================================================== -->
                 <div class="Detail_right_Contents3" id="Detail_right_Contents3" style="display: none;">
-                    <div class="Detail_right_Contents3_Title">
-                        <div class="Detail_right_Contents3_box1"><span class="Detail_right_type_box">&nbsp;&nbsp;제목<span class="Detail_right_check">*</span></span>
-                            <textarea class="Detail_right_Contents3_Textarea" name="Detail_right_Contents3_Textarea" id="editorTxt"></textarea>
+                    <div class="Detail_right_Contents3_box">
+                        <div class="Detail_right_Contents3_Titlebox">
+                            <span class="Detail_right_type_box_Title">서비스 설명<span class="Detail_right_check">*</span></span>
+                        </div>
+                        <div class="Detail_right_Contents3_Textbox">
+                            <div class="Detail_right_Contents3_Textbox_buttonAll">
+                                <button type="button" class="Detail_right_Contents3_Boldbutton" id="boldButton">B</button>
+                                <button type="button" class="Detail_right_Contents3_Italicbutton" id="italicButton">I</button>
+                                <button type="button" class="Detail_right_Contents3_Underlinebutton" id="underlineButton">U</button>
+                            </div>
+                            <div class="Detail_right_Contents3_Textarea" id="Detail_right_Contents3_Textarea" contenteditable="true"></div>
                         </div>
                     </div>
                 </div>
@@ -649,7 +652,7 @@
                             <div id="imageCountDisplay1" class="imageCountDisplay">0/1</div>
                         </div>
                         <input class="Detail_right_Contents4_input" type="file" id="Detail_right_Contents4_fileInput1" accept="image/*">
-                        <div class="Detail_right_Contents4_preview" id="Detail_right_Contents4_imagePreviews1"></div>
+                        <div class="Detail_right_Contents4_preview1" id="Detail_right_Contents4_imagePreviews1"></div>
                     </div>
                     <div class="Detail_right_Contents4_box2">
                         <div class="Detail_right_Contents4_UploadTitle">
@@ -657,16 +660,7 @@
                             <div id="imageCountDisplay2" class="imageCountDisplay">0/5</div>
                         </div>
                         <input class="Detail_right_Contents4_input" type="file" id="Detail_right_Contents4_fileInput2" accept="image/*" multiple>
-                        <div class="Detail_right_Contents4_preview" id="Detail_right_Contents4_imagePreviews2"></div>
-                    </div>
-                </div>
-
-
-
-
-                <!-- =============================================================== Right Contents 5 =============================================================== -->
-                <div class="Detail_right_Contents5" id="Detail_right_Contents5" style="display: none;">
-                    <div class="Detail_right_Contents5_box">
+                        <div class="Detail_right_Contents4_preview2" id="Detail_right_Contents4_imagePreviews2"></div>
                     </div>
                 </div>
 
@@ -676,7 +670,7 @@
                 <!-- =============================================================================================================================================== -->
             </div>
             <div class="boardProEnroll_Button_All">
-                <button class="boardProEnroll_ButtonStyle1" id="boardProEnroll_Next_Button1">이전으로</button><button class="boardProEnroll_ButtonStyle2" id="boardProEnroll_Next_Button2">다음으로</button><button type="submit" class="boardProEnroll_ButtonStyle3" id="boardProEnroll_Next_Button3">제출</button>
+                <button type="button" class="boardProEnroll_ButtonStyle1" id="boardProEnroll_Next_Button1">이전으로</button><button type="button" class="boardProEnroll_ButtonStyle2" id="boardProEnroll_Next_Button2">다음으로</button><button type="submit" class="boardProEnroll_ButtonStyle3" id="boardProEnroll_Next_Button3">제출</button>
             </div>
         <!-- </form> -->
     </main>
@@ -701,6 +695,7 @@
         </footer>
 </body>
 <script src="../../resources/js/boardProEnroll/Detail_Insert02.js"></script>
+<script src="../../resources/js/boardProEnroll/Detail_Insert03.js"></script>
 <script src="../../resources/js/boardProEnroll/fileUpload.js"></script>
 </html>
 

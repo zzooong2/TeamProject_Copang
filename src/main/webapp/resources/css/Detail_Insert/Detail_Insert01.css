@@ -1,7 +1,4 @@
 /* -------------------- Detail Page Contents -------------------- */
-/* .main {
-    height: auto;
-} */
 
 .BoardProEnroll_formStyle {
     margin: 0;
@@ -9,16 +6,9 @@
 
 .Detail_down {
     width: 100%;
-    height: auto;
+    height: 600px;
     margin: 0;
     display: flex;
-}
-
-/* -------------------- Top Contents -------------------- */
-.Logo_img {
-    width: 100px;
-    height: 100px;
-    margin-left: 20px;
 }
 
 .Detail_down {
@@ -27,6 +17,7 @@
     margin: 0;
     display: flex;
 }
+
 
 
 
@@ -43,21 +34,6 @@
     display : flex;
     align-items: center;
 }
-
-/* .Detail_left_number {
-    margin: 0;
-    margin-left: 20px;
-    width: 30px;
-    height: 30px;
-    border: 1px solid lightgray;
-    border-radius: 5px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: gray;
-    font-weight: bold;
-} */
-
 
 #Detail_left_guide1 {
     margin: 0;
@@ -96,9 +72,6 @@
     color: gray;
     font-weight: bold;
 }
-
-
-
 
 .Detail_left_numbercheck {
     background-color: #ff8e47;
