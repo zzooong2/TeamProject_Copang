@@ -4,7 +4,7 @@ function showSection(sectionId) {
     for (var i = 0; i < sections.length; i++) {
         sections[i].style.display = 'none';
     }
-    
+
     // 선택된 섹션 보이기
     var selectedSection = document.getElementById(sectionId);
     if (selectedSection) {
@@ -13,10 +13,10 @@ function showSection(sectionId) {
 }
 
 // 페이지 로드 시 기본 섹션 보이기
-window.onload = function() {
+window.onload = function () {
     const header = document.getElementsByTagName("header")[0];
     header.style.position = "unset";
-    
+
     showSection('profile');
 }
 /* 번호 변경 클릭시 */
@@ -32,13 +32,20 @@ function enableBusinessField() {
     }
 }
 
-/* 회원탈퇴 버튼 클릭 */
-document.getElementById('password').addEventListener('input', function() {
-            var password = document.getElementById('password').value;
-            var deleteButton = document.getElementById('deleteButton');
-            if (password.length > 0) {
-                deleteButton.disabled = false;
-            } else {
-                deleteButton.disabled = true;
-            }
-        });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const passwordInput = document.getElementById("password");
+    const deleteButton = document.getElementById("deleteButton");
+
+    // 비밀번호 입력 시 버튼 활성화
+    passwordInput.addEventListener("input", function () {
+        const password = passwordInput.value.trim();
+
+        // 비밀번호 입력 확인
+        if (password.length > 0) {
+            deleteButton.removeAttribute("disabled");
+        } else {
+            deleteButton.setAttribute("disabled", "disabled");
+        }
+    });
+});

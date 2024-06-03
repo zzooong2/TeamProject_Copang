@@ -48,7 +48,6 @@ body {
 .content {
     flex-grow: 1;
     padding: 20px;
-    
 }
 
 .section {
@@ -158,8 +157,12 @@ body {
     padding: 0;
 }
 
-.field_page label {
+.field_page label[for="business"] {
+	font-size: 16px;
     font-weight: bold;
+	
+}	
+.field_page label {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -273,38 +276,59 @@ body {
 }
 
 
-/* 추가한 CSS 스타일 */
-        .delete_form {
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            margin-bottom: 20px;
-        }
+.delete_form .p_text{
+font-weight: bold;
+	
+}
+.delete_form label[for="password"]{
+	font-weight: bold;
+	font-size: 16px;
+}
+.delete_form {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: auto;
+    box-sizing: border-box;
+}
 
-        .reasons {
-            margin-bottom: 20px;
-        }
+.reasons {
+    margin-bottom: 20px;
+}
 
-        .reasons label {
-            display: block;
-            margin-bottom: 10px;
-        }
+.reasons label {
+    display: block;
+    margin-bottom: 10px;
+}
 
-        .additional_info {
-            background-color: #f0f0f0;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
+.additional_info {
+    font-size: 14px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
 
-        .additional_info ul {
-            padding-left: 20px;
-        }
+.additional_info ul {
+    padding-left: 20px;
+}
 
-        .additional_info ul li {
-            margin-bottom: 10px;
-        }
+.additional_info ul li {
+    margin-bottom: 5px;
+}
 
-        #deleteButton {
-            float: right;
-        }
+#deleteButton {
+    float: right;
+    font-weight: bold;
+    background-color: #ff8e47;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+#deleteButton:hover {
+    background-color: #ff8e47;
+}
