@@ -30,6 +30,7 @@
 		<div class="nav">
 
 
+
 	<c:choose>
 	
 		<c:when test="${sessionScope.userId != null}">
@@ -45,6 +46,9 @@
 		</c:otherwise>
 	
 	</c:choose>
+
+
+
 
 		</div>
 	</header>

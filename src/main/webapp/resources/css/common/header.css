@@ -81,17 +81,18 @@ header {
     gap: 20px;
 }
 .nav li{
-	padding: 5px;
+    padding: 5px;
     width: 70px;
     display: inline-block;
     text-align: center;
-}   
-
+}
+/* 로그인 버튼 효과 */
 .login a:hover{
     padding-bottom: 32px;
     border-bottom: 10px solid #ff8e47;
 }
 
+/* 회원가입 버튼 */
 .register{
     padding: 5px;
     height: 100%;
@@ -110,7 +111,7 @@ header {
     background-color: #fff;
 }
 
-.register a:hover{
+.register:hover > a{
     color: #000;
 }
 
@@ -152,8 +153,6 @@ header {
     text-align: center;
     line-height: 50px;
 }
-
-
 
 
 a {
