@@ -111,7 +111,10 @@ tbody > tr > td{
     color: white;
 }
 
-
+/* ------------- 디테일페이지 넘어가기 ------------- */
+.get-detail:hover{
+	color: #d3d3d3;
+}
 
 
 

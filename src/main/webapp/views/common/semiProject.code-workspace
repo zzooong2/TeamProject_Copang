@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../../.."
+		},
+		{
+			"path": "../../../../../../../green/Green/src/kr/co/JavaScript"
+		},
+		{
+			"path": "../../../../../../../green/Green/src/kr/co/css"
+		},
+		{
+			"path": "../../../../../../../green/Green/src/kr/co/html"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "semiProject"
+	}
+}

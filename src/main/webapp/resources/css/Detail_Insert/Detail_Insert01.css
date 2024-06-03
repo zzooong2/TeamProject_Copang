@@ -2,6 +2,13 @@
 
 .BoardProEnroll_formStyle {
     margin: 0;
+    
+
+}
+
+.BoardProEnroll_alignStyle {
+	display: flex;
+    flex-direction: column;
 }
 
 .Detail_down {
@@ -9,16 +16,8 @@
     height: 600px;
     margin: 0;
     display: flex;
+    
 }
-
-.Detail_down {
-    width: 100%;
-    height: auto;
-    margin: 0;
-    display: flex;
-}
-
-
 
 
 /* -------------------- Left Contents -------------------- */
@@ -87,15 +86,6 @@
     font-size: 18px;
 }
 
-#Detail_left_guide_Change1 {
-    background-color: #ff8e47;
-    color: white;
-}
-
-#Detail_left_Chane_text1 {
-    color: black
-}
-
 .left_text_main {
     margin: 0;
     margin-left: 10px;
@@ -110,6 +100,8 @@
     margin-left: -1px;
     width: 80%;
     height: auto;
+    display: flex;
+    justify-content: center;
     border: 2px solid #ebebeb;
 }
 
@@ -126,11 +118,14 @@
 
 .Detail_right_Contents1_Title {
     margin-top: 50px;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 100%;
 }
 
 
 
-.Detail_right_Contents1_Title_Input{
+.Detail_right_Contents1_Title_Input {
     height: 45px;
     width: 500px;
     border: none;
@@ -138,21 +133,43 @@
     color: rgb(80, 80, 80);
 }
 
-.Detail_right_type_box {
-    width: 20%;
-    padding-left: 30px;
+.Detail_right_Contents1_Title_Input:focus {
+	outline: none;
 }
 
+.Detail_right_type_box {
+    width: 150px;
+    margin: 0;
+    padding-left: 10px;
+}
 
+.Detail_right_type_box_Category {
+	width: 150px;
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+}
 
-.Detail_right_Contents1_box1 {
-    border: 1px solid rgb(218, 218, 218);
+.Detail_right_Contents1_box {
+	border: 1px solid rgb(218, 218, 218);
     border-radius: 5px;
     margin-left: 30px;
     margin-right: 30px;
     margin-top: 10px;
-    
+    height: auto;
+    width: 90%;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    display: flex;
+}
+
+.Detail_right_Contents1_box1 {
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
+    margin: 10px 0;
     height: 50px;
+    width: 90%;
     font-size: 14px;
     font-weight: bold;
     color: gray;
@@ -163,10 +180,10 @@
 .Detail_right_Contents1_box2 {
     border: 1px solid rgb(218, 218, 218);
     border-radius: 5px;
+    margin: 10px 0;
     margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 20px;
-    height: 300px;
+    height: 50px;
+    width: 90%;
     font-size: 14px;
     font-weight: bold;
     color: gray;
@@ -174,12 +191,22 @@
     align-items: center;
 }
 
+.Detail_right_Catecory_List {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	margin-right: 20px;
+	width: 80%;
+}
+
+
 .Detail_right_Contents1_Category_Style {
-    height: 50px;
-    width: 600px;
+    height: 45px;
+    width: 100%;
     border: none;
     font-weight: bold;
-    color: rgb(80, 80, 80);
+    color: gray;
+    outline: none;
 }
 
 .Detail_right_Contents1_imgbox {
@@ -201,6 +228,7 @@
     display: flex;
     float: right;
     margin-top: 10px;
+    margin-right: 0;
     margin-bottom: 30px;
     gap: 10px;
 }
