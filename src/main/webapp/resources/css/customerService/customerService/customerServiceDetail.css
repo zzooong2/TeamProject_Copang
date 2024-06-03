@@ -9,7 +9,7 @@
 }
 
 /* ------------- page title ------------- */
-.notice-text{
+.customer-text{
     position: relative;
 	top: 15%;
 	left: 20%;
@@ -25,7 +25,7 @@
     border: none;
 }
 
-.notice-title {
+.board-title {
     position: relative;
     left: 10%;
     margin-top: 5%;
@@ -40,7 +40,7 @@
     padding-top: 1.5% */
 }
 
-.notice-content{
+.board-contents{
     margin-top: 40px;
     position: relative;
     left: 10%;
@@ -49,9 +49,10 @@
     height: 400px;
     font-size: 15px;
     text-align: left;
+   	overflow-wrap: break-word;
 }
 
-.notice-writer{
+.board-writer{
     display: inline-block;
     position: relative;
     left: 20%;
