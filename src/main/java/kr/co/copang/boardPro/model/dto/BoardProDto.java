@@ -4,13 +4,13 @@ public class BoardProDto {
 
 	private int boardProNo;
 	private String boardProTitle;
-	private String boardProSecondTitle;
+	private String boardProCategory;
+	private String boardProServiceType;
 	private String boardProContents;
-	
-	private int boardProViews;
 	private String boardProIndate;
 	private String boardProUpdate;
 	private String boardProDelete;
+	private int boardProViews;
 	
 	private int userNo;
 	private String userName;
@@ -23,11 +23,13 @@ public class BoardProDto {
 	private String partName;
 	
 	private int businessMenuNo;
-	
-	private int businessFunction;
-	private int businessRetouch;
-	private int businessPay;
-	private int businessDate;
+	private String businessServiceName;
+	private String businessServiceGuide;
+	private int businessServicePay;
+	private int businessWorkDate;
+	private int businessServiceRetouch;
+	private int businessConsulting;
+	private int businessConsultingTime;
 	
 	private int fileNo;
 	private String filePath;
@@ -43,10 +45,20 @@ public class BoardProDto {
 		this.businessPay = businessPay;
 		this.businessDate = businessDate;
 	}
+
+
+
+
+
+
+
+
 	
 	
 //	------------------------------------ Getter ------------------------------------
 	
+
+
 	public int getBoardProNo() {
 		return boardProNo;
 	}
@@ -55,16 +67,16 @@ public class BoardProDto {
 		return boardProTitle;
 	}
 	
-	public String getBoardProSecondTitle() {
-		return boardProSecondTitle;
+	public String getBoardProCategory() {
+		return boardProCategory;
+	}
+	
+	public String getBoardProServiceType() {
+		return boardProServiceType;
 	}
 	
 	public String getBoardProContents() {
 		return boardProContents;
-	}
-	
-	public int getBoardProViews() {
-		return boardProViews;
 	}
 	
 	public String getBoardProIndate() {
@@ -77,6 +89,10 @@ public class BoardProDto {
 	
 	public String getBoardProDelete() {
 		return boardProDelete;
+	}
+	
+	public int getBoardProViews() {
+		return boardProViews;
 	}
 	
 	public int getUserNo() {
@@ -111,20 +127,32 @@ public class BoardProDto {
 		return businessMenuNo;
 	}
 	
-	public int getBusinessFunction() {
-		return businessFunction;
+	public String getBusinessServiceName() {
+		return businessServiceName;
 	}
 	
-	public int getBusinessRetouch() {
-		return businessRetouch;
+	public String getBusinessServiceGuide() {
+		return businessServiceGuide;
 	}
 	
-	public int getBusinessPay() {
-		return businessPay;
+	public int getBusinessServicePay() {
+		return businessServicePay;
 	}
 	
-	public int getBusinessDate() {
-		return businessDate;
+	public int getBusinessWorkDate() {
+		return businessWorkDate;
+	}
+	
+	public int getBusinessServiceRetouch() {
+		return businessServiceRetouch;
+	}
+	
+	public int getBusinessConsulting() {
+		return businessConsulting;
+	}
+	
+	public int getBusinessConsultingTime() {
+		return businessConsultingTime;
 	}
 	
 	public int getFileNo() {
@@ -142,101 +170,116 @@ public class BoardProDto {
 	
 	
 	
+	
 //	------------------------------------ Setter ------------------------------------
 	
 	public void setBoardProNo(int boardProNo) {
 		this.boardProNo = boardProNo;
 	}
-	
+
 	public void setBoardProTitle(String boardProTitle) {
 		this.boardProTitle = boardProTitle;
 	}
-	
-	public void setBoardProSecondTitle(String boardProSecondTitle) {
-		this.boardProSecondTitle = boardProSecondTitle;
+
+	public void setBoardProCategory(String boardProCategory) {
+		this.boardProCategory = boardProCategory;
 	}
-	
+
+	public void setBoardProServiceType(String boardProServiceType) {
+		this.boardProServiceType = boardProServiceType;
+	}
+
 	public void setBoardProContents(String boardProContents) {
 		this.boardProContents = boardProContents;
 	}
-	
-	public void setBoardProViews(int boardProViews) {
-		this.boardProViews = boardProViews;
-	}
-	
+
 	public void setBoardProIndate(String boardProIndate) {
 		this.boardProIndate = boardProIndate;
 	}
-	
+
 	public void setBoardProUpdate(String boardProUpdate) {
 		this.boardProUpdate = boardProUpdate;
 	}
-	
+
 	public void setBoardProDelete(String boardProDelete) {
 		this.boardProDelete = boardProDelete;
 	}
-	
+
+	public void setBoardProViews(int boardProViews) {
+		this.boardProViews = boardProViews;
+	}
+
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
-	
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
+
 	public void setBusinessCode(int businessCode) {
 		this.businessCode = businessCode;
 	}
-	
+
 	public void setBusinessName(String businessName) {
 		this.businessName = businessName;
 	}
-	
+
 	public void setPartNo(int partNo) {
 		this.partNo = partNo;
 	}
-	
+
 	public void setPartName(String partName) {
 		this.partName = partName;
 	}
-	
+
 	public void setBusinessMenuNo(int businessMenuNo) {
 		this.businessMenuNo = businessMenuNo;
 	}
-	
-	public void setBusinessFunction(int businessFunction) {
-		this.businessFunction = businessFunction;
+
+	public void setBusinessServiceName(String businessServiceName) {
+		this.businessServiceName = businessServiceName;
 	}
-	
-	public void setBusinessRetouch(int businessRetouch) {
-		this.businessRetouch = businessRetouch;
+
+	public void setBusinessServiceGuide(String businessServiceGuide) {
+		this.businessServiceGuide = businessServiceGuide;
 	}
-	
-	public void setBusinessPay(int businessPay) {
-		this.businessPay = businessPay;
+
+	public void setBusinessServicePay(int businessServicePay) {
+		this.businessServicePay = businessServicePay;
 	}
-	
-	public void setBusinessDate(int businessDate) {
-		this.businessDate = businessDate;
+
+	public void setBusinessWorkDate(int businessWorkDate) {
+		this.businessWorkDate = businessWorkDate;
 	}
-	
+
+	public void setBusinessServiceRetouch(int businessServiceRetouch) {
+		this.businessServiceRetouch = businessServiceRetouch;
+	}
+
+	public void setBusinessConsulting(int businessConsulting) {
+		this.businessConsulting = businessConsulting;
+	}
+
+	public void setBusinessConsultingTime(int businessConsultingTime) {
+		this.businessConsultingTime = businessConsultingTime;
+	}
+
 	public void setFileNo(int fileNo) {
 		this.fileNo = fileNo;
 	}
-	
+
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
-	
+
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-	
-	
 	
 	
 }

@@ -385,7 +385,11 @@
     margin-bottom: 20px;
 }
 
-
+.Detail_right_Type2_input:focus,
+.Detail_right_Type2_input2:focus {
+	outline: none;
+	background-color: rgb(240, 252, 255);
+}
 
 
 
