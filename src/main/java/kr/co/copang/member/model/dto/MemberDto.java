@@ -7,11 +7,14 @@ public class MemberDto {
 	private String userPhone;
 	private String userPwd;
 	private String confirmPwd;
-	private String sConsent;
-	private String piConsent;
-	private String posConsent;
+	
+	private String fyoConsent;  // 14세이상     - 필수
+	private String sConsent;   // 서비스 이용약관  - 필수
+	private String piConsent;   // 개인정보 동의  - 필수
+	private String posConsent;  // 홍보 목정 동의  - 선택
 	private String secession;
 	private int partCode;
+	
 	
 	public int getUserNo() {
 		return userNo;
@@ -49,6 +52,12 @@ public class MemberDto {
 	public void setConfirmPwd(String confirmPwd) {
 		this.confirmPwd = confirmPwd;
 	}
+	public String getFyoConsent() {
+		return fyoConsent;
+	}
+	public void setFyoConsent(String fyoConsent) {
+		this.fyoConsent = fyoConsent;
+	}
 	public String getsConsent() {
 		return sConsent;
 	}
@@ -79,6 +88,5 @@ public class MemberDto {
 	public void setPartCode(int partCode) {
 		this.partCode = partCode;
 	}
-	
 	
 }
