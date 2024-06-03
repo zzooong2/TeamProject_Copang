@@ -44,6 +44,10 @@ tbody > tr > td{
     padding-bottom: 10px;
 }
 
+tbody > tr > td:hover{
+	font-weight: bold;
+}
+
 /* ------------- search ------------- */
 .board-section > .search{
     float: right;

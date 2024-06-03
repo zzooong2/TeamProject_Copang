@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="../../resources/css/payment/paymentPage/price.css">
     <link rel="stylesheet" href="../../resources/css/payment/paymentPage/requestDetail.css">
 
-    <!-- tab-icon -->
-    <link rel="icon" href="../../resources/img/tapIcon.png" />
+     <!-- tab-icon -->
+    <link rel="icon" href="../../../resources/img/tapIcon.png" />
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"

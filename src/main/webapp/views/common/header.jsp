@@ -48,8 +48,6 @@
 	</c:choose>
 
 
-
-
 		</div>
 	</header>
 </div>
