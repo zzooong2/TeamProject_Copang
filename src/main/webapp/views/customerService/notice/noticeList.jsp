@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td> <a href="/views/customerService/notice/noticeDetail.jsp">코팡 서비스 점검안내 (06/31 00:00 ~ 06:00)</a></td>
+                        <td> <a href="/views/customerService/notice/noticeDetail.jsp" class="get-detail">코팡 서비스 점검안내 (06/31 00:00 ~ 06:00)</a></td>
                     </tr>
                     <tr>
                         <td> 전기배선 설치, 인터넷 수리로 인한 검증절차 변경 안내</td>

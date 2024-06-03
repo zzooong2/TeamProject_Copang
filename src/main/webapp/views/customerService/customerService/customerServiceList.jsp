@@ -1,3 +1,6 @@
+<!-- jstl -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,7 +31,7 @@
 
         <input type="text" id="serach-keyword" class="search" placeholder="검색할 키워드를 입력해주세요.">
 	
-		<button class="write-notice" onclick="location.href='/views/customerService/customerService/customerServiceEnroll.jsp'">작 성</button>
+		<button class="write-notice" type="button" onclick="location.href='/form/customerServiceEnrollForm.do'">작 성</button>
 		
         <div class="board-table">
             <table>
@@ -38,30 +41,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td> <a href="/views/customerService/customerService/customerServiceDetail.jsp">CSS가 적용되지 않아요..</td>
-                    </tr>
-                    <tr>
-                        <td> 작업이 너무 힘드네요..</td>
-                    </tr>
-                    <tr>
-                        <td> 도와주실분!!</td>
-                    </tr>
-                    <tr>
-                        <td> 안양에는 유실물보관소가 맛있습니다.</td>
-                    </tr>
-                    <tr>
-                        <td> 안양 그린 컴퓨터 아트 학원</td>
-                    </tr>
-                    <tr>
-                        <td> 결제페이지 API 연동도 해야해요</td>
-                    </tr>
-                    <tr>
-                        <td> GitHub, Jira 공부하세요!!!!! GitHub, Jira 공부하세요!!!!! GitHub, Jira 공부하세요!!!!!</td>
-                    </tr>
-                    <tr>
-                        <td> 페이스북 간편 회원가입/로그인 안되네요??</td>
-                    </tr>
+                	<c:choose>
+                		<c:when test="${empty list}">
+		                    <tr>
+		                        <td>등록된 글이 없습니다.</td>
+		                    </tr>
+	                    </c:when>
+	                    <c:otherwise>
+	                    	<c:forEach var="item" items="${list}">
+			                    <tr onclick="location.href='/customerService/detail.do?boardNo=${item.boardNo}'">
+			                        <td>${item.boardTitle}</td>
+			                    </tr>
+		                    </c:forEach>
+	                    </c:otherwise>
+                    </c:choose>
                 </tbody>
             </table>
         </div>

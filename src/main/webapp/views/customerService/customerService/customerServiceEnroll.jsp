@@ -35,17 +35,15 @@
 	            Customer Service
 	        </div>
         
-            <form action="/customerServiceBoard/enroll.do" method="POST">
-                <!-- type을 hidden 으로 설정하여 사용자에게는 보이지 않는 고객번호를 전달 -->
-                <!-- <input type="hidden" name="member-no" value="${sessionScope.userNo}">  -->
-
-                <input type="text" id="notice-title" class="notice-title" placeholder="제목을 입력해주세요." required>
+            <form action="/customerService/enroll.do" method="POST">
+               
+                <input type="text" id="notice-title" name="notice-title" class="notice-title" placeholder="제목을 입력해주세요.">
                 
-                <textarea id="editorTxt" class="notice-content" rows="35" cols="100" required></textarea>
+                <textarea id="editorTxt" name="notice-contents" class="notice-contents" rows="35" cols="150"></textarea>
                 
                 <input type="text" id="notice-writer" class="notice-writer" value="관리자" disabled>
                 
-                <button class="enroll-btn" onclick="location.href='/views/customerService/customerService/customerServiceList.jsp'">작 성</button>
+                <button class="enroll-btn" type="submit" onclick="save()">작 성</button>
                 <!-- <button type="submit" onclick="save()" class="enroll-btn">작성</button> -->
             </form>
         </section>
