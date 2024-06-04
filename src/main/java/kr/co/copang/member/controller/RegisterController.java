@@ -24,7 +24,6 @@ public class RegisterController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,8 +35,19 @@ public class RegisterController extends HttpServlet {
         String password = request.getParameter("password");
         String confirmpwd = request.getParameter("confirm_password");
         String phone = request.getParameter("phone");
-        String[] businessFields = request.getParameterValues("businessField[]");
+        String[] businessFields = request.getParameterValues("business_field");
         String userType = request.getParameter("user_type");
+        String duplicateCheck = request.getParameter("duplicateCheck");
+        
+        
+        if ("unavailable".equals(duplicateCheck)) {
+        	request.setAttribute("errorMessage", "중복된 이메일입니다. 다른 이메일을 입력해주세요.");
+        	
+			/* response.sendRedirect("/form/registerForm.do"); */
+        	RequestDispatcher view = request.getRequestDispatcher("/views/member/register.jsp");
+            view.forward(request, response);
+        	return;
+        }
         
         // 동의 여부 확인
         String over14 = request.getParameter("over_14");
@@ -53,17 +63,18 @@ public class RegisterController extends HttpServlet {
         member.setConfirmPwd(confirmpwd);
         member.setUserPhone(phone);
         member.setPartCode(userType.equals("전문가") ? 2 : 1); // 전문가 = 2, 의뢰자 = 1
-        member.setFyoConsent(over14);
-        member.setsConsent(termsOfService);
-        member.setPiConsent(privacyPolicy);
-        member.setPosConsent(marketing);
+        member.setFyoConsent("on".equals(over14) ? "Y" : "N");
+        member.setsConsent("on".equals(termsOfService) ? "Y" : "N");
+        member.setPiConsent("on".equals(privacyPolicy) ? "Y" : "N");
+        member.setPosConsent("on".equals(marketing) ? "Y" : "N");
         
-		/*
-		 * member("on".equals(over14) ? "Y" : "N");
-		 * member.setTermsOfService("on".equals(termsOfService) ? "Y" : "N");
-		 * member.setPrivacyPolicy("on".equals(privacyPolicy) ? "Y" : "N");
-		 * member.setMarketing("on".equals(marketing) ? "Y" : "N");
-		 */
+     // 필수 동의 항목 체크
+        if (!"Y".equals(member.getFyoConsent()) || !"Y".equals(member.getsConsent()) || !"Y".equals(member.getPiConsent())) {
+            request.setAttribute("errorMessage", "필수 동의 항목에 동의해야 합니다.");
+            RequestDispatcher view = request.getRequestDispatcher("/views/member/register.jsp");
+            view.forward(request, response);
+            return;
+        }
         
         int result = memberService.register(member, businessFields);
         
@@ -71,7 +82,8 @@ public class RegisterController extends HttpServlet {
     		RequestDispatcher view = request.getRequestDispatcher("/views/member/login.jsp");
     		view.forward(request, response);
     	} else {
-    		RequestDispatcher view = request.getRequestDispatcher("/views/member/register.jsp");
+            request.setAttribute("errorMessage", "회원 등록에 실패했습니다.");
+    		RequestDispatcher view = request.getRequestDispatcher("/form/registerForm.do/#");
     		view.forward(request, response);
     	}
 	}

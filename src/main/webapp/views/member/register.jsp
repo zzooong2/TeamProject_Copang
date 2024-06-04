@@ -4,6 +4,7 @@
 
     <head>
         <%@ include file="/views/common/head.jsp" %>
+        <link rel="icon" href="/resources/img/tapIcon.png">
             <link rel="stylesheet" href="/resources/css/member/register.css">
         	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   <!-- 제이쿼리 주소? -->
     </head>
@@ -15,7 +16,7 @@
     <div id="main" class="register-page">
         <div class="register-container">
             <h2 class="가입">간단한 정보만 입력! 가입완료!</h2>
-            <form action="/member/register.do" method="POST">
+            <form action="/member/register.do" id="registerForm" method="POST">
             <input type="hidden" id="duplicateCheck" name="duplicateCheck">
             
             
@@ -57,11 +58,11 @@
 
                 <label for="business_field">비즈니스 분야</label> <br>
                 <div id="business_field">
-                    <label for="business_it"><input type="checkbox" id="business_it" class="business-checkbox" name="business_field[]" onclick="inputIt()" value="IT"> IT.프로그래밍</label>
-                    <label for="business_video"><input type="checkbox" id="business_video" class="business-checkbox" name="business_field[]" onclick="inputVideo()" value="Video"> 영상 및 사진</label>
-                    <label for="business_design"><input type="checkbox" id="business_design" class="business-checkbox" name="business_field[]" onclick="inputDesign()" value="Design"> 디자인</label>
-                    <label for="business_marketing"><input type="checkbox" id="business_marketing" class="business-checkbox" name="business_field[]" onclick="inputMarketing()" value="Marketing"> 마케팅</label>
-                    <label for="business_education"><input type="checkbox" id="business_education" class="business-checkbox" name="business_field[]" onclick="inputEducation()" value="Education"> 교육</label>
+                    <label for="business_it"><input type="checkbox" id="business_it" class="business-checkbox" name="business_field" onclick="inputIt()" value="1"> IT.프로그래밍</label>
+                    <label for="business_video"><input type="checkbox" id="business_video" class="business-checkbox" name="business_field" onclick="inputVideo()" value="2"> 영상 및 사진</label>
+                    <label for="business_design"><input type="checkbox" id="business_design" class="business-checkbox" name="business_field" onclick="inputDesign()" value="3"> 디자인</label>
+                    <label for="business_marketing"><input type="checkbox" id="business_marketing" class="business-checkbox" name="business_field" onclick="inputMarketing()" value="4"> 마케팅</label>
+                    <label for="business_education"><input type="checkbox" id="business_education" class="business-checkbox" name="business_field" onclick="inputEducation()" value="5"> 교육</label>
                 </div>
 				<br>                
 			<div class="agree_container">
@@ -90,6 +91,11 @@
             // 인증번호 받기 버튼 클릭 이벤트
             $('#requestCodeBtn').on('click', function() {
                 var phone = $('#phone').val();
+                var patternphone = /^[0-9]{10,11}$/;
+                
+                if (!patternphone.test(phone)) {
+                	alert('올바른 핸드폰 번호를 입력해주세요.');
+                } else if(patternphone.test(phone)) {
                 $.ajax({
                     url: '/send-sms',  // 서블릿의 URL
                     type: 'POST',
@@ -104,6 +110,8 @@
                         console.error('Error:', error);
                     }
                 });
+                	
+                }
             });
 
             // 인증번호 입력란에서 키 입력 이벤트
@@ -117,33 +125,7 @@
                     Flag = false;
                 }
             });
-            
-            function inputemail() {
-        		const userId = document.getElementById("email").value;
-        		const textemail = document.getElementById("textemail");
-        		const duplicateCheck = document.getElementById("duplicateCheck");
-        		
-        		// $로 시작하는건 제이쿼리라고 생각하기
-        		$.ajax({
-        			type: "POST",   // HTTP 메서드
-        			url: "/member/duplicateId.do",   // 요청할 URL
-        			data: { userId : userId},  // 전송할 데이터 { 키 : 값 }
-        			success: function(res) {   // 요청이 성공했을 때  
-        				console.log(res);
-        			if(res === "available") {
-        				duplicateCheck.value = "available";
-        				idMsg.style.color = "green";
-        				idMsg.innerHTML = "사용 가능한 이메일입니다.";
-        			} else {
-        				duplicateCheck.value = "unavailable";
-        				idMsg.style.color = "red";
-        				idMsg.innerHTML = "중복된 이메일입니다.";
-        			}
-        			},
-        			error: function(err) {     // 요청이 실패했을 때
-        			}
-        		})
-        	}
+        }); 
     </script>
         
         

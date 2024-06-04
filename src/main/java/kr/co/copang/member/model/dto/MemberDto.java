@@ -14,8 +14,15 @@ public class MemberDto {
 	private String posConsent;  // 홍보 목정 동의  - 선택
 	private String secession;
 	private int partCode;
+	private String[] businessFields;
 	
 	
+	public String[] getBusinessFields() {
+		return businessFields;
+	}
+	public void setBusinessFields(String[] businessFields) {
+		this.businessFields = businessFields;
+	}
 	public int getUserNo() {
 		return userNo;
 	}

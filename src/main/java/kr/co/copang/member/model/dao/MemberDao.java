@@ -19,7 +19,7 @@ public class MemberDao {
 	}
 	
 	public int register(MemberDto member) {
-		String query = "INSERT INTO member VALUES(member_seq.nextval,?,?,?,?,default,?,?,?,?,?)";
+		String query = "INSERT INTO member VALUES(member_seq.nextval,?,?,?,?,default,?,?,?,?,default,?)";
 		int result = 0;
 		
 		try {
@@ -34,40 +34,79 @@ public class MemberDao {
 			pstmt.setString(8, member.getPosConsent());
 			pstmt.setInt(9, member.getPartCode());
 			
+			
 			result = pstmt.executeUpdate();
-			pstmt.close();
-			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		return result;
 	}
 	
-	public void addBusinessField(int userNo, String busName) {
-		int busCode = getBusCode(busName);
-        String sql = "INSERT INTO BUSINESS_TYPE (USER_NO, BUS_CODE) VALUES (?, ?)";
-        try {
-            pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, userNo);
-            pstmt.setInt(2, busCode);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+		public void addBusinessField(int userNo, int busCode) {
+		    String sql = "INSERT INTO MEMBERBUSINESS_TYPE (USER_NO, BUS_CODE) VALUES(?,?)"; 
+		    		/*+    " SELECT USER_NO, ? FROM MEMBER WHERE USER_NAME = ?";*/
+		    System.out.println(userNo);
+		    System.out.println(busCode);
+		    try {
+		        pstmt = con.prepareStatement(sql);
+		        pstmt.setInt(1, userNo);
+		        pstmt.setInt(2, busCode);
+		        pstmt.executeUpdate();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		}
+		
+		// 새로운 메서드 추가: USER_NO 가져오기
+	    public int getUserNoByEmail(String email) {
+	        String query = "SELECT USER_NO FROM member WHERE EMAIL = ?";
+	        int userNo = 0;
+	        try {
+	            pstmt = con.prepareStatement(query);
+	            pstmt.setString(1, email);
+	            ResultSet rs = pstmt.executeQuery();
+	            if (rs.next()) {
+	                userNo = rs.getInt("USER_NO");
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	        return userNo;
+	    }
+		
+		
 	
 	// 새로운 메서드 추가: 비즈니스 분야 이름을 코드로 변환
-	public int getBusCode(String busName) {
-	    String sql = "SELECT BUS_CODE FROM BUSINESS_TYPE WHERE BUS_NAME = ?";
+	public String getBusName(int busCode) {
+	    String sql = "SELECT BUS_NAME FROM BUSINESS_TYPE WHERE BUS_CODE = ?";
 	    try (PreparedStatement pstmt = con.prepareStatement(sql)) {
-	        pstmt.setString(1, busName);
+	        pstmt.setInt(1, busCode);
 	        ResultSet rs = pstmt.executeQuery();
 	        if (rs.next()) {
-	            return rs.getInt("BUS_CODE");
+	            return rs.getString("BUS_NAME");
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
-	    throw new IllegalArgumentException("Invalid business field: " + busName);
+	    throw new IllegalArgumentException("Invalid business field code: " + busCode);
+	}
+	
+	// 중복검사
+	public int duplicateId(String id) {
+		String query = "SELECT count(*) AS CNT FROM member"
+				+ "     WHERE EMAIL = ?";
+		int result = 0;
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getInt("CNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	

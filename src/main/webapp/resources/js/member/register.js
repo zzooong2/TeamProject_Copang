@@ -1,6 +1,7 @@
 let pwdFlag = false; // 패스워드 플래그
 let pwdFlag2 = false; // 패스워드 플래그
 let Flag = false; // 인증 플래그
+let emailFlag = false; // 이메일 인증 플래그
 
 window.onload = function() {
 	const header = document.getElementsByTagName("header")[0];
@@ -49,6 +50,7 @@ function inputemail() {
     const Patternemail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // 이메일 형식을 검사하는 정규표현식
     const email = document.getElementById('email').value;
     const textemail = document.getElementById("textemail");
+	const duplicateCheck = document.getElementById("duplicateCheck");
 
     if (Patternemail.test(email)) {
 		textemail.innerHTML = " ";
@@ -56,6 +58,26 @@ function inputemail() {
         textemail.innerHTML = "올바른 이메일을 입력하세요.";
 		textemail.style.color = "red";
     }
+
+	$.ajax({
+     	type: "POST",   // HTTP 메서드
+        url: "/member/duplicateId.do",   // 요청할 URL
+       	data: { email : email},  // 전송할 데이터 { 키 : 값 }
+        success: function(res) {   // 요청이 성공했을 때  
+        	console.log(res);
+        if(res === "available") {
+			emailFlag = true;
+        	} else {
+        	duplicateCheck.value = "unavailable";
+        	textemail.style.color = "red";
+        	textemail.innerHTML = "중복된 이메일입니다.";
+			emailFlag = false;
+        	}
+        },
+        error: function(err) {     // 요청이 실패했을 때
+        	console.error('Error:', err);
+        }
+     });
 }
 
 // 비밀번호 유효성 검사
@@ -82,6 +104,22 @@ function inputpwd() {
         textpwd.innerHTML = "8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.";
         textpwd.style.color = "red";
 		pwdFlag = false;
+    }
+}
+// 핸드폰 번호 유효성 검사 
+function inputphone() {
+	const patternphone = /^[0-9]{10,11}$/;
+	const phone = document.getElementById('phone').value;
+	const textphone = document.getElementById("textphone");
+	
+	if(patternphone.test(phone)) {
+        textphone.innerHTML = " ";
+		document.getElementById("requestCodeBtn").addEventListener("click", function() {
+		document.getElementById("verificationCodeContainer").style.display = "block";
+		});
+    } else {
+        textphone.innerHTML = "올바른 번호를 입력하세요.";
+        textphone.style.color = "red";
     }
 }
 
@@ -141,22 +179,6 @@ function updateAgreeAllCheckbox() {
     agreeAllCheckbox.checked = Array.from(checkboxes).every(checkbox => checkbox.checked);
 }
 
-// 핸드폰 번호 유효성 검사 
-function inputphone() {
-	const patternphone = /^[0-9]{10,11}$/;
-	const phone = document.getElementById('phone').value;
-	const textphone = document.getElementById("textphone");
-	
-	if(patternphone.test(phone)) {
-        textphone.innerHTML = " ";
-		document.getElementById("requestCodeBtn").addEventListener("click", function() {
-		document.getElementById("verificationCodeContainer").style.display = "block";
-		});
-    } else {
-        textphone.innerHTML = "올바른 번호를 입력하세요.";
-        textphone.style.color = "red";
-    }
-}
 // 유효성 검사 후 회원가입 버튼 눌리게
 function registerClick() {
 	const Patternname = /^[가-힣]+$/;
@@ -189,6 +211,8 @@ if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)
     alert("이메일을 입력해주세요.");
 	} else if (!Patternemail.test(email)) {
     alert("올바른 이메일 주소를 입력해주세요.");
+	} else if(!emailFlag){
+	alert("이메일 주소가 중복되었습니다. 다시 입력해주세요.");	
 	} else if (!pwd) {
     alert("비밀번호를 입력해주세요.");
 	} else if (!patternpwd.test(pwd)) {
@@ -210,6 +234,8 @@ if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)
 		// from 태그 가져와서 submit 이벤트 발생
 		console.log("else");
 	}
+	
+	
 };
 
 
