@@ -35,8 +35,7 @@ public class CustomerServiceListController extends HttpServlet {
 		int cPage = Integer.parseInt(request.getParameter("cPage")); // 현재 페이지
 		int listCount = customerService.getListCount(category, searchText); // 전체 게시글 수 구하기
 		int pageLimit = 5; // 보여질 페이지 수
-		int boardLimit = 5; // 한 페이지에 보여질 게시글의 수
-		int row = listCount - (cPage-1) * boardLimit; // 게시글 번호 구하기
+		int boardLimit = 10; // 한 페이지에 보여질 게시글의 수
 		
 		PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit);
 		
@@ -45,7 +44,8 @@ public class CustomerServiceListController extends HttpServlet {
 		
 		// 데이터 바인딩
 		request.setAttribute("list", list);
-
+		request.setAttribute("pi", pi);
+		
 		RequestDispatcher view = request.getRequestDispatcher("/views/customerService/customerService/customerServiceList.jsp");
 		view.forward(request, response);
 	}

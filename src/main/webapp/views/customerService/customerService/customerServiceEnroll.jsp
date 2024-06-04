@@ -44,7 +44,6 @@
                 <input type="text" id="notice-writer" class="notice-writer" value="관리자" disabled>
                 
                 <button class="enroll-btn" type="submit" onclick="save()">작 성</button>
-                <!-- <button type="submit" onclick="save()" class="enroll-btn">작성</button> -->
             </form>
         </section>
     </main>

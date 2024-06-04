@@ -39,7 +39,7 @@
                 
                 <button type="button" class="edit-btn" onclick="location.href='/customerService/edit.do?boardNo=${result.boardNo}'">수정</button>
                 <button type="submit" onclick="location.href='/customerService/delete.do'" class="delete-btn">삭제</button>
-                <button type="button" onclick="location.href='/customerService/list.do'" class="back-btn">뒤로가기</button>
+                <button type="button" onclick="location.href='/customerService/list.do?cPage=1&category=Q_TITLE&search-text='" class="back-btn">뒤로가기</button>
             </form>
         </section>
     </main>

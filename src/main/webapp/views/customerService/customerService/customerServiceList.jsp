@@ -28,9 +28,9 @@
             Customer Service
         </div>
        
-       	<form action="/customerService/list.do method="GET">
+       	<form action="/customerService/list.do" method="GET">
        		<input type="hidden" name="cPage" value="1" />
-			<select name="categoty" class="category-select">
+			<select name="category" class="category-select">
 				<option value="Q_TITLE">제목</option>
 				<option value="Q_CONTENTS">내용</option>
 				<option value="USER_NAME">작성자</option>
@@ -73,13 +73,13 @@
                 		<li class="page-item"><a class="page-link" href="#">Previous</a></li>
                 	</c:when>
                 	<c:otherwise>
-		                <li class="page-item"><a class="page-link" href="/customerService/list.do?cPage=${pi.cPage-1}">Previous</a></li>
+		                <li class="page-item"><a class="page-link" href="/customerService/list.do?cPage=${pi.cPage-1}&category=Q_TITLE&search-text=">Previous</a></li>
                 	</c:otherwise>
                 </c:choose>
                 
                 <!-- 페이지 버튼 -->
                 <c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
-	                <li class="page-item"><a class="page-link" href="/customerService/list.do?cPage=${page}">${page}</a></li>
+	                <li class="page-item"><a class="page-link" href="/customerService/list.do?cPage=${page}&category=Q_TITLE&search-text=">${page}</a></li>
                 </c:forEach>
 
 				<!-- 오른쪽 버튼 -->
@@ -88,7 +88,7 @@
 		                <li class="page-item"><a class="page-link" href="#">Next</a></li>
 					</c:when>
 					<c:otherwise>
-		                <li class="page-item"><a class="page-link" href="/customerService/list.do?cPage=${pi.cPage+1}">Next</a></li>
+		                <li class="page-item"><a class="page-link" href="/customerService/list.do?cPage=${pi.cPage+1}&category=Q_TITLE&search-text=">Next</a></li>
 					</c:otherwise>
 				</c:choose>
             </ul>

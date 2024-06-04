@@ -46,7 +46,7 @@ public class CustomerServiceDAO {
 	// 게시글 목록 가져오기
 	public ArrayList<CustomerServiceDTO> getList(PageInfo pi, String category, String searchText) {
 		// 동적배열 객체 생성
-		ArrayList<CustomerServiceDTO> result = new ArrayList();
+		ArrayList<CustomerServiceDTO> result = new ArrayList<>();
 		
 		// 쿼리 작성
 		String query = "SELECT Q_NO, Q_TITLE, Q_CONTENTS, USER_NAME FROM CUSTOMER_SERVICE cs"
@@ -63,7 +63,7 @@ public class CustomerServiceDAO {
 			ps.setString(1, searchText);
 			ps.setInt(2, pi.getOffset());
 			ps.setInt(3, pi.getBoardLimit());
-			
+
 			// 쿼리문 실행
 			ResultSet rs = ps.executeQuery();
 			

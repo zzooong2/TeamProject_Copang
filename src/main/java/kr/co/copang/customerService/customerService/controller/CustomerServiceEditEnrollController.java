@@ -32,14 +32,13 @@ public class CustomerServiceEditEnrollController extends HttpServlet {
 		String boardTitle = request.getParameter("boardTitle");
 		String boardContents = request.getParameter("boardContents");
 		
-		System.out.println(boardNo);
-		System.out.println(boardTitle);
-		System.out.println(boardContents);
-		
 		CustomerServiceDTO csDTO = new CustomerServiceDTO();
 		
-		CustomerServiceImpl customerService = new CustomerServiceImpl();
+		csDTO.setBoardNo(boardNo);
+		csDTO.setBoardTitle(boardTitle);
+		csDTO.setBoardContents(boardContents);
 		
+		CustomerServiceImpl customerService = new CustomerServiceImpl();
 		int result = customerService.editEnroll(csDTO);
 		
 		if(result == 1) {

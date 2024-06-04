@@ -42,7 +42,7 @@ public class CustomerServiceEnrollController extends HttpServlet {
 		int result = customerService.enroll(csDTO);
 		
 		if(result == 1) {
-			response.sendRedirect("/customerService/list.do");
+			response.sendRedirect("/customerService/list.do?cPage=1&category=Q_TITLE&search-text=");
 		} else { 
 			RequestDispatcher view = request.getRequestDispatcher("/views/customerService/customerService/customerServiceEnroll.jsp");
 			view.forward(request, response);

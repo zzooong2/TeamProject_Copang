@@ -30,7 +30,7 @@ public class CustomerServiceDeleteController extends HttpServlet {
 		int result = customerService.delete(boardNo);
 		
 		if(result == 1) { 
-			response.sendRedirect("/customerService/list.do");
+			response.sendRedirect("/customerService/list.do?cPage=1&category=Q_TITLE&search-text=");
 		}
 	}
 
