@@ -2,7 +2,6 @@ package kr.co.copang.customerService.customerService.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,15 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.copang.customerService.customerService.model.dto.CustomerServiceDTO;
 import kr.co.copang.customerService.customerService.model.service.CustomerServiceImpl;
 
-@WebServlet("/customerService/enroll.do")
-public class CustomerServiceEnrollController extends HttpServlet {
+@WebServlet("/customerService/editEnroll.do")
+public class CustomerServiceEditEnrollController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public CustomerServiceEnrollController() {
+    public CustomerServiceEditEnrollController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,24 +28,21 @@ public class CustomerServiceEnrollController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		// 데이터 받아서 변수에 저장
-		String boardTitle = request.getParameter("board-title");
-		String boardContents = request.getParameter("board-contents");
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+		String boardTitle = request.getParameter("boardTitle");
+		String boardContents = request.getParameter("boardContents");
 		
-		// DTO 정보 저장
 		CustomerServiceDTO csDTO = new CustomerServiceDTO();
+		
+		csDTO.setBoardNo(boardNo);
 		csDTO.setBoardTitle(boardTitle);
 		csDTO.setBoardContents(boardContents);
 		
-		// 서비스 호출
 		CustomerServiceImpl customerService = new CustomerServiceImpl();
-		int result = customerService.enroll(csDTO);
+		int result = customerService.editEnroll(csDTO);
 		
 		if(result == 1) {
-			response.sendRedirect("/customerService/list.do?cPage=1&category=Q_TITLE&search-text=");
-		} else { 
-			RequestDispatcher view = request.getRequestDispatcher("/views/customerService/customerService/customerServiceEnroll.jsp");
-			view.forward(request, response);
+			response.sendRedirect("/customerService/detail.do?boardNo=" + boardNo);
 		}
 	}
 

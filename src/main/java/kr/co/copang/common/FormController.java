@@ -24,16 +24,13 @@ public class FormController extends HttpServlet {
 		String action = request.getPathInfo();
 		String nextPage = "";
 		
-		if(action.equals("/enrollForm.do")) {
-			nextPage = "/views/board/boardProEnroll.jsp";
-		} else if(action.equals("/customerServiceEnrollForm.do")) {
+		if(action.equals("/customerServiceEnrollForm.do")) {
 			nextPage = "/views/customerService/customerService/customerServiceEnroll.jsp"; // Q&A 작성
-		} else if (action.equals("/customerServiceListForm.do")){
-			nextPage = "/views/customerService/customerService/customerServiceList.jsp"; // Q&A 목록
+		} else if(action.equals("/noticeEnrollForm.do")) {
+			nextPage = "/views/customerService/notice/noticeEnroll.jsp"; // NOTICE 작성
 		} else if (action.equals("/registerForm.do")) {
 			nextPage = "/views/member/register.jsp"; // 회원가입 폼
 		}
-		
 		
 		
 		if(nextPage != null && !nextPage.isEmpty()) {

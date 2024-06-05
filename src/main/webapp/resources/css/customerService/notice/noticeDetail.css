@@ -1,6 +1,11 @@
+/* ------------- main ------------- */
+.main-sub{
+	height: auto;
+}
 
 /* ------------- page navigation ------------- */
 .page-navigation{
+	margin-top: 10%;
 	position: relative;
 	top: 15%;
 	left: 20%;
@@ -35,9 +40,6 @@
     font-size: 20px;
     text-align: left;
     color: #ff8e47
-    /* border: 0.1px solid #c9c9c9;
-    border-radius: 10px;
-    padding-top: 1.5% */
 }
 
 .notice-content{
@@ -46,7 +48,7 @@
     left: 10%;
     display: block;
     width: 80%;
-    height: 400px;
+    height: auto;
     font-size: 15px;
     text-align: left;
 }
@@ -83,7 +85,7 @@
 .delete-btn{
     position: relative;
     margin-top: 1%;
-    left: 30%;
+    left: 41%;
     width: 10%;
     height: 32px;
     border: 0.1px solid #c9c9c9;
@@ -101,8 +103,9 @@
 
 .back-btn{
     position: relative;
-    margin-top: 1%;
-    left: 30%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    left: 20%;
     width: 10%;
     height: 32px;
     border: 0.1px solid #c9c9c9;

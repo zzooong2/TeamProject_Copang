@@ -12,33 +12,34 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.copang.customerService.customerService.model.dto.CustomerServiceDTO;
 import kr.co.copang.customerService.customerService.model.service.CustomerServiceImpl;
 
-@WebServlet("/customerService/detail.do")
-public class CustomerServiceDetailController extends HttpServlet {
+@WebServlet("/customerService/edit.do")
+public class CustomerServiceEditController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public CustomerServiceDetailController() {
+    public CustomerServiceEditController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 한글 인코딩
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		// 데이터 받아와서 변수에 초기화
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 		
-		// 객체 생성(서비스 호출)
-		CustomerServiceImpl customerService = new CustomerServiceImpl();
+		CustomerServiceImpl customerService = new CustomerServiceImpl();	
 		
-		// 쿼리문 실행결과 result 변수에 초기화
-		CustomerServiceDTO result = customerService.getDetail(boardNo);
+		CustomerServiceDTO result = customerService.edit(boardNo);
 		
-		// 데이터바인딩
 		request.setAttribute("result", result);
 		
-		// 게시글 번호를 이용하여 게시글 상세조회
-		RequestDispatcher view = request.getRequestDispatcher("/views/customerService/customerService/customerServiceDetail.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/views/customerService/customerService/customerServiceEdit.jsp");
 		view.forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
 
 }
