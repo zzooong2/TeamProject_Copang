@@ -10,15 +10,16 @@
     <!-- tab-icon -->
     <link rel="icon" href="../../../resources/img/tapIcon.png" />
 
-	<link rel="stylesheet" href="../../../resources/css/customerService/notice/noticeDetail.css">
 	
 	<%@ include file="/views/common/head.jsp"%>
+	<link rel="stylesheet" href="../../../resources/css/customerService/notice/noticeDetail.css">
+	
 	
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
 	
-	<main class="main">
+	<main class="main main-sub">
         <div class="page-navigation">
             Copang  >  공지사항  >  게시글
         </div>
@@ -27,19 +28,19 @@
             Notice
         </div>
         <section class="enroll-section">
-            <form action="/noticeBoard/enroll.do" method="POST">
+            <form action="/notice/delete.do" method="POST">
                 <!-- type을 hidden 으로 설정하여 사용자에게는 보이지 않는 고객번호를 전달 -->
-                <!-- <input type="hidden" name="member-no" value="${sessionScope.userNo}">  -->
+                <input type="hidden" name="noticeNo" value="${result.noticeNo}">
 
-                <div class="notice-title">코팡 서비스 점검안내 (06/31 00:00 ~ 06:00)</div>
+                <div class="notice-title">${result.noticeTitle}</div>
 
-                <div class="notice-writer">관리자 <2024-05-30 10:10:10></div>
+                <div class="notice-writer">${result.userName} ${result.noticeIndate}</div>
                 
-                <div class="notice-content">코방 서비스 점검안내 드립니다. 이 공간에는 게시글의 내용이 들어가는 자리입니다.</div>
+                <div class="notice-content">${result.noticeContents}</div>
                 
-                <button type="button" onclick="location.href='/views/customerService/notice/noticeEdit.jsp'" class="edit-btn">수정</button>
-                <button type="submit" onclick="" class="delete-btn">삭제</button>
-                <button type="button" onclick="location.href='/views/customerService/notice/noticeList.jsp'" class="back-btn">뒤로가기</button>
+                <button type="button" onclick="location.href='/notice/edit.do?noticeNo=${result.noticeNo}'" class="edit-btn">수정</button>
+                <button type="submit" class="delete-btn">삭제</button>
+                <button type="button" onclick="location.href='/notice/list.do?cPage=1&category=N_TITLE&search-text='" class="back-btn">뒤로가기</button>
             </form>
         </section>
     </main>

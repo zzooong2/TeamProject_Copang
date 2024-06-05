@@ -37,14 +37,13 @@
         
             <form action="/customerService/enroll.do" method="POST">
                
-                <input type="text" id="notice-title" name="notice-title" class="notice-title" placeholder="제목을 입력해주세요.">
+                <input type="text" id="board-title" name="board-title" class="notice-title" placeholder="제목을 입력해주세요.">
                 
-                <textarea id="editorTxt" name="notice-contents" class="notice-contents" rows="35" cols="150"></textarea>
+                <textarea id="editorTxt" name="board-contents" class="notice-contents" rows="35" cols="150"></textarea>
                 
                 <input type="text" id="notice-writer" class="notice-writer" value="관리자" disabled>
                 
                 <button class="enroll-btn" type="submit" onclick="save()">작 성</button>
-                <!-- <button type="submit" onclick="save()" class="enroll-btn">작성</button> -->
             </form>
         </section>
     </main>

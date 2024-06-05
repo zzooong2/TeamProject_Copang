@@ -4,6 +4,7 @@ public class CustomerServiceDTO {
 	private int boardNo; // 게시글 번호
 	private int userNo; // 유저 번호
 	private char boardDeleteStatus; // 게시글 삭제유무
+	private char boardAnswerStatus; // 게시글 답변유무
 	private String boardTitle; // 게시글 제목
 	private String boardContents; // 게시글 내용
 	private String boardIndate; // 게시글 작성일
@@ -14,8 +15,7 @@ public class CustomerServiceDTO {
 	private String userName; // 유저 이름
 	
 	
-	// Getter & Setter
-	
+	//	Getter & Setter
 	public int getBoardNo() {
 		return boardNo;
 	}
@@ -33,6 +33,12 @@ public class CustomerServiceDTO {
 	}
 	public void setBoardDeleteStatus(char boardDeleteStatus) {
 		this.boardDeleteStatus = boardDeleteStatus;
+	}
+	public char getBoardAnswerStatus() {
+		return boardAnswerStatus;
+	}
+	public void setBoardAnswerStatus(char boardAnswerStatus) {
+		this.boardAnswerStatus = boardAnswerStatus;
 	}
 	public String getBoardTitle() {
 		return boardTitle;
