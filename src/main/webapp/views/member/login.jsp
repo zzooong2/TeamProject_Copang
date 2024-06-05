@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 	<%@ include file="/views/common/head.jsp"%>
+	<link rel="icon" href="/resources/img/tapIcon.png">
 	<link rel="stylesheet" href="/resources/css/member/login.css">
 </head>
 <body>
