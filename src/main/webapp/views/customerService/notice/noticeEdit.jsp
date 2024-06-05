@@ -18,13 +18,13 @@
     <script src="../../../resources/js/payment/payment/smartEditor.js"></script>
 
 	<%@ include file="/views/common/head.jsp"%>
-	<link rel="stylesheet" href="../../../resources/css/customerService/notice/noticeEnroll.css">
+	<link rel="stylesheet" href="../../../resources/css/customerService/notice/noticeEdit.css">
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
 	
     <main class="main">
-        <section class="enroll-section">
+        <section class="edit-section">
 	        <div class="page-navigation">
 	            Copang  >  공지사항  >  수정
 	        </div>
@@ -33,18 +33,17 @@
 	            Notice
 	        </div>
         
-            <form action="/noticeBoard/enroll.do" method="POST">
+            <form action="/notice/editEnroll.do" method="POST">
                 <!-- type을 hidden 으로 설정하여 사용자에게는 보이지 않는 고객번호를 전달 -->
-                <!-- <input type="hidden" name="member-no" value="${sessionScope.userNo}">  -->
+                <input type="hidden" name="noticeNo" value="${result.noticeNo}">
 
-                <input type="text" id="notice-title" class="notice-title" value="DB에 있는 데이터" required>
+                <input type="text" name="noticeTitle" class="notice-title" value="${result.noticeTitle}" required>
                 
-                <textarea id="editorTxt" class="notice-content" rows="35" cols="100" value="DB에 있는 데이터" required></textarea>
+                <textarea id="editorTxt" name="noticeContents" class="notice-content" rows="35" cols="100" required>${result.noticeContents}</textarea>
                 
-                <input type="text" id="notice-writer" class="notice-writer" value="DB에 있는 데이터" disabled>
+                <input type="text" name="noticeWriter" class="notice-writer" value="${result.userName}" disabled>
                 
-                <button class="enroll-btn" onclick="location.href='/views/customerService/notice/noticeList.jsp'">수 정</button>
-                <!-- <button type="submit" onclick="save()" class="enroll-btn">작성</button> -->
+                <button class="edit-btn" type="submit" onclick="save()">수 정</button>
             </form>
         </section>
     </main>

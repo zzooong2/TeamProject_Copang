@@ -2,24 +2,23 @@ package kr.co.copang.common;
 
 public class PageInfo {
 
-	private int listCount;
-	private int cpage;
-	private int pageLimit;
-	private int boardLimit;
+	private int listCount; // 전체 게시글 수
+	private int cPage; // 현재 페이지
+	private int pageLimit; // 페이지 수
+	private int boardLimit; // 하나의 페이지에 보여질 게시글의 수
 
-	private int maxPage;
-	private int startPage;
-	private int endPage;
+	private int maxPage; // 전체 페이지 수
+	private int startPage; // 시작 페이지
+	private int endPage; // 마지막 페이지
 
-	private int offset;
+	private int offset; // DB에서 가져올 데이터의 기준
 	
-	
-	
-	public PageInfo(int listCount, int cpage, int pageLimit, int boardLimit, int maxPage, int startPage, int endPage,
+	// 매개변수 생성자
+	public PageInfo(int listCount, int cPage, int pageLimit, int boardLimit, int maxPage, int startPage, int endPage,
 			int offset) {
 		super();
 		this.listCount = listCount;
-		this.cpage = cpage;
+		this.cPage = cPage;
 		this.pageLimit = pageLimit;
 		this.boardLimit = boardLimit;
 		this.maxPage = maxPage;
@@ -35,8 +34,8 @@ public class PageInfo {
 		return listCount;
 	}
 
-	public int getCpage() {
-		return cpage;
+	public int getcPage() {
+		return cPage;
 	}
 
 	public int getPageLimit() {
@@ -71,8 +70,8 @@ public class PageInfo {
 		this.listCount = listCount;
 	}
 	
-	public void setCpage(int cpage) {
-		this.cpage = cpage;
+	public void setcPage(int cPage) {
+		this.cPage = cPage;
 	}
 	
 	public void setPageLimit(int pageLimit) {

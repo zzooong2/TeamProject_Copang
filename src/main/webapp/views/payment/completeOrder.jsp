@@ -12,7 +12,8 @@
 	
     <link rel="stylesheet" href="../../resources/css/payment/completeOrder/completeHeader.css">
     <link rel="stylesheet" href="../../resources/css/payment/completeOrder/completeOrderList.css">
-
+    
+	<link rel="stylesheet" href="../../../resources/css/common/footer.css">
 </head>
 <body>
     <header>

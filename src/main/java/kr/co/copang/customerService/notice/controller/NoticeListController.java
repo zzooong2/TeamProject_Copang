@@ -1,4 +1,4 @@
-package kr.co.copang.customerService.customerService.controller;
+package kr.co.copang.customerService.notice.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,46 +12,47 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.copang.common.PageInfo;
 import kr.co.copang.common.Pagination;
-import kr.co.copang.customerService.customerService.model.dto.CustomerServiceDTO;
-import kr.co.copang.customerService.customerService.model.service.CustomerServiceImpl;
+import kr.co.copang.customerService.notice.model.dto.NoticeDTO;
+import kr.co.copang.customerService.notice.model.service.NoticeServiceImpl;
 
-@WebServlet("/customerService/list.do")
-public class CustomerServiceListController extends HttpServlet {
+@WebServlet("/notice/list.do")
+public class NoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public CustomerServiceListController() {
+    public NoticeListController() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 서비스 객체 생성
+		NoticeServiceImpl noticeService = new NoticeServiceImpl();
+		
 		// 검색기능, 페이징 처리
 		String category = request.getParameter("category");
 		String searchText = request.getParameter("search-text");
 		
-		// 서비스 객체 생성
-		CustomerServiceImpl customerService = new CustomerServiceImpl();
-		
 		// 페이징 처리
 		int cPage = Integer.parseInt(request.getParameter("cPage")); // 현재 페이지
-		int listCount = customerService.getListCount(category, searchText); // 전체 게시글 수 구하기
-		int pageLimit = 5; // 보여질 페이지 수
-		int boardLimit = 8; // 한 페이지에 보여질 게시글의 수
+		int listCount = noticeService.getListCount(category, searchText); // 전체 게시글 수 구하기
+		int pageLimit = 5;
+		int boardLimit = 8;
 		
+		// 페이지 처리 객체 생성
 		PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit);
 		
-		// query문 결과 변수에 담기
-		ArrayList<CustomerServiceDTO> list = customerService.getList(pi, category, searchText);
+		// 서비스 호출 & 결과값 변수에 초기화
+		ArrayList<NoticeDTO> list = noticeService.getList(pi, category, searchText);
 		
 		// 데이터 바인딩
 		request.setAttribute("list", list);
 		request.setAttribute("pi", pi);
 		
-		RequestDispatcher view = request.getRequestDispatcher("/views/customerService/customerService/customerServiceList.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/views/customerService/notice/noticeList.jsp");
 		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+
 	}
 
 }
