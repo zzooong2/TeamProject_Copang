@@ -353,7 +353,7 @@
 										</div>
 										<div class="Detail_right_type_box2">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;설명<span class="Detail_right_check">*</span></span> 
-											<input class="type_box_Input2 input_select" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_ServiceGuide" oninput="Counter(this, 300)">
+											<textarea class="type_box_Input2 input_select" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_ServiceGuide" oninput="Counter(this, 300)"></textarea>
 										</div>
 										<div class="Detail_right_type_box1">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;금액(VAT포함)<span class="Detail_right_check">*</span></span> 
@@ -821,8 +821,7 @@
 											<button type="button" class="Detail_right_Contents3_Italicbutton" id="italicButton">I</button>
 											<button type="button" class="Detail_right_Contents3_Underlinebutton" id="underlineButton">U</button>
 										</div>
-										<textarea class="Detail_right_Contents3_Textarea" id="Detail_right_Contents3_Textarea" contenteditable="true" name="enroll_ServiceContents" oninput="counter(this, 6000)"></textarea>
-										<div class="Detail_right_Contents3_Count" id="Detail_right_Contents3_Count">0/1000</div>
+										<textarea class="Detail_right_Contents3_Textarea" id="Detail_right_Contents3_Textarea" contenteditable="true" name="enroll_ServiceContents"></textarea>
 									</div>
 								</div>
 							</div>

@@ -157,7 +157,7 @@ directionL.addEventListener('click', function() {
 });
 
 
-function detailCounter(text, limit) {
+function Counter(text, limit) {
 	let detailByte = 0;
 	var patten1 = /[가-힣ㄱ-ㅎㅏ-ㅣ]/;
 	var str = text.value;
@@ -174,7 +174,6 @@ function detailCounter(text, limit) {
 		text.value = str.substring(0, limit);
 		text.focus();
 	}
-	document.getElementById("Detail_right_Contents3_Count").innerHTML = str.length + " / " + limit;
 }
 
 

@@ -175,27 +175,48 @@ public class BoardProEnrollController extends HttpServlet {
 		int fileResult = 0; // 파일 업로드 결과를 추적하는 변수
 
 		// 모든 Part 객체를 반복하여 파일을 업로드합니다.
+//		for (Part part : parts) {
+//		    getFileName(part,fileName); // Part 객체에서 파일 이름을 가져옵니다.
+//
+//		    if (fileName[0] != null) {
+//		        // 파일 이름이 "main"으로 시작하는 경우 메인 이미지 디렉토리로 저장합니다.
+//		        if (fileName[1].startsWith("mUploadFile")) {
+//		            part.write(mFilePath + File.separator + fileName[0]);
+//		            boardDto.setFilePath(mUploadDirectory); // 파일 경로를 DTO에 설정합니다.
+//		        } 
+//		        // 파일 이름이 "detail"로 시작하는 경우 상세페이지 이미지 디렉토리로 저장합니다.
+//		        else if (fileName[1].startsWith("dUploadFile")) {
+//		            part.write(dFilePath + File.separator + fileName[0]);
+//		            boardDto.setFilePath(dUploadDirectory); // 파일 경로를 DTO에 설정합니다.
+//		        }
+//		        boardDto.setFileName(fileName[0]); // 파일 이름을 DTO에 설정합니다.
+//		        fileResult = boardProService.fileUpload(boardDto, businessNo); // 파일 업로드를 수행합니다.
+//		    }
+//		}
+		
+		
+		// 모든 Part 객체를 반복하여 파일을 업로드합니다.
 		for (Part part : parts) {
-		    getFileName(part,fileName); // Part 객체에서 파일 이름을 가져옵니다.
-		    System.out.println("fileName" + fileName);
+		    getFileName(part, fileName); // Part 객체에서 파일 이름을 가져옵니다.
+
 		    if (fileName[0] != null) {
 		        // 파일 이름이 "main"으로 시작하는 경우 메인 이미지 디렉토리로 저장합니다.
 		        if (fileName[1].startsWith("mUploadFile")) {
-		            part.write(mFilePath + File.separator + fileName[0]);
+		            part.write(new File(mFilePath, fileName[0]).getAbsolutePath());
 		            boardDto.setFilePath(mUploadDirectory); // 파일 경로를 DTO에 설정합니다.
 		        } 
 		        // 파일 이름이 "detail"로 시작하는 경우 상세페이지 이미지 디렉토리로 저장합니다.
 		        else if (fileName[1].startsWith("dUploadFile")) {
-		            part.write(dFilePath + File.separator + fileName[0]);
+		            part.write(new File(dFilePath, fileName[0]).getAbsolutePath());
 		            boardDto.setFilePath(dUploadDirectory); // 파일 경로를 DTO에 설정합니다.
 		        }
 		        boardDto.setFileName(fileName[0]); // 파일 이름을 DTO에 설정합니다.
 		        fileResult = boardProService.fileUpload(boardDto, businessNo); // 파일 업로드를 수행합니다.
 		    }
 		}
-		System.out.println("result : " + result);
-		System.out.println("typeResult : " + typeResult);
-		System.out.println("fileResult : " + fileResult);
+
+		
+		
 		// 파일 업로드 및 비즈니스 로직 처리가 성공한 경우 메인 페이지로 이동합니다.
 		if (result == 1 && typeResult == 1 && fileResult == 1) {
 		    response.sendRedirect("/views/board/boardDetail.jsp");
@@ -208,18 +229,32 @@ public class BoardProEnrollController extends HttpServlet {
 	
 	}
 	
+//	private void getFileName(Part part, String[] fileName) {
+//        String contentDisposition = part.getHeader("content-disposition");
+//        String[] tokens = contentDisposition.split(";");
+//        for (String token : tokens) {
+//            if (token.trim().startsWith("filename")) {
+//            	fileName[0] = token.substring(token.indexOf('=') + 2, token.length() - 1);
+//            }
+//            
+//            if (token.trim().startsWith("name")) {
+//            	fileName[1] = token.substring(token.indexOf('=') + 2, token.length() - 1);
+//            }
+//        }
+//    }
+	
 	private void getFileName(Part part, String[] fileName) {
-        String contentDisposition = part.getHeader("content-disposition");
-        String[] tokens = contentDisposition.split(";");
-        for (String token : tokens) {
-            if (token.trim().startsWith("filename")) {
-            	fileName[0] = token.substring(token.indexOf('=') + 2, token.length() - 1);
-            }
-            
-            if (token.trim().startsWith("name")) {
-            	fileName[1] = token.substring(token.indexOf('=') + 2, token.length() - 1);
-            }
-        }
-    }
+	    String contentDisposition = part.getHeader("content-disposition");
+	    String[] tokens = contentDisposition.split(";");
+	    for (String token : tokens) {
+	        if (token.trim().startsWith("filename")) {
+	            fileName[0] = token.substring(token.indexOf('=') + 2, token.length() - 1);
+	            break; // 파일 이름을 찾았으므로 더 이상 반복할 필요가 없습니다.
+	        }
+	    }
+	}
+
+	
+	
 	
 }
