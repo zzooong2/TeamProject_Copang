@@ -54,7 +54,7 @@
 		                    </tr>
 	                    </c:when>
 	                    <c:otherwise>
-	                    	<c:forEach var="item" items="${list}">
+	                    	<c:forEach var="item" items="${list}"> 
 			                    <tr onclick="location.href='/customerService/detail.do?boardNo=${item.boardNo}'">
 			                        <td>${item.boardTitle}</td>
 			                    </tr>
@@ -64,7 +64,7 @@
                 </tbody>
             </table>
         </div>
-	
+		
         <nav aria-label="Page navigation example">
             <ul class="pagination">
             	<!-- 왼쪽 버튼 -->

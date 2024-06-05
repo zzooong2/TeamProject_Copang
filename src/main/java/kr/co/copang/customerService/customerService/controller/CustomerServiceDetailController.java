@@ -23,7 +23,7 @@ public class CustomerServiceDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 		
-		// 서비스 호출
+		// 객체 생성(서비스 호출)
 		CustomerServiceImpl customerService = new CustomerServiceImpl();
 		
 		// 쿼리문 실행결과 result 변수에 초기화

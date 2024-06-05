@@ -25,7 +25,7 @@
     <!-- smart Editor -->
     <script src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
     <script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
-
+	
 </head>
 
 <body>

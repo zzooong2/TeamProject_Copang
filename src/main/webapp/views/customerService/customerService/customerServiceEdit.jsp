@@ -39,7 +39,7 @@
 
                 <input type="text" id="boardTitle" name="boardTitle" class="board-title" value="${result.boardTitle}" required>
                 
-                <textarea id="editorTxt" name="boardContents" class="board-content" rows="35" cols="150" required>${result.boardContents}</textarea>
+                <textarea id="editorTxt" name="boardContents" class="board-content" rows="35" cols="100" required>${result.boardContents}</textarea>
                 
                 <input type="text" id="boardWriter" class="board-writer" value="${result.userName}" disabled>
                 

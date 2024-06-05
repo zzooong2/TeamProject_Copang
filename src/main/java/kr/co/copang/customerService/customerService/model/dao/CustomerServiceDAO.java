@@ -24,8 +24,8 @@ public class CustomerServiceDAO {
 	
 	// 게시글 작성
 	public int enroll(CustomerServiceDTO csDTO) {
-		String query = "INSERT INTO CUSTOMER_SERVICE(Q_NO, Q_TITLE, Q_CONTENTS, Q_INDATE, Q_STATUS, USER_NO)"
-					 + " VALUES(CUSTOMER_SERVICE_SEQ.nextval, ?, ?, default, default, 2)";
+		String query = "INSERT INTO CUSTOMER_SERVICE(Q_NO, Q_TITLE, Q_CONTENTS, Q_INDATE, Q_STATUS, A_STATUS, USER_NO)"
+					 + " VALUES(CUSTOMER_SERVICE_SEQ.nextval, ?, ?, default, default, default, 2)";
 		
 		int result = 0;
 		
@@ -35,11 +35,11 @@ public class CustomerServiceDAO {
 			ps.setString(1, csDTO.getBoardTitle());
 			ps.setString(2, csDTO.getBoardContents());
 			result = ps.executeUpdate();
+			return result;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		return result;
+		return 0;
 	}
 
 	
@@ -49,7 +49,8 @@ public class CustomerServiceDAO {
 		ArrayList<CustomerServiceDTO> result = new ArrayList<>();
 		
 		// 쿼리 작성
-		String query = "SELECT Q_NO, Q_TITLE, Q_CONTENTS, USER_NAME FROM CUSTOMER_SERVICE cs"
+		String query = "SELECT Q_NO, Q_TITLE, Q_CONTENTS, USER_NAME"
+					 + " FROM CUSTOMER_SERVICE cs"
 					 + " JOIN MEMBER m ON m.USER_NO = cs.USER_NO"
 					 + " WHERE Q_STATUS = 'N'"
 					 + " AND " + category + " LIKE '%' || ? ||'%'"
@@ -170,7 +171,7 @@ public class CustomerServiceDAO {
 		String query = "UPDATE CUSTOMER_SERVICE SET"
 					 + " Q_TITLE = ?,"
 					 + " Q_CONTENTS = ?,"
-					 + " Q_INDATE = SYSDATE"
+					 + " Q_UNDATE = SYSDATE"
 					 + " WHERE Q_NO = ?";
 		
 		try {
@@ -209,7 +210,8 @@ public class CustomerServiceDAO {
 		
 		return 0;
 	}
-
+	
+	// 페이지 처리
 	public int getListCount(String category, String searchText) {
 		String query = "SELECT COUNT(*) AS cnt"
 					 + " FROM CUSTOMER_SERVICE"
@@ -229,7 +231,6 @@ public class CustomerServiceDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return 0;
 	}
 

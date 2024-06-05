@@ -28,8 +28,8 @@ public class FormController extends HttpServlet {
 			nextPage = "/views/board/boardProEnroll.jsp";
 		} else if(action.equals("/customerServiceEnrollForm.do")) {
 			nextPage = "/views/customerService/customerService/customerServiceEnroll.jsp"; // Q&A 작성
-		} else if (action.equals("/customerServiceListForm.do")){
-			nextPage = "/views/customerService/customerService/customerServiceList.jsp"; // Q&A 목록
+		} else if(action.equals("/noticeEnrollForm.do")) {
+			nextPage = "/views/customerService/notice/noticeEnroll.jsp";
 		}
 		
 		

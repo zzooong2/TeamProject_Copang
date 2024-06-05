@@ -37,6 +37,11 @@ thead > tr {
     color: #ff8e47;
 }
 
+tbody > tr:hover{
+	font-weight: bold;
+}
+
+
 tbody > tr > td{
     font-size: 15px;
     border-bottom: 0.1px solid #c9c9c9;
@@ -45,7 +50,7 @@ tbody > tr > td{
 }
 
 /* ------------- search ------------- */
-.board-section > .search{
+.board-section > form > .search{
     float: right;
     position: relative;
     top: 10.5%;
@@ -55,6 +60,30 @@ tbody > tr > td{
     border: 0.1px solid #c9c9c9;
     border-radius: 10px;
     font-size: 15px;
+}
+
+.category-select{
+	float: right;
+    position: relative;
+    right: 38%;
+    width: 70px;
+    height: 34px;
+    border: 0.1px solid #c9c9c9;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #999999;
+}
+
+.notice-search-btn{
+	float: right;
+    position: relative;
+    right: -28%;
+    width: 70px;
+    height: 34px;
+    border: 0.1px solid #c9c9c9;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #999999;
 }
 
 /* ------------- pagination ------------- */

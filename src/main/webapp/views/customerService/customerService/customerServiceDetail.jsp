@@ -18,7 +18,7 @@
 <body>
 	<%@ include file="/views/common/header.jsp"%>
 	
-	<main class="main">
+	<main class="main main-sub">
         <div class="page-navigation">
             Copang  >  고객센터  >  게시글
         </div>

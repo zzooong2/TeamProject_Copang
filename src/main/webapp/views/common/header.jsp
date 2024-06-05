@@ -31,11 +31,11 @@
 
 			<li><a href="/views/member/register.jsp">회원가입</a></li>
 			
+			<li><a href="/views/payment/payment.jsp">결제하기</a></li>
+			
 			<li><a href="/customerService/list.do?cPage=1&category=Q_TITLE&search-text=">SERVICE</a></li>
 			
-			<li><a href="/views/customerService/notice/noticeList.jsp">NOTICE</a></li>
-
-			<!-- <li><a href="">NOTICE</a></li> -->
+			<li><a href="/notice/list.do?cPage=1&category=N_TITLE&earch-text=">NOTICE</a></li>
 
 		</div>
 	</header>
