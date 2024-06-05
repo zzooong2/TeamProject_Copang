@@ -25,7 +25,11 @@
     <!-- smart Editor -->
     <script src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
     <script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
-
+    
+    <!-- ajax -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="../../../resources/css/common/footer.css">
 </head>
 
 <body>
@@ -144,20 +148,21 @@
         <h1 class="detail-request-text">의뢰내용</h1>
         <div class="request-detail">
             <div class="detail">
-                <input type="text" id="title" placeholder=" 제목을 입력해주세요." class="request-title">
-                <br>
-                <br>
-                <div id="smarteditor">
-                    <textarea id="editorTxt" rows="35" class="request-content" placeholder=" 내용을 입력하세요."></textarea>
-                </div>
-            </div>
-            <button class="submit-btn">등록</button>
+	                <input type="text" id="title" name="request-title" placeholder=" 제목을 입력해주세요." class="request-title">
+	                <br>
+	                <br>
+	                <div id="smarteditor">
+	                    <textarea id="editorTxt" rows="35" name="request-contents" class="request-content" placeholder=" 내용을 입력하세요."></textarea>
+	                </div>
+	            </div>
+            	<button type="button" class="submit-btn" onclick="save()">등록</button>
         </div>
     </section>
     <%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>
-
-<!-- JavaScript -->
 <script src="../../resources/js/payment/payment/objectCount.js"></script>
 <script src="../../resources/js/payment/payment/paymentRole.js"></script>
+
+<!-- ajax -->
+<script src="../../resources/ajax/payment/requestBoard.js"></script>

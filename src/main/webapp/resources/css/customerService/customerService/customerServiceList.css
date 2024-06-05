@@ -49,16 +49,40 @@ tbody > tr > td:hover{
 }
 
 /* ------------- search ------------- */
-.board-section > .search{
+.board-section > form > .search{
     float: right;
     position: relative;
     top: 10.5%;
-    right: 5%;
-    width: 300px;
+    right: 9%;
+    width: 250px;
     height: 30px;
     border: 0.1px solid #c9c9c9;
     border-radius: 10px;
     font-size: 15px;
+}
+
+.category-select{
+	float: right;
+    position: relative;
+    right: 38%;
+    width: 70px;
+    height: 34px;
+    border: 0.1px solid #c9c9c9;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #999999;
+}
+
+.customer-search-btn{
+	float: right;
+    position: relative;
+    right: -20%;
+    width: 70px;
+    height: 34px;
+    border: 0.1px solid #c9c9c9;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #999999;
 }
 
 /* ------------- pagination ------------- */
@@ -100,7 +124,7 @@ tbody > tr > td:hover{
 .write-notice{
     position: relative;
     margin-top: 4%;
-    left: 89%;
+    left: 85.5%;
     border: 0.1px solid #d3d3d3;
     border-radius: 5px;
     width: 70px;
