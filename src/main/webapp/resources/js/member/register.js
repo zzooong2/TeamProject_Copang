@@ -33,7 +33,7 @@ window.onload = function() {
 }
 // 이름 유효성 검사
 function inputname() {
-   const Patternname = /^[가-힣]+$/;
+   	const Patternname = /^[가-힣]+$/;
     const name = document.getElementById("user_name").value;
     const textname = document.getElementById("textname");
 
@@ -232,7 +232,6 @@ if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)
 	} else {
 		document.getElementById('registerForm').submit();
 		// from 태그 가져와서 submit 이벤트 발생
-		console.log("else");
 	}
 	
 	
