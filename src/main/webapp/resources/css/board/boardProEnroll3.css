@@ -19,7 +19,7 @@
 
 /* ------------- Toggle Switch ---------------- */
 
-.Detail_right_toggleButon {
+/* .Detail_right_toggleButon {
     margin-right: 50px;
 }
 
@@ -76,7 +76,68 @@
     display: inline-block;
     margin-left: 10px;
     vertical-align: middle;
+} */
+
+.Detail_right_toggleButon {
+    margin-right: 50px;
 }
+
+/* .toggle_button {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 28px;
+}
+
+.toggle_button input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+} */
+
+.toggle_slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.toggle_slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.Detail_right_toggleButon input:checked + .toggle_button .toggle_slider {
+    background-color: #ff8e47;
+}
+
+.Detail_right_toggleButon input:focus + .toggle_button .toggle_slider {
+    box-shadow: 0 0 1px #ff8e47;
+}
+
+.Detail_right_toggleButon input:checked + .toggle_button .toggle_slider:before {
+    transform: translateX(22px);
+}
+
+.toggle-label {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+
 
 /* ------------------------------------------------------ */
 
@@ -258,6 +319,17 @@
     align-items: center;
 }
 
+.Detail_right_Type3_Box {
+    border: 1px solid rgb(218, 218, 218);
+    margin-top: -1px;
+    height: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    display: flex;
+    align-items: center;
+}
+
 .Detail_right_Type2_Box1 {
     border: 1px solid rgb(218, 218, 218);
     margin-top: 20px;
@@ -336,6 +408,20 @@
     border-right: 1px solid rgb(218, 218, 218);
     background-color: none;
     font-size: 12px;
+    word-wrap: break-word;
+}
+
+.Detail_right_Type2_input3 {
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    width: 30%;
+    height: 100%;
+    border: none;
+    border-right: 1px solid rgb(218, 218, 218);
+    background-color: none;
+    font-size: 12px;
+    word-break: break-all;
 }
 
 .Detail_right_Type2_input2 {

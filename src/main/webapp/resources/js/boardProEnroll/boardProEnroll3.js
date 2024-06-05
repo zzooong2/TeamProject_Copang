@@ -155,3 +155,49 @@ directionL.addEventListener('click', function() {
     }
 
 });
+
+function titleCounter(text, length) {
+	var limit = length;
+	var str = text.value.length;
+	if(str>limit) {
+		text.value= text.value.substring(0, limit);
+		text.focus();
+	}
+	document.getElementById("Detail_right_Contents3_Count").innerHTML = text.value.length + " / " + limit;
+}
+
+
+function detailCounter(text, length) {
+	var limit = length;
+	var str = text.value.length;
+	if(str>limit) {
+		text.value= text.value.substring(0, limit);
+		text.focus();
+	}
+	document.getElementById("Detail_right_Contents3_Count").innerHTML = text.value.length + " / " + limit;
+}
+
+
+function counter(text, length) {
+	var limit = length;
+	var str = text.value.length;
+	if(str>limit) {
+		text.value= text.value.substring(0, limit);
+		text.focus();
+	}
+	document.getElementById("Detail_right_Contents3_Count").innerHTML = text.value.length + " / " + limit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

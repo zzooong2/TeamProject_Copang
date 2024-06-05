@@ -191,6 +191,20 @@
     align-items: center;
 }
 
+.Detail_right_Contents1_company {
+    border: 1px solid rgb(218, 218, 218);
+    border-radius: 5px;
+    margin: 10px 0;
+    margin-left: 30px;
+    height: 50px;
+    width: 90%;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+    display: flex;
+    align-items: center;
+}
+
 .Detail_right_Catecory_List {
 	display: flex;
 	flex-direction: column;
@@ -202,7 +216,7 @@
 
 .Detail_right_Contents1_Category_Style {
     height: 45px;
-    width: 100%;
+    width: 90%;
     border: none;
     font-weight: bold;
     color: gray;

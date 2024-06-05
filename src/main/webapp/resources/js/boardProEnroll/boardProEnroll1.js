@@ -1,4 +1,3 @@
-
 /* ============================== Category Middle ============================== */
 
 document.getElementById("Detail_right_Contents1_Category_Style").addEventListener('change', function() {
@@ -79,7 +78,6 @@ document.getElementById("Detail_right_middleCategory_select1").addEventListener(
 		document.getElementById("Detail_right_SubcatCategory1-4").style.display = 'flex';
 	}
 });
-
 
 /* =============== 디자인 =============== */
 document.getElementById("Detail_right_middleCategory_select2").addEventListener('change', function() {
@@ -246,6 +244,4 @@ document.getElementById("Detail_right_Contents1_Category_Style").addEventListene
         document.getElementById("Detail_right_middleCategory5").style.display = 'flex';
     }
 });
-
-
 

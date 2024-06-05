@@ -3,6 +3,7 @@ package kr.co.copang.boardPro.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.servlet.ServletException;
@@ -42,115 +43,125 @@ public class BoardProEnrollController extends HttpServlet {
 //		----- Enroll Page1
 		String title = request.getParameter("enroll_Title");
 		String category = request.getParameter("enroll_Category");
+		String middleCategory = null;
+		String subcatCategory = null;
 		String serviceStyle = request.getParameter("enroll_Service");
+		String company = request.getParameter("enroll_Company");
 		
-
-
-//		----- Enroll Page2-1
-		String serviceTypeName = request.getParameter("enroll_ServiceName");
-		String seondGuide = request.getParameter("enroll_ServiceGuide");
-		int servicePay = Integer.parseInt(request.getParameter("enroll_ServicePay"));
-		int workDay = Integer.parseInt(request.getParameter("enroll_WorkDay"));
-		int retouch = Integer.parseInt(request.getParameter("enroll_Retouch"));
-		int consulting = Integer.parseInt(request.getParameter("enroll_Consulting"));
-		int consultingTime = Integer.parseInt(request.getParameter("enroll_ConsultingTime"));
-		
-//		----- Enroll Page 2-2		
-		String sServiceTypeName = request.getParameter("enroll_Standard_Name");
-		String dServiceTypeName = request.getParameter("enroll_Deluxe_Name");
-		String pServiceTypeName = request.getParameter("enroll_Premium_Name");
-		
-		String sSeondGuide = request.getParameter("enroll_Standard_ServiceGuide");
-		String dSeondGuide = request.getParameter("enroll_Deluxe_ServiceGuide");
-		String pSeondGuide = request.getParameter("enroll_Premium_ServiceGuide");
-		
-		int sServicePay = Integer.parseInt(request.getParameter("enroll_Standard_Pay"));
-		int dServicePay = Integer.parseInt(request.getParameter("enroll_Deluxe_Pay"));
-		int pServicePay = Integer.parseInt(request.getParameter("enroll_Premium_Pay"));
-		
-		int sWorkDay = Integer.parseInt(request.getParameter("enroll_Standard_WorkDay"));
-		int dWorkDay = Integer.parseInt(request.getParameter("enroll_Deluxe_WorkDay"));
-		int pWorkDay = Integer.parseInt(request.getParameter("enroll_Premium_WorkDay"));
-		
-		int sRetouch = Integer.parseInt(request.getParameter("enroll_Standard_Retouch"));
-		int dRetouch = Integer.parseInt(request.getParameter("enroll_Deluxe_Retouch"));
-		int pRetouch = Integer.parseInt(request.getParameter("enroll_Premium_Retouch"));
-		
-		int sConsulting = Integer.parseInt(request.getParameter("enroll_Standard_Consulting"));
-		int dConsulting = Integer.parseInt(request.getParameter("enroll_Deluxe_Consulting"));
-		int pConsulting = Integer.parseInt(request.getParameter("enroll_Premium_Consulting"));
-		
-		int sConsultingTime = Integer.parseInt(request.getParameter("enroll_Standard_ConsultingTime"));
-		int dConsultingTime = Integer.parseInt(request.getParameter("enroll_Deluxe_ConsultingTime"));
-		int pConsultingTime = Integer.parseInt(request.getParameter("enroll_Premium_ConsultingTime"));
-		
-		
-		
-//		----- Enroll Page3	
 		String detailService = request.getParameter("enroll_ServiceContents");
 		
-		
-		
-//		----- Enroll Page4
-		
-		
-		
-//		●------------------------------ << CATEGORY_BOARD 전문가 판매 게시글 등록 >> ---------------------------------------●
+		String[] twoCategory = request.getParameterValues("enroll_Middle_Category");
+		String[] thirdCategory = request.getParameterValues("enroll_Subcat_Category");
 
+		for(String item : twoCategory) {
+			if(!item.equals("")) { 
+				middleCategory = item;
+			}
+		}
+		
+		for(String item : thirdCategory) {
+			if(!item.equals("")) { 
+				subcatCategory = item;
+			}
+		}
+		
+		
+		System.out.println("title : " + title);
+		System.out.println("category : " + category);
+		System.out.println("middleCategory : " + middleCategory);
+		System.out.println("subcatCategory : " + subcatCategory);
+		System.out.println("serviceStyle : " + serviceStyle);
+		System.out.println("company : " + company);
+		
+		
+		
+		
+		
+		
+		
 		BoardProDto boardDto = new BoardProDto(); 
 		boardDto.setUserNo(memberNo);
 		boardDto.setBoardProTitle(title);
 		boardDto.setBoardProCategory(category);
+		boardDto.setBoardProMiddleCategory(middleCategory);
+		boardDto.setBoardProSubcatCategory(subcatCategory);
 		boardDto.setBoardProServiceType(serviceStyle);
 		boardDto.setBoardProContents(detailService);
-		
+		boardDto.setBoardProCompany(company);
 		
 		BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
-		int result = boardProService.enroll(boardDto);
-
-//		---------------------------------------------------------------------
-
-//		<< BUSINESS_MENU 타입별 상세정보 등록 >>
+		int result = boardProService.CategoryBoardEnroll(boardDto);
 		
-//		CATEGORY_BOARD -> B_NO 조회
 		int businessNo = boardProService.getBoardNo(boardDto);
 		
-		int sf = Integer.parseInt(request.getParameter("standard_function"));
-		int sr = Integer.parseInt(request.getParameter("standard_retouch"));
-		int sp = Integer.parseInt(request.getParameter("standard_pay"));
-		int sw = Integer.parseInt(request.getParameter("standard_workDate"));
+		int typeResult = 0;
 		
-		int df = Integer.parseInt(request.getParameter("deluxe_function"));
-		int dr = Integer.parseInt(request.getParameter("deluxe_retouch"));
-		int dp = Integer.parseInt(request.getParameter("deluxe_pay"));
-		int dw = Integer.parseInt(request.getParameter("deluxe_workDate"));
-		
-		
-		int pf = Integer.parseInt(request.getParameter("premium_funcion"));
-		int pr = Integer.parseInt(request.getParameter("premium_retouch"));
-		int pp = Integer.parseInt(request.getParameter("premium_pay"));
-		int pw = Integer.parseInt(request.getParameter("premium_workDate"));
-		
-//		상세정보 배열 생성
-		ArrayList<BoardProDto> business = new ArrayList<>();
-		
-//		STANDARD DATA
-		BoardProDto standardDto = new BoardProDto(sf, sr, sp, sw);
-		
-//		DELUXE DATA
-		BoardProDto deluxeDto = new BoardProDto(df, dr, dp, dw);
-		
-//		PRIMIUM DATA
-		BoardProDto primiumDto = new BoardProDto(pf, pr, pp, pw); 
-		
-		business.add(standardDto);
-		business.add(deluxeDto);
-		business.add(primiumDto);
-		
-		int typeResult = boardProService.typeEnroll(business, businessNo);
-
-		
-		
+		if(request.getParameter("enroll_ServiceName") != null && request.getParameter("enroll_Standard_Name").equals("")) {
+			
+//		----- Enroll Page2-1
+			String serviceTypeName = request.getParameter("enroll_ServiceName");
+			String seondGuide = request.getParameter("enroll_ServiceGuide");
+			int servicePay = Integer.parseInt(request.getParameter("enroll_ServicePay"));
+			int workDay = Integer.parseInt(request.getParameter("enroll_WorkDay"));
+			int retouch = Integer.parseInt(request.getParameter("enroll_Retouch"));
+			int data = Integer.parseInt(request.getParameter("enroll_WorkDay"));
+			int function = Integer.parseInt(request.getParameter("enroll_Retouch"));
+			
+			BoardProDto businessDto = new BoardProDto(serviceTypeName, seondGuide, servicePay, workDay, retouch, data, function);
+			
+			typeResult = boardProService.BusinessMenuSingleEnroll(businessDto, businessNo);
+			
+		} else {
+			
+//		----- Enroll Page 2-2		
+			String sbusinessServiceName = request.getParameter("enroll_Standard_Name");
+			String dbusinessServiceName = request.getParameter("enroll_Deluxe_Name");
+			String pbusinessServiceName = request.getParameter("enroll_Premium_Name");
+			
+			String sbusinessServiceGuide = request.getParameter("enroll_Standard_ServiceGuide");
+			String dbusinessServiceGuide = request.getParameter("enroll_Deluxe_ServiceGuide");
+			String pbusinessServiceGuide = request.getParameter("enroll_Premium_ServiceGuide");
+			
+			int sbusinessServicePay = Integer.parseInt(request.getParameter("enroll_Standard_Pay"));
+			int dbusinessServicePay = Integer.parseInt(request.getParameter("enroll_Deluxe_Pay"));
+			int pbusinessServicePay = Integer.parseInt(request.getParameter("enroll_Premium_Pay"));
+			
+			int sbusinessServiceWorkDate = Integer.parseInt(request.getParameter("enroll_Standard_WorkDay"));
+			int dbusinessServiceWorkDate = Integer.parseInt(request.getParameter("enroll_Deluxe_WorkDay"));
+			int pbusinessServiceWorkDate = Integer.parseInt(request.getParameter("enroll_Premium_WorkDay"));
+			
+			int sbusinessServiceRetouch = Integer.parseInt(request.getParameter("enroll_Standard_Retouch"));
+			int dbusinessServiceRetouch = Integer.parseInt(request.getParameter("enroll_Deluxe_Retouch"));
+			int pbusinessServiceRetouch = Integer.parseInt(request.getParameter("enroll_Premium_Retouch"));
+			
+			int sbusinessServiceData = Integer.parseInt(request.getParameter("enroll_Standard_Data"));
+			int dbusinessServiceData = Integer.parseInt(request.getParameter("enroll_Deluxe_Data"));
+			int pbusinessServiceData = Integer.parseInt(request.getParameter("enroll_Premium_Data"));
+			
+			int sbusinessServiceFunction = Integer.parseInt(request.getParameter("enroll_Standard_Function"));
+			int dbusinessServiceFunction = Integer.parseInt(request.getParameter("enroll_Deluxe_Function"));
+			int pbusinessServiceFunction = Integer.parseInt(request.getParameter("enroll_Premium_Function"));
+			
+//			상세정보 배열 생성
+				ArrayList<BoardProDto> business = new ArrayList<>();
+				
+//			패키지 가격 상품일 때
+//			STANDARD DATA
+				BoardProDto standardDto = new BoardProDto(sbusinessServiceName, sbusinessServiceGuide, sbusinessServicePay, sbusinessServiceWorkDate, sbusinessServiceRetouch, sbusinessServiceData, sbusinessServiceFunction);
+				
+//			DELUXE DATA
+				BoardProDto deluxeDto = new BoardProDto(dbusinessServiceName, dbusinessServiceGuide, dbusinessServicePay, dbusinessServiceWorkDate, dbusinessServiceRetouch, dbusinessServiceData, dbusinessServiceFunction);
+				
+//			PRIMIUM DATA
+				BoardProDto primiumDto = new BoardProDto(pbusinessServiceName, pbusinessServiceGuide, pbusinessServicePay, pbusinessServiceWorkDate, pbusinessServiceRetouch, pbusinessServiceData, pbusinessServiceFunction); 
+				
+				business.add(standardDto);
+				business.add(deluxeDto);
+				business.add(primiumDto);
+				
+				typeResult = boardProService.BusinessMenuEnroll(business, businessNo);
+			
+		}
 		
 		
 //		---------------------------------------------------------------------
@@ -174,31 +185,32 @@ public class BoardProEnrollController extends HttpServlet {
 		    dFilePath.mkdirs();
 		}
 
-		String fileName = null; // 업로드된 파일 이름을 저장할 변수
+		String[] fileName = {null, null}; // 업로드된 파일 이름을 저장할 변수
 		int fileResult = 0; // 파일 업로드 결과를 추적하는 변수
 
 		// 모든 Part 객체를 반복하여 파일을 업로드합니다.
 		for (Part part : parts) {
-		    fileName = getFileName(part); // Part 객체에서 파일 이름을 가져옵니다.
-		    if (fileName != null) {
+		    getFileName(part,fileName); // Part 객체에서 파일 이름을 가져옵니다.
+		    System.out.println("fileName" + fileName);
+		    if (fileName[0] != null) {
 		        // 파일 이름이 "main"으로 시작하는 경우 메인 이미지 디렉토리로 저장합니다.
-		        if (fileName.startsWith("main")) {
+		        if (fileName[1].startsWith("mUploadFile")) {
 		            part.write(mFilePath + File.separator + fileName);
 		            boardDto.setFilePath(mUploadDirectory); // 파일 경로를 DTO에 설정합니다.
 		        } 
 		        // 파일 이름이 "detail"로 시작하는 경우 상세페이지 이미지 디렉토리로 저장합니다.
-		        else if (fileName.startsWith("detail")) {
+		        else if (fileName[1].startsWith("dUploadFile")) {
 		            part.write(dFilePath + File.separator + fileName);
 		            boardDto.setFilePath(dUploadDirectory); // 파일 경로를 DTO에 설정합니다.
 		        }
-		        boardDto.setFileName(fileName); // 파일 이름을 DTO에 설정합니다.
+		        boardDto.setFileName(fileName[0]); // 파일 이름을 DTO에 설정합니다.
 		        fileResult = boardProService.fileUpload(boardDto, businessNo); // 파일 업로드를 수행합니다.
 		    }
 		}
 
 		// 파일 업로드 및 비즈니스 로직 처리가 성공한 경우 메인 페이지로 이동합니다.
-		if (result == 1 && fileResult == 1) {
-		    response.sendRedirect("/");
+		if (result == 1 && typeResult == 1 && fileResult == 1) {
+		    response.sendRedirect("/views/board/boardDetail.jsp");
 		} 
 		// 실패한 경우 오류 페이지로 이동합니다.
 		else {
@@ -208,15 +220,18 @@ public class BoardProEnrollController extends HttpServlet {
 	
 	}
 	
-	private String getFileName(Part part) {
+	private void getFileName(Part part, String[] fileName) {
         String contentDisposition = part.getHeader("content-disposition");
         String[] tokens = contentDisposition.split(";");
         for (String token : tokens) {
             if (token.trim().startsWith("filename")) {
-                return token.substring(token.indexOf('=') + 2, token.length() - 1);
+            	fileName[0] = token.substring(token.indexOf('=') + 2, token.length() - 1);
+            }
+            
+            if (token.trim().startsWith("name")) {
+            	fileName[1] = token.substring(token.indexOf('=') + 2, token.length() - 1);
             }
         }
-        return null;
     }
 	
 }

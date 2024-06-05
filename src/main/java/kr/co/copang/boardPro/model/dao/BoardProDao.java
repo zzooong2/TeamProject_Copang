@@ -72,19 +72,23 @@ public class BoardProDao {
 
 	}
 
-	public int getEnroll(BoardProDto boardDto) {
+	public int getCategoryBoardEnroll(BoardProDto boardDto) {
 
-		String query = "INSERT INTO CATEGORY_BOARD VALUES(CATEGORY_BOARD_SEQ.NEXTVAL, ?, ?, DEFAULT, NULL, NULL, DEFAULT, ?, ?)";
+		String query = "INSERT INTO CATEGORY_BOARD VALUES(CATEGORY_BOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, NULL, NULL, DEFAULT)";
 
 		int result = 0;
 
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, boardDto.getBoardProTitle());
-			pstmt.setString(2, boardDto.getBoardProContents());
-			pstmt.setInt(3, boardDto.getUserNo());
-			pstmt.setString(4, boardDto.getBoardProSecondTitle());
-
+			pstmt.setInt(1, boardDto.getUserNo());
+			pstmt.setString(2, boardDto.getBoardProCompany());
+			pstmt.setString(3, boardDto.getBoardProTitle());
+			pstmt.setString(4, boardDto.getBoardProCategory());
+			pstmt.setString(5, boardDto.getBoardProMiddleCategory());
+			pstmt.setString(6, boardDto.getBoardProSubcatCategory());
+			pstmt.setString(7, boardDto.getBoardProServiceType());
+			pstmt.setString(8, boardDto.getBoardProContents());
+			
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -120,44 +124,81 @@ public class BoardProDao {
 
 		return result;
 	}
-
-	public int getTypeEnroll(ArrayList<BoardProDto> business, int businessNo) {
-
-		String query1 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'STANDARD', ?, ?, ?, ?)";
-		String query2 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'DELUXE', ?, ?, ?, ?)";
-		String query3 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'PREMIUM', ?, ?, ?, ?)";
+	
+	public int getBusinessMenuSingleEnroll(BoardProDto businessDto, int businessNo) {
+		
+		String query = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'SINGLE', ?, ?, ?, ?, ?, ?, ?)";
+		
+		int result = 0;
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, businessNo);
+			pstmt.setString(2, businessDto.getBusinessServiceName());
+			pstmt.setString(3, businessDto.getBusinessServiceGuide());
+			pstmt.setInt(4, businessDto.getBusinessServicePay());
+			pstmt.setInt(5, businessDto.getBusinessServiceWorkDate());
+			pstmt.setInt(6, businessDto.getBusinessServiceRetouch());
+			pstmt.setInt(7, businessDto.getBusinessServiceData());
+			pstmt.setInt(8, businessDto.getBusinessServiceFunction());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
+	
+	
+	public int getBusinessMenuEnroll(ArrayList<BoardProDto> business, int businessNo) {
+		
+		String standardQuery = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'STANDARD', ?, ?, ?, ?, ?, ?, ?)";
+		String deluxeQuery = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'DELUXE', ?, ?, ?, ?, ?, ?, ?)";
+		String premiumQuery = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'PREMIUM', ?, ?, ?, ?, ?, ?, ?)";
 
 		int result = 0;
 
 		try {
-			pstmt = con.prepareStatement(query1);
+			pstmt = con.prepareStatement(standardQuery);
 			pstmt.setInt(1, businessNo);
-			pstmt.setInt(2, business.get(0).getBusinessFunction());
-			pstmt.setInt(3, business.get(0).getBusinessRetouch());
-			pstmt.setInt(4, business.get(0).getBusinessPay());
-			pstmt.setInt(5, business.get(0).getBusinessDate());
+			pstmt.setString(2, business.get(0).getBusinessServiceName());
+			pstmt.setString(3, business.get(0).getBusinessServiceGuide());
+			pstmt.setInt(4, business.get(0).getBusinessServicePay());
+			pstmt.setInt(5, business.get(0).getBusinessServiceWorkDate());
+			pstmt.setInt(6, business.get(0).getBusinessServiceRetouch());
+			pstmt.setInt(7, business.get(0).getBusinessServiceData());
+			pstmt.setInt(8, business.get(0).getBusinessServiceFunction());
+			
+			result = pstmt.executeUpdate();
+
+			pstmt.close();
+
+			pstmt = con.prepareStatement(deluxeQuery);
+			pstmt.setInt(1, businessNo);
+			pstmt.setString(2, business.get(1).getBusinessServiceName());
+			pstmt.setString(3, business.get(1).getBusinessServiceGuide());
+			pstmt.setInt(4, business.get(1).getBusinessServicePay());
+			pstmt.setInt(5, business.get(1).getBusinessServiceWorkDate());
+			pstmt.setInt(6, business.get(1).getBusinessServiceRetouch());
+			pstmt.setInt(7, business.get(1).getBusinessServiceData());
+			pstmt.setInt(8, business.get(1).getBusinessServiceFunction());
 
 			result = pstmt.executeUpdate();
 
 			pstmt.close();
 
-			pstmt = con.prepareStatement(query2);
+			pstmt = con.prepareStatement(premiumQuery);
 			pstmt.setInt(1, businessNo);
-			pstmt.setInt(2, business.get(1).getBusinessFunction());
-			pstmt.setInt(3, business.get(1).getBusinessRetouch());
-			pstmt.setInt(4, business.get(1).getBusinessPay());
-			pstmt.setInt(5, business.get(1).getBusinessDate());
-
-			result = pstmt.executeUpdate();
-
-			pstmt.close();
-
-			pstmt = con.prepareStatement(query3);
-			pstmt.setInt(1, businessNo);
-			pstmt.setInt(2, business.get(2).getBusinessFunction());
-			pstmt.setInt(3, business.get(2).getBusinessRetouch());
-			pstmt.setInt(4, business.get(2).getBusinessPay());
-			pstmt.setInt(5, business.get(2).getBusinessDate());
+			pstmt.setString(2, business.get(2).getBusinessServiceName());
+			pstmt.setString(3, business.get(2).getBusinessServiceGuide());
+			pstmt.setInt(4, business.get(2).getBusinessServicePay());
+			pstmt.setInt(5, business.get(2).getBusinessServiceWorkDate());
+			pstmt.setInt(6, business.get(2).getBusinessServiceRetouch());
+			pstmt.setInt(7, business.get(2).getBusinessServiceData());
+			pstmt.setInt(8, business.get(2).getBusinessServiceFunction());
 
 			result = pstmt.executeUpdate();
 
@@ -271,10 +312,32 @@ public class BoardProDao {
 
 			while (rs.next()) {
 				int bNo = rs.getInt("B_NO");
+				int uNo = rs.getInt("USER_NO");
 				String bTitle = rs.getString("B_TITLE");
+				String bCategory = rs.getString("B_CATEGORY");
+				String bMiddelCategory = rs.getString("B_MIDDLECATEGORY");
+				String bSubcatCategory = rs.getString("B_SUBCATEGORY");
+				String bServiceStyle = rs.getString("B_SERVICESTYLE");
 				String bContents = rs.getString("B_CONTENT");
-				String bSecondTitle = rs.getString("B_SECONDTITLE");
-				String bIndate = rs.getString("");
+				String bIndate = rs.getString("B_INDATE");
+				String bUpdate = rs.getString("B_UPDATE");
+				String bDelete = rs.getString("B_DELETE");
+				int bViews = rs.getInt("B_VIEWS");
+				
+				BoardProDto nBoardProDto = new BoardProDto();
+				nBoardProDto.setBoardProNo(bNo);
+				nBoardProDto.setUserNo(uNo);
+				nBoardProDto.setBoardProCategory(bCategory);
+				nBoardProDto.setBoardProMiddleCategory(bMiddelCategory);
+				nBoardProDto.setBoardProSubcatCategory(bSubcatCategory);
+				nBoardProDto.setBoardProServiceType(bServiceStyle);
+				nBoardProDto.setBoardProContents(bContents);
+				nBoardProDto.setBoardProIndate(bIndate);
+				nBoardProDto.setBoardProUpdate(bUpdate);
+				nBoardProDto.setBoardProDelete(bDelete);
+				nBoardProDto.setBoardProViews(bViews);
+
+				return nBoardProDto;
 
 			}
 
@@ -298,18 +361,28 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int sNo = rs.getInt("B_NO");
-				int sFuntion = rs.getInt("BM_FUNTION");
-				int sRetouch = rs.getInt("BM_RETOUCH");
+				int bNo = rs.getInt("BM_NO");
+				int uNo = rs.getInt("B_NO");
+				String sType = rs.getString("BM_TYPE");
+				String sName = rs.getString("BM_NAME");
+				String sGuide = rs.getString("BM_GUIDE");
 				int sPay = rs.getInt("BM_PAY");
 				int sWorkdate = rs.getInt("BM_WORKDATE");
+				int sRetouch = rs.getInt("BM_RETOUCH");
+				int sData = rs.getInt("BM_DATA");
+				int sFuntion = rs.getInt("BM_FUNTION");
 
 				BoardProDto sBoardProDto = new BoardProDto();
-				sBoardProDto.setBoardProNo(sNo);
-				sBoardProDto.setBusinessFunction(sFuntion);
-				sBoardProDto.setBusinessRetouch(sRetouch);
-				sBoardProDto.setBusinessPay(sPay);
-				sBoardProDto.setBusinessDate(sWorkdate);
+				sBoardProDto.setBoardProNo(bNo);
+				sBoardProDto.setUserNo(uNo);
+				sBoardProDto.setBusinessServiceType(sType);
+				sBoardProDto.setBusinessName(sName);
+				sBoardProDto.setBusinessServiceGuide(sGuide);
+				sBoardProDto.setBusinessServicePay(sPay);
+				sBoardProDto.setBusinessServiceWorkDate(sWorkdate);
+				sBoardProDto.setBusinessServiceRetouch(sRetouch);
+				sBoardProDto.setBusinessServiceData(sData);
+				sBoardProDto.setBusinessServiceFunction(sFuntion);
 
 				return sBoardProDto;
 			}
@@ -332,18 +405,28 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int dNo = rs.getInt("B_NO");
-				int dFuntion = rs.getInt("BM_FUNTION");
-				int dRetouch = rs.getInt("BM_RETOUCH");
+				int bNo = rs.getInt("BM_NO");
+				int uNo = rs.getInt("B_NO");
+				String dType = rs.getString("BM_TYPE");
+				String dName = rs.getString("BM_NAME");
+				String dGuide = rs.getString("BM_GUIDE");
 				int dPay = rs.getInt("BM_PAY");
 				int dWorkdate = rs.getInt("BM_WORKDATE");
+				int dRetouch = rs.getInt("BM_RETOUCH");
+				int dData = rs.getInt("BM_DATA");
+				int dFuntion = rs.getInt("BM_FUNTION");
 
 				BoardProDto dBoardProDto = new BoardProDto();
-				dBoardProDto.setBoardProNo(dNo);
-				dBoardProDto.setBusinessFunction(dFuntion);
-				dBoardProDto.setBusinessRetouch(dRetouch);
-				dBoardProDto.setBusinessPay(dPay);
-				dBoardProDto.setBusinessDate(dWorkdate);
+				dBoardProDto.setBoardProNo(bNo);
+				dBoardProDto.setUserNo(uNo);
+				dBoardProDto.setBusinessServiceType(dType);
+				dBoardProDto.setBusinessName(dName);
+				dBoardProDto.setBusinessServiceGuide(dGuide);
+				dBoardProDto.setBusinessServicePay(dPay);
+				dBoardProDto.setBusinessServiceWorkDate(dWorkdate);
+				dBoardProDto.setBusinessServiceRetouch(dRetouch);
+				dBoardProDto.setBusinessServiceData(dData);
+				dBoardProDto.setBusinessServiceFunction(dFuntion);
 
 				return dBoardProDto;
 			}
@@ -366,18 +449,28 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int pNo = rs.getInt("B_NO");
-				int pFuntion = rs.getInt("BM_FUNTION");
-				int pRetouch = rs.getInt("BM_RETOUCH");
+				int bNo = rs.getInt("BM_NO");
+				int uNo = rs.getInt("B_NO");
+				String pType = rs.getString("BM_TYPE");
+				String pName = rs.getString("BM_NAME");
+				String pGuide = rs.getString("BM_GUIDE");
 				int pPay = rs.getInt("BM_PAY");
 				int pWorkdate = rs.getInt("BM_WORKDATE");
+				int pRetouch = rs.getInt("BM_RETOUCH");
+				int pData = rs.getInt("BM_DATA");
+				int pFuntion = rs.getInt("BM_FUNTION");
 
 				BoardProDto pBoardProDto = new BoardProDto();
-				pBoardProDto.setBoardProNo(pNo);
-				pBoardProDto.setBusinessFunction(pFuntion);
-				pBoardProDto.setBusinessRetouch(pRetouch);
-				pBoardProDto.setBusinessPay(pPay);
-				pBoardProDto.setBusinessDate(pWorkdate);
+				pBoardProDto.setBoardProNo(bNo);
+				pBoardProDto.setUserNo(uNo);
+				pBoardProDto.setBusinessServiceType(pType);
+				pBoardProDto.setBusinessName(pName);
+				pBoardProDto.setBusinessServiceGuide(pGuide);
+				pBoardProDto.setBusinessServicePay(pPay);
+				pBoardProDto.setBusinessServiceWorkDate(pWorkdate);
+				pBoardProDto.setBusinessServiceRetouch(pRetouch);
+				pBoardProDto.setBusinessServiceData(pData);
+				pBoardProDto.setBusinessServiceFunction(pFuntion);
 
 				return pBoardProDto;
 			}

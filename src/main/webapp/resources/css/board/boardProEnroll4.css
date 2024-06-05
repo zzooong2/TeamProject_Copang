@@ -194,8 +194,16 @@
     margin-left: 0;
     border: 1px solid #c0c0c0;
     line-height: 27px;
+    word-break: break-all;
+    overflow-y: scroll;
 }
 
 .Detail_right_Contents3_Textarea:focus {
     outline: none;
+}
+
+.Detail_right_Contents3_Count {
+	margin-right: 30px;
+	padding-top : 10px;
+	height: 45px;
 }
