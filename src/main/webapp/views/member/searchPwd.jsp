@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
 	<%@ include file="/views/common/head.jsp"%>
+	<link rel="icon" href="/resources/img/tapIcon.png">
 	<link rel="stylesheet" href="/resources/css/member/searchPwd.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>

@@ -156,48 +156,25 @@ directionL.addEventListener('click', function() {
 
 });
 
-function titleCounter(text, length) {
-	var limit = length;
-	var str = text.value.length;
-	if(str>limit) {
-		text.value= text.value.substring(0, limit);
+
+function detailCounter(text, limit) {
+	let detailByte = 0;
+	var patten1 = /[가-힣ㄱ-ㅎㅏ-ㅣ]/;
+	var str = text.value;
+	var strValueSplit = str.split("");
+	
+	for(i=0; i<strValueSplit.length; i++) {
+		if(patten1.test(strValueSplit[i])){
+			detailByte += 3;
+		} else {
+			detailByte += 1;
+		}
+	}
+	if(detailByte>limit) {
+		text.value = str.substring(0, limit);
 		text.focus();
 	}
-	document.getElementById("Detail_right_Contents3_Count").innerHTML = text.value.length + " / " + limit;
+	document.getElementById("Detail_right_Contents3_Count").innerHTML = str.length + " / " + limit;
 }
-
-
-function detailCounter(text, length) {
-	var limit = length;
-	var str = text.value.length;
-	if(str>limit) {
-		text.value= text.value.substring(0, limit);
-		text.focus();
-	}
-	document.getElementById("Detail_right_Contents3_Count").innerHTML = text.value.length + " / " + limit;
-}
-
-
-function counter(text, length) {
-	var limit = length;
-	var str = text.value.length;
-	if(str>limit) {
-		text.value= text.value.substring(0, limit);
-		text.focus();
-	}
-	document.getElementById("Detail_right_Contents3_Count").innerHTML = text.value.length + " / " + limit;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 

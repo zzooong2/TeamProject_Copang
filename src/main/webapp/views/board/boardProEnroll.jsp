@@ -50,7 +50,7 @@
 						<div class="Detail_right_Contents1_Title">
 							<div class="Detail_right_Contents1_box1">
 								<span class="Detail_right_type_box">&nbsp;&nbsp;제목<span class="Detail_right_check">*</span></span> 
-								<input class="Detail_right_Contents1_Title_Input" type="text" placeholder="제목을 입력해주세요." name="enroll_Title"><span class="Detail_right_Contents1_unit1">드립니다.</span>
+								<input class="Detail_right_Contents1_Title_Input" type="text" placeholder="제목을 입력해주세요." name="enroll_Title" oninput="Counter(this, 90)">
 							</div>
 						</div>
 						<div class="Detail_right_Contents1_Category">
@@ -304,7 +304,7 @@
 									<div class="Detail_right_Contents1_box2">
 										<span class="Detail_right_type_box">&nbsp;&nbsp;서비스 타입<span class="Detail_right_check">*</span></span> 
 										<select class="Detail_right_Contents1_Category_Style" name="enroll_Service">
-											<option class="Detail_right_Contents1_Category_Style" value="">소분류를 선택하여주세요</option>
+											<option class="Detail_right_Contents1_Category_Style" value="">서비스 형태를 선택하여주세요</option>
 											<option class="Detail_right_Contents1_Category_Style" value="문서제공">문서제공</option>
 											<option class="Detail_right_Contents1_Category_Style" value="온라인제공">온라인제공</option>
 											<option class="Detail_right_Contents1_Category_Style" value="파견근무">파견근무</option>
@@ -314,7 +314,7 @@
 								</div>
 								<div class="Detail_right_Contents1_company">
 								<span class="Detail_right_type_box">&nbsp;&nbsp;기업명<span class="Detail_right_check">*</span></span> 
-								<input class="Detail_right_Contents1_Title_Input" type="text" placeholder="기업 이름을 입력해주세요." name="enroll_Company"><span class="Detail_right_Contents1_unit1">드립니다.</span>
+								<input class="Detail_right_Contents1_Title_Input" type="text" placeholder="기업 이름을 입력해주세요." name="enroll_Company" oninput="Counter(this, 90)">
 							</div>
 								<div class="Detail_right_Contents1_imgbox">
 									<img class="Detail_right_Contents1_img"
@@ -349,11 +349,11 @@
 									<div class="Detail_right_Type_Title">
 										<div class="Detail_right_type_box1">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;제목<span class="Detail_right_check">*</span></span> 
-											<input class="type_box_Input input_select" type="text" placeholder="제목을 입력해주세요." name="enroll_ServiceName" maxlength="20">
+											<input class="type_box_Input input_select" type="text" placeholder="제목을 입력해주세요." name="enroll_ServiceName" oninput="Counter(this, 60)">
 										</div>
 										<div class="Detail_right_type_box2">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;설명<span class="Detail_right_check">*</span></span> 
-											<input class="type_box_Input2 input_select" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_ServiceGuide" maxlength="30">
+											<input class="type_box_Input2 input_select" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_ServiceGuide" oninput="Counter(this, 300)">
 										</div>
 										<div class="Detail_right_type_box1">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;금액(VAT포함)<span class="Detail_right_check">*</span></span> 
@@ -496,17 +496,17 @@
 												<div class="Detail_right_Type2_ON_smallbox2">
 													<span class="Detail_right_Type2_Text">제목<span class="Detail_right_Type2_check">*</span></span>
 												</div>
-												<input class=" Detail_right_Type2_input" type="text" placeholder="제목을 입력해주세요." name="enroll_Standard_Name" onkeyup="titleCounter(this, 60)">
-												<input class=" Detail_right_Type2_input" type="text" placeholder="제목을 입력해주세요." name="enroll_Deluxe_Name" onkeyup="titleCounter(this, 60)">
-												<input class=" Detail_right_Type2_input" type="text" placeholder="제목을 입력해주세요." name="enroll_Premium_Name" onkeyup="titleCounter(this, 60)">
+												<input class=" Detail_right_Type2_input" type="text" placeholder="제목을 입력해주세요." name="enroll_Standard_Name" oninput="Counter(this, 60)">
+												<input class=" Detail_right_Type2_input" type="text" placeholder="제목을 입력해주세요." name="enroll_Deluxe_Name" oninput="Counter(this, 60)">
+												<input class=" Detail_right_Type2_input" type="text" placeholder="제목을 입력해주세요." name="enroll_Premium_Name" oninput="Counter(this, 60)">
 											</div>
 											<div class="Detail_right_Type2_Box2">
 												<div class="Detail_right_Type2_ON_smallbox2">
 													<span class="Detail_right_Type2_Text">설명<span class="Detail_right_Type2_check">*</span></span>
 												</div>
-												<textarea class="Detail_right_Type2_input3" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_Standard_ServiceGuide" onkeyup="detailCounter(this, 90)"></textarea> 
-												<textarea class="Detail_right_Type2_input3" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_Deluxe_ServiceGuide" onkeyup="detailCounter(this, 90)"></textarea>
-												<textarea class="Detail_right_Type2_input3" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_Premium_ServiceGuide" onkeyup="detailCounter(this, 90)"></textarea>
+												<textarea id="GuideText1" class="Detail_right_Type2_input3" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_Standard_ServiceGuide" oninput="Counter(this, 300)"></textarea> 
+												<textarea id="GuideText2" class="Detail_right_Type2_input3" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_Deluxe_ServiceGuide" oninput="Counter(this, 300)"></textarea>
+												<textarea id="GuideText3" class="Detail_right_Type2_input3" type="text" placeholder="상세 설명을 입력해주세요." name="enroll_Premium_ServiceGuide" oninput="Counter(this, 300)"></textarea>
 											</div>
 											<div class="Detail_right_Type2_Box">
 												<div class="Detail_right_Type2_ON_smallbox2">
@@ -821,7 +821,7 @@
 											<button type="button" class="Detail_right_Contents3_Italicbutton" id="italicButton">I</button>
 											<button type="button" class="Detail_right_Contents3_Underlinebutton" id="underlineButton">U</button>
 										</div>
-										<textarea class="Detail_right_Contents3_Textarea" id="Detail_right_Contents3_Textarea" contenteditable="true" name="enroll_ServiceContents" onkeyup="counter(this, 1000)"></textarea>
+										<textarea class="Detail_right_Contents3_Textarea" id="Detail_right_Contents3_Textarea" contenteditable="true" name="enroll_ServiceContents" oninput="counter(this, 6000)"></textarea>
 										<div class="Detail_right_Contents3_Count" id="Detail_right_Contents3_Count">0/1000</div>
 									</div>
 								</div>

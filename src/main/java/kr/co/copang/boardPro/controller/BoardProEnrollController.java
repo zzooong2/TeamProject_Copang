@@ -65,20 +65,6 @@ public class BoardProEnrollController extends HttpServlet {
 			}
 		}
 		
-		
-		System.out.println("title : " + title);
-		System.out.println("category : " + category);
-		System.out.println("middleCategory : " + middleCategory);
-		System.out.println("subcatCategory : " + subcatCategory);
-		System.out.println("serviceStyle : " + serviceStyle);
-		System.out.println("company : " + company);
-		
-		
-		
-		
-		
-		
-		
 		BoardProDto boardDto = new BoardProDto(); 
 		boardDto.setUserNo(memberNo);
 		boardDto.setBoardProTitle(title);
@@ -195,19 +181,21 @@ public class BoardProEnrollController extends HttpServlet {
 		    if (fileName[0] != null) {
 		        // 파일 이름이 "main"으로 시작하는 경우 메인 이미지 디렉토리로 저장합니다.
 		        if (fileName[1].startsWith("mUploadFile")) {
-		            part.write(mFilePath + File.separator + fileName);
+		            part.write(mFilePath + File.separator + fileName[0]);
 		            boardDto.setFilePath(mUploadDirectory); // 파일 경로를 DTO에 설정합니다.
 		        } 
 		        // 파일 이름이 "detail"로 시작하는 경우 상세페이지 이미지 디렉토리로 저장합니다.
 		        else if (fileName[1].startsWith("dUploadFile")) {
-		            part.write(dFilePath + File.separator + fileName);
+		            part.write(dFilePath + File.separator + fileName[0]);
 		            boardDto.setFilePath(dUploadDirectory); // 파일 경로를 DTO에 설정합니다.
 		        }
 		        boardDto.setFileName(fileName[0]); // 파일 이름을 DTO에 설정합니다.
 		        fileResult = boardProService.fileUpload(boardDto, businessNo); // 파일 업로드를 수행합니다.
 		    }
 		}
-
+		System.out.println("result : " + result);
+		System.out.println("typeResult : " + typeResult);
+		System.out.println("fileResult : " + fileResult);
 		// 파일 업로드 및 비즈니스 로직 처리가 성공한 경우 메인 페이지로 이동합니다.
 		if (result == 1 && typeResult == 1 && fileResult == 1) {
 		    response.sendRedirect("/views/board/boardDetail.jsp");
