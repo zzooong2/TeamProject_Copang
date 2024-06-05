@@ -108,6 +108,38 @@ public class MemberDao {
 		}
 		return result;
 	}
+	
+	// 패스워드 암호화 가져오기
+	public MemberDto login(String id) {
+		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME"
+				+ "     FROM MEMBER M " 
+                + "     JOIN MEMBER_TYPE MT ON M.PART_CODE = MT.PART_CODE "
+				+ "     WHERE M.EMAIL = ?";
+		MemberDto result = new MemberDto();
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String userName = rs.getString("USER_NAME");
+				String hashPassword = rs.getString("PASSWORD");
+				String partName = rs.getString("PART_NAME");
+				
+				result.setUserName(userName);
+				result.setUserPwd(hashPassword);
+				result.setUsertype(partName);
+				
+				return result;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	
 	

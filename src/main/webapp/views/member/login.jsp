@@ -14,7 +14,7 @@
 	<div id="main" class="login-page" style="padding-top: 100px; padding-bottom: 100px;">
 		<div class="login_container" >
         <h2 class="로그인">COPANG</h2>
-        <form action="login" method="post">
+        <form action="/member/login.do" method="POST">
             <label for="email">이메일</label>
             <br>
             <input type="email" id="email" name="email" placeholder="이메일을 입력해 주세요." required>
