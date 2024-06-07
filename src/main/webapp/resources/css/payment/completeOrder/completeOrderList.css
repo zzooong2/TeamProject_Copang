@@ -128,3 +128,40 @@ h4 {
     margin: 10px;
 }
 
+/* 의뢰내용 */
+.request-space{
+	position: absolute;
+    top: 65%;
+    left: 5%;
+    width: 90%;
+    height: 50%;
+    border: 0.1px solid #cacaca;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.request-title{
+	position: relative;
+    border: 0.1px solid #e0e0e0;
+    border-radius: 5px;
+    width: 87%;
+    height: 50px;
+    font-size: 15px;
+    background-color: #e0e0e0;
+}
+
+.request-contents{
+	position: relative;
+    border: 0.1px solid #e0e0e0;
+    border-radius: 5px;
+    width: 87%;
+    height: 350px;
+    font-size: 15px;
+    background-color: #e0e0e0;
+}
+
+.request{
+	position: relative;
+	top: 5%;
+	left: 5%;
+}

@@ -30,10 +30,10 @@ public class RequestEnrollController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-//		// 로그인 기능 구현시 session 에 담겨있는 userNo 를 이용해서 변수 초기화
-//		HttpSession session = request.getSession();
-//		int userNo = session.getAttribute("userNo");
-		int userNo = 2;
+		// 로그인 기능 구현시 session 에 담겨있는 userNo 를 이용해서 변수 초기화
+		HttpSession session = request.getSession();
+		
+		int userNo = (int)session.getAttribute("userNo");
 		String requestTitle = request.getParameter("title"); // ajax 로직에 데이터 던지는 key 값으로 받아올것
 		String requestContents = request.getParameter("contents");
 		
