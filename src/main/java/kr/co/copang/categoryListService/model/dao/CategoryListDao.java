@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
-import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
 import kr.co.copang.common.DatabaseConnection;
 import kr.co.copang.common.PageInfo;
 
@@ -25,7 +24,7 @@ public class CategoryListDao {
 	public ArrayList<CategoryListDtoImpl> getList(String type) {
 		
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
-		String query = "SELECT B_no, B_TITLE, BM_PAY, u.FILE_PATH, B_COMPANY FROM CATEGORY_BOARD cb"
+		String query = "SELECT cb.B_no, B_TITLE, BM_PAY, u.FILE_PATH, B_COMPANY FROM CATEGORY_BOARD cb"
 			+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 			+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
 			+ " JOIN MEMBER m ON m.USER_NO = cb.USER_NO"

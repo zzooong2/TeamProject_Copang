@@ -30,25 +30,28 @@ public class CategoryListController extends HttpServlet {
 //				2. 컨트롤러가 String type = request.getParameter("type")
 
 		String type = request.getParameter("type");		
+		ArrayList<CategoryListDtoImpl> list = categoryListService.getList(type);
 		
-		ArrayList<CategoryListDtoImpl> List = categoryListService.getList(type);
+//		 리스트 잘 가져오는지 까지
+		request.setAttribute("list", list);
 		
-		// 리스트 잘 가져오는지 까지
-		request.setAttribute("List", List);
+		for(CategoryListDtoImpl item:list) {
+			System.out.println(item.getBoardTitle());
+		}
 		
 		
 		
 		String nextPage = "";
 		
-		if(type.equals("IT/프로그래밍")){
+		if(type.equals("ITㆍ프로그래밍")){
 			nextPage = "/views/category/category_IT.jsp";
-		}else if(type == "디자인"){
+		}else if(type.equals("디자인")){
 			nextPage = "/views/category/category_design.jsp";
-		}else if(type == "영상"){
+		}else if(type.equals("영상ㆍ사진")){
 			nextPage = "/views/category/category_media.jsp";
-		}else if(type == "마케팅"){
+		}else if(type.equals("마케팅")){
 			nextPage = "/views/category/category_marketing.jsp";
-		}else if(type == "교육"){
+		}else if(type.equals("교육")){
 			nextPage = "/views/category/category_edu.jsp";
 		}
 	

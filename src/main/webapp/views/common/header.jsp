@@ -7,9 +7,9 @@
 		<ul class="top_menu">
 			<li>분야 카테고리
 				<ul class="sub_menu">
-					<li><a href="/views/category/category_IT.jsp">IT/프로그래밍</a></li>
-					<li><a href="/views/category/category_design.jsp">디자인</a></li>
-					<li><a href="/views/category/category_media.jsp">영상/사진</a></li>
+					<li><a href="/category/list.do?type=ITㆍ프로그래밍">ITㆍ프로그래밍</a></li>
+					<li><a href="/category/list.do?type=디자인">디자인</a></li>
+					<li><a href="/views/category/category_media.jsp">영상ㆍ사진</a></li>
 					<li><a href="/views/category/category_marketing.jsp">마케팅</a></li>
 					<li><a href="/views/category/category_edu.jsp">교육</a></li>
 				</ul>
