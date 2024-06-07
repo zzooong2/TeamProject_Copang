@@ -47,7 +47,7 @@ nhn.husky.EZCreator = new (function(){
 			elPlaceHolder = document.getElementById(elPlaceHolder);
 
 		var elIFrame, nEditorWidth, nEditorHeight;
-		 
+		
 
 		try{
 			elIFrame = document.createElement("<IFRAME frameborder=0 scrolling=no>");

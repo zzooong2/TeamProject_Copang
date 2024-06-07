@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.boardPro.model.service.BoardProServiceImpl;
 
-@WebServlet("/BoardProDetailController")
+@WebServlet("/BoardPro/Detail.do")
 public class BoardProDetailController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -22,20 +22,30 @@ public class BoardProDetailController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		int boardProNo = Integer.parseInt(request.getParameter("B_NO"));
+		
+	    // 기본값으로 설정할 게시물 번호
+	    int defaultBoardProNo = 2;
+	    
+	    // 요청에서 B_NO 파라미터 가져오기, 없을 경우 기본값 사용
+	    int boardProNo;
+	    String boardProNoParam = request.getParameter("B_NO");
+	    if (boardProNoParam != null && !boardProNoParam.isEmpty()) {
+	        boardProNo = Integer.parseInt(boardProNoParam);
+	    } else {
+	        boardProNo = defaultBoardProNo;
+	    }
+		
+//		int boardProNo = Integer.parseInt(request.getParameter("B_NO"));
 	
 		BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
 		
-		
 		ArrayList<BoardProDto> result = boardProService.getDetail(boardProNo);
 		
-		
-		request.setAttribute("result", result.equals(0));
-		request.setAttribute("resultS", result.equals(1));
-		request.setAttribute("resultD", result.equals(2));
-		request.setAttribute("resultP", result.equals(3));
-		request.setAttribute("resultF", result.equals(4));
+		request.setAttribute("result", result.get(0));
+		request.setAttribute("resultS", result.get(1));
+		request.setAttribute("resultD", result.get(2));
+		request.setAttribute("resultP", result.get(3));
+		request.setAttribute("resultF", result.get(4));
 		
 		RequestDispatcher view = request.getRequestDispatcher("/views/board/boardProDetail.jsp");
 		view.forward(request, response);
