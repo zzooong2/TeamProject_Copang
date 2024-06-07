@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/member/search.do")
-public class SearchController extends HttpServlet {
+@WebServlet("/member/searchPwd.do")
+public class SearchPwdController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public SearchController() {
+    public SearchPwdController() {
         super();
     }
 

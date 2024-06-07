@@ -21,37 +21,41 @@
             <button class="search_button" id="find-id-button">아이디 찾기</button>
             <button class="search_button" id="find-pw-button">비밀번호 찾기</button>
         </div>
-        <form action="/member/search.do" method="post" id="searchForm">
+        
         <div id="id_form" class="form hidden">
+        <form action="/member/searchId.do" method="post" id="searchForm">
             <label for="name">이름</label>
-            <input type="text" id="user_name" name="user_name" placeholder="이름을 입력해 주세요."> <br>
+            <input type="text" id="user_name" name="userName" placeholder="이름을 입력해 주세요."> <br>
             <label for="phone">휴대폰 번호</label>
-            <input type="text" id="phone" name="phone" placeholder="연락처를 입력해 주세요. (-)미포함"><br>
+            <input type="text" id="phone_id" name="userPhone" placeholder="연락처를 입력해 주세요. (-)미포함"><br>
             <button class="certification_button" type="button" name="requestCode" id="requestCodeBtn"  onclick="inputphone('id')">휴대폰 인증받기</button>
             <div id="textphone"></div>
             
             <div id="verificationCodeContainer_id" style="display: none;">
     			<label for="verificationCode">인증번호</label> <br>
     			<input type="text" id="verificationCode_id" name="verificationCode" placeholder="인증번호를 입력해 주세요." required>
-    			<button class="certification_button" type="button" id="verifyCodeBtn_id">아이디 찾기</button>
+    			<button class="certification_button" type="submit" id="verifyCodeBtn_id">아이디 찾기</button>
 			</div>
-            
+        </form>
+			
         </div>
         <div id="pw_form" class="form hidden">
+         <form action="/member/searchPwd.do" method="post" id="searchForm">
         	<label for="email">아이디</label>
-            <input type="text" id="email" placeholder="이메일을 입력해 주세요."><br>
+            <input type="text" id="email" name="userEmail" placeholder="이메일을 입력해 주세요."><br>
             <label for="phone">휴대폰 번호</label>
-            <input type="text" id="phone_pw" name="phone_pw" placeholder="연락처를 입력해 주세요. (-)미포함"><br>
+            <input type="text" id="phone_pw" name="userPhone" placeholder="연락처를 입력해 주세요. (-)미포함"><br>
             <button class="certification_button" type="button" name="requestCode" id="requestCodeBtn"  onclick="inputphone('pwd')">휴대폰 인증받기</button>
             <div id="textphone1"></div>
             
             <div id="verificationCodeContainer_pw" style="display: none;">
     			<label for="verificationCode_pw">인증번호</label> <br>
     			<input type="text" id="verificationCode_pw" name="verificationCode" placeholder="인증번호를 입력해 주세요." required>
-    			<button class="certification_button" type="button" id="verifyCodeBtn_pw">비밀번호 변경</button>
+    			<button class="certification_button" type="submit" id="verifyCodeBtn_pw">비밀번호 변경</button>
 			</div>
+         </form>    
         </div>
-        </form>
+        
         <a href="/">
         <img class="searchLogo" src="/resources/img/Logo.png" alt="logo">
         </a>
