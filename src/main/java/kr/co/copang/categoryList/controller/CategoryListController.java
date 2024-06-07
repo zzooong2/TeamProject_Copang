@@ -22,31 +22,39 @@ public class CategoryListController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//객체 생성(서비스호출)
 		CategoryListServiceImpl categoryListService = new CategoryListServiceImpl();
+
+		//		1. jsp 카테고리 클릭하면 /category/list.do로 요청  ->  누가 요청했냐?
+//				   요청할 때 /category/list.do?type=IT       /category/list.do?type=design 
+//
+//				2. 컨트롤러가 String type = request.getParameter("type")
+
+		String type = request.getParameter("type");		
 		
-//		int cpage = Integer.parseInt(request.getParameter("cpage"));
-//		String category = request.getParameter("category");
-//		String searchText = request.getParameter("search-text");
+		ArrayList<CategoryListDtoImpl> List = categoryListService.getList(type);
 		
-//		
-//				// 전체 게시글 수
-//				int listCount = CategoryListService.getListCount(category, searchText);
-//				
-//				// 보여질 페이지 수
-//				int pageLimit = 3;
-//				
-//				// 한 페이지에 보여질 게시글 수
-//				int boardLimit = 9;
-//		
-		
-		ArrayList<CategoryListDtoImpl> List = categoryListService.getList();
-		
+		// 리스트 잘 가져오는지 까지
 		request.setAttribute("List", List);
 		
-		RequestDispatcher view = request.getRequestDispatcher("");
 		
+		
+		String nextPage = "";
+		
+		if(type.equals("IT/프로그래밍")){
+			nextPage = "/views/category/category_IT.jsp";
+		}else if(type == "디자인"){
+			nextPage = "/views/category/category_design.jsp";
+		}else if(type == "영상"){
+			nextPage = "/views/category/category_media.jsp";
+		}else if(type == "마케팅"){
+			nextPage = "/views/category/category_marketing.jsp";
+		}else if(type == "교육"){
+			nextPage = "/views/category/category_edu.jsp";
+		}
+	
+		RequestDispatcher view = request.getRequestDispatcher(nextPage);
+		view.forward(request, response);
+
 	}
 	
 

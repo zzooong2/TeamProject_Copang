@@ -28,7 +28,7 @@
 			<div class="icon_container">
 
 				<div class="icon_space" alt="IT">
-					<a href="#">
+					<a href="/views/category/category_IT.jsp">
 						<div class="icon_img">
 							<img src="/resources/img/it.png" alt="IT">
 						</div>
@@ -36,7 +36,7 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="디자인">
-					<a href="#">
+					<a href="/views/category/category_design.jsp">
 						<div class="icon_img">
 							<img src="/resources/img/design.png" alt="design">
 						</div>
@@ -44,15 +44,15 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="영상">
-					<a href="#">
+					<a href="/views/category/category_media.jsp">
 						<div class="icon_img">
-							<img src="/resources/img/photo.png" alt="photo">
+							<img src="/resources/img/media.png" alt="midia">
 						</div>
 						<p>영상ㆍ사진</p>
 					</a>
 				</div>
 				<div class="icon_space" alt="마케팅">
-					<a href="#">
+					<a href="/views/category/category_marketing.jsp">
 						<div class="icon_img">
 							<img src="/resources/img/market.png" alt="marketing">
 						</div>
@@ -60,7 +60,7 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="교육">
-					<a href="#">
+					<a href="/views/category/category_edu.jsp">
 						<div class="icon_img">
 							<img src="/resources/img/edu.png" alt="education">
 						</div>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css"
@@ -14,7 +14,7 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> > IT/프로그래밍
+				<a href="/">홈</a> > 영상ㆍ사진
 			</p>
 		</div>
 
@@ -22,28 +22,19 @@
 
 		<div class="category_area">
 			<ul>
-				UX 기획
-				<li><a href="">스토리보드</a></li>
-				<li><a href="">기타 기획</a></li>
+				영상
+				<li><a href="">광고ㆍ홍보영상</a></li>
+				<li><a href="">업종별 영상</a></li>
+				<li><a href="">제품영상</a></li>
+				<li><a href="">교육영상</a></li>
+				<li><a href="">애니메이션</a></li>
 			</ul>
 			<ul>
-				웹
-				<li><a href="">홈페이지</a></li>
-				<li><a href="">퍼블리싱</a></li>
-				<li><a href="">유지보수</a></li>
-			</ul>
-			<ul>
-				프로그램
-				<li><a href="">PCㆍ웹프로그램</a></li>
-				<li><a href="">서버ㆍ클라우드</a></li>
-				<li><a href="">봇ㆍ챗봇</a></li>
-			</ul>
-			<ul>
-				커머스
-				<li><a href="">쇼핑몰</a></li>
-				<li><a href="">쇼핑몰(웹빌더ㆍCMS)</a></li>
-				<li><a href="">쇼핑몰(카페24)</a></li>
-				<li><a href="">쇼핑몰 수정ㆍ유지보수</a></li>
+				사진
+				<li><a href="">제품ㆍ홍보사진</a></li>
+				<li><a href="">개인ㆍ프로필사진</a></li>
+				<li><a href="">사진보정</a></li>
+				<li><a href="">이벤트 사진</a></li>
 			</ul>
 		</div>
 

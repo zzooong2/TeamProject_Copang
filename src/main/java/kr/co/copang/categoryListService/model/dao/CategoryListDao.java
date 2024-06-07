@@ -22,18 +22,20 @@ public class CategoryListDao {
 	}
 	
 	
-	public ArrayList<CategoryListDtoImpl> getList() {
+	public ArrayList<CategoryListDtoImpl> getList(String type) {
 		
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
-		String query = "SELECT B_TITLE, BM_PAY, u.FILE_PATH,m.USER_NAME FROM CATEGORY_BOARD cb"
+		String query = "SELECT B_no, B_TITLE, BM_PAY, u.FILE_PATH, B_COMPANY FROM CATEGORY_BOARD cb"
 			+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 			+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
-			+ " JOIN MEMBER m ON m.USER_NO = cb.USER_NO ";
+			+ " JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
+			+ " where B_CATEGORY = ? ";
 	 
 		try {
 			
-			pstmt = con.prepareStatement(query);
 			
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, type);			
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
@@ -42,6 +44,7 @@ public class CategoryListDao {
 				String price = rs.getString("BM_PAY");
 				String file = rs.getString("U.FILE_PATH");
 				String user = rs.getString("M.USER_NAME");
+				String categoryType = rs.getString("B_CATEGORY");
 
 				CategoryListDtoImpl categoryListDto = new CategoryListDtoImpl();
 				categoryListDto.setBoardNo(no);
@@ -49,6 +52,7 @@ public class CategoryListDao {
 				categoryListDto.setPrice(price);
 				categoryListDto.setFilePath(file);
 				categoryListDto.setCompany(user);
+				categoryListDto.setType(categoryType);
 				result.add(categoryListDto);
 				
 			}

@@ -8,8 +8,8 @@ import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
 public class CategoryListServiceImpl implements CategoryListService {
 	CategoryListDao categoryListDao;
 
-	public ArrayList<CategoryListDtoImpl> getList() {
-		return categoryListDao.getList();
+	public ArrayList<CategoryListDtoImpl> getList(String type) {
+		return categoryListDao.getList(type);
 	}
 
 

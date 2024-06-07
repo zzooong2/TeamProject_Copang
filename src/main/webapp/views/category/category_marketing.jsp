@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css"
@@ -14,7 +14,7 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> > IT/프로그래밍
+				<a href="/">홈</a> > 마케팅
 			</p>
 		</div>
 
@@ -22,28 +22,29 @@
 
 		<div class="category_area">
 			<ul>
-				UX 기획
-				<li><a href="">스토리보드</a></li>
-				<li><a href="">기타 기획</a></li>
+				채널 활성화
+				<li><a href="">블로그 관리</a></li>
+				<li><a href="">카페 관리</a></li>
+				<li><a href="">인스타그램 관리</a></li>
+				<li><a href="">유튜브 관리</a></li>
 			</ul>
 			<ul>
-				웹
-				<li><a href="">홈페이지</a></li>
-				<li><a href="">퍼블리싱</a></li>
-				<li><a href="">유지보수</a></li>
+				바이럴ㆍ체험단
+				<li><a href="">체험단ㆍ기자단</a></li>
+				<li><a href="">개인 인플루언서</a></li>
+				<li><a href="">바이럴ㆍ포스팅</a></li>
 			</ul>
 			<ul>
-				프로그램
-				<li><a href="">PCㆍ웹프로그램</a></li>
-				<li><a href="">서버ㆍ클라우드</a></li>
-				<li><a href="">봇ㆍ챗봇</a></li>
+				PRㆍ행사
+				<li><a href="">언론홍보</a></li>
+				<li><a href="">행사ㆍ이벤트</a></li>
 			</ul>
 			<ul>
-				커머스
-				<li><a href="">쇼핑몰</a></li>
-				<li><a href="">쇼핑몰(웹빌더ㆍCMS)</a></li>
-				<li><a href="">쇼핑몰(카페24)</a></li>
-				<li><a href="">쇼핑몰 수정ㆍ유지보수</a></li>
+				업종ㆍ목적별
+				<li><a href="">종합광고대행</a></li>
+				<li><a href="">스토어 마케팅</a></li>
+				<li><a href="">지도 마케팅</a></li>
+				<li><a href="">라이브커머스</a></li>
 			</ul>
 		</div>
 
@@ -55,7 +56,7 @@
 			<div class="thumb_container">
 
 				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href='..'">
+				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
 						<img src="../Semiproject(SH)/img/thumb1.jpg" alt="">
 						<p>로고,로고제작,로고디자인,ci,bi,회사로고,명함</p>
@@ -93,7 +94,7 @@
 
 					<!-- 별점 -->
 					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
+						<img src="/resources/img/star.png alt="">
 						<p>(4.9)</p>
 					</div>
 

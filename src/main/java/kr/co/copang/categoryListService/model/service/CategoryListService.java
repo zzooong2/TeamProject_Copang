@@ -6,6 +6,6 @@ import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
 
 public interface CategoryListService {
 	
-	public ArrayList<CategoryListDtoImpl>getList();
+	public ArrayList<CategoryListDtoImpl>getList(String type);
 
 }

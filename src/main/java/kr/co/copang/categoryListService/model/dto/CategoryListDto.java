@@ -7,10 +7,17 @@ public class CategoryListDto {
 	private String company;
 	private String filePath;
 	private String price;
+	private String categoryType;
 	
 	
 	
 	
+	public String getType() {
+		return categoryType;
+	}
+	public void setType(String type) {
+		this.categoryType = type;
+	}
 	public String getPrice() {
 		return price;
 	}

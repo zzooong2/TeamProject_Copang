@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css"
@@ -14,7 +14,7 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> > IT/프로그래밍
+				<a href="/">홈</a> > 디자인
 			</p>
 		</div>
 
@@ -22,28 +22,32 @@
 
 		<div class="category_area">
 			<ul>
-				UX 기획
-				<li><a href="">스토리보드</a></li>
-				<li><a href="">기타 기획</a></li>
+				로고ㆍ브랜딩
+				<li><a href="">로고 디자인</a></li>
+				<li><a href="">브랜드 디자인 가이드</a></li>
 			</ul>
 			<ul>
-				웹
-				<li><a href="">홈페이지</a></li>
-				<li><a href="">퍼블리싱</a></li>
-				<li><a href="">유지보수</a></li>
+				인쇄 홍보물
+				<li><a href="">명함</a></li>
+				<li><a href="">전단지ㆍ포스터ㆍ인쇄물</a></li>
+				<li><a href="">현수막ㆍX배너</a></li>
+				<li><a href="">메뉴판</a></li>
 			</ul>
 			<ul>
-				프로그램
-				<li><a href="">PCㆍ웹프로그램</a></li>
-				<li><a href="">서버ㆍ클라우드</a></li>
-				<li><a href="">봇ㆍ챗봇</a></li>
+				마케팅 디자인
+				<li><a href="">상세페이지</a></li>
+				<li><a href="">SNSㆍ썸네일 디자인</a></li>
+				<li><a href="">채널아트 디자인</a></li>
+				<li><a href="">방송용 아바타</a></li>
+				<li><a href="">배너ㆍ배달어플</a></li>
+				<li><a href="">블로그ㆍ카페 디자인</a></li>
 			</ul>
 			<ul>
-				커머스
-				<li><a href="">쇼핑몰</a></li>
-				<li><a href="">쇼핑몰(웹빌더ㆍCMS)</a></li>
-				<li><a href="">쇼핑몰(카페24)</a></li>
-				<li><a href="">쇼핑몰 수정ㆍ유지보수</a></li>
+				웹ㆍ모바일 디자인
+				<li><a href="">명함</a></li>
+				<li><a href="">전단지ㆍ포스터ㆍ인쇄물</a></li>
+				<li><a href="">현수막ㆍX배너</a></li>
+				<li><a href="">메뉴판</a></li>
 			</ul>
 		</div>
 
@@ -55,7 +59,7 @@
 			<div class="thumb_container">
 
 				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href='..'">
+				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
 						<img src="../Semiproject(SH)/img/thumb1.jpg" alt="">
 						<p>로고,로고제작,로고디자인,ci,bi,회사로고,명함</p>
@@ -85,7 +89,7 @@
 
 
 				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href='..'">
+				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
 						<img src="../Semiproject(SH)/img/thumb2.jpg" alt="">
 						<p>로고제작 전문기업</p>
@@ -113,7 +117,7 @@
 				</div>
 
 				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href='..'">
+				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
 						<img src="../Semiproject(SH)/img/thumb3.jpg" alt="">
 						<p>로고제작 랭킹 1위 어워즈 수상</p>
@@ -141,7 +145,7 @@
 				</div>
 
 				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href='..'">
+				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
 						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
 						<p>초고속 ppt 제작</p>
@@ -168,7 +172,7 @@
 					</div>
 				</div>
 
-				<div class="detail_thumb" onclick="location.href='..'">
+				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
 						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
 						<p>초고속 ppt 제작</p>
@@ -195,7 +199,7 @@
 					</div>
 				</div>
 
-				<div class="detail_thumb" onclick="location.href='..'">
+				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
 						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
 						<p>초고속 ppt 제작</p>
@@ -222,7 +226,7 @@
 					</div>
 				</div>
 
-				<div class="detail_thumb" onclick="location.href='..'">
+				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
 						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
 						<p>초고속 ppt 제작</p>
@@ -244,7 +248,7 @@
 					<!-- 회사명 -->
 					<div class="company_name">
 						</p>
-						에브리 PPT
+						${item.company}
 						</p>
 					</div>
 				</div>
