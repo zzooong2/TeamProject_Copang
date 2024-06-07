@@ -10,4 +10,7 @@ public interface MemberService {
 	
 	// 중복검사
 	public int duplicateId(String id);
+	
+	// 암호화된 패스워드 가져오기
+	public MemberDto login(String id);
 }
