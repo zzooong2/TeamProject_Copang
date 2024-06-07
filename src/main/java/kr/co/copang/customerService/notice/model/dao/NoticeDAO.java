@@ -21,7 +21,7 @@ public class NoticeDAO {
 		dc = new DatabaseConnection();
 		con = dc.connDB();
 	}
-
+	
 	
 	// 게시글 리스트
 	public ArrayList<NoticeDTO> getList(PageInfo pi, String category, String searchText) {

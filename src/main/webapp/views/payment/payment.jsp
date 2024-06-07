@@ -148,15 +148,25 @@
         <h1 class="detail-request-text">의뢰내용</h1>
         <div class="request-detail">
             <div class="detail">
-	                <input type="text" id="title" name="request-title" placeholder=" 제목을 입력해주세요." class="request-title">
-	                <br>
-	                <br>
-	                <div id="smarteditor">
-	                    <textarea id="editorTxt" rows="35" name="request-contents" class="request-content" placeholder=" 내용을 입력하세요."></textarea>
-	                </div>
-	            </div>
-            	<button type="button" class="submit-btn" onclick="save()">등록</button>
+	 			<input type="hidden" id="userNo" name="userNo" value="${result.userNo}">
+	 			<input type="hidden" id="requestNo" name="requestNo" value="${result.requestNo}">
+                <input type="text" id="title" name="request-title" placeholder=" 제목을 입력해주세요.(* 현재 페이지 내에서만 작성 및 수정 가능합니다.)" class="request-title">
+                <br>
+                <br>
+                <div id="smarteditor">
+                    <textarea id="editorTxt" rows="35" name="request-contents" class="request-content" placeholder=" 내용을 입력하세요."></textarea>
+                </div>
+            </div>
         </div>
+           	<button type="button" class="submit-btn" onclick="save(); requestBoardShow()">등록</button>
+            <button type="button" class="edit-enroll-btn" onclick="save(); requestEditEnroll()">수정</button>	
+        
+       	<div class="request-success">
+   			<input type="text" id="title" name="request-title" placeholder="의뢰내용이 성공적으로 저장되었습니다." class="success" disabled>
+    		<button type="button" class="edit-btn" onclick="requestEditShow()">수정하기</button>	
+       	</div>
+       	
+   		
     </section>
     <%@ include file="/views/common/footer.jsp"%>
 </body>

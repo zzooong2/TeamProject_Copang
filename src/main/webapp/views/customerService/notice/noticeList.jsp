@@ -39,6 +39,7 @@
 			<button type="submit" class="notice-search-btn">검 색</button>		
 		</form>
 		<button class="write-notice" onclick="location.href='/form/noticeEnrollForm.do'">글쓰기</button>
+		
         <div class="board-table">
             <table>
                 <thead>
