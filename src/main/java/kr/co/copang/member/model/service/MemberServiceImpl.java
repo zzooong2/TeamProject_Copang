@@ -30,8 +30,14 @@ public class MemberServiceImpl implements MemberService {
         }
         return result;
     }
+	
 	@Override
 	public int duplicateId(String id) {
 		return memberDao.duplicateId(id);
+	}
+	
+	@Override
+	public MemberDto login(String id) {
+		return memberDao.login(id);
 	}
 }
