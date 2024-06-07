@@ -49,6 +49,9 @@ public class BoardProEnrollController extends HttpServlet {
 		String company = request.getParameter("enroll_Company");
 		
 		String detailService = request.getParameter("editorTxt");
+//		String detailService = "내용";
+		
+		
 		
 		String[] twoCategory = request.getParameterValues("enroll_Middle_Category");
 		String[] thirdCategory = request.getParameterValues("enroll_Subcat_Category");

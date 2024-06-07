@@ -321,7 +321,6 @@ public class BoardProDao {
 	}
 
 	public BoardProDto getDetailN(int boardProNo) {
-
 		String query = "SELECT B_NO,"
 				+ "			   USER_NO,"
 				+ "			   B_COMPANY,"

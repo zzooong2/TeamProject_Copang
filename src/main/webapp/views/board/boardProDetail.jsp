@@ -46,12 +46,7 @@
                     <input type="radio" name="tabmenu01" id="tabList05">
                     <label class="tabMenuLabel tabpoint" for="tabList05">서비스 리뷰</label>
 
-                    <div class="conbox con1">
-                    	${result.boardProContents}
-                    	<c:forEach var="fileName" items="${resultF.fileName}">
-                   		<img src="${pageContext.request.contextPath}/resources/upload/detail/${fileName}" alt="Detail Image">
-                   		</c:forEach>
-                   	</div>
+                    <div class="conbox con1">${result.boardProContents}</div>
                     <div class="conbox con2">
                         <p class="leftTabList_title">가격 정보</p>
                         <table class="leftPayList">
@@ -326,7 +321,7 @@
 	                    <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
 	                
 	                    <div class="rightConbox rightCon1">
-	                        <span class="rightBox_businessMenuPay" id="rightBox_businessMenuPay">${resultS.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay">${resultS.businessServicePay}</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultS.businessServiceName}</span>

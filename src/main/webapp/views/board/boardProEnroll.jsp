@@ -853,7 +853,7 @@
 					</div>
 					<div class="boardProEnroll_Button_All">
 						<button type="button" class="boardProEnroll_ButtonStyle1" id="boardProEnroll_Next_Button1">이전으로</button>
-						<button type="button" class="boardProEnroll_ButtonStyle2" id="boardProEnroll_Next_Button2">다음으로</button>
+						<button type="button" class="boardProEnroll_ButtonStyle2" id="boardProEnroll_Next_Button2" onclick="save()">다음으로</button>
 						<button type="submit" class="boardProEnroll_ButtonStyle3" id="boardProEnroll_Next_Button3">제출</button>
 					</div>
 				</div>

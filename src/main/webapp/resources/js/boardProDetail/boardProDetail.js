@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-const money = $('#rightBox_businessMenuPay').text();
+/*const money = $('#rightBox_businessMenuPay').text();
 const money2 = money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 $('#rightBox_businessMenuPay').text(money2);
-
+*/

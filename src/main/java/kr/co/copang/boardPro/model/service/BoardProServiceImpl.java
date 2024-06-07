@@ -70,8 +70,6 @@ public class BoardProServiceImpl implements BoardProService {
 		list.add(resultP);
 		list.add(resultF);
 		
-		boardProDao.getWriter(result);
-		
 		int resultView = boardProDao.setViews(result.getBoardProNo());
 		
 		if(resultView == 1) {

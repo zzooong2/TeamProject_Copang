@@ -24,7 +24,7 @@ public class BoardProDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	    // 기본값으로 설정할 게시물 번호
-	    int defaultBoardProNo = 85;
+	    int defaultBoardProNo = 2;
 	    
 	    // 요청에서 B_NO 파라미터 가져오기, 없을 경우 기본값 사용
 	    int boardProNo;
