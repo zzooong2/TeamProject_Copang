@@ -6,6 +6,7 @@ public class MemberDto {
 	private String userEmail;
 	private String userPhone;
 	private String userPwd;
+	private String usertype;
 	private String confirmPwd;
 	
 	private String fyoConsent;  // 14세이상     - 필수
@@ -17,6 +18,12 @@ public class MemberDto {
 	private String[] businessFields;
 	
 	
+	public String getUsertype() {
+		return usertype;
+	}
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
+	}
 	public String[] getBusinessFields() {
 		return businessFields;
 	}

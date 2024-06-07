@@ -29,7 +29,9 @@ public class FormController extends HttpServlet {
 		} else if(action.equals("/noticeEnrollForm.do")) {
 			nextPage = "/views/customerService/notice/noticeEnroll.jsp"; // NOTICE 작성
 		} else if (action.equals("/registerForm.do")) {
-			nextPage = "/views/member/register.jsp"; // 회원가입 폼
+			nextPage = "/views/member/register.jsp"; // 회원가입
+		} else if (action.equals("/loginForm.do")) {
+			nextPage = "/views/member/login.jsp"; // 로그인
 		}
 		
 		
