@@ -20,8 +20,8 @@ public class BoardProServiceImpl implements BoardProService {
 	}
 	
 	@Override
-	public int enroll(BoardProDto boardDto) {
-		return boardProDao.getEnroll(boardDto);
+	public int CategoryBoardEnroll(BoardProDto boardDto) {
+		return boardProDao.getCategoryBoardEnroll(boardDto);
 	}
 	
 	@Override
@@ -45,8 +45,13 @@ public class BoardProServiceImpl implements BoardProService {
 	}
 	
 	@Override
-	public int typeEnroll(ArrayList<BoardProDto> business, int businessNo) {
-		return boardProDao.getTypeEnroll(business, businessNo);
+	public int BusinessMenuSingleEnroll(BoardProDto businessDto, int businessNo) {
+		return boardProDao.getBusinessMenuSingleEnroll(businessDto, businessNo);
+	}
+	
+	@Override
+	public int BusinessMenuEnroll(ArrayList<BoardProDto> business, int businessNo) {
+		return boardProDao.getBusinessMenuEnroll(business, businessNo);
 	}
 	
 	@Override
@@ -63,8 +68,7 @@ public class BoardProServiceImpl implements BoardProService {
 		list.add(resultS);
 		list.add(resultD);
 		list.add(resultP);
-		
-		boardProDao.getWriter(result);
+		list.add(resultF);
 		
 		int resultView = boardProDao.setViews(result.getBoardProNo());
 		
