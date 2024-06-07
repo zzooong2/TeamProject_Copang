@@ -109,13 +109,12 @@ public class MemberDao {
 		return result;
 	}
 	
-	// 패스워드 암호화 가져오기
+	// 로그인
 	public MemberDto login(String id) {
-		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME"
+		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME, M.USER_NO"
 				+ "     FROM MEMBER M " 
                 + "     JOIN MEMBER_TYPE MT ON M.PART_CODE = MT.PART_CODE "
 				+ "     WHERE M.EMAIL = ?";
-		MemberDto result = new MemberDto();
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -127,11 +126,13 @@ public class MemberDao {
 				String userName = rs.getString("USER_NAME");
 				String hashPassword = rs.getString("PASSWORD");
 				String partName = rs.getString("PART_NAME");
+				int userNo = rs.getInt("USER_NO");
 				
+				MemberDto result = new MemberDto();
 				result.setUserName(userName);
 				result.setUserPwd(hashPassword);
 				result.setUsertype(partName);
-				
+				result.setUserNo(userNo);				
 				return result;
 			}
 			

@@ -21,11 +21,12 @@
             <button class="search_button" id="find-id-button">아이디 찾기</button>
             <button class="search_button" id="find-pw-button">비밀번호 찾기</button>
         </div>
+        <form action="/member/search.do" method="post" id="searchForm">
         <div id="id_form" class="form hidden">
             <label for="name">이름</label>
-            <input type="text" id="name" placeholder="이름을 입력해 주세요."> <br>
+            <input type="text" id="user_name" name="user_name" placeholder="이름을 입력해 주세요."> <br>
             <label for="phone">휴대폰 번호</label>
-            <input type="text" id="phone_id" name="phone_id" placeholder="연락처를 입력해 주세요. (-)미포함"><br>
+            <input type="text" id="phone" name="phone" placeholder="연락처를 입력해 주세요. (-)미포함"><br>
             <button class="certification_button" type="button" name="requestCode" id="requestCodeBtn"  onclick="inputphone('id')">휴대폰 인증받기</button>
             <div id="textphone"></div>
             
@@ -50,7 +51,10 @@
     			<button class="certification_button" type="button" id="verifyCodeBtn_pw">비밀번호 변경</button>
 			</div>
         </div>
+        </form>
+        <a href="/">
         <img class="searchLogo" src="/resources/img/Logo.png" alt="logo">
+        </a>
     </div>
 	</div>
     <!-- <script src="scripts.js"></script> -->

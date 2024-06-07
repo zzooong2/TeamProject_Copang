@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -26,16 +27,28 @@
 		</form>
 		<!-- 네비게이션 -->
 		<div class="nav">
-
-			<li><a href="/views/member/login.jsp">로그인</a></li>
-
-			<li><a href="/views/member/register.jsp">회원가입</a></li>
-			
-			<li><a href="/views/payment/payment.jsp">결제하기</a></li>
-			
+		<c:choose>
+			<c:when test="${sessionScope.userName != null}">
 			<li><a href="/customerService/list.do?cPage=1&category=Q_TITLE&search-text=">SERVICE</a></li>
 			
 			<li><a href="/notice/list.do?cPage=1&category=N_TITLE&earch-text=">NOTICE</a></li>
+			
+			<li><a href="/member/logout.do">로그아웃</a></li>
+
+			<li><a href="/views/member/myPage.jsp">마이페이지</a></li>
+			</c:when>
+			<c:otherwise>
+			<li><a href="/customerService/list.do?cPage=1&category=Q_TITLE&search-text=">SERVICE</a></li>
+			
+			<li><a href="/notice/list.do?cPage=1&category=N_TITLE&earch-text=">NOTICE</a></li>
+
+			<li><a href="/form/loginForm.do">로그인</a></li>
+			
+			<li><a href="/form/registerForm.do">회원가입</a></li>
+			</c:otherwise>
+		</c:choose>
+		
+		
 
 		</div>
 	</header>

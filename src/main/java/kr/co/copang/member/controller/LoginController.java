@@ -47,6 +47,7 @@ public class LoginController extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("userName", hashPassword.getUserName());
 				session.setAttribute("partName", hashPassword.getUsertype());
+				session.setAttribute("userNo", hashPassword.getUserNo());
 				
 				RequestDispatcher view = request.getRequestDispatcher("/");
 				view.forward(request, response);
