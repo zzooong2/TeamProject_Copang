@@ -11,7 +11,7 @@ public interface BoardProService {
 	
 	public ArrayList<BoardProDto> getList(PageInfo pi, String category);
 	
-	public int enroll(BoardProDto boardDto);
+	public int CategoryBoardEnroll(BoardProDto boardDto);
 	
 	public BoardProDto selectNo(BoardProDto boardProDto);
 	
@@ -21,7 +21,9 @@ public interface BoardProService {
 	
 	public int getBoardNo(BoardProDto boardDto);
 	
-	public int typeEnroll(ArrayList<BoardProDto> business, int businessNo);
+	public int BusinessMenuSingleEnroll(BoardProDto businessDto, int businessNo);
+	
+	public int BusinessMenuEnroll(ArrayList<BoardProDto> business, int businessNo);
 	
 	public ArrayList<BoardProDto> getDetail(int boardProNo);
 	

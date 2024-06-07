@@ -56,10 +56,12 @@
         <div class="boardProList_content">
             <div class="boardProList_image-grid">
                 <!-- 이미지와 제목을 여기에 추가 -->
-                <c:forEach var="post" items="${list}">
-                    <div class="boardProList_post">
-                        <img src="${post.imageUrl}" alt="${post.title}">
-                        <h2>${post.title}</h2>
+                <c:forEach var="item" items="${list}">
+                    <div onclick="location.href='/BoardPro/Detail.do?boardNo=${item.boardProNo}'">
+                        <img src="/resources/upload/main/${item.fileName}" width="100px" height="100px" alt="${item.fileName}">
+                        <p>${item.boardProTitle}</p>
+                        <p>${item.businessServicePay}</p>
+                        <p>${item.boardProCompany}</p>
                     </div>
                 </c:forEach>
             </div>
