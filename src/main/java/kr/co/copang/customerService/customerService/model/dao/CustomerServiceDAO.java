@@ -25,7 +25,7 @@ public class CustomerServiceDAO {
 	// 게시글 작성
 	public int enroll(CustomerServiceDTO csDTO) {
 		String query = "INSERT INTO CUSTOMER_SERVICE(Q_NO, Q_TITLE, Q_CONTENTS, Q_INDATE, Q_STATUS, A_STATUS, USER_NO)"
-					 + " VALUES(CUSTOMER_SERVICE_SEQ.nextval, ?, ?, default, default, default, 2)";
+					 + " VALUES(CUSTOMER_SERVICE_SEQ.nextval, ?, ?, default, default, default, ?)";
 		
 		int result = 0;
 		
@@ -34,6 +34,8 @@ public class CustomerServiceDAO {
 			
 			ps.setString(1, csDTO.getBoardTitle());
 			ps.setString(2, csDTO.getBoardContents());
+			ps.setInt(3, csDTO.getUserNo());
+			
 			result = ps.executeUpdate();
 			return result;
 		} catch (SQLException e) {

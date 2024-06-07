@@ -1,3 +1,6 @@
+<!-- jstl -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -38,8 +41,10 @@
                 
                 <div class="notice-content">${result.noticeContents}</div>
                 
-                <button type="button" onclick="location.href='/notice/edit.do?noticeNo=${result.noticeNo}'" class="edit-btn">수정</button>
-                <button type="submit" class="delete-btn">삭제</button>
+                <c:if test="${partCode == 3}">
+	                <button type="button" onclick="location.href='/notice/edit.do?noticeNo=${result.noticeNo}'" class="edit-btn">수정</button>
+	                <button type="submit" class="delete-btn">삭제</button>
+                </c:if>
                 <button type="button" onclick="location.href='/notice/list.do?cPage=1&category=N_TITLE&search-text='" class="back-btn">뒤로가기</button>
             </form>
         </section>

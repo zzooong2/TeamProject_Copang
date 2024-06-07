@@ -38,7 +38,9 @@
 	        <input type="text" name="search-text" id="serach-keyword" class="search" placeholder="검색할 키워드를 입력해주세요.">
 			<button type="submit" class="notice-search-btn">검 색</button>		
 		</form>
-		<button class="write-notice" onclick="location.href='/form/noticeEnrollForm.do'">글쓰기</button>
+		<c:if test="${partCode == 3}">
+			<button class="write-notice" onclick="location.href='/form/noticeEnrollForm.do'">글쓰기</button>
+		</c:if>
 		
         <div class="board-table">
             <table>
