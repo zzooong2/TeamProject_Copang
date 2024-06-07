@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COPANG</title>
-    <link rel="icon" href="../../resources/img/tapIcon.png">
-    <link rel="stylesheet" href="../../resources/css/common/header.css">
-    <link rel="stylesheet" href="../../resources/css/common/footer.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProEnroll1.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProEnroll2.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProEnroll3.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProEnroll4.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProEnroll5.css">
+    <link rel="icon" href="/resources/img/tapIcon.png">
+    <link rel="stylesheet" href="/resources/css/common/header.css">
+    <link rel="stylesheet" href="/resources/css/common/footer.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/board/boardProEnroll1.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/board/boardProEnroll2.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/board/boardProEnroll3.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/board/boardProEnroll4.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/board/boardProEnroll5.css">
     <script src="https://kit.fontawesome.com/1992e1ad9e.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/resources/js/boardProEnroll/smartEditor.js"></script>
+    <script type="text/javascript" src="/resources/js/boardProDetail/boardProDetail.js"></script>
     
     <%@ include file="/views/common/head.jsp"%>
 </head>
@@ -815,13 +818,8 @@
 									<div class="Detail_right_Contents3_Titlebox">
 										<span class="Detail_right_type_box_Title">서비스 설명<span class="Detail_right_check">*</span></span>
 									</div>
-									<div class="Detail_right_Contents3_Textbox">
-										<div class="Detail_right_Contents3_Textbox_buttonAll">
-											<button type="button" class="Detail_right_Contents3_Boldbutton" id="boldButton">B</button>
-											<button type="button" class="Detail_right_Contents3_Italicbutton" id="italicButton">I</button>
-											<button type="button" class="Detail_right_Contents3_Underlinebutton" id="underlineButton">U</button>
-										</div>
-										<textarea class="Detail_right_Contents3_Textarea" id="Detail_right_Contents3_Textarea" contenteditable="true" name="enroll_ServiceContents"></textarea>
+									<div id="smarteditor">
+										<textarea class="smarteditor" id="editorTxt" name="editorTxt"></textarea>
 									</div>
 								</div>
 							</div>

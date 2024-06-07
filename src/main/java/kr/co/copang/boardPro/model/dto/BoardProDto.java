@@ -3,12 +3,12 @@ package kr.co.copang.boardPro.model.dto;
 public class BoardProDto {
 
 	private int boardProNo;
+	private String boardProCompany;
 	private String boardProTitle;
 	private String boardProCategory;
 	private String boardProMiddleCategory;
 	private String boardProSubcatCategory;
 	private String boardProServiceType;
-	private String boardProCompany;
 	private String boardProContents;
 	private String boardProIndate;
 	private String boardProUpdate;

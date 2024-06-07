@@ -27,11 +27,13 @@ public class BoardProDao {
 
 		ArrayList<BoardProDto> result = new ArrayList<>();
 
-		String query = "SELECT * FROM CATEGORY_BOARD cb" 
-				+ "		JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
-				+ "		ORDER BY B_INDATE DESC" 
+		String query = "SELECT * FROM CATEGORY_BOARD cb"
+				+ "		JOIN BUSINESS_MENU bm ON cb.B_NO = bm.B_NO" 
+				+ "		JOIN UPLOAD u ON cb.B_NO = u.B_NO"
+				+ "		WHERE bm.BM_TYPE = 'SINGLE' OR bm.BM_TYPE = 'STANDARD'"
+				+ "		ORDER BY B_VIEWS DESC" 
 				+ "		OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
-
+		
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, pi.getOffset());
@@ -42,22 +44,40 @@ public class BoardProDao {
 			while (rs.next()) {
 
 				int no = rs.getInt("B_NO");
-				String title = rs.getString("B_TITLE");
-				String contents = rs.getString("B_CONTENTS");
-				int views = rs.getInt("B_VIEWS");
-				String indate = rs.getString("B_INDATE");
 				int userNo = rs.getInt("USER_NO");
-				String userName = rs.getString("USER_NAME");
+				String company = rs.getString("B_COMPANY");
+				String title = rs.getString("B_TITLE");
+				String mainCategory = rs.getString("B_CATEGORY_MAIN");
+				String middleCategory = rs.getString("B_CATEGORY_MIDDLE");
+				String subcatCategory = rs.getString("B_CATEGORY_SUBCAT");
+				String serviceType = rs.getString("B_SERVICETYLE");
+				String indate = rs.getString("B_INDATE");
+				int views = rs.getInt("B_VIEWS");
+				
+				int pay = rs.getInt("BM_PAY");
 
+				String fileName = rs.getString("FILE_NAME");
+				String filePath = rs.getString("FILE_PATH");
+				
 				BoardProDto boardProDto = new BoardProDto();
 				boardProDto.setBoardProNo(no);
-				boardProDto.setBoardProTitle(title);
-				boardProDto.setBoardProContents(contents);
-				boardProDto.setBoardProViews(views);
-				boardProDto.setBoardProIndate(indate);
 				boardProDto.setUserNo(userNo);
-				boardProDto.setUserName(userName);
-
+				boardProDto.setBoardProCompany(company);
+				boardProDto.setBoardProTitle(title);
+				boardProDto.setBoardProCategory(mainCategory);
+				boardProDto.setBoardProMiddleCategory(middleCategory);
+				boardProDto.setBoardProSubcatCategory(subcatCategory);
+				boardProDto.setBoardProServiceType(serviceType);
+				boardProDto.setBoardProIndate(indate);
+				boardProDto.setBoardProViews(views);
+				
+				boardProDto.setBusinessServicePay(pay);
+				
+				boardProDto.setFileName(fileName);
+				boardProDto.setFilePath(filePath);
+				
+				
+				
 				result.add(boardProDto);
 			}
 
@@ -288,9 +308,11 @@ public class BoardProDao {
 			pstmt.setInt(1, boardProDto.getUserNo());
 
 			ResultSet rs = pstmt.executeQuery();
-
-			String userName = rs.getString("USER_NAME");
-			boardProDto.setUserName(userName);
+			
+			while(rs.next()) {
+				String userName = rs.getString("USER_NAME");
+				boardProDto.setUserName(userName);
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -300,8 +322,20 @@ public class BoardProDao {
 
 	public BoardProDto getDetailN(int boardProNo) {
 
-		String query = "SELECT * FROM CATEGORY_BOARD cb" 
-				+ "		JOIN BUSINESS_MENU bm ON cb.B_NO = bm.B_NO"
+		String query = "SELECT B_NO,"
+				+ "			   USER_NO,"
+				+ "			   B_COMPANY,"
+				+ "			   B_TITLE,"
+				+ "			   B_CATEGORY_MAIN,"
+				+ "			   B_CATEGORY_MIDDLE,"
+				+ "			   B_CATEGORY_SUBCAT,"
+				+ "			   B_SERVICESTYLE,"
+				+ "			   B_CONTENT,"
+				+ "			   B_INDATE,"
+				+ "			   B_UPDATE,"
+				+ "			   B_DELETE,"
+				+ "			   B_VIEWS "
+				+ "		FROM CATEGORY_BOARD" 
 				+ "		WHERE B_NO = ?";
 
 		try {
@@ -313,10 +347,11 @@ public class BoardProDao {
 			while (rs.next()) {
 				int bNo = rs.getInt("B_NO");
 				int uNo = rs.getInt("USER_NO");
+				String bCompany = rs.getString("B_COMPANY");
 				String bTitle = rs.getString("B_TITLE");
-				String bCategory = rs.getString("B_CATEGORY");
-				String bMiddelCategory = rs.getString("B_MIDDLECATEGORY");
-				String bSubcatCategory = rs.getString("B_SUBCATEGORY");
+				String bCategory = rs.getString("B_CATEGORY_MAIN");
+				String bMiddelCategory = rs.getString("B_CATEGORY_MIDDLE");
+				String bSubcatCategory = rs.getString("B_CATEGORY_SUBCAT");
 				String bServiceStyle = rs.getString("B_SERVICESTYLE");
 				String bContents = rs.getString("B_CONTENT");
 				String bIndate = rs.getString("B_INDATE");
@@ -327,6 +362,8 @@ public class BoardProDao {
 				BoardProDto nBoardProDto = new BoardProDto();
 				nBoardProDto.setBoardProNo(bNo);
 				nBoardProDto.setUserNo(uNo);
+				nBoardProDto.setBoardProCompany(bCompany);;
+				nBoardProDto.setBoardProTitle(bTitle);;
 				nBoardProDto.setBoardProCategory(bCategory);
 				nBoardProDto.setBoardProMiddleCategory(bMiddelCategory);
 				nBoardProDto.setBoardProSubcatCategory(bSubcatCategory);
@@ -350,9 +387,19 @@ public class BoardProDao {
 
 	public BoardProDto getDetailS(int boardProNo) {
 
-		String standardQuery = "SELECT * FROM BUSINESS" 
+		String standardQuery = "SELECT BM_NO,"
+				+ "					   B_NO,"
+				+ "					   BM_TYPE,"
+				+ "					   BM_NAME,"
+				+ "					   BM_GUIDE,"
+				+ "					   BM_PAY,"
+				+ "					   BM_WORKDATE,"
+				+ "					   BM_RETOUCH,"
+				+ "					   BM_DATA,"
+				+ "					   BM_FUNCTION"
+				+ "				FROM BUSINESS_MENU" 
 				+ "				WHERE B_NO = ?"
-				+ "				AND BM_TYPE = STANDARD";
+				+ "				AND BM_TYPE = 'STANDARD'";
 
 		try {
 			pstmt = con.prepareStatement(standardQuery);
@@ -370,13 +417,13 @@ public class BoardProDao {
 				int sWorkdate = rs.getInt("BM_WORKDATE");
 				int sRetouch = rs.getInt("BM_RETOUCH");
 				int sData = rs.getInt("BM_DATA");
-				int sFuntion = rs.getInt("BM_FUNTION");
+				int sFuntion = rs.getInt("BM_FUNCTION");
 
 				BoardProDto sBoardProDto = new BoardProDto();
 				sBoardProDto.setBoardProNo(bNo);
 				sBoardProDto.setUserNo(uNo);
 				sBoardProDto.setBusinessServiceType(sType);
-				sBoardProDto.setBusinessName(sName);
+				sBoardProDto.setBusinessServiceName(sName);
 				sBoardProDto.setBusinessServiceGuide(sGuide);
 				sBoardProDto.setBusinessServicePay(sPay);
 				sBoardProDto.setBusinessServiceWorkDate(sWorkdate);
@@ -394,9 +441,19 @@ public class BoardProDao {
 
 	public BoardProDto getDetailD(int boardProNo) {
 
-		String deluxeQuery = "SELECT * FROM BUSINESS" 
-				+ "				WHERE B_NO = ?"
-				+ "				AND BM_TYPE = DELUXE";
+		String deluxeQuery = "SELECT BM_NO,"
+				+ "					 B_NO,"
+				+ "					 BM_TYPE,"
+				+ "					 BM_NAME,"
+				+ "					 BM_GUIDE,"
+				+ "					 BM_PAY,"
+				+ "					 BM_WORKDATE,"
+				+ "					 BM_RETOUCH,"
+				+ "					 BM_DATA,"
+				+ "					 BM_FUNCTION"
+				+ "			  FROM BUSINESS_MENU" 
+				+ "			  WHERE B_NO = ?"
+				+ "			  AND BM_TYPE = 'DELUXE'";
 
 		try {
 			pstmt = con.prepareStatement(deluxeQuery);
@@ -414,13 +471,13 @@ public class BoardProDao {
 				int dWorkdate = rs.getInt("BM_WORKDATE");
 				int dRetouch = rs.getInt("BM_RETOUCH");
 				int dData = rs.getInt("BM_DATA");
-				int dFuntion = rs.getInt("BM_FUNTION");
+				int dFuntion = rs.getInt("BM_FUNCTION");
 
 				BoardProDto dBoardProDto = new BoardProDto();
 				dBoardProDto.setBoardProNo(bNo);
 				dBoardProDto.setUserNo(uNo);
 				dBoardProDto.setBusinessServiceType(dType);
-				dBoardProDto.setBusinessName(dName);
+				dBoardProDto.setBusinessServiceName(dName);
 				dBoardProDto.setBusinessServiceGuide(dGuide);
 				dBoardProDto.setBusinessServicePay(dPay);
 				dBoardProDto.setBusinessServiceWorkDate(dWorkdate);
@@ -438,9 +495,19 @@ public class BoardProDao {
 
 	public BoardProDto getDetailP(int boardProNo) {
 
-		String premiumQuery = "SELECT * FROM BUSINESS" 
-				+ "				WHERE B_NO = ?"
-				+ "				AND BM_TYPE = PREMIUM";
+		String premiumQuery = "SELECT BM_NO,"
+				+ "					  B_NO,"
+				+ "					  BM_TYPE,"
+				+ "					  BM_NAME,"
+				+ "					  BM_GUIDE,"
+				+ "					  BM_PAY,"
+				+ "					  BM_WORKDATE,"
+				+ "					  BM_RETOUCH,"
+				+ "					  BM_DATA,"
+				+ "					  BM_FUNCTION"
+				+ "			   FROM BUSINESS_MENU" 
+				+ "			   WHERE B_NO = ?"
+				+ "			   AND BM_TYPE = 'PREMIUM'";
 
 		try {
 			pstmt = con.prepareStatement(premiumQuery);
@@ -458,13 +525,13 @@ public class BoardProDao {
 				int pWorkdate = rs.getInt("BM_WORKDATE");
 				int pRetouch = rs.getInt("BM_RETOUCH");
 				int pData = rs.getInt("BM_DATA");
-				int pFuntion = rs.getInt("BM_FUNTION");
+				int pFuntion = rs.getInt("BM_FUNCTION");
 
 				BoardProDto pBoardProDto = new BoardProDto();
 				pBoardProDto.setBoardProNo(bNo);
 				pBoardProDto.setUserNo(uNo);
 				pBoardProDto.setBusinessServiceType(pType);
-				pBoardProDto.setBusinessName(pName);
+				pBoardProDto.setBusinessServiceName(pName);
 				pBoardProDto.setBusinessServiceGuide(pGuide);
 				pBoardProDto.setBusinessServicePay(pPay);
 				pBoardProDto.setBusinessServiceWorkDate(pWorkdate);
@@ -482,7 +549,10 @@ public class BoardProDao {
 
 	public BoardProDto getDetailF(int boardProNo) {
 
-		String query = "SELECT * FROM UPLOAD"
+		String query = "SELECT B_NO,"
+				+ "			   FILE_NAME,"
+				+ "			   FILE_PATH"
+				+ "		FROM UPLOAD"
 				+ "		WHERE B_NO = ?";
 
 		try {
@@ -497,13 +567,13 @@ public class BoardProDao {
 				String fName = rs.getString("FILE_NAME");
 				String fPath = rs.getString("FILE_PATH");
 
-				BoardProDto FBoardProDto = new BoardProDto();
+				BoardProDto fBoardProDto = new BoardProDto();
 
-				FBoardProDto.setFileNo(bNo);
-				FBoardProDto.setFileName(fName);
-				FBoardProDto.setFilePath(fPath);
+				fBoardProDto.setFileNo(bNo);
+				fBoardProDto.setFileName(fName);
+				fBoardProDto.setFilePath(fPath);
 
-				return FBoardProDto;
+				return fBoardProDto;
 			}
 
 		} catch (SQLException e) {

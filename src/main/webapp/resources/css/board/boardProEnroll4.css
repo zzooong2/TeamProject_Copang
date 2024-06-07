@@ -110,10 +110,11 @@
     font-weight: bold;
     color: gray;
     display: flex;
+    flex-direction: column;
 }
 
 .Detail_right_Contents3_Titlebox {
-    width: 20%;
+    width: 150px;
     padding-top: 20px;
     padding-left: 30px;
     height: auto;
@@ -133,7 +134,7 @@
     margin-top: 3px;
 }
 
-.Detail_right_Contents3_Textbox {
+/* .Detail_right_Contents3_Textbox {
     margin: 0;
     height: auto;
     width: 75%;
@@ -142,7 +143,7 @@
     display: flex;
     flex-direction: column;
     color: rgb(80, 80, 80);
-}
+} */
 
 .Detail_right_Contents3_Textbox_buttonAll {
     margin: 10px 0;
@@ -194,8 +195,6 @@
     margin-left: 0;
     border: 1px solid #c0c0c0;
     line-height: 27px;
-    word-break: break-all;
-    overflow-y: scroll;
 }
 
 .Detail_right_Contents3_Textarea:focus {
@@ -206,4 +205,30 @@
 	margin-right: 30px;
 	padding-top : 10px;
 	height: 45px;
+}
+
+/* #smarteditor > iframe {
+	margin-top : 20px !important;
+	width: 600px !important;
+	height: 400px !important;
+} */
+
+/* .smarteditor {
+	display: block;
+	width: 100%;
+	height: 500px !important;
+} */
+
+#smarteditor iframe {
+	display: block;
+	margin: 0;
+	margin-top: 20px;
+	margin-left: 10px;
+	width: 100% !important;
+	height: 300px !important;
+}
+
+#smarteditor {
+	margin: 0;
+	margin-left: 20px;
 }

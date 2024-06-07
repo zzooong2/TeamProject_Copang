@@ -68,6 +68,7 @@ public class BoardProServiceImpl implements BoardProService {
 		list.add(resultS);
 		list.add(resultD);
 		list.add(resultP);
+		list.add(resultF);
 		
 		boardProDao.getWriter(result);
 		
