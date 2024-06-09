@@ -142,7 +142,7 @@
                 </h4>
             </div>
             
-            <button class="payment-btn">결제</button>
+            <button class="payment-btn" onclick="location.href='/payment/complete.do'">결제</button>
         </div>
 
         <h1 class="detail-request-text">의뢰내용</h1>

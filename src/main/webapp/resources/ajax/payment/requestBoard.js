@@ -5,7 +5,7 @@ function requestBoardShow(){
 	$.ajax({
 		type: "POST",
 		url: "/request/enroll.do",
-		data: {title : title, 
+		data: {title : title, // { key : value } 
 				contents : contents
 			   },
 
