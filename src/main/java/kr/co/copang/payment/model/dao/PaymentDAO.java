@@ -22,6 +22,7 @@ public class PaymentDAO {
 	public PaymentDTO getPayment() {
 		String query = "";
 		
+		
 		return null;
 	}
 
