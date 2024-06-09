@@ -17,7 +17,6 @@ public class BoardProDto {
 	
 	private int userNo;
 	private String userName;
-
 	private String userEmail;
 	
 	private int businessCode;
@@ -40,10 +39,18 @@ public class BoardProDto {
 	private String filePath;
 	private String fileName;
 	
-	public BoardProDto() {
-		super();
-	}
+	private int reviewStarPoint;
+	private String reviewContent;
+	private String reviewIndate;
 	
+	
+	
+	
+
+
+
+
+
 	public BoardProDto(String businessServiceName, String businessServiceGuide, int businessServicePay, int businessServiceWorkDate, int businessServiceRetouch, int businessServiceData, int businessServiceFunction) {
 		super();
 		this.businessServiceName = businessServiceName;
@@ -313,8 +320,32 @@ public class BoardProDto {
 		this.fileName = fileName;
 	}
 
+	public int getReviewStarPoint() {
+		return reviewStarPoint;
+	}
 
+	public void setReviewStarPoint(int reviewStarPoint) {
+		this.reviewStarPoint = reviewStarPoint;
+	}
+
+	public String getReviewContent() {
+		return reviewContent;
+	}
+
+	public void setReviewContent(String reviewContent) {
+		this.reviewContent = reviewContent;
+	}
+
+	public BoardProDto() {
+		super();
+	}
 	
-	
+	public String getReviewIndate() {
+		return reviewIndate;
+	}
+
+	public void setReviewIndate(String reviewIndate) {
+		this.reviewIndate = reviewIndate;
+	}
 
 }
