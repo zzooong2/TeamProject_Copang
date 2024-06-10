@@ -57,7 +57,7 @@
 
 			<!-- grid 전체 -->
 			<div class="thumb_container">
-
+ 
 			<c:forEach var="item" items="${list}">
 			<!-- setAttribute에서 작성한 이름 -->
 			
@@ -98,7 +98,7 @@
 						</p>
 					</div>
 				</div>
-			</c:forEach>
+			</c:forEach> 
 
 			<div aria-label="Page navigation example"
 			style="background-color: white;">
