@@ -22,6 +22,7 @@ public class FormController extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		
 		String action = request.getPathInfo();
+		
 		String nextPage = "";
 		
 		if(action.equals("/customerServiceEnrollForm.do")) {
@@ -33,7 +34,6 @@ public class FormController extends HttpServlet {
 		} else if (action.equals("/loginForm.do")) {
 			nextPage = "/views/member/login.jsp"; // 로그인
 		}
-		
 		
 		if(nextPage != null && !nextPage.isEmpty()) {
 			RequestDispatcher view = request.getRequestDispatcher(nextPage);

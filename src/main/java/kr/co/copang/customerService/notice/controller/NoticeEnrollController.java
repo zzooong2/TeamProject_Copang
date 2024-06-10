@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.copang.customerService.notice.model.dto.NoticeDTO;
 import kr.co.copang.customerService.notice.model.service.NoticeServiceImpl;
@@ -30,11 +31,15 @@ public class NoticeEnrollController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		// 데이터 받아서 변수에 저장
+		HttpSession session = request.getSession();
+		
+		int userNo = (int)session.getAttribute("userNo");
 		String noticeTitle = request.getParameter("notice-title");
 		String noticeContents = request.getParameter("notice-contents");
 		
 		// DTO 정보 저장
 		NoticeDTO nDTO = new NoticeDTO();
+		nDTO.setUserNo(userNo);
 		nDTO.setNoticeTitle(noticeTitle);
 		nDTO.setNoticeContents(noticeContents);
 		

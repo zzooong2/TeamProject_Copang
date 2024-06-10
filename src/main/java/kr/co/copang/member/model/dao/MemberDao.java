@@ -111,7 +111,7 @@ public class MemberDao {
 	
 	// 로그인
 	public MemberDto login(String id) {
-		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME, M.USER_NO"
+		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME, M.USER_NO, MT.PART_CODE"
 				+ "     FROM MEMBER M " 
                 + "     JOIN MEMBER_TYPE MT ON M.PART_CODE = MT.PART_CODE "
 				+ "     WHERE M.EMAIL = ?";
@@ -126,12 +126,14 @@ public class MemberDao {
 				String userName = rs.getString("USER_NAME");
 				String hashPassword = rs.getString("PASSWORD");
 				String partName = rs.getString("PART_NAME");
+				int partCode = rs.getInt("PART_CODE");
 				int userNo = rs.getInt("USER_NO");
 				
 				MemberDto result = new MemberDto();
 				result.setUserName(userName);
 				result.setUserPwd(hashPassword);
 				result.setUsertype(partName);
+				result.setPartCode(partCode);
 				result.setUserNo(userNo);				
 				return result;
 			}
