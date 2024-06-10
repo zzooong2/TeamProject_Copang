@@ -25,27 +25,42 @@
 	padding: 0;
 	width: 520px;
 	height : auto;
-	border: 1px solid lightgray;
 }
 
 .Detail_Left_MainImage {
 	width: 520px;
 }
 
-.left_star {
-	display: flex;
-	justify-content: center;
+/* -------------- Left Tab StarPoint -------------- */
+
+.Detail_Left_Star_Decision {
+	margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.star_style {
-	color: rgb(248, 174, 0);
-	font-size: 30px;
+.Detail_Left_Star_Decision_point {
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    background: url('/resources/img/emptyStar.png') no-repeat;
+    background-size: 100%;
 }
 
-.star_point {
-	font-size: 25px;
-	color: #434343;
-	font-weight: bold;
+.Detail_Left_Star_Decision_point.Detail_Left_Star_Decision_pointOn {
+    background: url('/resources/img/fullOfStar.png') no-repeat;
+    background-size: 100%;
+}
+
+.Detail_Left_Star_Decision_Average {
+	margin: 0;
+    margin-left: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff8e47;
 }
 
 /* -------------- Left Tab Contents -------------- */
@@ -113,7 +128,8 @@ input[id="tabList04"]:checked ~ .con4 {
 }
 
 input[id="tabList05"]:checked ~ .con5 {
-	display: block;
+	display: flex;
+	flex-direction: column;
 }
 
 .leftTabList_title {
@@ -196,6 +212,155 @@ input[id="tabList05"]:checked ~ .con5 {
 	list-style-type: none;
 	padding: 0;
 }
+
+
+
+
+/* <<< 5 >>> */
+.Detail_Left_Star_Rating {
+	width: 100%;
+	margin-top: 20px;
+	box-sizing: border-box;
+	display: inline-flex;
+	float: left;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.Detail_Left_Star_Rating .Detail_Left_Star {
+	width: 25px;
+	height: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+	display: inline-block;
+	background: url('/resources/img/emptyStar.png') no-repeat;
+	background-size: 100%;
+	box-sizing: border-box;
+}
+
+.Detail_Left_Star_Rating .Detail_Left_Star.Detail_Left_Star_On {
+	width: 25px;
+	height: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+	display: inline-block;
+	background: url('/resources/img/fullOfStar.png') no-repeat;
+	background-size: 100%;
+	box-sizing: border-box;
+}
+
+.Detail_Left_review_box {
+	display: flex;
+	align-items: center;
+}
+
+.Detail_Left_Star_Review {
+	width: 400px;
+	box-sizing: border-box;
+	display: inline-block;
+	margin: 15px 0;
+	background: #F3F4F8;
+	border: none;
+	height: 100px;
+	resize: none;
+	padding: 15px;
+	font-size: 13px;
+	font-family: sans-serif;
+}
+
+.Detail_Left_Star_Review:focus {
+	outline: none;
+}
+
+.Detail_Left_Star_Review_Button {
+	width: 100px;
+	height: 100px;
+	display:inline-block;
+	margin: 15px 0;
+	font-weight: bold;
+	padding: 15px 0;
+	font-size: 1.1em;
+	text-align: center;
+	border: 2px solid #ff8e47;
+	background: white;
+	color: #ff8e47;
+}
+
+.Detail_Left_Star_Review_Button:hover {
+	background: #ff8e47;
+	color: white;
+}
+
+.Detail_Left_ReviewTable {
+	width: 100%;
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.Detail_Left_ReviewTable_box {
+	margin: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.Detail_Left_ReviewStar {
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
+}
+
+.Detail_Left_ReviewStar .Detail_Left_Reviw_Star {
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	display: flex;
+	background: url('/resources/img/emptyStar.png') no-repeat;
+	background-size: 100%;
+	box-sizing: border-box;
+}
+
+.Detail_Left_ReviewStar .Detail_Left_Reviw_Star.Detail_Left_Reviw_Star_On {
+	width: 14px;
+	height: 14px;
+	margin: 0;
+	display: inline-block;
+	background: url('/resources/img/fullOfStar.png') no-repeat;
+	background-size: 100%;
+	box-sizing: border-box;
+}
+
+.Detail_Left_Reviews {
+	display: flex;
+	width: 100%;
+	height: 150px;
+	align-items: center;
+	border-bottom: 2px solid lightgray;
+	font-size: 14px;
+}
+
+.Detail_Left_ReviewBlock {
+	margin-left: 10px;
+	width: 35%;
+}
+
+.Detail_Left_Reviw_Star_value {
+	margin: 0;
+	margin-left: 5px;
+	color: gray;
+	font-weight: bold;
+}
+
+.Detail_Left_ReviewInfo {
+	text-align: left;
+}
+
+.Detail_Left_ReviewContent {
+	margin-left: 10px;
+	width: 65%;
+	text-align: left;
+}
+
 
 /* ---------- Right Box ---------- */
 .right_up {

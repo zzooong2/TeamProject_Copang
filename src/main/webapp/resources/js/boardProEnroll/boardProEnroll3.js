@@ -124,6 +124,7 @@ directionL.addEventListener('click', function() {
 
 });
 
+/* ===== 텍스트 입력 값 계산 ===== */
 
 function Counter(text, limit) {
 	let detailByte = 0;
@@ -144,4 +145,11 @@ function Counter(text, limit) {
 	}
 }
 
+
+
+/* ===== Function 입력 값 체크 ===== */
+
+document.getElementById("enrollForm").addEventListener('submit', function() {
+	let inputs = document.getElementByName('enroll_Function');
+})
 

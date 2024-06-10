@@ -77,7 +77,7 @@
 									<!-- ---------- 중분류 ---------- -->
 									<div class="Detail_right_Contents1_box2" id="Detail_right_middleCategory">
 										<span class="Detail_right_type_box">&nbsp;&nbsp;중분류<span class="Detail_right_check">*</span></span>
-										<select class="Detail_right_Contents1_Category_Style" id="Detail_right_middleCategory_select" name="enroll_Category">
+										<select class="Detail_right_Contents1_Category_Style" id="Detail_right_middleCategory_select" name="enroll_Middle_Category">
 											<option class="Detail_right_Contents1_Category_Style" value="">중분류를 선택해주세요.</option>
 										</select>
 									</div>
@@ -333,13 +333,6 @@
 	
 								<div class="Detail_right_TopTitle">
 									<span class="Detail_right_PayData">가격 정보</span>
-	
-									<!-- <div class="Detail_right_toggleButon">
-										<div class="toggle_button">
-											<input type="checkbox" class="right_toggle_checkbox" id="right_toggle_slider" for=""> <span class="toggle_slider"></span>
-										</div>
-										<label for="right_toggle_slider" class="toggle-label" id="right_toggle_sliderLabel"><span>패키지로 가격 설정</span></label>
-									</div> -->
 											<div class="Detail_right_toggleButon">
 											    <input type="checkbox" class="right_toggle_checkbox" id="right_toggle_slider">
 											    <label for="right_toggle_slider" class="toggle-label" id="right_toggle_sliderLabel"><span>패키지로 가격 설정</span></label>
@@ -348,7 +341,7 @@
 	
 								<!-- -------------------------------- Toggle Off -------------------------------- -->
 								<div class="Detail_right_Type1" id="toggleContentOff">
-									<span class="Detail_right_Type_Text">STANDARD</span>
+									<span class="Detail_right_Type_Text">SINGLE</span>
 									<div class="Detail_right_Type_Title">
 										<div class="Detail_right_type_box1">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;제목<span class="Detail_right_check">*</span></span> 
@@ -366,7 +359,7 @@
 										
 										<div class="Detail_right_type_box1" id="Detail_right_SingleData">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;</span>
-											<input class="type_box_Input3 input_select" id="Detail_right_box1_text1_input" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Data" maxlength="9"><span class="Detail_right_unit">개</span>
+											<input class="type_box_Input3 input_select" id="Detail_right_box1_text1_input" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Data" maxlength="9" value="0"><span class="Detail_right_unit">개</span>
 										</div>
 												
 										<div class="Detail_right_type_box1" id="Detail_right_SingleData_IT">
@@ -390,7 +383,7 @@
 										
 										<div class="Detail_right_type_box1" id="Detail_right_SingleFunction">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;</span>
-											<input class="type_box_Input3 input_select" id="Detail_right_box1_text2_input" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Function" maxlength="9"><span class="Detail_right_unit"></span>
+											<input class="type_box_Input3 input_select" id="Detail_right_box1_text2_input" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Function" maxlength="9" value="0"><span class="Detail_right_unit"></span>
 										</div>
 										
 										<div class="Detail_right_type_box1" id="Detail_right_SingleFunction_IT">
@@ -544,13 +537,13 @@
 												
 	
 												<div class="Detail_right_Type2_ON_selectbox">
-													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Standard_Data"><span class="Detail_right_Type2_unit">개</span>
+													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Standard_Data" value="0"><span class="Detail_right_Type2_unit">개</span>
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
-													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Deluxe_Data"><span class="Detail_right_Type2_unit">개</span>
+													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Deluxe_Data" value="0"><span class="Detail_right_Type2_unit">개</span>
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
-													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Premium_Data"><span class="Detail_right_Type2_unit">개</span>
+													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Premium_Data" value="0"><span class="Detail_right_Type2_unit">개</span>
 												</div>
 											</div>
 											<div class="Detail_right_Type3_Box" id="Detail_right_function_list_package">
@@ -570,13 +563,13 @@
 												
 												
 												<div class="Detail_right_Type2_ON_selectbox">
-													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Standard_Function"><span class="Detail_right_Type2_unit">개</span>
+													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Standard_Function" value="0"><span class="Detail_right_Type2_unit">개</span>
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
-													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Deluxe_Function"><span class="Detail_right_Type2_unit">개</span>
+													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Deluxe_Function" value="0"><span class="Detail_right_Type2_unit">개</span>
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
-													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Premium_Function"><span class="Detail_right_Type2_unit">개</span>
+													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Premium_Function" value="0"><span class="Detail_right_Type2_unit">개</span>
 												</div>
 											</div>
 											<div class="Detail_right_Type2_Box">

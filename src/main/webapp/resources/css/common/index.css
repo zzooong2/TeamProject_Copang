@@ -19,7 +19,7 @@ body{
 
 
 /* 페이드 인 아웃 */
-/* 
+
 @keyframes fade{
     0%{
         background-image: url("/resources/img/main1.jpg");
@@ -37,7 +37,7 @@ body{
         background-image: url("/resources/img/main1.jpg");
     }
 }
-  */
+
 
 /* 메인영역 */
 .main{

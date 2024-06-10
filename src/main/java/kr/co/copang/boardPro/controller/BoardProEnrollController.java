@@ -49,20 +49,16 @@ public class BoardProEnrollController extends HttpServlet {
 		String company = request.getParameter("enroll_Company");
 		
 		String detailService = request.getParameter("editorTxt");
-//		String detailService = "내용";
-		
-		
 		
 		String[] twoCategory = request.getParameterValues("enroll_Middle_Category");
 		String[] thirdCategory = request.getParameterValues("enroll_Subcat_Category");
-		
+		System.out.println(twoCategory);
 		for(String item : twoCategory) {
+			System.out.println("a : " + item);
 			if(!item.equals("")) { 
 				middleCategory = item;
 			}
 		}
-		
-		System.out.println(middleCategory);
 		
 		for(String item : thirdCategory) {
 			if(!item.equals("")) { 
@@ -105,7 +101,6 @@ public class BoardProEnrollController extends HttpServlet {
 		} else {
 			
 //		----- Enroll Page 2-2	
-			
 
 			String sbusinessServiceName = request.getParameter("enroll_Standard_Name");
 			String dbusinessServiceName = request.getParameter("enroll_Deluxe_Name");
@@ -135,6 +130,7 @@ public class BoardProEnrollController extends HttpServlet {
 			int dbusinessServiceFunction = Integer.parseInt(request.getParameter("enroll_Deluxe_Function"));
 			int pbusinessServiceFunction = Integer.parseInt(request.getParameter("enroll_Premium_Function"));
 			
+			
 //			상세정보 배열 생성
 				ArrayList<BoardProDto> business = new ArrayList<>();
 				
@@ -153,9 +149,7 @@ public class BoardProEnrollController extends HttpServlet {
 				business.add(primiumDto);
 				
 				typeResult = boardProService.BusinessMenuEnroll(business, businessNo);
-			
 		}
-		
 		
 //		---------------------------------------------------------------------
 		
@@ -209,8 +203,6 @@ public class BoardProEnrollController extends HttpServlet {
 		else {
 		    response.sendRedirect("/error.jsp");
 		}
-
-	
 	}
 	
 	private void getFileName(Part part, String[] fileName) {
@@ -226,6 +218,4 @@ public class BoardProEnrollController extends HttpServlet {
             }
         }
     }
-	
-	
 }

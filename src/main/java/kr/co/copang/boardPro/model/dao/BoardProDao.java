@@ -76,8 +76,6 @@ public class BoardProDao {
 				boardProDto.setFileName(fileName);
 				boardProDto.setFilePath(filePath);
 				
-				
-				
 				result.add(boardProDto);
 			}
 
@@ -600,12 +598,95 @@ public class BoardProDao {
 		return 0;
 	}
 	
+	public int BoardReview(BoardProDto boardDto) {
+		
+		String query = "INSERT INTO CATEGORY_BOARD_REVIEW VALUES(?, ?, ?, ?, DEFAULT)";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardDto.getBoardProNo());
+			pstmt.setInt(2, boardDto.getUserNo());
+			pstmt.setInt(3, boardDto.getReviewStarPoint());
+			pstmt.setString(4, boardDto.getReviewContent());
+			
+			int result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 	
 	
+	public ArrayList<BoardProDto> getReviews(int boardProNo) {
+	    String query = "SELECT cbr.B_NO,"
+	    		+ "			   m.USER_NO,"
+	    		+ "			   m.USER_NAME,"
+	    		+ "			   cbr.B_REVIEW_POINT,"
+	    		+ "			   cbr.B_REVIEW,"
+	    		+ "			   cbr.B_REVIEW_INDATE"
+                + "		FROM CATEGORY_BOARD_REVIEW cbr "
+                + "		JOIN MEMBER m ON cbr.USER_NO = m.USER_NO "
+                + "		WHERE cbr.B_NO = ?"
+                + "		ORDER BY B_REVIEW_INDATE DESC";
+	    ArrayList<BoardProDto> reviews = new ArrayList<>();
+	    
+	    try {
+	        pstmt = con.prepareStatement(query);
+	        pstmt.setInt(1, boardProNo);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            int boardNo = rs.getInt("B_NO");
+	            int userNo = rs.getInt("USER_NO");
+	            String userName = rs.getString("USER_NAME");
+	            int reviewPoint = rs.getInt("B_REVIEW_POINT");
+	            String reviewContent = rs.getString("B_REVIEW");
+	            String reviewIndate = rs.getString("B_REVIEW_INDATE");
+	            
+	            BoardProDto rBoardProDto = new BoardProDto();
+	            rBoardProDto.setBoardProNo(boardNo);
+	            rBoardProDto.setUserNo(userNo);
+	            rBoardProDto.setUserName(userName);
+	            rBoardProDto.setReviewStarPoint(reviewPoint);
+	            rBoardProDto.setReviewContent(reviewContent);
+	            rBoardProDto.setReviewIndate(reviewIndate);
+
+	            reviews.add(rBoardProDto);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return reviews;
+	}
 	
-	
-	
-	
-	
+	public float getReviewAvg(int boardProNo) {
+		
+		String query = "SELECT AVG(B_REVIEW_POINT) AS AVG"
+				+ "		FROM CATEGORY_BOARD_REVIEW"
+				+ "		WHERE B_NO = ?";
+		
+		float result = 0;
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getFloat("AVG");
+			}
+			
+			return result;
+			
+		} catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		
+		return 0;
+	}
 	
 }
