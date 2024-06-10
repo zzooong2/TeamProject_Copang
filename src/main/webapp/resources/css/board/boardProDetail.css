@@ -16,11 +16,19 @@
 .left_contents {
 	display: inline-block;
 	width: 550px;
-	margin-right: 10px;
+	margin-right: 5px;
 }
 
-.left_contents_img_main {
+.Detail_Left_MainImage_box {
 	margin-left: 5px;
+	margin-top : 20px;
+	padding: 0;
+	width: 520px;
+	height : auto;
+	border: 1px solid lightgray;
+}
+
+.Detail_Left_MainImage {
 	width: 520px;
 }
 
@@ -48,7 +56,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	height: 600px;
+	height: auto;
 }
 
 .tabMenuLabel {
@@ -82,7 +90,7 @@ input[type="radio"]+label {
 
 .conbox {
 	width: 535px;
-	height: 100%;
+	height: auto;
 	border-top: 1px solid black;
 	margin: 0 auto;
 	display: none;
@@ -194,13 +202,13 @@ input[id="tabList05"]:checked ~ .con5 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 350px;
-	margin: 10px;
+	width: 400px;
+	margin-top: 10px;
 }
 
 .right_up_text {
-	font-size : 18px;
-	color : darkgray;
+	font-size : 16px;
+	color : rgb(100, 100, 100);
 	font-weight: bold;
 	margin-right: 10px;
 }
@@ -226,7 +234,7 @@ input[id="tabList05"]:checked ~ .con5 {
 	margin-top: 5px;
 	padding: 20px;
 	width: 350px;
-	height: 420px;
+	height: auto;
 	border: 1px solid #c0c0c0;
 	border-radius: 5px;
 }
