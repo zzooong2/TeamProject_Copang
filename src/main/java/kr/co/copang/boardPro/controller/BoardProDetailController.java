@@ -44,6 +44,12 @@ public class BoardProDetailController extends HttpServlet {
 		
 		ArrayList<BoardProDto> reviewList = boardProService.getReviews(boardProNo);
 		
+		float avgValue = boardProService.getReviewAvg(boardProNo);
+		
+		String avg = String.format("%.1f", avgValue);
+		
+		request.setAttribute("avg", avg);
+		
 		if(reviewList != null) {
 			request.setAttribute("reviewList", reviewList);
 		} else {
@@ -64,12 +70,11 @@ public class BoardProDetailController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		HttpSession session = request.getSession();
-		
-		int boardProNo = (int)session.getAttribute("boardNo");
 		int userNo = (int)session.getAttribute("userNo");
 		
 		int starPoint = Integer.parseInt(request.getParameter("starPoint"));
 		String reviewContent = request.getParameter("reviewContent");
+		int boardProNo = Integer.parseInt(request.getParameter("boardProNo"));
 		
 		BoardProDto boardDto = new BoardProDto(); 
 		boardDto.setUserNo(userNo);

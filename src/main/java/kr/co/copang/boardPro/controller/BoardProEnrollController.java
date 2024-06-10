@@ -52,8 +52,9 @@ public class BoardProEnrollController extends HttpServlet {
 		
 		String[] twoCategory = request.getParameterValues("enroll_Middle_Category");
 		String[] thirdCategory = request.getParameterValues("enroll_Subcat_Category");
-		
+		System.out.println(twoCategory);
 		for(String item : twoCategory) {
+			System.out.println("a : " + item);
 			if(!item.equals("")) { 
 				middleCategory = item;
 			}

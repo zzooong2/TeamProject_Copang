@@ -602,7 +602,7 @@ public class BoardProDao {
 	
 	public int BoardReview(BoardProDto boardDto) {
 		
-		String query = "INSERT INTO CATEGORY_BOARD_REVIEW VALUES(?, ?, ?, ?, DEFUALT)";
+		String query = "INSERT INTO CATEGORY_BOARD_REVIEW VALUES(?, ?, ?, ?, DEFAULT)";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -630,7 +630,8 @@ public class BoardProDao {
 	    		+ "			   cbr.B_REVIEW_INDATE"
                 + "		FROM CATEGORY_BOARD_REVIEW cbr "
                 + "		JOIN MEMBER m ON cbr.USER_NO = m.USER_NO "
-                + "		WHERE cbr.B_NO = ?";
+                + "		WHERE cbr.B_NO = ?"
+                + "		ORDER BY B_REVIEW_INDATE DESC";
 	    ArrayList<BoardProDto> reviews = new ArrayList<>();
 	    
 	    try {
@@ -663,6 +664,31 @@ public class BoardProDao {
 	    return reviews;
 	}
 	
-	
+	public float getReviewAvg(int boardProNo) {
+		
+		String query = "SELECT AVG(B_REVIEW_POINT) AS AVG"
+				+ "		FROM CATEGORY_BOARD_REVIEW"
+				+ "		WHERE B_NO = ?";
+		
+		float result = 0;
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getFloat("AVG");
+			}
+			
+			return result;
+			
+		} catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		
+		return 0;
+	}
 	
 }

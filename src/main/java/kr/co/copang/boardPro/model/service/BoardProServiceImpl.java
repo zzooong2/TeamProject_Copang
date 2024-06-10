@@ -87,4 +87,11 @@ public class BoardProServiceImpl implements BoardProService {
 	public ArrayList<BoardProDto> getReviews(int boardProNo) {
 		return boardProDao.getReviews(boardProNo);
 	}
+	
+	@Override
+	public float getReviewAvg(int boardProNo) {
+		return boardProDao.getReviewAvg(boardProNo);
+	}
+	
+	
 }

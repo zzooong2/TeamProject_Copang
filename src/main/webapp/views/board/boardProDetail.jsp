@@ -36,7 +36,7 @@
                     <span class="Detail_Left_Star_Decision_point" value="3"></span>
                     <span class="Detail_Left_Star_Decision_point" value="4"></span>
                     <span class="Detail_Left_Star_Decision_point" value="5"></span>
-                    <span class="Detail_Left_Star_Decision_Average">0.0</span>
+                    <span class="Detail_Left_Star_Decision_Average" id="Detail_Left_Star_Decision_Average" value="${avg}">${avg}</span>
                 </div>
 
                 <div class="left_TabList">
@@ -53,220 +53,229 @@
 
                     <div class="conbox con1">${result.boardProContents}</div>
                     <div class="conbox con2">
-                        <p class="leftTabList_title">가격 정보</p>
-                        <table class="leftPayList">
-                            <thead lass="tableLine0">
-                                <th class="tableTitle"></th>
-                                <th class="tableTitle">STANDARD</th>
-                                <th class="tableTitle">DELUXE</th>
-                                <th class="tableTitle">PREMIUM</th>
-                            </thead>
-	                            <tbody id="Detail_Category_BusinessMenu_IT" class="categoryTable">
-	                                <tr>
-	                                    <td class="tableLine">페이지</td>
-	                                    <td class="tableLine">${resultS.businessServiceData}</td>
-	                                    <td class="tableLine">${resultD.businessServiceData}</td>
-	                                    <td class="tableLine">${resultP.businessServiceData}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">기능</td>
-	                                    <td class="tableLine">${resultS.businessServiceFunction}</td>
-	                                    <td class="tableLine">${resultD.businessServiceFunction}</td>
-	                                    <td class="tableLine">${resultP.businessServiceFunction}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">수정 횟수</td>
-	                                    <td class="tableLine">${resultS.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultD.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultP.businessServiceRetouch}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">작업일</td>
-	                                    <td class="tableLine">${resultS.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultD.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultP.businessServiceWorkDate}</td>
-	                                </tr>
-	                                <tr class="tableLine2">
-	                                    <td class="tableLine">금액</td>
-	                                    <td class="tableLine businessServicePay">${resultS.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultD.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultP.businessServicePay}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                </tr>
-	                            </tbody>
-	                            <tbody id="Detail_Category_BusinessMenu_Design" class="categoryTable">
-	                                <tr>
-	                                    <td class="tableLine">시안</td>
-	                                    <td class="tableLine">${resultS.businessServiceData}</td>
-	                                    <td class="tableLine">${resultD.businessServiceData}</td>
-	                                    <td class="tableLine">${resultP.businessServiceData}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">수정 횟수</td>
-	                                    <td class="tableLine">${resultS.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultD.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultP.businessServiceRetouch}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">작업일</td>
-	                                    <td class="tableLine">${resultS.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultD.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultP.businessServiceWorkDate}</td>
-	                                </tr>
-	                                <tr class="tableLine2">
-	                                    <td class="tableLine">금액</td>
-	                                    <td class="tableLine businessServicePay">${resultS.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultD.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultP.businessServicePay}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                </tr>
-	                            </tbody>
-	                            <tbody id="Detail_Category_BusinessMenu_Media" class="categoryTable">
-	                                <tr>
-	                                    <td class="tableLine">촬영시간(분)</td>
-	                                    <td class="tableLine">${resultS.businessServiceData}</td>
-	                                    <td class="tableLine">${resultD.businessServiceData}</td>
-	                                    <td class="tableLine">${resultP.businessServiceData}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">런닝타임(초)</td>
-	                                    <td class="tableLine">${resultS.businessServiceFunction}</td>
-	                                    <td class="tableLine">${resultD.businessServiceFunction}</td>
-	                                    <td class="tableLine">${resultP.businessServiceFunction}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">수정 횟수</td>
-	                                    <td class="tableLine">${resultS.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultD.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultP.businessServiceRetouch}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">작업일</td>
-	                                    <td class="tableLine">${resultS.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultD.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultP.businessServiceWorkDate}</td>
-	                                </tr>
-	                                <tr class="tableLine2">
-	                                    <td class="tableLine">금액</td>
-	                                    <td class="tableLine businessServicePay">${resultS.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultD.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultP.businessServicePay}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                </tr>
-	                            </tbody>
-	                            <tbody id="Detail_Category_BusinessMenu_Photo" class="categoryTable">
-	                                <tr>
-	                                    <td class="tableLine">촬영시간(분)</td>
-	                                    <td class="tableLine">${resultS.businessServiceData}</td>
-	                                    <td class="tableLine">${resultD.businessServiceData}</td>
-	                                    <td class="tableLine">${resultP.businessServiceData}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">컷수</td>
-	                                    <td class="tableLine">${resultS.businessServiceFunction}</td>
-	                                    <td class="tableLine">${resultD.businessServiceFunction}</td>
-	                                    <td class="tableLine">${resultP.businessServiceFunction}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">수정 횟수</td>
-	                                    <td class="tableLine">${resultS.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultD.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultP.businessServiceRetouch}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">작업일</td>
-	                                    <td class="tableLine">${resultS.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultD.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultP.businessServiceWorkDate}</td>
-	                                </tr>
-	                                <tr class="tableLine2">
-	                                    <td class="tableLine">금액</td>
-	                                    <td class="tableLine businessServicePay">${resultS.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultD.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultP.businessServicePay}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                </tr>
-	                            </tbody>
-	                            <tbody id="Detail_Category_BusinessMenu_Marketing" class="categoryTable">
-	                                <tr>
-	                                    <td class="tableLine">A/S기간</td>
-	                                    <td class="tableLine">${resultS.businessServiceData}</td>
-	                                    <td class="tableLine">${resultD.businessServiceData}</td>
-	                                    <td class="tableLine">${resultP.businessServiceData}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">수정 횟수</td>
-	                                    <td class="tableLine">${resultS.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultD.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultP.businessServiceRetouch}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">작업일</td>
-	                                    <td class="tableLine">${resultS.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultD.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultP.businessServiceWorkDate}</td>
-	                                </tr>
-	                                <tr class="tableLine2">
-	                                    <td class="tableLine">금액</td>
-	                                    <td class="tableLine businessServicePay">${resultS.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultD.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultP.businessServicePay}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                </tr>
-	                            </tbody>
-	                            <tbody id="Detail_Category_BusinessMenu_Study" class="categoryTable">
-	                                <tr>
-	                                    <td class="tableLine">수정 횟수</td>
-	                                    <td class="tableLine">${resultS.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultD.businessServiceRetouch}</td>
-	                                    <td class="tableLine">${resultP.businessServiceRetouch}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td class="tableLine">작업일</td>
-	                                    <td class="tableLine">${resultS.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultD.businessServiceWorkDate}</td>
-	                                    <td class="tableLine">${resultP.businessServiceWorkDate}</td>
-	                                </tr>
-	                                <tr class="tableLine2">
-	                                    <td class="tableLine">금액</td>
-	                                    <td class="tableLine businessServicePay">${resultS.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultD.businessServicePay}</td>
-	                                    <td class="tableLine businessServicePay">${resultP.businessServicePay}</td>
-	                                </tr>
-	                                <tr>
-	                                    <td></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                    <td><button onclick="" class="leftBuy">구매</button></td>
-	                                </tr>
-	                            </tbody>
-                        </table>
-                    </div>
+					    <p class="leftTabList_title">가격 정보</p>
+					    <table class="leftPayList">
+					        <thead class="tableLine0">
+					            <tr>
+					                <th class="tableTitle"></th>
+					                <th class="tableTitle">STANDARD</th>
+					                <th class="tableTitle">DELUXE</th>
+					                <th class="tableTitle">PREMIUM</th>
+					            </tr>
+					        </thead>
+					        <!-- IT·프로그래밍 카테고리 -->
+					        <tbody id="Detail_Category_BusinessMenu_IT" class="categoryTable">
+					            <tr>
+					                <td class="tableLine">페이지</td>
+					                <td class="tableLine">${resultS.businessServiceData}페이지</td>
+					                <td class="tableLine">${resultD.businessServiceData}페이지</td>
+					                <td class="tableLine">${resultP.businessServiceData}페이지</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">기능</td>
+					                <td class="tableLine">${resultS.businessServiceFunction}개</td>
+					                <td class="tableLine">${resultD.businessServiceFunction}개</td>
+					                <td class="tableLine">${resultP.businessServiceFunction}개</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">수정 횟수</td>
+					                <td class="tableLine">${resultS.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultD.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultP.businessServiceRetouch}회</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">작업일</td>
+					                <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+					            </tr>
+					            <tr class="tableLine2">
+					                <td class="tableLine">금액</td>
+					                <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
+					            </tr>
+					            <tr>
+					                <td></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					            </tr>
+					        </tbody>
+					        <!-- 디자인 카테고리 -->
+					        <tbody id="Detail_Category_BusinessMenu_Design" class="categoryTable">
+					            <tr>
+					                <td class="tableLine">시안</td>
+					                <td class="tableLine">${resultS.businessServiceData}개</td>
+					                <td class="tableLine">${resultD.businessServiceData}개</td>
+					                <td class="tableLine">${resultP.businessServiceData}개</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">수정 횟수</td>
+					                <td class="tableLine">${resultS.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultD.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultP.businessServiceRetouch}회</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">작업일</td>
+					                <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+					            </tr>
+					            <tr class="tableLine2">
+					                <td class="tableLine">금액</td>
+					                <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
+					            </tr>
+					            <tr>
+					                <td></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					            </tr>
+					        </tbody>
+					        <!-- 영상·사진 카테고리 - 영상 -->
+					        <tbody id="Detail_Category_BusinessMenu_Video" class="categoryTable">
+					            <tr>
+					                <td class="tableLine">촬영시간(분)</td>
+					                <td class="tableLine">${resultS.businessServiceData}분</td>
+					                <td class="tableLine">${resultD.businessServiceData}분</td>
+					                <td class="tableLine">${resultP.businessServiceData}분</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">런닝타임(초)</td>
+					                <td class="tableLine">${resultS.businessServiceFunction}초</td>
+					                <td class="tableLine">${resultD.businessServiceFunction}초</td>
+					                <td class="tableLine">${resultP.businessServiceFunction}초</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">수정 횟수</td>
+					                <td class="tableLine">${resultS.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultD.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultP.businessServiceRetouch}회</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">작업일</td>
+					                <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+					            </tr>
+					            <tr class="tableLine2">
+					                <td class="tableLine">금액</td>
+					                <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
+					            </tr>
+					            <tr>
+					                <td></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					            </tr>
+					        </tbody>
+					        <!-- 영상·사진 카테고리 - 사진 -->
+					        <tbody id="Detail_Category_BusinessMenu_Photo" class="categoryTable">
+					            <tr>
+					                <td class="tableLine">촬영시간(분)</td>
+					                <td class="tableLine">${resultS.businessServiceData}분</td>
+					                <td class="tableLine">${resultD.businessServiceData}분</td>
+					                <td class="tableLine">${resultP.businessServiceData}분</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">컷수</td>
+					                <td class="tableLine">${resultS.businessServiceFunction}장</td>
+					                <td class="tableLine">${resultD.businessServiceFunction}장</td>
+					                <td class="tableLine">${resultP.businessServiceFunction}장</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">수정 횟수</td>
+					                <td class="tableLine">${resultS.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultD.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultP.businessServiceRetouch}회</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">작업일</td>
+					                <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+					            </tr>
+					            <tr class="tableLine2">
+					                <td class="tableLine">금액</td>
+					                <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
+					            </tr>
+					            <tr>
+					                <td></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					            </tr>
+					        </tbody>
+					        <!-- 마케팅 카테고리 -->
+					        <tbody id="Detail_Category_BusinessMenu_Marketing" class="categoryTable">
+					            <tr>
+					                <td class="tableLine">A/S기간</td>
+					                <td class="tableLine">${resultS.businessServiceData}일</td>
+					                <td class="tableLine">${resultD.businessServiceData}일</td>
+					                <td class="tableLine">${resultP.businessServiceData}일</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">수정 횟수</td>
+					                <td class="tableLine">${resultS.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultD.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultP.businessServiceRetouch}회</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">작업일</td>
+					                <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+					            </tr>
+					            <tr class="tableLine2">
+					                <td class="tableLine">금액</td>
+					                <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
+					            </tr>
+					            <tr>
+					                <td></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					            </tr>
+					        </tbody>
+					        <!-- 교육 카테고리 -->
+					        <tbody id="Detail_Category_BusinessMenu_Study" class="categoryTable">
+					            <tr>
+					                <td class="tableLine">수정 횟수</td>
+					                <td class="tableLine">${resultS.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultD.businessServiceRetouch}회</td>
+					                <td class="tableLine">${resultP.businessServiceRetouch}회</td>
+					            </tr>
+					            <tr>
+					                <td class="tableLine">작업일</td>
+					                <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+					                <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+					            </tr>
+					            <tr class="tableLine2">
+					                <td class="tableLine">금액</td>
+					                <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
+					                <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
+					            </tr>
+					            <tr>
+					                <td></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					                <td><button onclick="" class="leftBuy">구매</button></td>
+					            </tr>
+					        </tbody>
+					    </table>
+					</div>
+
                     <div class="conbox con3">
                         <ul class="leftTabList_Retouch">
                             <li class="leftTabList_Retouch_title">수정 및 재진행</li>
@@ -300,7 +309,7 @@
                     	</div>
                     	<div class="Detail_Left_review_box">
                     	<textarea name="Detail_Left_Review_Content" class="Detail_Left_Star_Review" placeholder="리뷰 내용을 작성해주세요."></textarea>
-                    	<input type="button" class="Detail_Left_Star_Review_Button" value="리뷰 등록" />
+                    	<button type="button" class="Detail_Left_Star_Review_Button" value="${result.boardProNo}">리뷰 등록</button>
                     	</div>
                     	<div class="Detail_Left_ReviewTable">
                     		<table class="Detail_Left_ReviewTable_box">
@@ -312,31 +321,29 @@
                    					</c:when>
                    					<c:otherwise>
                    						<c:forEach var="item" items="${reviewList}" varStatus="status">
-										    <c:if test="${status.index % 2 == 0}"></c:if>
-										        	<tr>
-												    	<td>
-													    	<div class="Detail_Left_Reviews">
-														        <div class="Detail_Left_ReviewBlock">
-														            <div class="Detail_Left_ReviewStar">
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 1 ? 'Detail_Left_Reviw_Star_On' : ''}" value="1"></span>
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 2 ? 'Detail_Left_Reviw_Star_On' : ''}" value="2"></span>
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 3 ? 'Detail_Left_Reviw_Star_On' : ''}" value="3"></span>
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 4 ? 'Detail_Left_Reviw_Star_On' : ''}" value="4"></span>
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 5 ? 'Detail_Left_Reviw_Star_On' : ''}" value="5"></span>
-														                <span class="Detail_Left_Reviw_Star_value"><fmt:formatNumber value="${item.reviewStarPoint}" pattern="#,##0.0" /></span>
-														            </div>
-														            <div class="Detail_Left_ReviewInfo">
-														                <span class="Detail_Left_ReviewUser">${item.userName}</span>
-														                <p class="Detail_Left_ReviewIndate">${item.reviewIndate}</p>
-														            </div>
-														        </div>
-													            <div class="Detail_Left_ReviewContent">
-													                <span>${item.reviewContent}</span>
+									        	<tr>
+											    	<td>
+												    	<div class="Detail_Left_Reviews">
+													        <div class="Detail_Left_ReviewBlock">
+													            <div class="Detail_Left_ReviewStar">
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 1 ? 'Detail_Left_Reviw_Star_On' : ''}" value="1"></span>
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 2 ? 'Detail_Left_Reviw_Star_On' : ''}" value="2"></span>
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 3 ? 'Detail_Left_Reviw_Star_On' : ''}" value="3"></span>
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 4 ? 'Detail_Left_Reviw_Star_On' : ''}" value="4"></span>
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 5 ? 'Detail_Left_Reviw_Star_On' : ''}" value="5"></span>
+													                <span class="Detail_Left_Reviw_Star_value"><fmt:formatNumber value="${item.reviewStarPoint}" pattern="#,##0.0" /></span>
 													            </div>
+													            <div class="Detail_Left_ReviewInfo">
+													                <span class="Detail_Left_ReviewUser">${item.userName}</span>
+													                <p class="Detail_Left_ReviewIndate">${item.reviewIndate}</p>
+													            </div>
+													        </div>
+												            <div class="Detail_Left_ReviewContent">
+												                <span>${item.reviewContent}</span>
 												            </div>
-												    	</td>
-										        	</tr>
-											    <c:if test="${status.index % 2 != 0 || status.last}"></c:if>
+											            </div>
+											    	</td>
+									        	</tr>
 										</c:forEach>
                    					</c:otherwise>
                    				</c:choose>
@@ -363,7 +370,7 @@
 	                    <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
 	                
 	                    <div class="rightConbox rightCon1">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultS.businessServiceName}</span>
@@ -408,7 +415,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon2">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultD.businessServiceName}</span>
@@ -453,7 +460,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon3">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultP.businessServiceName}</span>
@@ -507,7 +514,7 @@
 	                    <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
 	                
 	                    <div class="rightConbox rightCon1">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultS.businessServiceName}</span>
@@ -549,7 +556,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon2">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultD.businessServiceName}</span>
@@ -591,7 +598,7 @@
                         	<button class="rightBox_buy_button" onclick="">구매하기</button>
                     	</div>
 	                    <div class="rightConbox rightCon3">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultP.businessServiceName}</span>
@@ -642,7 +649,7 @@
 	                    <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
 	                
 	                    <div class="rightConbox rightCon1">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultS.businessServiceName}</span>
@@ -670,7 +677,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon2">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultD.businessServiceName}</span>
@@ -698,7 +705,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon3">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultP.businessServiceName}</span>
@@ -735,7 +742,7 @@
 	                    <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
 	                
 	                    <div class="rightConbox rightCon1">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultS.businessServiceName}</span>
@@ -762,7 +769,7 @@
 	                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
 	                   		 </div>
 	                    <div class="rightConbox rightCon2">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultD.businessServiceName}</span>
@@ -790,7 +797,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon3">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultP.businessServiceName}</span>
@@ -827,7 +834,7 @@
 	                    <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
 	                
 	                    <div class="rightConbox rightCon1">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultS.businessServiceName}</span>
@@ -877,7 +884,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon2">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultD.businessServiceName}</span>
@@ -927,7 +934,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon3">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultP.businessServiceName}</span>
@@ -986,7 +993,7 @@
 	                    <label class="rightTabMenuLabel tabpoint" for="rightTabList03">PREMIUM</label>
 	                
 	                    <div class="rightConbox rightCon1">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultS.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultS.businessServiceName}</span>
@@ -1036,7 +1043,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon2">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultD.businessServiceName}</span>
@@ -1086,7 +1093,7 @@
 	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon3">
-	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}</span>
+	                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
 	                        <span class="vat">(VAT포함)</span>
 	                        <div class="rightBox_second_title">
 	                            <span class="rightBox_sample1">${resultP.businessServiceName}</span>
