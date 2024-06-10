@@ -143,28 +143,28 @@ $(document).ready(function() {
                 // 서버로부터 성공적인 응답을 받으면 실행됩니다.
                 // 리뷰가 성공적으로 등록되면, 해당 리뷰 항목을 업데이트합니다.
                 $('.Detail_Left_Reviews').html(`<tr>
-												    	<td>
-													    	<div class="Detail_Left_Reviews">
-														        <div class="Detail_Left_ReviewBlock">
-														            <div class="Detail_Left_ReviewStar">
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 1 ? 'Detail_Left_Reviw_Star_On' : ''}" value="1"></span>
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 2 ? 'Detail_Left_Reviw_Star_On' : ''}" value="2"></span>
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 3 ? 'Detail_Left_Reviw_Star_On' : ''}" value="3"></span>
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 4 ? 'Detail_Left_Reviw_Star_On' : ''}" value="4"></span>
-														                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 5 ? 'Detail_Left_Reviw_Star_On' : ''}" value="5"></span>
-														                <span class="Detail_Left_Reviw_Star_value"><fmt:formatNumber value="${item.reviewStarPoint}" pattern="#,##0.0" /></span>
-														            </div>
-														            <div class="Detail_Left_ReviewInfo">
-														                <span class="Detail_Left_ReviewUser">${item.userName}</span>
-														                <p class="Detail_Left_ReviewIndate">${item.reviewIndate}</p>
-														            </div>
-														        </div>
-													            <div class="Detail_Left_ReviewContent">
-													                <span>${item.reviewContent}</span>
+											    	<td>
+												    	<div class="Detail_Left_Reviews">
+													        <div class="Detail_Left_ReviewBlock">
+													            <div class="Detail_Left_ReviewStar">
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 1 ? 'Detail_Left_Reviw_Star_On' : ''}" value="1"></span>
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 2 ? 'Detail_Left_Reviw_Star_On' : ''}" value="2"></span>
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 3 ? 'Detail_Left_Reviw_Star_On' : ''}" value="3"></span>
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 4 ? 'Detail_Left_Reviw_Star_On' : ''}" value="4"></span>
+													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 5 ? 'Detail_Left_Reviw_Star_On' : ''}" value="5"></span>
+													                <span class="Detail_Left_Reviw_Star_value"><fmt:formatNumber value="${item.reviewStarPoint}" pattern="#,##0.0" /></span>
 													            </div>
+													            <div class="Detail_Left_ReviewInfo">
+													                <span class="Detail_Left_ReviewUser">${item.userName}</span>
+													                <p class="Detail_Left_ReviewIndate">${item.reviewIndate}</p>
+													            </div>
+													        </div>
+												            <div class="Detail_Left_ReviewContent">
+												                <span>${item.reviewContent}</span>
 												            </div>
-												    	</td>
-										        	</tr>`); // 리뷰 항목 업데이트
+											            </div>
+											    	</td>
+									        	</tr>`); // 리뷰 항목 업데이트
             },
             error: function(xhr, status, error) {
                 // 서버로부터 응답이 실패하면 실행됩니다.

@@ -1,0 +1,130 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+/* 전체 영역 센터 정렬 */
+*{
+    margin: 0 auto;
+}
+
+/* 바디영역 */
+body{
+    width: 100%;
+}
+
+/* 메인영역 */
+.main{
+    width: 60%;
+    height: 1200px;
+}
+
+/* 상위 카테고리 > 하위 카테고리*/
+
+.bar{
+    width: 100%;
+    height: 5vh;
+}
+
+.bar p , .bar a{
+    padding-top: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #999;
+}
+
+
+/* 좌측 사이드 카테고리 목록 */
+
+.category_area {
+    width: 20%;
+    height: 95vh;
+    float: left;
+    
+}
+
+.category_area ul{
+    padding: 10px;
+    list-style: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.category_area li {
+    padding-top: 10px;
+    list-style: none;
+    font-weight: normal;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.category_area li:hover{
+    font-weight:bolder;
+
+}
+
+/* 섬네일 & 게시글 리스트 */
+
+.detail_area{
+    width: 80%;
+    height: 95vh;
+    float: left;
+}
+
+.thumb_container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 80px;
+}
+
+.detail_thumb{
+    margin-top: 20px;
+    width: 170px;
+    height: 210px;
+    cursor: pointer;
+}
+
+.detail_thumb p{
+    margin: 10px 0px 5px 0px;
+    font-size: 13px;
+    font-weight: bolder;
+    
+}
+
+.thumb_space img{
+    border-radius: 15px;
+    width: 170px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* 평점 */
+
+.star_score{
+    height: 15px;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+.star_score img{
+    width: 15px;
+    height: 15px;
+    float: left;
+}
+
+.star_score p{
+    margin: 0;
+    font-size: 11px;
+}
+
+.price {
+    float: left;
+    width: 100%;
+}
+.company_name{
+    float: left;
+    width: 100%;
+    font-size: 10px;
+}
