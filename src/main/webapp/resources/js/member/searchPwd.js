@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	    $('#verifyCodeBtn_pw').on('click', function() {
 	        var userInputCode = $('#verificationCode_pw').val();
 	        if(userInputCode == verificationCode) {
-	            alert('인증에 성공했습니다.');
 	            Flag = true;
 	        } else {
 	            Swal.fire('알림', '인증번호가 올바르지 않습니다.', 'error');
