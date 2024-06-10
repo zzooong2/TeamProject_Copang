@@ -27,9 +27,8 @@ public class CategoryListDao {
 		String query = "SELECT cb.B_no, B_TITLE, BM_PAY, u.FILE_NAME, u.FILE_PATH, B_COMPANY, B_CATEGORY, bm.BM_TYPE FROM CATEGORY_BOARD cb"
 			+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 			+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
-			+ " JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
-			+ " where B_CATEGORY = ? "
-			+ "	ORDER BY B_CATEGORY DESC"
+			+ " where B_CATEGORY_MAIN = ? "
+			+ "	ORDER BY B_CATEGORY_MAIN DESC"
 			+ "	OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 	 
@@ -49,7 +48,7 @@ public class CategoryListDao {
 				String price = rs.getString("BM_PAY");
 				String file = rs.getString("FILE_PATH");
 				String user = rs.getString("B_COMPANY");
-				String categoryType = rs.getString("B_CATEGORY");
+				String categoryType = rs.getString("B_CATEGORY_MAIN");
 				String fileName = rs.getString("FILE_NAME");
 				String priceOption = rs.getString("BM_TYPE");
 
@@ -81,8 +80,7 @@ public class CategoryListDao {
 		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb"
 				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
-				+ " JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
-				+ " where B_CATEGORY = ? ";
+				+ " where B_CATEGORY_MAIN = ? ";
 		
 		try {
 			pstmt = con.prepareStatement(query);
