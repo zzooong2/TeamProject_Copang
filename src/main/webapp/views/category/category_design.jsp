@@ -57,12 +57,13 @@
 
 			<!-- grid 전체 -->
 			<div class="thumb_container">
-
+		
+			<c:forEach var="item" items="${list}">
 				<!-- grid 개별 영역 -->
 				<div class="detail_thumb" onclick="location.href=''">
 					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb1.jpg" alt="">
-						<p>로고,로고제작,로고디자인,ci,bi,회사로고,명함</p>
+						<img src="../Semiproject(SH)/img/${item.fileName}" alt="">
+						<p>${item.boardTitle}</p>
 					</div>
 
 					<!-- 별점 -->
@@ -73,20 +74,29 @@
 
 					<!-- 가격 -->
 					<div class="price">
+			<c:choose>
+			<c:when test="${item.priceOption == single}">
 						</p>
-						75,000 ~
+						${item.price}
 						</p>
+			</c:when>			
+			<c:otherwise>
+						</p>
+						${item.price} ~
+						</p>
+			</c:otherwise>			
+			</c:choose>
 					</div>
 
 					<!-- 회사명 -->
 					<div class="company_name">
 						</p>
-						로고고 디자인
+						${item.company}
 						</p>
 					</div>
 				</div>
 
-
+			</c:forEach>
 
 				<!-- grid 개별 영역 -->
 				<div class="detail_thumb" onclick="location.href=''">

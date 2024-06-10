@@ -7,11 +7,11 @@
 		<ul class="top_menu">
 			<li>분야 카테고리
 				<ul class="sub_menu">
-					<li><a href="/category/list.do?type=ITㆍ프로그래밍">ITㆍ프로그래밍</a></li>
-					<li><a href="/category/list.do?type=디자인">디자인</a></li>
-					<li><a href="/views/category/category_media.jsp">영상ㆍ사진</a></li>
-					<li><a href="/views/category/category_marketing.jsp">마케팅</a></li>
-					<li><a href="/views/category/category_edu.jsp">교육</a></li>
+					<li><a href="/category/list.do?type=ITㆍ프로그래밍&cPage=1">ITㆍ프로그래밍</a></li>
+					<li><a href="/category/list.do?type=디자인&cPage=1">디자인</a></li>
+					<li><a href="/category/list.do?type=영상ㆍ사진&cPage=1">영상ㆍ사진</a></li>
+					<li><a href="/category/list.do?type=마케팅&cPage=1">마케팅</a></li>
+					<li><a href="/category/list.do?type=교육&cPage=1">교육</a></li>
 				</ul>
 			</li>
 		</ul>

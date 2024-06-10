@@ -8,10 +8,24 @@ public class CategoryListDto {
 	private String filePath;
 	private String price;
 	private String categoryType;
+	private String fileName;
+	private String priceOption;
 	
 	
 	
 	
+	public String getPriceOption() {
+		return priceOption;
+	}
+	public void setPriceOption(String priceOption) {
+		this.priceOption = priceOption;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 	public String getType() {
 		return categoryType;
 	}

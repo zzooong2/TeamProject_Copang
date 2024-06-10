@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kr.co.copang.categoryListService.model.dao.CategoryListDao;
 import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
+import kr.co.copang.common.PageInfo;
 
 public class CategoryListServiceImpl implements CategoryListService {
 	CategoryListDao categoryListDao;
@@ -15,8 +16,13 @@ public class CategoryListServiceImpl implements CategoryListService {
 	}
 	
 	@Override
-	public ArrayList<CategoryListDtoImpl> getList(String type) {
-		return categoryListDao.getList(type);
+	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi) {
+		return categoryListDao.getList(type, pi);
+	}
+	
+	@Override
+	public int getListCount(String type) {
+		return categoryListDao.getListCount(type);
 	}
 
 

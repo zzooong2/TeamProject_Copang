@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
 import kr.co.copang.categoryListService.model.service.CategoryListServiceImpl;
+import kr.co.copang.common.PageInfo;
+import kr.co.copang.common.Pagination;
 
 @WebServlet("/category/list.do")
 public class CategoryListController extends HttpServlet {
@@ -29,19 +31,33 @@ public class CategoryListController extends HttpServlet {
 //
 //				2. 컨트롤러가 String type = request.getParameter("type")
 
+//		오청받은 파라미터값 type은 문자형변수 type에 지닌다.
 		String type = request.getParameter("type");		
-		ArrayList<CategoryListDtoImpl> list = categoryListService.getList(type);
+
+		int cPage = Integer.parseInt(request.getParameter("cPage"));
 		
+		int listCount = categoryListService.getListCount(type);
+		
+		int pageLimit = 2;
+		
+		int boardLimit = 3;
+		
+		int row = listCount - (cPage-1) * boardLimit;
+		
+		PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit);
+		
+		ArrayList<CategoryListDtoImpl> list = categoryListService.getList(type, pi);
+
 //		 리스트 잘 가져오는지 까지
 		request.setAttribute("list", list);
-		
-		for(CategoryListDtoImpl item:list) {
-			System.out.println(item.getBoardTitle());
-		}
-		
+		request.setAttribute("pi", pi);
 		
 		
 		String nextPage = "";
+//		""은 "이 사이에 들어가있는 모든것을 해당한다."
+		
+		
+		
 		
 		if(type.equals("ITㆍ프로그래밍")){
 			nextPage = "/views/category/category_IT.jsp";

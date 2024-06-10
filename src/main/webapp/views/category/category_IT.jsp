@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +10,8 @@
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
-
+	
+	
 	<main class="main">
 
 		<div class="bar">
@@ -47,6 +49,8 @@
 			</ul>
 		</div>
 
+
+
 		<!-- 카테고리 게시글 모음 -->
 
 		<div class="detail_area">
@@ -54,11 +58,15 @@
 			<!-- grid 전체 -->
 			<div class="thumb_container">
 
+			<c:forEach var="item" items="${list}">
+			<!-- setAttribute에서 작성한 이름 -->
+			
 				<!-- grid 개별 영역 -->
 				<div class="detail_thumb" onclick="location.href='..'">
 					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb1.jpg" alt="">
-						<p>로고,로고제작,로고디자인,ci,bi,회사로고,명함</p>
+					<!-- item.DTO의 변수명 -->
+						<img src="../Semiproject(SH)/img/${item.fileName}" alt="">
+						<p>${item.boardTitle}</p>
 					</div>
 
 					<!-- 별점 -->
@@ -69,189 +77,79 @@
 
 					<!-- 가격 -->
 					<div class="price">
+			<c:choose>
+			<c:when test="${item.priceOption == 'single'}">
 						</p>
-						75,000 ~
+						${item.price}
 						</p>
+			</c:when>			
+			<c:otherwise>
+						</p>
+						${item.price} ~
+						</p>
+			</c:otherwise>			
+			</c:choose>
 					</div>
 
 					<!-- 회사명 -->
 					<div class="company_name">
 						</p>
-						로고고 디자인
+						${item.company}
 						</p>
 					</div>
 				</div>
+			</c:forEach>
 
+			<div aria-label="Page navigation example"
+			style="background-color: white;">
 
+			<ul class="pagination" style="justify-content: center;">
+				<!-- 왼쪽 버튼 -->
+				<c:choose>
+					<c:when test="${pi.cPage == 1}">
+						<li class="page-item" style="margin-right: 0px"><a
+							class="page-link" href="#" aria-label="Previous"> <span
+								aria-hidden="true">&laquo;</span>
+						</a></li>
+					</c:when>
 
-				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb2.jpg" alt="">
-						<p>로고제작 전문기업</p>
-					</div>
+					<c:otherwise>
+						<li class="page-item" style="margin-right: 0px"><a
+							class="page-link" href="/category/list.do?type=ITㆍ프로그래밍?cPage=${pi.cPage-1}"
+							aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+						</a></li>
+					</c:otherwise>
+				</c:choose>
 
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
+				<!-- 
+               페이지 버튼 
+               for(int i=0; i<10; i++) {  } 
+            -->
+				<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
+					<li class="page-item" style="margin-right: 0px"><a
+						class="page-link" href="/category/list.do?type=ITㆍ프로그래밍?cPage=${page}">${page}</a></li>
+				</c:forEach>
 
-					<!-- 가격 -->
-					<div class="price">
-						</p>
-						150,000 ~
-						</p>
-					</div>
+				<!-- 오른쪽 버튼 -->
+				<c:choose>
+					<c:when test="${pi.cPage == pi.maxPage}">
+						<li class="page-item" style="margin-right: 0px"><a
+							class="page-link" href="#" aria-label="Next"> <span
+								aria-hidden="true">&raquo;</span>
+						</a></li>
+					</c:when>
 
-					<!-- 회사명 -->
-					<div class="company_name">
-						</p>
-						지구컴즈
-						</p>
-					</div>
-				</div>
+					<c:otherwise>
+						<li class="page-item" style="margin-right: 0px"><a
+							class="page-link" href="/category/list.do?type=ITㆍ프로그래밍?cPage=${pi.cPage+1}"
+							aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+						</a></li>
+					</c:otherwise>
+				</c:choose>
 
-				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb3.jpg" alt="">
-						<p>로고제작 랭킹 1위 어워즈 수상</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.7)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						</p>
-						70,000 ~
-						</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						</p>
-						앨리스 디자인
-						</p>
-					</div>
-				</div>
-
-				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						</p>
-						55,000 ~
-						</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						</p>
-						에브리 PPT
-						</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						</p>
-						55,000 ~
-						</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						</p>
-						에브리 PPT
-						</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						</p>
-						55,000 ~
-						</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						</p>
-						에브리 PPT
-						</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						</p>
-						55,000 ~
-						</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						</p>
-						에브리 PPT
-						</p>
-					</div>
-				</div>
-
-
-
-			</div>
+			</ul>
+		</div>
+			
 	</main>
 
 	<%@ include file="/views/common/footer.jsp"%>

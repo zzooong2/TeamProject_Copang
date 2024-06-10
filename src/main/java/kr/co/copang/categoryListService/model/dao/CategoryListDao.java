@@ -21,29 +21,37 @@ public class CategoryListDao {
 	}
 	
 	
-	public ArrayList<CategoryListDtoImpl> getList(String type) {
+	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi) {
 		
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
-		String query = "SELECT cb.B_no, B_TITLE, BM_PAY, u.FILE_PATH, B_COMPANY FROM CATEGORY_BOARD cb"
+		String query = "SELECT cb.B_no, B_TITLE, BM_PAY, u.FILE_NAME, u.FILE_PATH, B_COMPANY, B_CATEGORY, bm.BM_TYPE FROM CATEGORY_BOARD cb"
 			+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 			+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
 			+ " JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
-			+ " where B_CATEGORY = ? ";
+			+ " where B_CATEGORY = ? "
+			+ "	ORDER BY B_CATEGORY DESC"
+			+ "	OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
+
 	 
 		try {
 			
 			
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, type);			
+			pstmt.setString(1, type);
+			pstmt.setInt(2, pi.getOffset());
+			pstmt.setInt(3, pi.getBoardLimit());
+			
 			ResultSet rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
 				int no = rs.getInt("B_NO");
 				String title = rs.getString("B_TITLE");
 				String price = rs.getString("BM_PAY");
-				String file = rs.getString("U.FILE_PATH");
-				String user = rs.getString("M.USER_NAME");
+				String file = rs.getString("FILE_PATH");
+				String user = rs.getString("B_COMPANY");
 				String categoryType = rs.getString("B_CATEGORY");
+				String fileName = rs.getString("FILE_NAME");
+				String priceOption = rs.getString("BM_TYPE");
 
 				CategoryListDtoImpl categoryListDto = new CategoryListDtoImpl();
 				categoryListDto.setBoardNo(no);
@@ -52,6 +60,8 @@ public class CategoryListDao {
 				categoryListDto.setFilePath(file);
 				categoryListDto.setCompany(user);
 				categoryListDto.setType(categoryType);
+				categoryListDto.setFileName(fileName);
+				categoryListDto.setPriceOption(priceOption);
 				result.add(categoryListDto);
 				
 			}
@@ -64,6 +74,34 @@ public class CategoryListDao {
 		
 		
 		return result;
+	}
+
+
+	public int getListCount(String type) {
+		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb"
+				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
+				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
+				+ " JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
+				+ " where B_CATEGORY = ? ";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, type);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				int result = rs.getInt("CNT");
+				return result;
+			}
+				
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
 	}
 	
 
