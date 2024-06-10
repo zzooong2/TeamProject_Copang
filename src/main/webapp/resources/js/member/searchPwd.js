@@ -24,56 +24,35 @@ document.addEventListener('DOMContentLoaded', function() {
         findPwButton.classList.add('active');
         findIdButton.classList.remove('active');
     });
+
+	
 });
-
-	window.onload = function() {
-	const header = document.getElementsByTagName("header")[0];
-	header.style.position = "unset";
-	}
 	
-	
-		// 아이디 찾기 버튼 클릭 이벤트 리스너
-    /*$('#find-id-button').on('click', function() {
-        $('#id_form').removeClass('hidden'); // 아이디 찾기 폼 보이기
-        $('#pw_form').addClass('hidden'); // 비밀번호 찾기 폼 숨기기
-        $('#find-id-button').addClass('active'); // 아이디 찾기 버튼 활성화
-        $('#find-pw-button').removeClass('active'); // 비밀번호 찾기 버튼 비활성화
-    });
-
-    // 비밀번호 찾기 버튼 클릭 이벤트 리스너
-    $('#find-pw-button').on('click', function() {
-        $('#pw_form').removeClass('hidden'); // 비밀번호 찾기 폼 보이기
-        $('#id_form').addClass('hidden'); // 아이디 찾기 폼 숨기기
-        $('#find-pw-button').addClass('active'); // 비밀번호 찾기 버튼 활성화
-        $('#find-id-button').removeClass('active'); // 아이디 찾기 버튼 비활성화
-    });*/
-
 		// 인증번호 받기 버튼 클릭 이벤트 (아이디 찾기)
+		let Flag = false; // 인증 플래그
 		let verificationCode = 0;
 		$(document).ready(function() {
 	    // 인증번호 확인 버튼 클릭 이벤트 (아이디 찾기)
 	    $('#verifyCodeBtn_id').on('click', function() {
 	        var userInputCode = $('#verificationCode_id').val();
 	        if(userInputCode == verificationCode) {
-	            alert('인증에 성공했습니다.');
 	            Flag = true;
 	        } else {
-	            alert('인증번호가 올바르지 않습니다.');
+	            Swal.fire('알림', '인증번호가 올바르지 않습니다.', 'error');
 	            Flag = false;
 	        }
 	    });
 	    $('#verifyCodeBtn_pw').on('click', function() {
 	        var userInputCode = $('#verificationCode_pw').val();
 	        if(userInputCode == verificationCode) {
-	            alert('인증에 성공했습니다.');
 	            Flag = true;
 	        } else {
-	            alert('인증번호가 올바르지 않습니다.');
+	            Swal.fire('알림', '인증번호가 올바르지 않습니다.', 'error');
 	            Flag = false;
 	        }
 	    });
 });
-	    // 인증번호 확인 버튼 클릭 이벤트 (비밀번호 찾기)
+	    
 
 		// 핸드폰 번호 유효성 검사 
 	function inputphone(type) {
@@ -122,4 +101,21 @@ document.addEventListener('DOMContentLoaded', function() {
         textphone.style.color = "red";
     }
 }
+
+
+		
+        // 가져온 변수 사용 예시
+        if (alertStatus === "true") {
+			alertStatus = "";
+            Swal.fire('인증완료!', userEmail + ' 입니다.', 'success').then(() => {
+            window.location.href = '/views/member/searchPage.jsp';
+            });
+        } else if(alertStatus === "false") {
+			alertStatus = "";
+            Swal.fire('알림', '가입 정보가 없습니다.', 'error').then(() => {
+            window.location.href = '/views/member/searchPage.jsp';
+            });
+        }
+
+
 
