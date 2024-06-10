@@ -54,7 +54,7 @@
 		
 		<div id="create-order-number-space">
 			<p id="create-order-text">결제번호: </p>
-	        <p id="create-order-number">(0)</p>
+	        <p id="create-order-number">0</p>
         </div>
         
         

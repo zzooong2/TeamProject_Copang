@@ -7,11 +7,6 @@ function iamport(){
 	const objectTitle = document.getElementById("object-title").innerHTML; // 결제 제품명
 	const objectCeller = document.getElementById("object-celler").innerHTML; // 판매자
 
-	console.log("버튼 눌림");
-	console.log(priceArr[0]);
-	console.log(objectTitle);
-	console.log(objectCeller);
-	
 	// 가맹점 식별코드
 	IMP.init('imp31410636');
 	IMP.request_pay({
