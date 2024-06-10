@@ -48,19 +48,26 @@
         <div class="none"></div>
 
         <div class="payment-text">
-            <h1>결제하기</h1>
+            <h1>결제하기</h1> 
         </div>
-
+		
+		
+		<div id="create-order-number-space">
+			<p id="create-order-text">결제번호: </p>
+	        <p id="create-order-number">(0)</p>
+        </div>
+        
+        
         <div class="payment">
             <div class="order-list">
-                <h4>주문 내역</h4>
+                <h4>주문 내역</h4> 
                 <div class="order-flex">
                     <div class="item-1">
                         <img src="../../resources/img/item1.png" alt="제품사진">
                     </div>
                     <div class="item-2">
-                        <h4>B2B 전문 번역 회사의 고품질 대량 전문 번역 서비스</h4>
-                        <h6>한국 아이시스</h6>
+                        <h4 id="object-title">B2B 전문 번역 회사의 고품질 대량 전문 번역 서비스</h4>
+                        <h6 id="object-celler">한국 아이시스</h6>
                     </div>
                 </div>
 
@@ -142,7 +149,7 @@
                 </h4>
             </div>
             
-            <button class="payment-btn" onclick="location.href='/payment/complete.do'">결제</button>
+            <button type="button" class="payment-btn" id="payment-btn" onclick="iamport()">결제</button>
         </div>
 
         <h1 class="detail-request-text">의뢰내용</h1>
@@ -166,7 +173,6 @@
     		<button type="button" class="edit-btn" onclick="requestEditShow()">수정하기</button>	
        	</div>
        	
-   		
     </section>
     <%@ include file="/views/common/footer.jsp"%>
 </body>
@@ -176,3 +182,12 @@
 
 <!-- ajax -->
 <script src="../../resources/ajax/payment/requestBoard.js"></script>
+
+<!-- 결제 API -->
+<script src="../../resources/js/payment/payment/iamport.js"></script>
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+
+<!-- 주문번호 생성파일 -->
+<script src="../../resources/js/payment/payment/createOrderNumber.js"></script>
+	

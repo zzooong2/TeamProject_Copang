@@ -11,7 +11,7 @@ public class PaymentDAO {
 	// DB 연결
 	private Connection con;
 	private DatabaseConnection dc;
-	private PreparedStatement pstmt;
+	private PreparedStatement ps;
 	
 	public PaymentDAO() {
 		dc = new DatabaseConnection();
@@ -20,8 +20,7 @@ public class PaymentDAO {
 	
 	// 결제, 의뢰내역 가져오기
 	public PaymentDTO getPayment() {
-		String query = "";
-		
+		String query = "SELECT ";
 		
 		return null;
 	}
