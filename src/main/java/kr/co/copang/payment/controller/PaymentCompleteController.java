@@ -1,4 +1,4 @@
-package kr.co.copang.customerService.notice.controller;
+package kr.co.copang.payment.controller;
 
 import java.io.IOException;
 
@@ -8,13 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.copang.customerService.notice.model.service.NoticeServiceImpl;
-
-@WebServlet("/notice/delete.do")
-public class NoticeDeleteController extends HttpServlet {
+@WebServlet("/payment/complete.do/{imp_uid}")
+public class PaymentCompleteController extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
        
-    public NoticeDeleteController() {
+    public PaymentCompleteController() {
         super();
     }
 
@@ -23,15 +22,11 @@ public class NoticeDeleteController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
+		// 한글 인코딩
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		
-		NoticeServiceImpl noticeService = new NoticeServiceImpl();
 		
-		int result = noticeService.delete(noticeNo);
-		
-		if(result == 1) {
-			response.sendRedirect("/notice/list.do?cPage=1&category=N_TITLE&search-text=");
-		}
 	}
 
 }

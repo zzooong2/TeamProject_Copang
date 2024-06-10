@@ -48,6 +48,7 @@ public class LoginController extends HttpServlet {
 				session.setAttribute("userName", hashPassword.getUserName());
 				session.setAttribute("partName", hashPassword.getUsertype());
 				session.setAttribute("userNo", hashPassword.getUserNo());
+				session.setAttribute("partCode", hashPassword.getPartCode());
 				
 				RequestDispatcher view = request.getRequestDispatcher("/");
 				view.forward(request, response);

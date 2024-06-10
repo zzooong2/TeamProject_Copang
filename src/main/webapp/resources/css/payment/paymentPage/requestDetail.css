@@ -36,7 +36,50 @@
 
 /* 등록 버튼 */
 .submit-btn{
-    border: none;
+	border: none;
+    width: 30.5%;
+    height: 5%;
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 5px;
+    color: white;
+    background-color: #ff8e47;
+    position: absolute;
+    left: 56.5%;
+    top: 1140px;
+}
+
+
+/* 의뢰내용 입력 성공시 */
+.request-success{
+	display: none;
+    position: absolute;
+    left: 55%;
+    top: 26%;
+    width: 34%;
+    height: 100vh;
+    border: 0.1px solid #cacaca;
+    border-radius: 5px;
+}
+
+/* 비동기처리 성공시 나타나는 영역 */
+.success{
+	position: relative;
+	top: 3%;
+    left: 7%;
+    border: 0.1px solid #e0e0e0;
+    border-radius: 5px;
+    width: 87%;
+    height: 50px;
+    font-size: 15px;
+    background-color: #e0e0e0;
+}
+
+
+
+/* 수정페이지로 전환하는 버튼 */
+.edit-btn{
+	border: none;
     width: 90%;
     height: 5%;
     font-size: 20px;
@@ -48,5 +91,23 @@
     left: 4.5%;
     top: 92%;
 }
+
+/* 수정버튼 */
+.edit-enroll-btn{
+	display: none;
+	border: none;
+    width: 30.5%;
+    height: 5%;
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 5px;
+    color: white;
+    background-color: #ff8e47;
+    position: absolute;
+    left: 56.5%;
+    top: 1140px;
+}
+
+
 
 
