@@ -13,8 +13,24 @@ body{
 
 .payment-text{
     position: absolute;
+    margin-right: 30px;
     left: 10%;
     top: 21%;
+}
+
+#create-order-number-space{
+	position: absolute;
+	top: 22%;
+	left: 16%;
+	font-size: 18px;
+}
+#create-order-text{
+	display: inline-block;	
+	font-size: 18px;
+}
+#create-order-number{
+	display: inline-block;
+	font-size: 18px;
 }
 
 /* order */

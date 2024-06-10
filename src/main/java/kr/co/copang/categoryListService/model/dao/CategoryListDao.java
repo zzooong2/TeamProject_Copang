@@ -24,6 +24,7 @@ public class CategoryListDao {
 	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi) {
 		
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
+
 		String query = "SELECT cb.B_no, B_TITLE, BM_PAY, u.FILE_NAME, u.FILE_PATH, B_COMPANY, B_CATEGORY_MAIN, bm.BM_TYPE FROM CATEGORY_BOARD cb"
 			+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 			+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
@@ -31,7 +32,6 @@ public class CategoryListDao {
 			+ "	ORDER BY B_CATEGORY_MAIN DESC"
 			+ "	OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
-	 
 		try {
 			
 			
@@ -44,6 +44,7 @@ public class CategoryListDao {
 			
 			while (rs.next()) {
 				int no = rs.getInt("B_NO");
+
 				String categoryType = rs.getString("B_CATEGORY_MAIN");
 				String title = rs.getString("B_TITLE");
 				String priceOption = rs.getString("BM_TYPE");
@@ -54,13 +55,14 @@ public class CategoryListDao {
 
 				CategoryListDtoImpl categoryListDto = new CategoryListDtoImpl();
 				categoryListDto.setBoardNo(no);
-				categoryListDto.setBoardTitle(title);
-				categoryListDto.setPrice(price);
-				categoryListDto.setFilePath(file);
-				categoryListDto.setCompany(company);
 				categoryListDto.setType(categoryType);
-				categoryListDto.setFileName(fileName);
+				categoryListDto.setBoardTitle(title);
 				categoryListDto.setPriceOption(priceOption);
+				categoryListDto.setPrice(price);
+				categoryListDto.setCompany(company);
+				categoryListDto.setFilePath(file);
+				categoryListDto.setFileName(fileName);
+				
 				result.add(categoryListDto);
 				
 			}

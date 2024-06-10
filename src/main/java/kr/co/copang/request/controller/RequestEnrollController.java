@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.copang.request.model.dto.RequestDTO;
 import kr.co.copang.request.model.service.RequestServiceImpl;
@@ -29,11 +30,16 @@ public class RequestEnrollController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		String requestTitle = request.getParameter("request-title");
-		String requestContents = request.getParameter("request-contents");
+		// 로그인 기능 구현시 session 에 담겨있는 userNo 를 이용해서 변수 초기화
+		HttpSession session = request.getSession();
+		
+		int userNo = (int)session.getAttribute("userNo");
+		String requestTitle = request.getParameter("title"); // ajax 로직에 데이터 던지는 key 값으로 받아올것
+		String requestContents = request.getParameter("contents");
 		
 		RequestDTO rDTO = new RequestDTO();
 		
+		rDTO.setUserNo(userNo);
 		rDTO.setRequestTitle(requestTitle);
 		rDTO.setRequestContents(requestContents);
 		
@@ -41,12 +47,15 @@ public class RequestEnrollController extends HttpServlet {
 		
 		int result = requestService.enroll(rDTO);
 		
+		RequestDTO requestBoard = requestService.getRequestNo(userNo);
+		
 		request.setAttribute("result", result);
+		request.setAttribute("requestBoard", requestBoard);
 		
 		if(result == 1) {
-			response.getWriter().write("success");
+			response.getWriter().write("success," + requestBoard.getRequestNo());
 		} else { 
-			response.getWriter().write("failed");
+			response.getWriter().write("failed,");
 		}
 	}
 

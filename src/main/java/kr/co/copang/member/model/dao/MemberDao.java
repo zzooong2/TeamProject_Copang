@@ -111,7 +111,7 @@ public class MemberDao {
 	
 	// 로그인
 	public MemberDto login(String id) {
-		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME, M.USER_NO"
+		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME, M.USER_NO, MT.PART_CODE"
 				+ "     FROM MEMBER M " 
                 + "     JOIN MEMBER_TYPE MT ON M.PART_CODE = MT.PART_CODE "
 				+ "     WHERE M.EMAIL = ?";
@@ -126,12 +126,14 @@ public class MemberDao {
 				String userName = rs.getString("USER_NAME");
 				String hashPassword = rs.getString("PASSWORD");
 				String partName = rs.getString("PART_NAME");
+				int partCode = rs.getInt("PART_CODE");
 				int userNo = rs.getInt("USER_NO");
 				
 				MemberDto result = new MemberDto();
 				result.setUserName(userName);
 				result.setUserPwd(hashPassword);
 				result.setUsertype(partName);
+				result.setPartCode(partCode);
 				result.setUserNo(userNo);				
 				return result;
 			}
@@ -141,8 +143,30 @@ public class MemberDao {
 		}
 		return null;
 	}
+	
+	public MemberDto searchId(String userName, String userPhone) {
+		String query = "SELECT EMAIL FROM MEMBER WHERE USER_NAME = ? AND PHONE = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userName);
+			pstmt.setString(2, userPhone);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String userEmail = rs.getString("EMAIL");
+				
+				MemberDto result = new MemberDto();
+				result.setUserEmail(userEmail);
+				
+				return result;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
-	
-	
-	
 }

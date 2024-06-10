@@ -3,14 +3,14 @@ package kr.co.copang.categoryListService.model.dto;
 public class CategoryListDto {
 	
 	private int boardNo;
-	private String boardTitle;
-	private String company;
-	private String filePath;
-	private String price;
 	private String categoryType;
-	private String fileName;
+	private String boardTitle;
 	private String priceOption;
+	private String price;
+	private String company;
 	
+	private String fileName;
+	private String filePath;
 	
 	
 	

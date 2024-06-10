@@ -27,11 +27,13 @@ public class BoardProDao {
 
 		ArrayList<BoardProDto> result = new ArrayList<>();
 
-		String query = "SELECT * FROM CATEGORY_BOARD cb" 
-				+ "		JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
-				+ "		ORDER BY B_INDATE DESC" 
+		String query = "SELECT * FROM CATEGORY_BOARD cb"
+				+ "		JOIN BUSINESS_MENU bm ON cb.B_NO = bm.B_NO" 
+				+ "		JOIN UPLOAD u ON cb.B_NO = u.B_NO"
+				+ "		WHERE bm.BM_TYPE = 'SINGLE' OR bm.BM_TYPE = 'STANDARD'"
+				+ "		ORDER BY B_VIEWS DESC" 
 				+ "		OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
-
+		
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, pi.getOffset());
@@ -42,22 +44,38 @@ public class BoardProDao {
 			while (rs.next()) {
 
 				int no = rs.getInt("B_NO");
-				String title = rs.getString("B_TITLE");
-				String contents = rs.getString("B_CONTENTS");
-				int views = rs.getInt("B_VIEWS");
-				String indate = rs.getString("B_INDATE");
 				int userNo = rs.getInt("USER_NO");
-				String userName = rs.getString("USER_NAME");
+				String company = rs.getString("B_COMPANY");
+				String title = rs.getString("B_TITLE");
+				String mainCategory = rs.getString("B_CATEGORY_MAIN");
+				String middleCategory = rs.getString("B_CATEGORY_MIDDLE");
+				String subcatCategory = rs.getString("B_CATEGORY_SUBCAT");
+				String serviceType = rs.getString("B_SERVICETYLE");
+				String indate = rs.getString("B_INDATE");
+				int views = rs.getInt("B_VIEWS");
+				
+				int pay = rs.getInt("BM_PAY");
 
+				String fileName = rs.getString("FILE_NAME");
+				String filePath = rs.getString("FILE_PATH");
+				
 				BoardProDto boardProDto = new BoardProDto();
 				boardProDto.setBoardProNo(no);
-				boardProDto.setBoardProTitle(title);
-				boardProDto.setBoardProContents(contents);
-				boardProDto.setBoardProViews(views);
-				boardProDto.setBoardProIndate(indate);
 				boardProDto.setUserNo(userNo);
-				boardProDto.setUserName(userName);
-
+				boardProDto.setBoardProCompany(company);
+				boardProDto.setBoardProTitle(title);
+				boardProDto.setBoardProCategory(mainCategory);
+				boardProDto.setBoardProMiddleCategory(middleCategory);
+				boardProDto.setBoardProSubcatCategory(subcatCategory);
+				boardProDto.setBoardProServiceType(serviceType);
+				boardProDto.setBoardProIndate(indate);
+				boardProDto.setBoardProViews(views);
+				
+				boardProDto.setBusinessServicePay(pay);
+				
+				boardProDto.setFileName(fileName);
+				boardProDto.setFilePath(filePath);
+				
 				result.add(boardProDto);
 			}
 
@@ -72,19 +90,23 @@ public class BoardProDao {
 
 	}
 
-	public int getEnroll(BoardProDto boardDto) {
+	public int getCategoryBoardEnroll(BoardProDto boardDto) {
 
-		String query = "INSERT INTO CATEGORY_BOARD VALUES(CATEGORY_BOARD_SEQ.NEXTVAL, ?, ?, DEFAULT, NULL, NULL, DEFAULT, ?, ?)";
+		String query = "INSERT INTO CATEGORY_BOARD VALUES(CATEGORY_BOARD_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, DEFAULT, NULL, NULL, DEFAULT)";
 
 		int result = 0;
 
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, boardDto.getBoardProTitle());
-			pstmt.setString(2, boardDto.getBoardProContents());
-			pstmt.setInt(3, boardDto.getUserNo());
-			pstmt.setString(4, boardDto.getBoardProSecondTitle());
-
+			pstmt.setInt(1, boardDto.getUserNo());
+			pstmt.setString(2, boardDto.getBoardProCompany());
+			pstmt.setString(3, boardDto.getBoardProTitle());
+			pstmt.setString(4, boardDto.getBoardProCategory());
+			pstmt.setString(5, boardDto.getBoardProMiddleCategory());
+			pstmt.setString(6, boardDto.getBoardProSubcatCategory());
+			pstmt.setString(7, boardDto.getBoardProServiceType());
+			pstmt.setString(8, boardDto.getBoardProContents());
+			
 			result = pstmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -120,44 +142,81 @@ public class BoardProDao {
 
 		return result;
 	}
-
-	public int getTypeEnroll(ArrayList<BoardProDto> business, int businessNo) {
-
-		String query1 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'STANDARD', ?, ?, ?, ?)";
-		String query2 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'DELUXE', ?, ?, ?, ?)";
-		String query3 = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'PREMIUM', ?, ?, ?, ?)";
+	
+	public int getBusinessMenuSingleEnroll(BoardProDto businessDto, int businessNo) {
+		
+		String query = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'SINGLE', ?, ?, ?, ?, ?, ?, ?)";
+		
+		int result = 0;
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, businessNo);
+			pstmt.setString(2, businessDto.getBusinessServiceName());
+			pstmt.setString(3, businessDto.getBusinessServiceGuide());
+			pstmt.setInt(4, businessDto.getBusinessServicePay());
+			pstmt.setInt(5, businessDto.getBusinessServiceWorkDate());
+			pstmt.setInt(6, businessDto.getBusinessServiceRetouch());
+			pstmt.setInt(7, businessDto.getBusinessServiceData());
+			pstmt.setInt(8, businessDto.getBusinessServiceFunction());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
+	
+	
+	public int getBusinessMenuEnroll(ArrayList<BoardProDto> business, int businessNo) {
+		
+		String standardQuery = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'STANDARD', ?, ?, ?, ?, ?, ?, ?)";
+		String deluxeQuery = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'DELUXE', ?, ?, ?, ?, ?, ?, ?)";
+		String premiumQuery = "INSERT INTO BUSINESS_MENU VALUES(BUSINESS_MENU_SEQ.NEXTVAL, ?, 'PREMIUM', ?, ?, ?, ?, ?, ?, ?)";
 
 		int result = 0;
 
 		try {
-			pstmt = con.prepareStatement(query1);
+			pstmt = con.prepareStatement(standardQuery);
 			pstmt.setInt(1, businessNo);
-			pstmt.setInt(2, business.get(0).getBusinessFunction());
-			pstmt.setInt(3, business.get(0).getBusinessRetouch());
-			pstmt.setInt(4, business.get(0).getBusinessPay());
-			pstmt.setInt(5, business.get(0).getBusinessDate());
+			pstmt.setString(2, business.get(0).getBusinessServiceName());
+			pstmt.setString(3, business.get(0).getBusinessServiceGuide());
+			pstmt.setInt(4, business.get(0).getBusinessServicePay());
+			pstmt.setInt(5, business.get(0).getBusinessServiceWorkDate());
+			pstmt.setInt(6, business.get(0).getBusinessServiceRetouch());
+			pstmt.setInt(7, business.get(0).getBusinessServiceData());
+			pstmt.setInt(8, business.get(0).getBusinessServiceFunction());
+			
+			result = pstmt.executeUpdate();
+
+			pstmt.close();
+
+			pstmt = con.prepareStatement(deluxeQuery);
+			pstmt.setInt(1, businessNo);
+			pstmt.setString(2, business.get(1).getBusinessServiceName());
+			pstmt.setString(3, business.get(1).getBusinessServiceGuide());
+			pstmt.setInt(4, business.get(1).getBusinessServicePay());
+			pstmt.setInt(5, business.get(1).getBusinessServiceWorkDate());
+			pstmt.setInt(6, business.get(1).getBusinessServiceRetouch());
+			pstmt.setInt(7, business.get(1).getBusinessServiceData());
+			pstmt.setInt(8, business.get(1).getBusinessServiceFunction());
 
 			result = pstmt.executeUpdate();
 
 			pstmt.close();
 
-			pstmt = con.prepareStatement(query2);
+			pstmt = con.prepareStatement(premiumQuery);
 			pstmt.setInt(1, businessNo);
-			pstmt.setInt(2, business.get(1).getBusinessFunction());
-			pstmt.setInt(3, business.get(1).getBusinessRetouch());
-			pstmt.setInt(4, business.get(1).getBusinessPay());
-			pstmt.setInt(5, business.get(1).getBusinessDate());
-
-			result = pstmt.executeUpdate();
-
-			pstmt.close();
-
-			pstmt = con.prepareStatement(query3);
-			pstmt.setInt(1, businessNo);
-			pstmt.setInt(2, business.get(2).getBusinessFunction());
-			pstmt.setInt(3, business.get(2).getBusinessRetouch());
-			pstmt.setInt(4, business.get(2).getBusinessPay());
-			pstmt.setInt(5, business.get(2).getBusinessDate());
+			pstmt.setString(2, business.get(2).getBusinessServiceName());
+			pstmt.setString(3, business.get(2).getBusinessServiceGuide());
+			pstmt.setInt(4, business.get(2).getBusinessServicePay());
+			pstmt.setInt(5, business.get(2).getBusinessServiceWorkDate());
+			pstmt.setInt(6, business.get(2).getBusinessServiceRetouch());
+			pstmt.setInt(7, business.get(2).getBusinessServiceData());
+			pstmt.setInt(8, business.get(2).getBusinessServiceFunction());
 
 			result = pstmt.executeUpdate();
 
@@ -247,9 +306,11 @@ public class BoardProDao {
 			pstmt.setInt(1, boardProDto.getUserNo());
 
 			ResultSet rs = pstmt.executeQuery();
-
-			String userName = rs.getString("USER_NAME");
-			boardProDto.setUserName(userName);
+			
+			while(rs.next()) {
+				String userName = rs.getString("USER_NAME");
+				boardProDto.setUserName(userName);
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -258,9 +319,20 @@ public class BoardProDao {
 	}
 
 	public BoardProDto getDetailN(int boardProNo) {
-
-		String query = "SELECT * FROM CATEGORY_BOARD cb" 
-				+ "		JOIN BUSINESS_MENU bm ON cb.B_NO = bm.B_NO"
+		String query = "SELECT B_NO,"
+				+ "			   USER_NO,"
+				+ "			   B_COMPANY,"
+				+ "			   B_TITLE,"
+				+ "			   B_CATEGORY_MAIN,"
+				+ "			   B_CATEGORY_MIDDLE,"
+				+ "			   B_CATEGORY_SUBCAT,"
+				+ "			   B_SERVICESTYLE,"
+				+ "			   B_CONTENT,"
+				+ "			   B_INDATE,"
+				+ "			   B_UPDATE,"
+				+ "			   B_DELETE,"
+				+ "			   B_VIEWS "
+				+ "		FROM CATEGORY_BOARD" 
 				+ "		WHERE B_NO = ?";
 
 		try {
@@ -271,10 +343,35 @@ public class BoardProDao {
 
 			while (rs.next()) {
 				int bNo = rs.getInt("B_NO");
+				int uNo = rs.getInt("USER_NO");
+				String bCompany = rs.getString("B_COMPANY");
 				String bTitle = rs.getString("B_TITLE");
+				String bCategory = rs.getString("B_CATEGORY_MAIN");
+				String bMiddelCategory = rs.getString("B_CATEGORY_MIDDLE");
+				String bSubcatCategory = rs.getString("B_CATEGORY_SUBCAT");
+				String bServiceStyle = rs.getString("B_SERVICESTYLE");
 				String bContents = rs.getString("B_CONTENT");
-				String bSecondTitle = rs.getString("B_SECONDTITLE");
-				String bIndate = rs.getString("");
+				String bIndate = rs.getString("B_INDATE");
+				String bUpdate = rs.getString("B_UPDATE");
+				String bDelete = rs.getString("B_DELETE");
+				int bViews = rs.getInt("B_VIEWS");
+				
+				BoardProDto nBoardProDto = new BoardProDto();
+				nBoardProDto.setBoardProNo(bNo);
+				nBoardProDto.setUserNo(uNo);
+				nBoardProDto.setBoardProCompany(bCompany);;
+				nBoardProDto.setBoardProTitle(bTitle);;
+				nBoardProDto.setBoardProCategory(bCategory);
+				nBoardProDto.setBoardProMiddleCategory(bMiddelCategory);
+				nBoardProDto.setBoardProSubcatCategory(bSubcatCategory);
+				nBoardProDto.setBoardProServiceType(bServiceStyle);
+				nBoardProDto.setBoardProContents(bContents);
+				nBoardProDto.setBoardProIndate(bIndate);
+				nBoardProDto.setBoardProUpdate(bUpdate);
+				nBoardProDto.setBoardProDelete(bDelete);
+				nBoardProDto.setBoardProViews(bViews);
+
+				return nBoardProDto;
 
 			}
 
@@ -287,9 +384,19 @@ public class BoardProDao {
 
 	public BoardProDto getDetailS(int boardProNo) {
 
-		String standardQuery = "SELECT * FROM BUSINESS" 
+		String standardQuery = "SELECT BM_NO,"
+				+ "					   B_NO,"
+				+ "					   BM_TYPE,"
+				+ "					   BM_NAME,"
+				+ "					   BM_GUIDE,"
+				+ "					   BM_PAY,"
+				+ "					   BM_WORKDATE,"
+				+ "					   BM_RETOUCH,"
+				+ "					   BM_DATA,"
+				+ "					   BM_FUNCTION"
+				+ "				FROM BUSINESS_MENU" 
 				+ "				WHERE B_NO = ?"
-				+ "				AND BM_TYPE = STANDARD";
+				+ "				AND BM_TYPE = 'STANDARD'";
 
 		try {
 			pstmt = con.prepareStatement(standardQuery);
@@ -298,18 +405,28 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int sNo = rs.getInt("B_NO");
-				int sFuntion = rs.getInt("BM_FUNTION");
-				int sRetouch = rs.getInt("BM_RETOUCH");
+				int bNo = rs.getInt("BM_NO");
+				int uNo = rs.getInt("B_NO");
+				String sType = rs.getString("BM_TYPE");
+				String sName = rs.getString("BM_NAME");
+				String sGuide = rs.getString("BM_GUIDE");
 				int sPay = rs.getInt("BM_PAY");
 				int sWorkdate = rs.getInt("BM_WORKDATE");
+				int sRetouch = rs.getInt("BM_RETOUCH");
+				int sData = rs.getInt("BM_DATA");
+				int sFuntion = rs.getInt("BM_FUNCTION");
 
 				BoardProDto sBoardProDto = new BoardProDto();
-				sBoardProDto.setBoardProNo(sNo);
-				sBoardProDto.setBusinessFunction(sFuntion);
-				sBoardProDto.setBusinessRetouch(sRetouch);
-				sBoardProDto.setBusinessPay(sPay);
-				sBoardProDto.setBusinessDate(sWorkdate);
+				sBoardProDto.setBoardProNo(bNo);
+				sBoardProDto.setUserNo(uNo);
+				sBoardProDto.setBusinessServiceType(sType);
+				sBoardProDto.setBusinessServiceName(sName);
+				sBoardProDto.setBusinessServiceGuide(sGuide);
+				sBoardProDto.setBusinessServicePay(sPay);
+				sBoardProDto.setBusinessServiceWorkDate(sWorkdate);
+				sBoardProDto.setBusinessServiceRetouch(sRetouch);
+				sBoardProDto.setBusinessServiceData(sData);
+				sBoardProDto.setBusinessServiceFunction(sFuntion);
 
 				return sBoardProDto;
 			}
@@ -321,9 +438,19 @@ public class BoardProDao {
 
 	public BoardProDto getDetailD(int boardProNo) {
 
-		String deluxeQuery = "SELECT * FROM BUSINESS" 
-				+ "				WHERE B_NO = ?"
-				+ "				AND BM_TYPE = DELUXE";
+		String deluxeQuery = "SELECT BM_NO,"
+				+ "					 B_NO,"
+				+ "					 BM_TYPE,"
+				+ "					 BM_NAME,"
+				+ "					 BM_GUIDE,"
+				+ "					 BM_PAY,"
+				+ "					 BM_WORKDATE,"
+				+ "					 BM_RETOUCH,"
+				+ "					 BM_DATA,"
+				+ "					 BM_FUNCTION"
+				+ "			  FROM BUSINESS_MENU" 
+				+ "			  WHERE B_NO = ?"
+				+ "			  AND BM_TYPE = 'DELUXE'";
 
 		try {
 			pstmt = con.prepareStatement(deluxeQuery);
@@ -332,18 +459,28 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int dNo = rs.getInt("B_NO");
-				int dFuntion = rs.getInt("BM_FUNTION");
-				int dRetouch = rs.getInt("BM_RETOUCH");
+				int bNo = rs.getInt("BM_NO");
+				int uNo = rs.getInt("B_NO");
+				String dType = rs.getString("BM_TYPE");
+				String dName = rs.getString("BM_NAME");
+				String dGuide = rs.getString("BM_GUIDE");
 				int dPay = rs.getInt("BM_PAY");
 				int dWorkdate = rs.getInt("BM_WORKDATE");
+				int dRetouch = rs.getInt("BM_RETOUCH");
+				int dData = rs.getInt("BM_DATA");
+				int dFuntion = rs.getInt("BM_FUNCTION");
 
 				BoardProDto dBoardProDto = new BoardProDto();
-				dBoardProDto.setBoardProNo(dNo);
-				dBoardProDto.setBusinessFunction(dFuntion);
-				dBoardProDto.setBusinessRetouch(dRetouch);
-				dBoardProDto.setBusinessPay(dPay);
-				dBoardProDto.setBusinessDate(dWorkdate);
+				dBoardProDto.setBoardProNo(bNo);
+				dBoardProDto.setUserNo(uNo);
+				dBoardProDto.setBusinessServiceType(dType);
+				dBoardProDto.setBusinessServiceName(dName);
+				dBoardProDto.setBusinessServiceGuide(dGuide);
+				dBoardProDto.setBusinessServicePay(dPay);
+				dBoardProDto.setBusinessServiceWorkDate(dWorkdate);
+				dBoardProDto.setBusinessServiceRetouch(dRetouch);
+				dBoardProDto.setBusinessServiceData(dData);
+				dBoardProDto.setBusinessServiceFunction(dFuntion);
 
 				return dBoardProDto;
 			}
@@ -355,9 +492,19 @@ public class BoardProDao {
 
 	public BoardProDto getDetailP(int boardProNo) {
 
-		String premiumQuery = "SELECT * FROM BUSINESS" 
-				+ "				WHERE B_NO = ?"
-				+ "				AND BM_TYPE = PREMIUM";
+		String premiumQuery = "SELECT BM_NO,"
+				+ "					  B_NO,"
+				+ "					  BM_TYPE,"
+				+ "					  BM_NAME,"
+				+ "					  BM_GUIDE,"
+				+ "					  BM_PAY,"
+				+ "					  BM_WORKDATE,"
+				+ "					  BM_RETOUCH,"
+				+ "					  BM_DATA,"
+				+ "					  BM_FUNCTION"
+				+ "			   FROM BUSINESS_MENU" 
+				+ "			   WHERE B_NO = ?"
+				+ "			   AND BM_TYPE = 'PREMIUM'";
 
 		try {
 			pstmt = con.prepareStatement(premiumQuery);
@@ -366,18 +513,28 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int pNo = rs.getInt("B_NO");
-				int pFuntion = rs.getInt("BM_FUNTION");
-				int pRetouch = rs.getInt("BM_RETOUCH");
+				int bNo = rs.getInt("BM_NO");
+				int uNo = rs.getInt("B_NO");
+				String pType = rs.getString("BM_TYPE");
+				String pName = rs.getString("BM_NAME");
+				String pGuide = rs.getString("BM_GUIDE");
 				int pPay = rs.getInt("BM_PAY");
 				int pWorkdate = rs.getInt("BM_WORKDATE");
+				int pRetouch = rs.getInt("BM_RETOUCH");
+				int pData = rs.getInt("BM_DATA");
+				int pFuntion = rs.getInt("BM_FUNCTION");
 
 				BoardProDto pBoardProDto = new BoardProDto();
-				pBoardProDto.setBoardProNo(pNo);
-				pBoardProDto.setBusinessFunction(pFuntion);
-				pBoardProDto.setBusinessRetouch(pRetouch);
-				pBoardProDto.setBusinessPay(pPay);
-				pBoardProDto.setBusinessDate(pWorkdate);
+				pBoardProDto.setBoardProNo(bNo);
+				pBoardProDto.setUserNo(uNo);
+				pBoardProDto.setBusinessServiceType(pType);
+				pBoardProDto.setBusinessServiceName(pName);
+				pBoardProDto.setBusinessServiceGuide(pGuide);
+				pBoardProDto.setBusinessServicePay(pPay);
+				pBoardProDto.setBusinessServiceWorkDate(pWorkdate);
+				pBoardProDto.setBusinessServiceRetouch(pRetouch);
+				pBoardProDto.setBusinessServiceData(pData);
+				pBoardProDto.setBusinessServiceFunction(pFuntion);
 
 				return pBoardProDto;
 			}
@@ -389,7 +546,10 @@ public class BoardProDao {
 
 	public BoardProDto getDetailF(int boardProNo) {
 
-		String query = "SELECT * FROM UPLOAD"
+		String query = "SELECT B_NO,"
+				+ "			   FILE_NAME,"
+				+ "			   FILE_PATH"
+				+ "		FROM UPLOAD"
 				+ "		WHERE B_NO = ?";
 
 		try {
@@ -404,13 +564,13 @@ public class BoardProDao {
 				String fName = rs.getString("FILE_NAME");
 				String fPath = rs.getString("FILE_PATH");
 
-				BoardProDto FBoardProDto = new BoardProDto();
+				BoardProDto fBoardProDto = new BoardProDto();
 
-				FBoardProDto.setFileNo(bNo);
-				FBoardProDto.setFileName(fName);
-				FBoardProDto.setFilePath(fPath);
+				fBoardProDto.setFileNo(bNo);
+				fBoardProDto.setFileName(fName);
+				fBoardProDto.setFilePath(fPath);
 
-				return FBoardProDto;
+				return fBoardProDto;
 			}
 
 		} catch (SQLException e) {
@@ -438,12 +598,95 @@ public class BoardProDao {
 		return 0;
 	}
 	
+	public int BoardReview(BoardProDto boardDto) {
+		
+		String query = "INSERT INTO CATEGORY_BOARD_REVIEW VALUES(?, ?, ?, ?, DEFAULT)";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardDto.getBoardProNo());
+			pstmt.setInt(2, boardDto.getUserNo());
+			pstmt.setInt(3, boardDto.getReviewStarPoint());
+			pstmt.setString(4, boardDto.getReviewContent());
+			
+			int result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return 0;
+	}
 	
 	
+	public ArrayList<BoardProDto> getReviews(int boardProNo) {
+	    String query = "SELECT cbr.B_NO,"
+	    		+ "			   m.USER_NO,"
+	    		+ "			   m.USER_NAME,"
+	    		+ "			   cbr.B_REVIEW_POINT,"
+	    		+ "			   cbr.B_REVIEW,"
+	    		+ "			   cbr.B_REVIEW_INDATE"
+                + "		FROM CATEGORY_BOARD_REVIEW cbr "
+                + "		JOIN MEMBER m ON cbr.USER_NO = m.USER_NO "
+                + "		WHERE cbr.B_NO = ?"
+                + "		ORDER BY B_REVIEW_INDATE DESC";
+	    ArrayList<BoardProDto> reviews = new ArrayList<>();
+	    
+	    try {
+	        pstmt = con.prepareStatement(query);
+	        pstmt.setInt(1, boardProNo);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            int boardNo = rs.getInt("B_NO");
+	            int userNo = rs.getInt("USER_NO");
+	            String userName = rs.getString("USER_NAME");
+	            int reviewPoint = rs.getInt("B_REVIEW_POINT");
+	            String reviewContent = rs.getString("B_REVIEW");
+	            String reviewIndate = rs.getString("B_REVIEW_INDATE");
+	            
+	            BoardProDto rBoardProDto = new BoardProDto();
+	            rBoardProDto.setBoardProNo(boardNo);
+	            rBoardProDto.setUserNo(userNo);
+	            rBoardProDto.setUserName(userName);
+	            rBoardProDto.setReviewStarPoint(reviewPoint);
+	            rBoardProDto.setReviewContent(reviewContent);
+	            rBoardProDto.setReviewIndate(reviewIndate);
+
+	            reviews.add(rBoardProDto);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return reviews;
+	}
 	
-	
-	
-	
-	
+	public float getReviewAvg(int boardProNo) {
+		
+		String query = "SELECT AVG(B_REVIEW_POINT) AS AVG"
+				+ "		FROM CATEGORY_BOARD_REVIEW"
+				+ "		WHERE B_NO = ?";
+		
+		float result = 0;
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				result = rs.getFloat("AVG");
+			}
+			
+			return result;
+			
+		} catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		
+		return 0;
+	}
 	
 }

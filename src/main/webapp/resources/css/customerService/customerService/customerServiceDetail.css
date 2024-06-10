@@ -104,7 +104,8 @@
 
 .back-btn{
     position: relative;
-    margin-top: 1%;
+    margin-top: 10%;
+    margin-bottom: 10%;
     left: 20%;
     width: 10%;
     height: 32px;

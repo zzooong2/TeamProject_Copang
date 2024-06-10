@@ -13,4 +13,8 @@ public interface MemberService {
 	
 	// 암호화된 패스워드 가져오기
 	public MemberDto login(String id);
+	
+	// 아이디 찾기
+	public MemberDto searchId(String userName, String userPhone);
+	
 }

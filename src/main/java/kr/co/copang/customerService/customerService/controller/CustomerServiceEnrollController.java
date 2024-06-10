@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.copang.customerService.customerService.model.dto.CustomerServiceDTO;
 import kr.co.copang.customerService.customerService.model.service.CustomerServiceImpl;
@@ -29,11 +30,15 @@ public class CustomerServiceEnrollController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		// 데이터 받아서 변수에 저장
+		HttpSession session = request.getSession();
+		
+		int userNo = (int)session.getAttribute("userNo");
 		String boardTitle = request.getParameter("board-title");
 		String boardContents = request.getParameter("board-contents");
 		
 		// DTO 정보 저장
 		CustomerServiceDTO csDTO = new CustomerServiceDTO();
+		csDTO.setUserNo(userNo);
 		csDTO.setBoardTitle(boardTitle);
 		csDTO.setBoardContents(boardContents);
 		

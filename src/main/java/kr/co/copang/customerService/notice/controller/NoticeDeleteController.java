@@ -30,7 +30,7 @@ public class NoticeDeleteController extends HttpServlet {
 		int result = noticeService.delete(noticeNo);
 		
 		if(result == 1) {
-			response.sendRedirect("/notice/list.do");
+			response.sendRedirect("/notice/list.do?cPage=1&category=N_TITLE&search-text=");
 		}
 	}
 

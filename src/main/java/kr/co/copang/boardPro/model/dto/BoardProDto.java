@@ -3,14 +3,17 @@ package kr.co.copang.boardPro.model.dto;
 public class BoardProDto {
 
 	private int boardProNo;
+	private String boardProCompany;
 	private String boardProTitle;
-	private String boardProSecondTitle;
+	private String boardProCategory;
+	private String boardProMiddleCategory;
+	private String boardProSubcatCategory;
+	private String boardProServiceType;
 	private String boardProContents;
-	
-	private int boardProViews;
 	private String boardProIndate;
 	private String boardProUpdate;
 	private String boardProDelete;
+	private int boardProViews;
 	
 	private int userNo;
 	private String userName;
@@ -23,220 +26,326 @@ public class BoardProDto {
 	private String partName;
 	
 	private int businessMenuNo;
-	
-	private int businessFunction;
-	private int businessRetouch;
-	private int businessPay;
-	private int businessDate;
+	private String businessServiceType;
+	private String businessServiceName;
+	private String businessServiceGuide;
+	private int businessServicePay;
+	private int businessServiceWorkDate;
+	private int businessServiceRetouch;
+	private int businessServiceData;
+	private int businessServiceFunction;
 	
 	private int fileNo;
 	private String filePath;
 	private String fileName;
 	
-	public BoardProDto() {
+	private int reviewStarPoint;
+	private String reviewContent;
+	private String reviewIndate;
+	
+	
+	
+	
+
+
+
+
+
+	public BoardProDto(String businessServiceName, String businessServiceGuide, int businessServicePay, int businessServiceWorkDate, int businessServiceRetouch, int businessServiceData, int businessServiceFunction) {
 		super();
+		this.businessServiceName = businessServiceName;
+		this.businessServiceGuide = businessServiceGuide;
+		this.businessServicePay = businessServicePay;
+		this.businessServiceWorkDate = businessServiceWorkDate;
+		this.businessServiceRetouch = businessServiceRetouch;
+		this.businessServiceData = businessServiceData;
+		this.businessServiceFunction = businessServiceFunction;
 	}
-	
-	public BoardProDto(int businessFunction,int businessRetouch,int businessPay, int businessDate) {
-		this.businessFunction = businessFunction;
-		this.businessRetouch = businessRetouch;
-		this.businessPay = businessPay;
-		this.businessDate = businessDate;
-	}
+
 	
 	
-//	------------------------------------ Getter ------------------------------------
+	
+	
+//	==================================== GETTER / SETTER ============================================
+	
+	
+	
+	
 	
 	public int getBoardProNo() {
 		return boardProNo;
 	}
-	
-	public String getBoardProTitle() {
-		return boardProTitle;
-	}
-	
-	public String getBoardProSecondTitle() {
-		return boardProSecondTitle;
-	}
-	
-	public String getBoardProContents() {
-		return boardProContents;
-	}
-	
-	public int getBoardProViews() {
-		return boardProViews;
-	}
-	
-	public String getBoardProIndate() {
-		return boardProIndate;
-	}
-	
-	public String getBoardProUpdate() {
-		return boardProUpdate;
-	}
-	
-	public String getBoardProDelete() {
-		return boardProDelete;
-	}
-	
-	public int getUserNo() {
-		return userNo;
-	}
-	
-	public String getUserName() {
-		return userName;
-	}
-	
-	public String getUserEmail() {
-		return userEmail;
-	}
-	
-	public int getBusinessCode() {
-		return businessCode;
-	}
-	
-	public String getBusinessName() {
-		return businessName;
-	}
-	
-	public int getPartNo() {
-		return partNo;
-	}
-	
-	public String getPartName() {
-		return partName;
-	}
-	
-	public int getBusinessMenuNo() {
-		return businessMenuNo;
-	}
-	
-	public int getBusinessFunction() {
-		return businessFunction;
-	}
-	
-	public int getBusinessRetouch() {
-		return businessRetouch;
-	}
-	
-	public int getBusinessPay() {
-		return businessPay;
-	}
-	
-	public int getBusinessDate() {
-		return businessDate;
-	}
-	
-	public int getFileNo() {
-		return fileNo;
-	}
-	
-	public String getFilePath() {
-		return filePath;
-	}
-	
-	public String getFileName() {
-		return fileName;
-	}
-	
-	
-	
-	
-//	------------------------------------ Setter ------------------------------------
-	
+
 	public void setBoardProNo(int boardProNo) {
 		this.boardProNo = boardProNo;
 	}
-	
+
+	public String getBoardProTitle() {
+		return boardProTitle;
+	}
+
 	public void setBoardProTitle(String boardProTitle) {
 		this.boardProTitle = boardProTitle;
 	}
-	
-	public void setBoardProSecondTitle(String boardProSecondTitle) {
-		this.boardProSecondTitle = boardProSecondTitle;
+
+	public String getBoardProCategory() {
+		return boardProCategory;
 	}
-	
+
+	public void setBoardProCategory(String boardProCategory) {
+		this.boardProCategory = boardProCategory;
+	}
+
+	public String getBoardProMiddleCategory() {
+		return boardProMiddleCategory;
+	}
+
+	public void setBoardProMiddleCategory(String boardProMiddleCategory) {
+		this.boardProMiddleCategory = boardProMiddleCategory;
+	}
+
+	public String getBoardProSubcatCategory() {
+		return boardProSubcatCategory;
+	}
+
+	public void setBoardProSubcatCategory(String boardProSubcatCategory) {
+		this.boardProSubcatCategory = boardProSubcatCategory;
+	}
+
+	public String getBoardProServiceType() {
+		return boardProServiceType;
+	}
+
+	public void setBoardProServiceType(String boardProServiceType) {
+		this.boardProServiceType = boardProServiceType;
+	}
+
+	public String getBoardProCompany() {
+		return boardProCompany;
+	}
+
+	public void setBoardProCompany(String boardProCompany) {
+		this.boardProCompany = boardProCompany;
+	}
+
+	public String getBoardProContents() {
+		return boardProContents;
+	}
+
 	public void setBoardProContents(String boardProContents) {
 		this.boardProContents = boardProContents;
 	}
-	
-	public void setBoardProViews(int boardProViews) {
-		this.boardProViews = boardProViews;
+
+	public String getBoardProIndate() {
+		return boardProIndate;
 	}
-	
+
 	public void setBoardProIndate(String boardProIndate) {
 		this.boardProIndate = boardProIndate;
 	}
-	
+
+	public String getBoardProUpdate() {
+		return boardProUpdate;
+	}
+
 	public void setBoardProUpdate(String boardProUpdate) {
 		this.boardProUpdate = boardProUpdate;
 	}
-	
+
+	public String getBoardProDelete() {
+		return boardProDelete;
+	}
+
 	public void setBoardProDelete(String boardProDelete) {
 		this.boardProDelete = boardProDelete;
 	}
-	
+
+	public int getBoardProViews() {
+		return boardProViews;
+	}
+
+	public void setBoardProViews(int boardProViews) {
+		this.boardProViews = boardProViews;
+	}
+
+	public int getUserNo() {
+		return userNo;
+	}
+
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
-	
+
+	public String getUserName() {
+		return userName;
+	}
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	
+
+	public int getBusinessCode() {
+		return businessCode;
+	}
+
 	public void setBusinessCode(int businessCode) {
 		this.businessCode = businessCode;
 	}
-	
+
+	public String getBusinessName() {
+		return businessName;
+	}
+
 	public void setBusinessName(String businessName) {
 		this.businessName = businessName;
 	}
-	
+
+	public int getPartNo() {
+		return partNo;
+	}
+
 	public void setPartNo(int partNo) {
 		this.partNo = partNo;
 	}
-	
+
+	public String getPartName() {
+		return partName;
+	}
+
 	public void setPartName(String partName) {
 		this.partName = partName;
 	}
-	
+
+	public int getBusinessMenuNo() {
+		return businessMenuNo;
+	}
+
 	public void setBusinessMenuNo(int businessMenuNo) {
 		this.businessMenuNo = businessMenuNo;
 	}
-	
-	public void setBusinessFunction(int businessFunction) {
-		this.businessFunction = businessFunction;
+
+	public String getBusinessServiceType() {
+		return businessServiceType;
 	}
-	
-	public void setBusinessRetouch(int businessRetouch) {
-		this.businessRetouch = businessRetouch;
+
+	public void setBusinessServiceType(String businessServiceType) {
+		this.businessServiceType = businessServiceType;
 	}
-	
-	public void setBusinessPay(int businessPay) {
-		this.businessPay = businessPay;
+
+	public String getBusinessServiceName() {
+		return businessServiceName;
 	}
-	
-	public void setBusinessDate(int businessDate) {
-		this.businessDate = businessDate;
+
+	public void setBusinessServiceName(String businessServiceName) {
+		this.businessServiceName = businessServiceName;
 	}
-	
+
+	public String getBusinessServiceGuide() {
+		return businessServiceGuide;
+	}
+
+	public void setBusinessServiceGuide(String businessServiceGuide) {
+		this.businessServiceGuide = businessServiceGuide;
+	}
+
+	public int getBusinessServicePay() {
+		return businessServicePay;
+	}
+
+	public void setBusinessServicePay(int businessServicePay) {
+		this.businessServicePay = businessServicePay;
+	}
+
+	public int getBusinessServiceWorkDate() {
+		return businessServiceWorkDate;
+	}
+
+	public void setBusinessServiceWorkDate(int businessServiceWorkDate) {
+		this.businessServiceWorkDate = businessServiceWorkDate;
+	}
+
+	public int getBusinessServiceRetouch() {
+		return businessServiceRetouch;
+	}
+
+	public void setBusinessServiceRetouch(int businessServiceRetouch) {
+		this.businessServiceRetouch = businessServiceRetouch;
+	}
+
+	public int getBusinessServiceData() {
+		return businessServiceData;
+	}
+
+	public void setBusinessServiceData(int businessServiceData) {
+		this.businessServiceData = businessServiceData;
+	}
+
+	public int getBusinessServiceFunction() {
+		return businessServiceFunction;
+	}
+
+	public void setBusinessServiceFunction(int businessServiceFunction) {
+		this.businessServiceFunction = businessServiceFunction;
+	}
+
+	public int getFileNo() {
+		return fileNo;
+	}
+
 	public void setFileNo(int fileNo) {
 		this.fileNo = fileNo;
 	}
-	
+
+	public String getFilePath() {
+		return filePath;
+	}
+
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
-	
+
+	public String getFileName() {
+		return fileName;
+	}
+
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+
+	public int getReviewStarPoint() {
+		return reviewStarPoint;
+	}
+
+	public void setReviewStarPoint(int reviewStarPoint) {
+		this.reviewStarPoint = reviewStarPoint;
+	}
+
+	public String getReviewContent() {
+		return reviewContent;
+	}
+
+	public void setReviewContent(String reviewContent) {
+		this.reviewContent = reviewContent;
+	}
+
+	public BoardProDto() {
+		super();
+	}
 	
-	
-	
-	
+	public String getReviewIndate() {
+		return reviewIndate;
+	}
+
+	public void setReviewIndate(String reviewIndate) {
+		this.reviewIndate = reviewIndate;
+	}
+
 }
