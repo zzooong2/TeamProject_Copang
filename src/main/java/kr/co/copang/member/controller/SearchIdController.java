@@ -52,6 +52,7 @@ public class SearchIdController extends HttpServlet {
             // 일치하는 정보가 있는 경우
             String userEmail = foundMember.getUserEmail();
             request.setAttribute("userEmail", userEmail);
+            request.setAttribute("alertStatus", "true");
             
             RequestDispatcher view = request.getRequestDispatcher("/views/member/searchPage.jsp");
             view.forward(request, response);
@@ -61,7 +62,9 @@ public class SearchIdController extends HttpServlet {
 			 */
         } else {
             // 일치하는 정보가 없는 경우
-            response.getWriter().write("<script>alert('가입 정보가 없습니다.'); location.href='/views/member/searchPage.jsp';</script>");
+            request.setAttribute("alertStatus", "false");
+            RequestDispatcher view = request.getRequestDispatcher("/views/member/searchPage.jsp");
+            view.forward(request, response);
         }
     }
 	

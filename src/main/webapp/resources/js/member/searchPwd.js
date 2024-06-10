@@ -36,10 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	    $('#verifyCodeBtn_id').on('click', function() {
 	        var userInputCode = $('#verificationCode_id').val();
 	        if(userInputCode == verificationCode) {
-	            alert('인증에 성공했습니다.');
 	            Flag = true;
 	        } else {
-	            alert('인증번호가 올바르지 않습니다.');
+	            Swal.fire('알림', '인증번호가 올바르지 않습니다.', 'error');
 	            Flag = false;
 	        }
 	    });
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	            alert('인증에 성공했습니다.');
 	            Flag = true;
 	        } else {
-	            alert('인증번호가 올바르지 않습니다.');
+	            Swal.fire('알림', '인증번호가 올바르지 않습니다.', 'error');
 	            Flag = false;
 	        }
 	    });
@@ -105,18 +104,19 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 
-		function showIdPopup(userEmail) {
-            Swal.fire('아이디', userEmail + ' 입니다.', 'success').then(() => {
-                window.location.href = '/views/member/searchPage.jsp';
+		
+        // 가져온 변수 사용 예시
+        if (alertStatus === "true") {
+			alertStatus = "";
+            Swal.fire('인증완료!', userEmail + ' 입니다.', 'success').then(() => {
+            window.location.href = '/views/member/searchPage.jsp';
             });
-        }
-
-        function showNoUserInfoPopup() {
+        } else if(alertStatus === "false") {
+			alertStatus = "";
             Swal.fire('알림', '가입 정보가 없습니다.', 'error').then(() => {
-                window.location.href = '/views/member/searchPage.jsp';
+            window.location.href = '/views/member/searchPage.jsp';
             });
         }
-
 
 
 

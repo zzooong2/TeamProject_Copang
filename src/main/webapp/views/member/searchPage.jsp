@@ -67,11 +67,14 @@
     </div>
 	</div>
 	
-	
     <!-- <script src="scripts.js"></script> -->
         
         
-	
+	<script>
+    // JavaScript 변수에 값을 할당
+    var userEmail = "<%= request.getAttribute("userEmail") %>";
+    var alertStatus = "<%= request.getAttribute("alertStatus") %>";
+	</script>
     <br><br><br><br><br><br><br>
 	<script src="/resources/js/member/searchPwd.js"></script>
 </body>
