@@ -21,7 +21,7 @@ public class NoticeDAO {
 		dc = new DatabaseConnection();
 		con = dc.connDB();
 	}
-
+	
 	
 	// 게시글 리스트
 	public ArrayList<NoticeDTO> getList(PageInfo pi, String category, String searchText) {
@@ -217,13 +217,14 @@ public class NoticeDAO {
 	// 게시글 작성
 	public int enroll(NoticeDTO nDTO) {
 		String query = "INSERT INTO NOTICE(N_NO, N_TITLE, N_CONTENTS, N_INDATE, N_STATUS, USER_NO)"
-					 + " VALUES(NOTICE_SEQ.nextval, ?, ?, default, default, 1)";
+					 + " VALUES(NOTICE_SEQ.nextval, ?, ?, default, default, ?)";
 		
 		try {
 			ps = con.prepareStatement(query);
 			
 			ps.setString(1, nDTO.getNoticeTitle());
 			ps.setString(2, nDTO.getNoticeContents());
+			ps.setInt(3, nDTO.getUserNo());
 			
 			int result = ps.executeUpdate();
 			

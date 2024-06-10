@@ -75,6 +75,18 @@
         
         <h1 class="complete-text">주문이 완료되었습니다.</h1>
     </section>
+    
+    
+    <section>
+    	<div class="request-space">
+    		<div class="request">
+    			<input class="request-title" value="" disabled>
+    			<br>
+    			<br>
+    			<input class="request-contents" value="" disabled></input>
+    		</div>
+    	</div>
+    </section>
     <%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>

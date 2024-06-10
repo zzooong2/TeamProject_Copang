@@ -11,4 +11,19 @@ public class RequestServiceImpl implements RequestService{
 	public int enroll(RequestDTO rDTO) {
 		return rDAO.enroll(rDTO);
 	}
+	
+	@Override
+	public RequestDTO getRequest(int requestNo) {
+		return rDAO.getRequest(requestNo);
+	}
+	
+	@Override
+	public RequestDTO getRequestNo(int userNo) {
+		return rDAO.getRequestNo(userNo);
+	}
+	
+	@Override
+	public int editEnroll(RequestDTO rDTO) {
+		return rDAO.editEnroll(rDTO);
+	}
 }
