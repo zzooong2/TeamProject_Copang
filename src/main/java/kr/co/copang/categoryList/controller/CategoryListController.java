@@ -36,7 +36,7 @@ public class CategoryListController extends HttpServlet {
 
 		int cPage = Integer.parseInt(request.getParameter("cPage"));
 		
-		int listCount = categoryListService.getListCount(type);
+		int listCount = categoryListService.getListCount(type); 
 		
 		int pageLimit = 2;
 		

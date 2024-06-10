@@ -65,7 +65,7 @@
 				<div class="detail_thumb" onclick="location.href='..'">
 					<div class="thumb_space">
 					<!-- item.DTO의 변수명 -->
-						<img src="../Semiproject(SH)/img/${item.fileName}" alt="">
+						<img src="${pageContext.request.contextPath}/resources/upload/main/${item.fileName}" alt="">
 						<p>${item.boardTitle}</p>
 					</div>
 

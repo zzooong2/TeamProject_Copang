@@ -76,8 +76,6 @@ public class BoardProDao {
 				boardProDto.setFileName(fileName);
 				boardProDto.setFilePath(filePath);
 				
-				
-				
 				result.add(boardProDto);
 			}
 
