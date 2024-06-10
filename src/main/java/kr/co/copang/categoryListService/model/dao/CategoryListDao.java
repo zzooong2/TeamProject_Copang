@@ -24,7 +24,7 @@ public class CategoryListDao {
 	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi) {
 		
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
-		String query = "SELECT cb.B_no, B_TITLE, BM_PAY, u.FILE_NAME, u.FILE_PATH, B_COMPANY, B_CATEGORY, bm.BM_TYPE FROM CATEGORY_BOARD cb"
+		String query = "SELECT cb.B_no, B_TITLE, BM_PAY, u.FILE_NAME, u.FILE_PATH, B_COMPANY, B_CATEGORY_MAIN, bm.BM_TYPE FROM CATEGORY_BOARD cb"
 			+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 			+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
 			+ " where B_CATEGORY_MAIN = ? "
@@ -44,20 +44,20 @@ public class CategoryListDao {
 			
 			while (rs.next()) {
 				int no = rs.getInt("B_NO");
-				String title = rs.getString("B_TITLE");
-				String price = rs.getString("BM_PAY");
-				String file = rs.getString("FILE_PATH");
-				String user = rs.getString("B_COMPANY");
 				String categoryType = rs.getString("B_CATEGORY_MAIN");
-				String fileName = rs.getString("FILE_NAME");
+				String title = rs.getString("B_TITLE");
 				String priceOption = rs.getString("BM_TYPE");
+				String price = rs.getString("BM_PAY");
+				String company = rs.getString("B_COMPANY");
+				String file = rs.getString("FILE_PATH");
+				String fileName = rs.getString("FILE_NAME");
 
 				CategoryListDtoImpl categoryListDto = new CategoryListDtoImpl();
 				categoryListDto.setBoardNo(no);
 				categoryListDto.setBoardTitle(title);
 				categoryListDto.setPrice(price);
 				categoryListDto.setFilePath(file);
-				categoryListDto.setCompany(user);
+				categoryListDto.setCompany(company);
 				categoryListDto.setType(categoryType);
 				categoryListDto.setFileName(fileName);
 				categoryListDto.setPriceOption(priceOption);
