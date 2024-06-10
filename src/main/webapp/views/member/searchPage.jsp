@@ -6,6 +6,11 @@
 	<%@ include file="/views/common/head.jsp"%>
 	<link rel="icon" href="/resources/img/tapIcon.png">
 	<link rel="stylesheet" href="/resources/css/member/searchPwd.css">
+	<!-- SweetAlert2 CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.min.css">
+	<!-- SweetAlert2 JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.all.min.js"></script>
+
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -61,6 +66,8 @@
         </a>
     </div>
 	</div>
+	
+	
     <!-- <script src="scripts.js"></script> -->
         
         

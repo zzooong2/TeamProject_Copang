@@ -141,8 +141,30 @@ public class MemberDao {
 		}
 		return null;
 	}
+	
+	public MemberDto searchId(String userName, String userPhone) {
+		String query = "SELECT EMAIL FROM MEMBER WHERE USER_NAME = ? AND PHONE = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userName);
+			pstmt.setString(2, userPhone);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String userEmail = rs.getString("EMAIL");
+				
+				MemberDto result = new MemberDto();
+				result.setUserEmail(userEmail);
+				
+				return result;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
-	
-	
-	
 }
