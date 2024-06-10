@@ -40,4 +40,9 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDto login(String id) {
 		return memberDao.login(id);
 	}
+	
+	@Override
+	public MemberDto searchId(String userName, String userPhone) {
+		return memberDao.searchId(userName, userPhone);
+	}
 }

@@ -31,7 +31,7 @@
             <div class="extra-options">
                 <input type="checkbox" id="remember_me" name="remember_me">
                 <label for="remember_me">로그인 상태 유지</label>
-                <a href="/views/member/searchPwd.jsp" class="find-info">아이디/비밀번호 찾기</a><br>
+                <a href="/views/member/searchPage.jsp" class="find-info">아이디/비밀번호 찾기</a><br>
             </div>
             <a href="/">
                 <img class="loginLogo" src="/resources/img/Logo.png" alt="logo">

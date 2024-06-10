@@ -4,8 +4,6 @@ let Flag = false; // 인증 플래그
 let emailFlag = false; // 이메일 인증 플래그
 
 window.onload = function() {
-	const header = document.getElementsByTagName("header")[0];
-	header.style.position = "unset";
 	
 	// 페이지 로드 시 실행되는 함수
 	const userTypeRadios = document.querySelectorAll('input[name="user_type"]');
