@@ -27,7 +27,8 @@
 	height : auto;
 }
 
-.Detail_Left_MainImage {
+.Detail_Left_MainImage,
+.Detail_Left_DetailImage {
 	width: 520px;
 }
 
@@ -380,7 +381,7 @@ input[id="tabList05"]:checked ~ .con5 {
 
 .img_link {
 	padding: 4px;
-	width: 35px;
+	width: 25px;
 	border: 1px soli #fff;
 	border-radius: 50px;
 }
@@ -493,7 +494,8 @@ input[id="rightTabList03"]:checked ~ .rightCon3 {
 .rightBox_business_inner {
 	margin: 0;
 	font-size: 14px;
-	color: #c0c0c0;
+	font-weight: bold;
+	color: gray;
 }
 
 /* ---------- Right Button ---------- */

@@ -35,4 +35,8 @@ public interface BoardProService {
 	
 	public float getReviewAvg(int boardProNo);
 	
+	public ArrayList<BoardProDto> getFiles(int boardProNo);
+	
+	public BoardProDto getDetailFile(int boardProNo);
+	
 }

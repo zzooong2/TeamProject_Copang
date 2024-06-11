@@ -198,7 +198,7 @@ public class BoardProEnrollController extends HttpServlet {
 		
 		// 파일 업로드 및 비즈니스 로직 처리가 성공한 경우 메인 페이지로 이동합니다.
 		if (result == 1 && typeResult == 1 && fileResult == 1) {
-		    response.sendRedirect("/views/board/boardDetail.jsp");
+		    response.sendRedirect("/BoardPro/Detail.do");
 		} 
 		// 실패한 경우 오류 페이지로 이동합니다.
 		else {

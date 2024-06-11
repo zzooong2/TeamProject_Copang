@@ -1,52 +1,25 @@
-// /////////////////////////////////////////// 조건 별 표시 설정 JavaScript \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-// 카테고리를 표시하는 함수
-function displayCategory(category) {
-    // 모든 카테고리 숨기기
-    var categories = document.querySelectorAll('.categoryTable');
-    categories.forEach(function (table) {
-        table.style.display = 'none';
-    });
+// /////////////////////////////////////////// 공유하기 JavaScript \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+window.onload = function() {
+    console.log("Window fully loaded");
 
-    // 카테고리에 따라 해당하는 tbody 영역 표시하기
-    switch (category) {
-        case "IT·프로그래밍":
-            showCategory("IT");
-            break;
-        case "디자인":
-            showCategory("Design");
-            break;
-        case "영상·사진":
-            var middleCategory = "<%= result.boardProMiddleCategory %>";
-            if (middleCategory === "사진") {
-                showCategory("Photo");
-            } else {
-                showCategory("Video");
-            }
-            break;
-        case "마케팅":
-            showCategory("Marketing");
-            break;
-        case "교육":
-            showCategory("Study");
-            break;
-        default:
-            console.error("Unknown category:", category);
+    const shareButton = document.getElementById("shareButton");
+    if (shareButton) {
+        console.log("Share button found");
+        shareButton.addEventListener("click", function() {
+            console.log("Share button clicked");
+            const url = window.location.href;  // 현재 페이지의 URL
+            navigator.clipboard.writeText(url).then(function() {
+                alert("URL이 클립보드에 복사되었습니다!");
+            }, function(err) {
+                alert("URL을 복사하는 중 오류가 발생했습니다.");
+            });
+        });
+    } else {
+        console.log("Share button not found");
     }
-}
-
-// 해당 카테고리 보이기
-function showCategory(category) {
-    var categoryTable = document.getElementById('Detail_Category_BusinessMenu_' + category);
-    if (categoryTable) {
-        categoryTable.style.display = 'table-row-group';
-    }
-}
-
-
+};
 
 // ==========================================================================================================
-
-
 
 
 // /////////////////////////////////////////// 단위 쉼표 JavaScript \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -120,8 +93,6 @@ function showRating() {
         $(stars[i]).addClass('Detail_Left_Star_On');
     }
 }
-
-
 
 // ==========================================================================================================
 

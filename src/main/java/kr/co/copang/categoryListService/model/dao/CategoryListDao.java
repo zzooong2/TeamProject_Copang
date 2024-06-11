@@ -35,8 +35,8 @@ public class CategoryListDao {
 				+ "		FROM CATEGORY_BOARD cb"
 				+ "		JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 				+ "		JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
-				+ "		WHERE B_CATEGORY = ? "
-				+ "		ORDER BY B_CATEGORY DESC"
+				+ "		WHERE B_CATEGORY_MAIN = ? "
+				+ "		ORDER BY B_CATEGORY_MAIN DESC"
 				+ "		OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 	 
@@ -52,7 +52,7 @@ public class CategoryListDao {
 			
 			while (rs.next()) {
 				int no = rs.getInt("B_NO");
-				String categoryType = rs.getString("B_CATEGORY");
+				String categoryType = rs.getString("B_CATEGORY_MAIN");
 				String title = rs.getString("B_TITLE");
 				String priceOption = rs.getString("BM_TYPE");
 				String price = rs.getString("BM_PAY");
@@ -73,14 +73,12 @@ public class CategoryListDao {
 				result.add(categoryListDto);
 				
 			}
+			
 			pstmt.close();
 			con.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		return result;
 	}
 
@@ -90,7 +88,7 @@ public class CategoryListDao {
 				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
 				+ " JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
-				+ " where B_CATEGORY = ? ";
+				+ " where B_CATEGORY_MAIN = ? ";
 		
 		try {
 			pstmt = con.prepareStatement(query);
