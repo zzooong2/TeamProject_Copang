@@ -43,10 +43,7 @@
 	
 	<%@ include file="/views/common/footer.jsp"%>
 <script>
-	window.onload = function() {
-	const header = document.getElementsByTagName("header")[0];
-	header.style.position = "unset";
-	}
+	
 </script>
 </body>
 </html>

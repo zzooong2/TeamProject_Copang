@@ -34,13 +34,14 @@ public class SearchIdController extends HttpServlet {
 		// 폼에서 전송된 이름과 핸드폰번호를 가져옵니다.
         String userName = request.getParameter("userName");
         String userPhone = request.getParameter("userPhone");
+
         String userInputCode = request.getParameter("verificationCode");
-        
         String sessionCode = (String) request.getSession().getAttribute("verificationCode");
         
         
         if (sessionCode == null || !sessionCode.toString().equals(userInputCode)) {
-            response.getWriter().write("<script> history.back();</script>");
+        	System.out.println("zz");
+            response.getWriter().write("<script> { history.back();}</script>");
             return;
         }
 
