@@ -52,10 +52,10 @@
         </div>
 		
 		
-		<div id="create-order-number-space">
+		<!-- <div id="create-order-number-space">
 			<p id="create-order-text">결제번호: </p>
 	        <p id="create-order-number">0</p>
-        </div>
+        </div> -->
         
         
         <div class="payment">
@@ -144,7 +144,7 @@
 
                 <h4 class="order-price">
                     <span class="total-item-1">총 결제 금액</span>
-                    <span class="total-item-2" id="total-amount">62100<span>원</span>
+                    <span class="total-item-2" id="total-amount">100<span>원</span>
                     </span>
                 </h4>
             </div>

@@ -8,7 +8,7 @@ public class PaymentServiceImpl implements PaymentService{
 	PaymentDAO pDAO = new PaymentDAO();
 	
 	@Override
-	public PaymentDTO getPayment() {
-		return pDAO.getPayment();
+	public int payment(PaymentDTO pDTO) {
+		return pDAO.payment(pDTO);
 	}
 }
