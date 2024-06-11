@@ -30,18 +30,19 @@ public class BoardProEnrollController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
 //		●------------------------------ << boardProEnroll.jsp 데이터 취합 >> ---------------------------------------●
 		
 		HttpSession session = request.getSession();
 //		int memberNo = (int)session.getAttribute("userNo");
-		int memberNo = 3;
+		int memberNo = 11;
 		
 //		----- Enroll Page1
 		String title = request.getParameter("enroll_Title");
-		
-		System.out.println(title);
 		String category = request.getParameter("enroll_Category");
-		System.out.println(category);
 		String middleCategory = null;
 		String subcatCategory = null;
 		String serviceStyle = request.getParameter("enroll_Service");
@@ -51,6 +52,8 @@ public class BoardProEnrollController extends HttpServlet {
 		
 		String[] twoCategory = request.getParameterValues("enroll_Middle_Category");
 		String[] thirdCategory = request.getParameterValues("enroll_Subcat_Category");
+		System.out.println(twoCategory);
+		
 		for(String item : twoCategory) {
 			System.out.println("a : " + item);
 			if(!item.equals("")) { 
@@ -155,8 +158,8 @@ public class BoardProEnrollController extends HttpServlet {
 		Collection<Part> parts = request.getParts();
 
 		// 메인 이미지와 상세페이지 이미지를 업로드할 디렉토리 경로를 지정합니다.
-		String mUploadDirectory = "C:\\dev\\work-space\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\upload\\main";
-		String dUploadDirectory = "C:\\dev\\work-space\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\upload\\detail";
+		String mUploadDirectory = "/Users/zzooong2/semiProject/semiProject/src/main/webapp/resources/upload/detail";
+		String dUploadDirectory = "/Users/zzooong2/semiProject/semiProject/src/main/webapp/resources/upload/main";
 
 		// 파일 업로드 디렉토리가 존재하지 않으면 생성합니다.
 		File mFilePath = new File(mUploadDirectory);
@@ -195,7 +198,7 @@ public class BoardProEnrollController extends HttpServlet {
 		
 		// 파일 업로드 및 비즈니스 로직 처리가 성공한 경우 메인 페이지로 이동합니다.
 		if (result == 1 && typeResult == 1 && fileResult == 1) {
-		    response.sendRedirect("/views/board/boardDetail.jsp");
+		    response.sendRedirect("/BoardPro/Detail.do");
 		} 
 		// 실패한 경우 오류 페이지로 이동합니다.
 		else {

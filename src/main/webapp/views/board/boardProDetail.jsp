@@ -412,7 +412,7 @@
 	                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 	                            </div>
 	                        </div>
-	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+	                        <button class="rightBox_buy_button" onclick="location.href='/payment/orderPage.do'">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon2">
 	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -553,7 +553,7 @@
 	                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 	                            </div>
 	                        </div>
-	                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+	                        <button class="rightBox_buy_button" type="button" onclick="location.href='/payment/orderPage.do'">구매하기</button>
 	                    </div>
 	                    <div class="rightConbox rightCon2">
 	                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>

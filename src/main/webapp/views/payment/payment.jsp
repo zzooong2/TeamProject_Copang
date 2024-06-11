@@ -66,8 +66,8 @@
                         <img src="../../resources/img/item1.png" alt="제품사진">
                     </div>
                     <div class="item-2">
-                        <h4 id="object-title">B2B 전문 번역 회사의 고품질 대량 전문 번역 서비스</h4>
-                        <h6 id="object-celler">한국 아이시스</h6>
+                        <h4 id="object-title">${result.boardTitle}</h4>
+                        <h6 id="object-celler">${result.company}</h6>
                     </div>
                 </div>
 
