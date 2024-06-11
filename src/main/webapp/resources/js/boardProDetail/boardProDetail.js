@@ -1,4 +1,5 @@
 // /////////////////////////////////////////// 조건 별 표시 설정 JavaScript \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+// 카테고리를 표시하는 함수
 function displayCategory(category) {
     // 모든 카테고리 숨기기
     var categories = document.querySelectorAll('.categoryTable');
@@ -6,41 +7,41 @@ function displayCategory(category) {
         table.style.display = 'none';
     });
 
-    // 카테고리 매핑
-    var categoryMapping = {
-        "IT·프로그래밍": "IT",
-        "디자인": "Design",
-        "영상·사진": "Video", // 기본값은 Video로 설정
-        "마케팅": "Marketing",
-        "교육": "Study"
-    };
-
-    var middleCategory = ""; // 중간 카테고리 (예: "영상" 또는 "사진")
-
-    if (category === "영상·사진") {
-        // 중간 카테고리를 추가로 처리
-        middleCategory = "<%= result.boardProMiddleCategory %>";
-        if (middleCategory === "사진") {
-            category = "Photo";
-        } else {
-            category = "Video";
-        }
-    } else {
-        category = categoryMapping[category] || category;
+    // 카테고리에 따라 해당하는 tbody 영역 표시하기
+    switch (category) {
+        case "IT·프로그래밍":
+            showCategory("IT");
+            break;
+        case "디자인":
+            showCategory("Design");
+            break;
+        case "영상·사진":
+            var middleCategory = "<%= result.boardProMiddleCategory %>";
+            if (middleCategory === "사진") {
+                showCategory("Photo");
+            } else {
+                showCategory("Video");
+            }
+            break;
+        case "마케팅":
+            showCategory("Marketing");
+            break;
+        case "교육":
+            showCategory("Study");
+            break;
+        default:
+            console.error("Unknown category:", category);
     }
+}
 
-    // 해당 카테고리 보이기
+// 해당 카테고리 보이기
+function showCategory(category) {
     var categoryTable = document.getElementById('Detail_Category_BusinessMenu_' + category);
     if (categoryTable) {
         categoryTable.style.display = 'table-row-group';
     }
 }
 
-// 카테고리에 따라 보이도록 설정
-document.addEventListener('DOMContentLoaded', function () {
-    var category = "<%= result.boardProCategory %>";
-    displayCategory(category);
-});
 
 
 // ==========================================================================================================
@@ -131,48 +132,56 @@ $(document).ready(function() {
     // 리뷰 등록 버튼 클릭 시 AJAX를 통해 리뷰를 서버에 전송합니다.
     $('.Detail_Left_Star_Review_Button').click(function() {
         let reviewContent = $('.Detail_Left_Star_Review').val(); // 리뷰 내용 가져오기
-		let starPoint = $('.Detail_Left_Star.Detail_Left_Star_On').length;
-		let pageNo = this.value;
-		
-        // AJAX 요청
+        let starPoint = $('.Detail_Left_Star.Detail_Left_Star_On').length;
+        let boardProNo = this.value; // 페이지 번호로 사용되는 값
+
         $.ajax({
-            type: 'POST', // HTTP 요청 방식
-            url: '/BoardPro/Detail.do', // 서버 URL
-            data: { reviewContent: reviewContent, starPoint: starPoint, boardProNo: pageNo }, // 전송할 데이터
-            success: function(response) {
-                // 서버로부터 성공적인 응답을 받으면 실행됩니다.
-                // 리뷰가 성공적으로 등록되면, 해당 리뷰 항목을 업데이트합니다.
-                $('.Detail_Left_Reviews').html(`<tr>
-											    	<td>
-												    	<div class="Detail_Left_Reviews">
-													        <div class="Detail_Left_ReviewBlock">
-													            <div class="Detail_Left_ReviewStar">
-													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 1 ? 'Detail_Left_Reviw_Star_On' : ''}" value="1"></span>
-													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 2 ? 'Detail_Left_Reviw_Star_On' : ''}" value="2"></span>
-													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 3 ? 'Detail_Left_Reviw_Star_On' : ''}" value="3"></span>
-													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 4 ? 'Detail_Left_Reviw_Star_On' : ''}" value="4"></span>
-													                <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 5 ? 'Detail_Left_Reviw_Star_On' : ''}" value="5"></span>
-													                <span class="Detail_Left_Reviw_Star_value"><fmt:formatNumber value="${item.reviewStarPoint}" pattern="#,##0.0" /></span>
-													            </div>
-													            <div class="Detail_Left_ReviewInfo">
-													                <span class="Detail_Left_ReviewUser">${item.userName}</span>
-													                <p class="Detail_Left_ReviewIndate">${item.reviewIndate}</p>
-													            </div>
-													        </div>
-												            <div class="Detail_Left_ReviewContent">
-												                <span>${item.reviewContent}</span>
-												            </div>
-											            </div>
-											    	</td>
-									        	</tr>`); // 리뷰 항목 업데이트
-            },
-            error: function(xhr, status, error) {
-                // 서버로부터 응답이 실패하면 실행됩니다.
-                console.error(xhr.responseText); // 오류 메시지 출력
-            }
-        });
+		    type: 'POST',
+		    url: '/BoardPro/Detail.do',
+		    data: { reviewContent: reviewContent, starPoint: starPoint, boardProNo: boardProNo },
+		    success: function(response) {
+		        if (Array.isArray(response)) {
+		            response.reverse();
+		            response.forEach(function(item) {
+		                let reviewHtml = `
+		                    <tr>
+		                        <td>
+		                            <div class="Detail_Left_Reviews">
+		                                <div class="Detail_Left_ReviewBlock">
+		                                    <div class="Detail_Left_ReviewStar">
+		                                        <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 1 ? 'Detail_Left_Reviw_Star_On' : ''}" value="1"></span>
+		                                        <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 2 ? 'Detail_Left_Reviw_Star_On' : ''}" value="2"></span>
+		                                        <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 3 ? 'Detail_Left_Reviw_Star_On' : ''}" value="3"></span>
+		                                        <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 4 ? 'Detail_Left_Reviw_Star_On' : ''}" value="4"></span>
+		                                        <span name="Detail_Left_Reviw_Star_Point" class="Detail_Left_Reviw_Star ${item.reviewStarPoint >= 5 ? 'Detail_Left_Reviw_Star_On' : ''}" value="5"></span>
+		                                        <span class="Detail_Left_Reviw_Star_value">${item.reviewStarPoint}</span>
+		                                    </div>
+		                                    <div class="Detail_Left_ReviewInfo">
+		                                        <span class="Detail_Left_ReviewUser">${item.userName}</span>
+		                                        <p class="Detail_Left_ReviewIndate">${item.reviewIndate}</p>
+		                                    </div>
+		                                </div>
+		                                <div class="Detail_Left_ReviewContent">
+		                                    <span>${item.reviewContent}</span>
+		                                </div>
+		                            </div>
+		                        </td>
+		                    </tr>
+		                `;
+		                $('.Detail_Left_ReviewTable_box').prepend(reviewHtml);
+		            });
+		        } else {
+		            console.error("Expected an array but got", response);
+		        }
+		    },
+		    error: function(xhr, status, error) {
+		        console.error(xhr.responseText);
+		    }
+		});
+
     });
 });
+
 
 // ==========================================================================================================
 
@@ -202,13 +211,4 @@ $(document).ready(function() {
     // 페이지 로드 시 평균 별점을 표시합니다.
     displayAverageRating();
 });
-// ==========================================================================================================
-
-
-// /////////////////////////////////////////// 별점 평균 JavaScript \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-
-
-
-
 // ==========================================================================================================

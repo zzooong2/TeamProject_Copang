@@ -2,7 +2,6 @@ package kr.co.copang.boardPro.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.boardPro.model.service.BoardProServiceImpl;
@@ -58,34 +59,37 @@ public class BoardProDetailController extends HttpServlet {
 		
 		RequestDispatcher view = request.getRequestDispatcher("/views/board/boardProDetail.jsp");
 		view.forward(request, response);
-		
-		
-		
-	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		
-		HttpSession session = request.getSession();
-		int userNo = (int)session.getAttribute("userNo");
-		
-		int starPoint = Integer.parseInt(request.getParameter("starPoint"));
-		String reviewContent = request.getParameter("reviewContent");
-		int boardProNo = Integer.parseInt(request.getParameter("boardProNo"));
-		
-		BoardProDto boardDto = new BoardProDto(); 
-		boardDto.setUserNo(userNo);
-		boardDto.setBoardProNo(boardProNo);
-		boardDto.setReviewStarPoint(starPoint);
-		boardDto.setReviewContent(reviewContent);
-		
-		BoardProServiceImpl boardProService = new BoardProServiceImpl();
-		int result = boardProService.BoardReview(boardDto);
-		
-		
-	}
+	    request.setCharacterEncoding("UTF-8");
+	    response.setContentType("application/json"); // JSON 형식으로 응답을 전송
+	    response.setCharacterEncoding("UTF-8");
+	    
+	    HttpSession session = request.getSession();
+	    int userNo = (int) session.getAttribute("userNo");
 
+	    int starPoint = Integer.parseInt(request.getParameter("starPoint"));
+	    String reviewContent = request.getParameter("reviewContent");
+	    int boardProNo = Integer.parseInt(request.getParameter("boardProNo"));
+
+	    BoardProDto boardDto = new BoardProDto();
+	    boardDto.setUserNo(userNo);
+	    boardDto.setBoardProNo(boardProNo);
+	    boardDto.setReviewStarPoint(starPoint);
+	    boardDto.setReviewContent(reviewContent);
+
+	    BoardProServiceImpl boardProService = new BoardProServiceImpl();
+	    int result = boardProService.BoardReview(boardDto);
+
+	    if (result == 1) {
+	        // 새로 작성된 리뷰만 조회하여 JSON으로 변환하여 응답
+	        ArrayList<BoardProDto> newReviewList = boardProService.getNewReviews(boardProNo);
+	        Gson gson = new Gson();
+	        String jsonReviewList = gson.toJson(newReviewList);
+	        response.getWriter().write(jsonReviewList);
+	    } else {
+	        response.getWriter().write("Review submission failed");
+	    }
+	}
 }
