@@ -84,6 +84,11 @@ public class BoardProServiceImpl implements BoardProService {
 	}
 	
 	@Override
+	public ArrayList<BoardProDto> getNewReviews(int boardProNo) {
+		return boardProDao.getNewReviews(boardProNo);
+	}
+	
+	@Override
 	public ArrayList<BoardProDto> getReviews(int boardProNo) {
 		return boardProDao.getReviews(boardProNo);
 	}
