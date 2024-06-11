@@ -17,7 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="/resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
     <script type="text/javascript" src="/resources/js/boardProEnroll/smartEditor.js"></script>
-    <script type="text/javascript" src="/resources/js/boardProDetail/boardProDetail.js"></script>
     
     <%@ include file="/views/common/head.jsp"%>
 </head>

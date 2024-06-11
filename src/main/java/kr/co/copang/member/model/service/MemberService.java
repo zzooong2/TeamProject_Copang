@@ -17,4 +17,10 @@ public interface MemberService {
 	// 아이디 찾기
 	public MemberDto searchId(String userName, String userPhone);
 	
+	// 비밀번호 찾기
+	public MemberDto searchPwd(String userEmail, String userPhone);
+	
+	// 비밀번호 변경
+	public int updatePwd(String userEmail, String newPassword);
+	
 }

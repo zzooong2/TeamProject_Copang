@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import kr.co.copang.common.DatabaseConnection;
 import kr.co.copang.member.model.dto.MemberDto;
 
@@ -168,5 +170,54 @@ public class MemberDao {
 		}
 		return null;
 	}
-
+	// 비밀번호 찾기
+	public MemberDto searchPwd(String userEmail, String userPhone) {
+		String query = "SELECT EMAIL FROM MEMBER WHERE EMAIL = ? AND PHONE = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userEmail);
+			pstmt.setString(2, userPhone);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String userEmailFound  = rs.getString("EMAIL");
+				
+				MemberDto result = new MemberDto();
+				result.setUserEmail(userEmailFound);
+				
+				return result;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	// 비밀번호 변경
+    public int updatePwd(String userEmail, String newPassword) {
+    	String query = "UPDATE MEMBER "
+    				+ " SET PASSWORD = ?"
+    				+ " WHERE EMAIL = ?";
+    	
+    	System.out.println(newPassword);
+    	System.out.println(userEmail);
+    	
+    	// 새로운 비밀번호를 해시하여 저장
+        String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
+        int result = 0;
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setString(1, hashedPassword);
+            pstmt.setString(2, userEmail);
+            result = pstmt.executeUpdate();
+            
+            System.out.println(result+"dao");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

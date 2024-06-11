@@ -32,30 +32,33 @@ public class LoginController extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		MemberDto member = new MemberDto();
-		member.setUserEmail(email);
-		member.setUserPwd(password);
+        MemberDto member = memberService.login(email);
 		
-		// 암호화된 패스워드 조회
-		MemberDto hashPassword = memberService.login(email);
-		
-		if(BCrypt.checkpw(password, hashPassword.getUserPwd())) {
-			
-			if(Objects.isNull(hashPassword.getUserPwd())) {
-				response.sendRedirect("/views/common/error.jsp"); // 로그인 실패
-			} else {
-				HttpSession session = request.getSession();
-				session.setAttribute("userName", hashPassword.getUserName());
-				session.setAttribute("partName", hashPassword.getUsertype());
-				session.setAttribute("userNo", hashPassword.getUserNo());
-				session.setAttribute("partCode", hashPassword.getPartCode());
-				
-				RequestDispatcher view = request.getRequestDispatcher("/");
-				view.forward(request, response);
-			}
-			
-			
-		}
-	}
+     // 로그인 시도한 이메일과 일치하는 회원이 없는 경우
+        if (member == null) {
+            // 로그인 실패 메시지를 request에 저장하여 전달
+            request.setAttribute("loginError", "이메일 또는 비밀번호가 올바르지 않습니다.");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/member/login.jsp");
+            dispatcher.forward(request, response);
+            return;
+        }
 
+        // 사용자가 입력한 비밀번호와 데이터베이스에서 조회한 암호화된 비밀번호를 비교
+        if (BCrypt.checkpw(password, member.getUserPwd())) {
+            HttpSession session = request.getSession();
+            session.setAttribute("userName", member.getUserName());
+            session.setAttribute("partName", member.getUsertype());
+            session.setAttribute("userNo", member.getUserNo());
+            session.setAttribute("partCode", member.getPartCode());
+
+            // 로그인 성공 시 메인 페이지로 리다이렉트
+            response.sendRedirect(request.getContextPath() + "/");
+        } else {
+            // 비밀번호가 일치하지 않는 경우
+            // 로그인 실패 메시지를 request에 저장하여 전달
+            request.setAttribute("loginError", "이메일 또는 비밀번호가 올바르지 않습니다.");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/views/member/login.jsp");
+            dispatcher.forward(request, response);
+        }
+    }
 }
