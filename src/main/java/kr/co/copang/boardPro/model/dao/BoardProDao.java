@@ -611,6 +611,8 @@ public class BoardProDao {
 			
 			int result = pstmt.executeUpdate();
 			
+			return result;
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -661,6 +663,49 @@ public class BoardProDao {
 
 	    return reviews;
 	}
+	
+	public ArrayList<BoardProDto> getNewReviews(int boardProNo) {
+        String query = "SELECT cbr.B_NO,"
+                + "			   m.USER_NO,"
+                + "			   m.USER_NAME,"
+                + "			   cbr.B_REVIEW_POINT,"
+                + "			   cbr.B_REVIEW,"
+                + "			   cbr.B_REVIEW_INDATE"
+                + "		FROM CATEGORY_BOARD_REVIEW cbr "
+                + "		JOIN MEMBER m ON cbr.USER_NO = m.USER_NO "
+                + "		WHERE cbr.B_NO = ?"
+                + "		ORDER BY B_REVIEW_INDATE DESC";
+        ArrayList<BoardProDto> reviews = new ArrayList<>();
+
+        try {
+            pstmt = con.prepareStatement(query);
+            pstmt.setInt(1, boardProNo);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                int boardNo = rs.getInt("B_NO");
+                int userNo = rs.getInt("USER_NO");
+                String userName = rs.getString("USER_NAME");
+                int reviewPoint = rs.getInt("B_REVIEW_POINT");
+                String reviewContent = rs.getString("B_REVIEW");
+                String reviewIndate = rs.getString("B_REVIEW_INDATE");
+
+                BoardProDto rBoardProDto = new BoardProDto();
+                rBoardProDto.setBoardProNo(boardNo);
+                rBoardProDto.setUserNo(userNo);
+                rBoardProDto.setUserName(userName);
+                rBoardProDto.setReviewStarPoint(reviewPoint);
+                rBoardProDto.setReviewContent(reviewContent);
+                rBoardProDto.setReviewIndate(reviewIndate);
+
+                reviews.add(rBoardProDto);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return reviews;
+    }
 	
 	public float getReviewAvg(int boardProNo) {
 		
