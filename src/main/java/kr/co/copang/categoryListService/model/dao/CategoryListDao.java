@@ -21,7 +21,7 @@ public class CategoryListDao {
 	}
 	
 	
-	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi) {
+	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi, String middleCategory) {
 		
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
 
@@ -30,7 +30,8 @@ public class CategoryListDao {
 			+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
 			+ " where B_CATEGORY_MAIN = ? "
 			+ "	ORDER BY B_CATEGORY_MAIN DESC"
-			+ "	OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
+			+ "	OFFSET ? ROWS FETCH FIRST ? ROWS ONLY"
+			+ " AND B_CATEGORY_MIDDLE = ?";
 
 		try {
 			
@@ -39,6 +40,7 @@ public class CategoryListDao {
 			pstmt.setString(1, type);
 			pstmt.setInt(2, pi.getOffset());
 			pstmt.setInt(3, pi.getBoardLimit());
+			pstmt.setString(4, middleCategory);
 			
 			ResultSet rs = pstmt.executeQuery();
 			

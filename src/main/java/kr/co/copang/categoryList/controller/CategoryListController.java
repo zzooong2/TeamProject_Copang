@@ -32,7 +32,9 @@ public class CategoryListController extends HttpServlet {
 //				2. 컨트롤러가 String type = request.getParameter("type")
 
 //		오청받은 파라미터값 type은 문자형변수 type에 지닌다.
-		String type = request.getParameter("type");		
+		String type = request.getParameter("type");	
+		
+		String middleCategory = request.getParameter("middleCategory");
 
 		int cPage = Integer.parseInt(request.getParameter("cPage"));
 		

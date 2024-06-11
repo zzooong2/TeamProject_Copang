@@ -8,11 +8,17 @@ public class CategoryListDto {
 	private String priceOption;
 	private String price;
 	private String company;
-	
+	private String middleCategory;
 	private String fileName;
 	private String filePath;
 	
 	
+	public String getMiddleCategory() {
+		return middleCategory;
+	}
+	public void setMiddleCategory(String middleCategory) {
+		this.middleCategory = middleCategory;
+	}
 	
 	public String getPriceOption() {
 		return priceOption;

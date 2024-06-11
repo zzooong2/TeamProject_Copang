@@ -16,8 +16,8 @@ public class CategoryListServiceImpl implements CategoryListService {
 	}
 	
 	@Override
-	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi) {
-		return categoryListDao.getList(type, pi);
+	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi, String middleCategory) {
+		return categoryListDao.getList(type, pi, middleCategory);
 	}
 	
 	@Override
