@@ -16,7 +16,17 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> > IT/프로그래밍
+				<a href="/">홈</a> ><a href="/category/list.do?type=ITㆍ프로그래밍&cPage=1">IT/프로그래밍</a>
+				<%-- 
+				<c:choose>
+				<c:if test="/category/list.do?type=ITㆍ프로그래밍&middleCategory=UX 기획&cPage=1">
+					<p> UX 기획</p>
+				</c:if>
+				<c:otherwise>
+				
+				</c:otherwise>
+				</c:choose> 
+				--%>
 			</p>
 		</div>
 
@@ -25,27 +35,27 @@
 		<div class="category_area">
 			<ul>
 				<a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=UX 기획&cPage=1">UX 기획</a>
-				<li><a href="">스토리보드</a></li>
-				<li><a href="">기타 기획</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=UX 기획&subCategory=스토리보드&cPage=1">스토리보드</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=UX 기획&subCategory=기타 기획&cPage=1">기타 기획</a></li>
 			</ul>
 			<ul>
-				<a href="">웹</a>
-				<li><a href="">홈페이지</a></li>
-				<li><a href="">퍼블리싱</a></li>
-				<li><a href="">유지보수</a></li>
+				<a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=웹&cPage=1">웹</a>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=웹&subCategory=홈페이지&cPage=1">홈페이지</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=웹&subCategory=퍼블리싱&cPage=1">퍼블리싱</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=웹&subCategory=유지보수&cPage=1">유지보수</a></li>
 			</ul>
 			<ul>
-				<a href="">프로그램</a>
-				<li><a href="">PCㆍ웹프로그램</a></li>
-				<li><a href="">서버ㆍ클라우드</a></li>
-				<li><a href="">봇ㆍ챗봇</a></li>
+				<a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=프로그램&cPage=1">프로그램</a>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=프로그램&subCategory=PCㆍ웹프로그램&cPage=1">PCㆍ웹프로그램</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=프로그램&subCategory=서버ㆍ클라우드&cPage=1">서버ㆍ클라우드</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=프로그램&subCategory=봇ㆍ챗봇&cPage=1">봇ㆍ챗봇</a></li>
 			</ul>
 			<ul>
-				<a href="">커머스</a>
-				<li><a href="">쇼핑몰</a></li>
-				<li><a href="">쇼핑몰(웹빌더ㆍCMS)</a></li>
-				<li><a href="">쇼핑몰(카페24)</a></li>
-				<li><a href="">쇼핑몰 수정ㆍ유지보수</a></li>
+				<a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=커머스&cPage=1">커머스</a>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=커머스&subCategory=쇼핑몰&cPage=1">쇼핑몰</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=커머스&subCategory=쇼핑몰(웹빌더ㆍCMS)&cPage=1">쇼핑몰(웹빌더ㆍCMS)</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=커머스&subCategory=쇼핑몰(카페24)&cPage=1">쇼핑몰(카페24)</a></li>
+				<li><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=커머스&subCategory=쇼핑몰 수정ㆍ유지보수&cPage=1">쇼핑몰 수정ㆍ유지보수</a></li>
 			</ul>
 		</div>
 
@@ -128,7 +138,7 @@
 				<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
 					<li class="page-item" style="margin-right: 20px"><a
 						class="page-link"
-						href="/category/list.do?type=ITㆍ프로그래밍&cPage=${page}">${page}</a></li>
+						href="/category/list.do?type=ITㆍ프로그래밍${middleCategory}${subCategory}&cPage=${page}">${page}</a></li>
 				</c:forEach>
 
 				<!-- 오른쪽 버튼 -->
@@ -143,7 +153,7 @@
 					<c:otherwise>
 						<li class="page-item" style="margin-right: 20px"><a
 							class="page-link"
-							href="/category/list.do?type=ITㆍ프로그래밍&cPage=${pi.cPage+1}"
+							href="/category/list.do?type=ITㆍ프로그래밍&${middleCategory}&cPage=${pi.cPage+1}"
 							aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 						</a></li>
 					</c:otherwise>

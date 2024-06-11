@@ -22,32 +22,32 @@
 
 		<div class="category_area">
 			<ul>
-				로고ㆍ브랜딩
-				<li><a href="">로고 디자인</a></li>
-				<li><a href="">브랜드 디자인 가이드</a></li>
+				<a href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&cPage=1">로고ㆍ브랜딩</a>
+				<li><a href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&subCategory=로고 디자인&cPage=1">로고 디자인</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&subCategory=로고 디자인 가이드&cPage=1">브랜드 디자인 가이드</a></li>
 			</ul>
 			<ul>
-				인쇄 홍보물
-				<li><a href="">명함</a></li>
-				<li><a href="">전단지ㆍ포스터ㆍ인쇄물</a></li>
-				<li><a href="">현수막ㆍX배너</a></li>
-				<li><a href="">메뉴판</a></li>
+				<a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&cPage=1">인쇄 홍보물</a>
+				<li><a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=명함&cPage=1">명함</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=전단지ㆍ포스터ㆍ인쇄물&cPage=1">전단지ㆍ포스터ㆍ인쇄물</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=현수막ㆍX배너&cPage=1">현수막ㆍX배너</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=메뉴판&cPage=1">메뉴판</a></li>
 			</ul>
 			<ul>
-				마케팅 디자인
-				<li><a href="">상세페이지</a></li>
-				<li><a href="">SNSㆍ썸네일 디자인</a></li>
-				<li><a href="">채널아트 디자인</a></li>
-				<li><a href="">방송용 아바타</a></li>
-				<li><a href="">배너ㆍ배달어플</a></li>
-				<li><a href="">블로그ㆍ카페 디자인</a></li>
+				<a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&cPage=1">마케팅 디자인</a>
+				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=상세페이지&cPage=1">상세페이지</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=SNSㆍ썸네일 디자인&cPage=1">SNSㆍ썸네일 디자인</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=채널아트 디자인&cPage=1">채널아트 디자인</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=방송용 아바타&cPage=1">방송용 아바타</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=배너ㆍ배달어플&cPage=1">배너ㆍ배달어플</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=블로그ㆍ카페 디자인&cPage=1">블로그ㆍ카페 디자인</a></li>
 			</ul>
 			<ul>
-				웹ㆍ모바일 디자인
-				<li><a href="">명함</a></li>
-				<li><a href="">전단지ㆍ포스터ㆍ인쇄물</a></li>
-				<li><a href="">현수막ㆍX배너</a></li>
-				<li><a href="">메뉴판</a></li>
+				<a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&cPage=1">웹ㆍ모바일 디자인</a>
+				<li><a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=명함&cPage=1">명함</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=전단지ㆍ포스터ㆍ인쇄물&cPage=1">전단지ㆍ포스터ㆍ인쇄물</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=현수막ㆍX배너&cPage=1">현수막ㆍX배너</a></li>
+				<li><a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=메뉴판&cPage=1">메뉴판</a></li>
 			</ul>
 		</div>
 

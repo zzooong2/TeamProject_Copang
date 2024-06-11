@@ -33,8 +33,12 @@ public class CategoryListController extends HttpServlet {
 
 //		오청받은 파라미터값 type은 문자형변수 type에 지닌다.
 		String type = request.getParameter("type");	
-		
+
+//		중분류 값 요청받기
 		String middleCategory = request.getParameter("middleCategory");
+
+//		소분류 값 요청받기
+		String subCategory = request.getParameter("subCategory");
 
 		int cPage = Integer.parseInt(request.getParameter("cPage"));
 		
@@ -44,19 +48,18 @@ public class CategoryListController extends HttpServlet {
 		
 		int boardLimit = 3;
 		
-		int row = listCount - (cPage-1) * boardLimit;
-		
 		PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit);
 		
-		ArrayList<CategoryListDtoImpl> list = categoryListService.getList(type, pi);
+		ArrayList<CategoryListDtoImpl> list = categoryListService.getList(type, pi, middleCategory, subCategory);
 
 //		 리스트 잘 가져오는지 까지
 		request.setAttribute("list", list);
 		request.setAttribute("pi", pi);
+		request.setAttribute("middleCategory", middleCategory);
+		request.setAttribute("subCategory", subCategory);
 		
 		
 		String nextPage = "";
-//		""은 "이 사이에 들어가있는 모든것을 해당한다."
 		
 		
 		

@@ -22,21 +22,21 @@
 
 		<div class="category_area">
 			<ul>
-				외국어
-				<li><a href="">영어 레슨</a></li>
-				<li><a href="">기타 외국어 레슨</a></li>
+				<a href="/category/list.do?type=교육&middleCategory=외국어&cPage=1">외국어</a>
+				<li><a href="/category/list.do?type=교육&middleCategory=외국어&subCategory=영어 레슨&cPage=1">영어 레슨</a></li>
+				<li><a href="/category/list.do?type=교육&middleCategory=외국어&subCategory=기타 외국어 레슨&cPage=1">기타 외국어 레슨</a></li>
 			</ul>
 			<ul>
-				미술ㆍ글쓰기
-				<li><a href="">미술ㆍ드로잉 레슨</a></li>
-				<li><a href="">글쓰기 레슨</a></li>
+				<a href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&cPage=1">미술ㆍ글쓰기</a>
+				<li><a href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&subCategory=미술ㆍ드로잉 레슨&cPage=1">미술ㆍ드로잉 레슨</a></li>
+				<li><a href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&subCategory=글쓰기 레슨&cPage=1">글쓰기 레슨</a></li>
 			</ul>
 			<ul>
-				댄스ㆍ뮤직
-				<li><a href="">댄스 레슨</a></li>
-				<li><a href="">보컬ㆍ랩 레슨</a></li>
-				<li><a href="">악기 레슨</a></li>
-				<li><a href="">미디ㆍ작곡ㆍ편곡 레슨</a></li>
+				<a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&cPage=1">댄스ㆍ뮤직</a>
+				<li><a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=댄스 레슨&cPage=1">댄스 레슨</a></li>
+				<li><a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=보컬ㆍ랩 레슨&cPage=1">보컬ㆍ랩 레슨</a></li>
+				<li><a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=악기 레슨&cPage=1">악기 레슨</a></li>
+				<li><a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=미디ㆍ작곡ㆍ편곡 레슨&cPage=1">미디ㆍ작곡ㆍ편곡 레슨</a></li>
 			</ul>
 		</div>
 

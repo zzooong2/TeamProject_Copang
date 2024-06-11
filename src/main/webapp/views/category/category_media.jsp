@@ -22,19 +22,19 @@
 
 		<div class="category_area">
 			<ul>
-				영상
-				<li><a href="">광고ㆍ홍보영상</a></li>
-				<li><a href="">업종별 영상</a></li>
-				<li><a href="">제품영상</a></li>
-				<li><a href="">교육영상</a></li>
-				<li><a href="">애니메이션</a></li>
+				<a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&cPage=1">영상</a>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=광고ㆍ홍보영상&cPage=1">광고ㆍ홍보영상</a></li>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=업종별 영상&cPage=1">업종별 영상</a></li>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=제품영상&cPage=1">제품영상</a></li>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=교육영상&cPage=1">교육영상</a></li>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=애니메이션&cPage=1">애니메이션</a></li>
 			</ul>
 			<ul>
-				사진
-				<li><a href="">제품ㆍ홍보사진</a></li>
-				<li><a href="">개인ㆍ프로필사진</a></li>
-				<li><a href="">사진보정</a></li>
-				<li><a href="">이벤트 사진</a></li>
+				<a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&cPage=1">사진</a>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=제품ㆍ홍보사진&cPage=1">제품ㆍ홍보사진</a></li>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=개인ㆍ프로필사진&cPage=1">개인ㆍ프로필사진</a></li>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=사진보정&cPage=1">사진보정</a></li>
+				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=이벤트 사진&cPage=1">이벤트 사진</a></li>
 			</ul>
 		</div>
 
