@@ -17,7 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="/resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
     <script type="text/javascript" src="/resources/js/boardProEnroll/smartEditor.js"></script>
-    <script type="text/javascript" src="/resources/js/boardProDetail/boardProDetail.js"></script>
     
     <%@ include file="/views/common/head.jsp"%>
 </head>
@@ -77,7 +76,7 @@
 									<!-- ---------- 중분류 ---------- -->
 									<div class="Detail_right_Contents1_box2" id="Detail_right_middleCategory">
 										<span class="Detail_right_type_box">&nbsp;&nbsp;중분류<span class="Detail_right_check">*</span></span>
-										<select class="Detail_right_Contents1_Category_Style" id="Detail_right_middleCategory_select" name="enroll_Middle_Category">
+										<select class="Detail_right_Contents1_Category_Style" id="Detail_right_middleCategory_select" name="enroll_Middle_Categoryddddd">
 											<option class="Detail_right_Contents1_Category_Style" value="">중분류를 선택해주세요.</option>
 										</select>
 									</div>
@@ -130,8 +129,6 @@
 											<option class="Detail_right_Contents1_Category_Style" value="댄스·뮤직">댄스·뮤직</option>
 										</select>
 									</div>
-									
-									
 									
 									<!-- ---------- 소분류 ---------- -->
 									<div class="Detail_right_Contents1_box2" id="Detail_right_SubcatCategory">

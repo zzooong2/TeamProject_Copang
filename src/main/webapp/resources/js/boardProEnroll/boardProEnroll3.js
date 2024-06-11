@@ -17,7 +17,6 @@ var boardTitle3 = document.getElementById("Detail_left_text3");
 var boardTitle4 = document.getElementById("Detail_left_text4");
 
 directionR.addEventListener('click', function() {
-
         if (boardEnroll3.style.display == 'block') {
         boardEnroll4.style.display = 'block';
         boardEnroll3.style.display = 'none';
@@ -146,10 +145,6 @@ function Counter(text, limit) {
 }
 
 
-
 /* ===== Function 입력 값 체크 ===== */
-
-document.getElementById("enrollForm").addEventListener('submit', function() {
-	let inputs = document.getElementByName('enroll_Function');
-})
-
+//document.getElementById("enrollForm").addEventListener('submit', function() {
+//})

@@ -30,10 +30,6 @@ public class BoardProEnrollController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		
 //		●------------------------------ << boardProEnroll.jsp 데이터 취합 >> ---------------------------------------●
 		
 		HttpSession session = request.getSession();
@@ -42,7 +38,10 @@ public class BoardProEnrollController extends HttpServlet {
 		
 //		----- Enroll Page1
 		String title = request.getParameter("enroll_Title");
+		
+		System.out.println(title);
 		String category = request.getParameter("enroll_Category");
+		System.out.println(category);
 		String middleCategory = null;
 		String subcatCategory = null;
 		String serviceStyle = request.getParameter("enroll_Service");
@@ -52,8 +51,6 @@ public class BoardProEnrollController extends HttpServlet {
 		
 		String[] twoCategory = request.getParameterValues("enroll_Middle_Category");
 		String[] thirdCategory = request.getParameterValues("enroll_Subcat_Category");
-		System.out.println(twoCategory);
-		
 		for(String item : twoCategory) {
 			System.out.println("a : " + item);
 			if(!item.equals("")) { 
