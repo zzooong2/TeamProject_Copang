@@ -45,4 +45,14 @@ public class MemberServiceImpl implements MemberService {
 	public MemberDto searchId(String userName, String userPhone) {
 		return memberDao.searchId(userName, userPhone);
 	}
+	
+	@Override
+	public MemberDto searchPwd(String userEmail, String userPhone) {
+		return memberDao.searchPwd(userEmail, userPhone);
+	}
+	
+	@Override
+	public int updatePwd(String userEmail, String newPassword) {
+		return memberDao.updatePwd(userEmail, newPassword);
+	}
 }

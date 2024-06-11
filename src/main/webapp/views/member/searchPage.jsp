@@ -5,7 +5,7 @@
 <head>
 	<%@ include file="/views/common/head.jsp"%>
 	<link rel="icon" href="/resources/img/tapIcon.png">
-	<link rel="stylesheet" href="/resources/css/member/searchPwd.css">
+	<link rel="stylesheet" href="/resources/css/member/searchPage.css">
 	<!-- SweetAlert2 CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.min.css">
 	<!-- SweetAlert2 JavaScript -->
@@ -28,7 +28,7 @@
         </div>
         
         <div id="id_form" class="form hidden">
-        <form action="/member/searchId.do" method="post" id="searchForm">
+        <form action="/member/searchId.do" method="post" id="searchIdForm">
             <label for="name">이름</label>
             <input type="text" id="user_name" name="userName" placeholder="이름을 입력해 주세요."> <br>
             <label for="phone">휴대폰 번호</label>
@@ -39,13 +39,13 @@
             <div id="verificationCodeContainer_id" style="display: none;">
     			<label for="verificationCode">인증번호</label> <br>
     			<input type="text" id="verificationCode_id" name="verificationCode" placeholder="인증번호를 입력해 주세요." required>
-    			<button class="certification_button" type="submit" id="verifyCodeBtn_id">아이디 찾기</button>
+    			<button class="certification_button" type="button" id="verifyCodeBtn_id">아이디 찾기</button>
 			</div>
         </form>
 			
         </div>
         <div id="pw_form" class="form hidden">
-         <form action="/member/searchPwd.do" method="post" id="searchForm">
+         <form action="/member/searchPwd.do" method="post" id="searchPwdForm">
         	<label for="email">아이디</label>
             <input type="text" id="email" name="userEmail" placeholder="이메일을 입력해 주세요."><br>
             <label for="phone">휴대폰 번호</label>
@@ -56,7 +56,7 @@
             <div id="verificationCodeContainer_pw" style="display: none;">
     			<label for="verificationCode_pw">인증번호</label> <br>
     			<input type="text" id="verificationCode_pw" name="verificationCode" placeholder="인증번호를 입력해 주세요." required>
-    			<button class="certification_button" type="submit" id="verifyCodeBtn_pw">비밀번호 변경</button>
+    			<button class="certification_button" type="button" id="verifyCodeBtn_pw">비밀번호 변경</button>
 			</div>
          </form>    
         </div>
@@ -74,8 +74,10 @@
     // JavaScript 변수에 값을 할당
     var userEmail = "<%= request.getAttribute("userEmail") %>";
     var alertStatus = "<%= request.getAttribute("alertStatus") %>";
+    var passwordStatus = "<%= request.getAttribute("passwordStatus") %>";
+    var codeStatus = "<%= request.getAttribute("codeStatus") %>";
 	</script>
     <br><br><br><br><br><br><br>
-	<script src="/resources/js/member/searchPwd.js"></script>
+	<script src="/resources/js/member/searchPage.js"></script>
 </body>
 </html>

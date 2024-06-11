@@ -202,31 +202,31 @@ function registerClick() {
 if (space.test(name) || space.test(email) || space.test(pwd) || space.test(pwd2)) {
     alert("띄어쓰기 불가입니다.");
 	} else if (!name) {
-    alert("이름을 입력해주세요.");
+    Swal.fire('알림', '이름을 입력해주세요.', 'error');
 	} else if (!Patternname.test(name)) {
-	alert("올바른 이름을 입력해주세요.");
+	Swal.fire('알림', '올바른 이름을 입력해주세요.', 'error');
 	} else if (!email) {
-    alert("이메일을 입력해주세요.");
+	Swal.fire('알림', '이메일을 입력해주세요.', 'error');
 	} else if (!Patternemail.test(email)) {
-    alert("올바른 이메일 주소를 입력해주세요.");
+	Swal.fire('알림', '올바른 이메일 주소를 입력해주세요.', 'error');
 	} else if(!emailFlag){
-	alert("이메일 주소가 중복되었습니다. 다시 입력해주세요.");	
+	Swal.fire('알림', '이메일 주소가 중복되었습니다. 다시 입력해주세요.', 'error');
 	} else if (!pwd) {
-    alert("비밀번호를 입력해주세요.");
+	Swal.fire('알림', '비밀번호를 입력해주세요.', 'error');
 	} else if (!patternpwd.test(pwd)) {
-    alert("비밀번호는 8-16자 사이의 문자, 숫자, 특수문자를 포함해야 합니다.");
+	Swal.fire('알림', '비밀번호는 8-16자 사이의 문자, 숫자, 특수문자를 포함해야 합니다.', 'error');
 	} else if(!pwd2) {
-	alert("비밀번호 확인을 입력해주세요.");
+	Swal.fire('알림', '비밀번호 확인을 입력해주세요.', 'error');
 	} else if (pwd !== pwd2) {
-    alert("비밀번호가 일치하지 않습니다.");
+	Swal.fire('알림', '비밀번호가 일치하지 않습니다.', 'error');
 	} else if(!expert.checked && !client.checked){
-	alert("회원 유형을 체크하세요.");	
+	Swal.fire('알림', '회원 유형을 체크하세요.', 'error');
 	} else if(!it.checked && !video.checked && !design.checked && !marketing.checked && !education.checked) {
-	alert("비즈니스 분야를 체크하세요.");		
+	Swal.fire('알림', '비즈니스 분야를 체크하세요.', 'error');
 	} else if(!check14.checked || !checkService.checked || !checkPolicy.checked) {
-	alert("필수 동의칸을 체크하세요.");
+	Swal.fire('알림', '필수 동의칸을 체크하세요.', 'error');
 	} else if(!Flag) {
-	alert("인증 실패했습니다.");	
+	Swal.fire('알림', '인증 실패했습니다.', 'error');
 	} else {
 		document.getElementById('registerForm').submit();
 		// from 태그 가져와서 submit 이벤트 발생
