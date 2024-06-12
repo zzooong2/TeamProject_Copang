@@ -14,7 +14,13 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> > 교육
+				<a href="/">홈</a> ><a href="/category/list.do?type=교육&cPage=1"">교육</a>
+				<c:if test="${middleCategory != null}"> 
+				 ><a href="/category/list.do?type=교육&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
+				</c:if>
+				<c:if test="${subCategory != null}">
+				 ><a href="">${subCategory}</a>
+				</c:if>
 			</p>
 		</div>
 
@@ -23,20 +29,36 @@
 		<div class="category_area">
 			<ul>
 				<a href="/category/list.do?type=교육&middleCategory=외국어&cPage=1">외국어</a>
-				<li><a href="/category/list.do?type=교육&middleCategory=외국어&subCategory=영어 레슨&cPage=1">영어 레슨</a></li>
-				<li><a href="/category/list.do?type=교육&middleCategory=외국어&subCategory=기타 외국어 레슨&cPage=1">기타 외국어 레슨</a></li>
+				<li><a
+					href="/category/list.do?type=교육&middleCategory=외국어&subCategory=영어 레슨&cPage=1">영어
+						레슨</a></li>
+				<li><a
+					href="/category/list.do?type=교육&middleCategory=외국어&subCategory=기타 외국어 레슨&cPage=1">기타
+						외국어 레슨</a></li>
 			</ul>
 			<ul>
 				<a href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&cPage=1">미술ㆍ글쓰기</a>
-				<li><a href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&subCategory=미술ㆍ드로잉 레슨&cPage=1">미술ㆍ드로잉 레슨</a></li>
-				<li><a href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&subCategory=글쓰기 레슨&cPage=1">글쓰기 레슨</a></li>
+				<li><a
+					href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&subCategory=미술ㆍ드로잉 레슨&cPage=1">미술ㆍ드로잉
+						레슨</a></li>
+				<li><a
+					href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&subCategory=글쓰기 레슨&cPage=1">글쓰기
+						레슨</a></li>
 			</ul>
 			<ul>
 				<a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&cPage=1">댄스ㆍ뮤직</a>
-				<li><a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=댄스 레슨&cPage=1">댄스 레슨</a></li>
-				<li><a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=보컬ㆍ랩 레슨&cPage=1">보컬ㆍ랩 레슨</a></li>
-				<li><a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=악기 레슨&cPage=1">악기 레슨</a></li>
-				<li><a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=미디ㆍ작곡ㆍ편곡 레슨&cPage=1">미디ㆍ작곡ㆍ편곡 레슨</a></li>
+				<li><a
+					href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=댄스 레슨&cPage=1">댄스
+						레슨</a></li>
+				<li><a
+					href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=보컬ㆍ랩 레슨&cPage=1">보컬ㆍ랩
+						레슨</a></li>
+				<li><a
+					href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=악기 레슨&cPage=1">악기
+						레슨</a></li>
+				<li><a
+					href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=미디ㆍ작곡ㆍ편곡 레슨&cPage=1">미디ㆍ작곡ㆍ편곡
+						레슨</a></li>
 			</ul>
 		</div>
 
@@ -69,7 +91,7 @@
 									<p>${item.price}</p>
 								</c:when>
 								<c:otherwise>
-									<p>${item.price} ~</p>
+									<p>${item.price}~</p>
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -255,7 +277,8 @@
             -->
 				<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
 					<li class="page-item" style="margin-right: 0px"><a
-						class="page-link" href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${page}">${page}</a></li>
+						class="page-link"
+						href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${page}">${page}</a></li>
 				</c:forEach>
 
 				<!-- 오른쪽 버튼 -->

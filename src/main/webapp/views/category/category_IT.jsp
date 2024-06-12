@@ -17,16 +17,12 @@
 		<div class="bar">
 			<p>
 				<a href="/">홈</a> ><a href="/category/list.do?type=ITㆍ프로그래밍&cPage=1">IT/프로그래밍</a>
-				<%-- 
-				<c:choose>
-				<c:if test="/category/list.do?type=ITㆍ프로그래밍&middleCategory=UX 기획&cPage=1">
-					<p> UX 기획</p>
+				<c:if test="${middleCategory != null}"> 
+				 ><a href="/category/list.do?type=ITㆍ프로그래밍&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
 				</c:if>
-				<c:otherwise>
-				
-				</c:otherwise>
-				</c:choose> 
-				--%>
+				<c:if test="${subCategory != null}">
+				 ><a href="">${subCategory}</a>
+				</c:if>
 			</p>
 		</div>
 
@@ -161,11 +157,10 @@
 				<!-- 오른쪽 버튼 -->
 				<c:choose>
 					<c:when test="${pi.cPage == pi.maxPage}">
-						<li class="page-item" style="margin-right: 20px">
-						<a class="page-link" href="#" aria-label="Next"> 
-						<span aria-hidden="true">&raquo;</span>
-						</a>
-						</li>
+						<li class="page-item" style="margin-right: 20px"><a
+							class="page-link" href="#" aria-label="Next"> <span
+								aria-hidden="true">&raquo;</span>
+						</a></li>
 					</c:when>
 
 					<c:otherwise>

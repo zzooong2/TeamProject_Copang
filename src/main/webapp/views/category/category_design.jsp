@@ -14,7 +14,13 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> > 디자인
+				<a href="/">홈</a> ><a href="/category/list.do?type=디자인&cPage=1">디자인</a>
+				<c:if test="${middleCategory != null}"> 
+				 ><a href="/category/list.do?type=디자인&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
+				</c:if>
+				<c:if test="${subCategory != null}">
+				 ><a href="">${subCategory}</a>
+				</c:if>
 			</p>
 		</div>
 
@@ -23,31 +29,57 @@
 		<div class="category_area">
 			<ul>
 				<a href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&cPage=1">로고ㆍ브랜딩</a>
-				<li><a href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&subCategory=로고 디자인&cPage=1">로고 디자인</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&subCategory=로고 디자인 가이드&cPage=1">브랜드 디자인 가이드</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&subCategory=로고 디자인&cPage=1">로고
+						디자인</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&subCategory=로고 디자인 가이드&cPage=1">브랜드
+						디자인 가이드</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&cPage=1">인쇄 홍보물</a>
-				<li><a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=명함&cPage=1">명함</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=전단지ㆍ포스터ㆍ인쇄물&cPage=1">전단지ㆍ포스터ㆍ인쇄물</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=현수막ㆍX배너&cPage=1">현수막ㆍX배너</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=메뉴판&cPage=1">메뉴판</a></li>
+				<a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&cPage=1">인쇄
+					홍보물</a>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=명함&cPage=1">명함</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=전단지ㆍ포스터ㆍ인쇄물&cPage=1">전단지ㆍ포스터ㆍ인쇄물</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=현수막ㆍX배너&cPage=1">현수막ㆍX배너</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=메뉴판&cPage=1">메뉴판</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&cPage=1">마케팅 디자인</a>
-				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=상세페이지&cPage=1">상세페이지</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=SNSㆍ썸네일 디자인&cPage=1">SNSㆍ썸네일 디자인</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=채널아트 디자인&cPage=1">채널아트 디자인</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=방송용 아바타&cPage=1">방송용 아바타</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=배너ㆍ배달어플&cPage=1">배너ㆍ배달어플</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=블로그ㆍ카페 디자인&cPage=1">블로그ㆍ카페 디자인</a></li>
+				<a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&cPage=1">마케팅
+					디자인</a>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=상세페이지&cPage=1">상세페이지</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=SNSㆍ썸네일 디자인&cPage=1">SNSㆍ썸네일
+						디자인</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=채널아트 디자인&cPage=1">채널아트
+						디자인</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=방송용 아바타&cPage=1">방송용
+						아바타</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=배너ㆍ배달어플&cPage=1">배너ㆍ배달어플</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=블로그ㆍ카페 디자인&cPage=1">블로그ㆍ카페
+						디자인</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&cPage=1">웹ㆍ모바일 디자인</a>
-				<li><a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=명함&cPage=1">명함</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=전단지ㆍ포스터ㆍ인쇄물&cPage=1">전단지ㆍ포스터ㆍ인쇄물</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=현수막ㆍX배너&cPage=1">현수막ㆍX배너</a></li>
-				<li><a href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=메뉴판&cPage=1">메뉴판</a></li>
+				<a
+					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&cPage=1">웹ㆍ모바일
+					디자인</a>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=명함&cPage=1">명함</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=전단지ㆍ포스터ㆍ인쇄물&cPage=1">전단지ㆍ포스터ㆍ인쇄물</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=현수막ㆍX배너&cPage=1">현수막ㆍX배너</a></li>
+				<li><a
+					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=메뉴판&cPage=1">메뉴판</a></li>
 			</ul>
 		</div>
 
@@ -62,7 +94,7 @@
 					<!-- grid 개별 영역 -->
 					<div class="detail_thumb" onclick="location.href=''">
 						<div class="thumb_space">
-							<img src="../Semiproject(SH)/img/${item.fileName}" alt="">
+							<img src="/resources/img/${item.fileName}" alt="">
 							<p>${item.boardTitle}</p>
 						</div>
 
@@ -79,7 +111,7 @@
 									<p>${item.price}</p>
 								</c:when>
 								<c:otherwise>
-									<p>${item.price} ~</p>
+									<p>${item.price}~</p>
 								</c:otherwise>
 							</c:choose>
 						</div>
@@ -265,7 +297,8 @@
             -->
 				<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
 					<li class="page-item" style="margin-right: 20px"><a
-						class="page-link" href="/category/list.do?type=디자인&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${page}">${page}</a></li>
+						class="page-link"
+						href="/category/list.do?type=디자인&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${page}">${page}</a></li>
 				</c:forEach>
 
 				<!-- 오른쪽 버튼 -->

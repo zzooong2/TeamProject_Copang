@@ -14,7 +14,13 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> > 영상ㆍ사진
+				<a href="/">홈</a> ><a href="/category/list.do?type=영상ㆍ사진&cPage=1">영상ㆍ사진</a>
+				<c:if test="${middleCategory != null}"> 
+				 ><a href="/category/list.do?type=영상ㆍ사진&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
+				</c:if>
+				<c:if test="${subCategory != null}">
+				 ><a href="">${subCategory}</a>
+				</c:if>
 			</p>
 		</div>
 
@@ -23,18 +29,29 @@
 		<div class="category_area">
 			<ul>
 				<a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&cPage=1">영상</a>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=광고ㆍ홍보영상&cPage=1">광고ㆍ홍보영상</a></li>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=업종별 영상&cPage=1">업종별 영상</a></li>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=제품영상&cPage=1">제품영상</a></li>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=교육영상&cPage=1">교육영상</a></li>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=애니메이션&cPage=1">애니메이션</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=광고ㆍ홍보영상&cPage=1">광고ㆍ홍보영상</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=업종별 영상&cPage=1">업종별
+						영상</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=제품영상&cPage=1">제품영상</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=교육영상&cPage=1">교육영상</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=애니메이션&cPage=1">애니메이션</a></li>
 			</ul>
 			<ul>
 				<a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&cPage=1">사진</a>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=제품ㆍ홍보사진&cPage=1">제품ㆍ홍보사진</a></li>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=개인ㆍ프로필사진&cPage=1">개인ㆍ프로필사진</a></li>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=사진보정&cPage=1">사진보정</a></li>
-				<li><a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=이벤트 사진&cPage=1">이벤트 사진</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=제품ㆍ홍보사진&cPage=1">제품ㆍ홍보사진</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=개인ㆍ프로필사진&cPage=1">개인ㆍ프로필사진</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=사진보정&cPage=1">사진보정</a></li>
+				<li><a
+					href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=이벤트 사진&cPage=1">이벤트
+						사진</a></li>
 			</ul>
 		</div>
 
@@ -65,7 +82,7 @@
 									<p>${item.price}</p>
 								</c:when>
 								<c:otherwise>
-									<p>${item.price} ~</p>
+									<p>${item.price}~</p>
 								</c:otherwise>
 							</c:choose>
 						</div>
