@@ -354,7 +354,7 @@
             </div>
     
             <!---------------------------- Contents Right ---------------------------->
-    
+    		
             <div class="right_contents">
                 <div class="right_up">
                     <img src="../../resources/img/Link_img.png" alt="공유하기_Link_img" class="img_link">
