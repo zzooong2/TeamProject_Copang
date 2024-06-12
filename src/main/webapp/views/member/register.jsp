@@ -3,10 +3,14 @@
     <html lang="en">
 
     <head>
-        <%@ include file="/views/common/head.jsp" %>
-        <link rel="icon" href="/resources/img/tapIcon.png">
+        	<%@ include file="/views/common/head.jsp" %>
+        	<link rel="icon" href="/resources/img/tapIcon.png">
             <link rel="stylesheet" href="/resources/css/member/register.css">
         	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>   <!-- 제이쿼리 주소? -->
+        	<!-- SweetAlert2 CSS -->
+    		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.min.css">
+    		<!-- SweetAlert2 JavaScript -->
+    		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.all.min.js"></script>
     </head>
 
     <body>
@@ -94,7 +98,7 @@
                 var patternphone = /^[0-9]{10,11}$/;
                 
                 if (!patternphone.test(phone)) {
-                	alert('올바른 핸드폰 번호를 입력해주세요.');
+                	Swal.fire('알림', '올바른 핸드폰 번호를 입력해주세요.', 'success');
                 } else if(patternphone.test(phone)) {
                 $.ajax({
                     url: '/send-sms',  // 서블릿의 URL
@@ -103,7 +107,7 @@
                     success: function(response) {
                     	console.log(response);
                     	verificationCode = response;
-                        alert('인증번호가 전송되었습니다.');
+                    	Swal.fire('알림', '인증번호가 전송되었습니다.', 'success');
                         $('#verificationCodeContainer').show(); // 인증번호 입력란 보이기
                     },
                     error: function(error) {
@@ -118,10 +122,10 @@
             $('#verifyCodeBtn').on('click', function() {
                 var userInputCode = $('#verificationCode').val();
                 if(userInputCode === verificationCode) {
-                    alert('인증에 성공했습니다.');
+                	Swal.fire('알림', '인증에 성공하셨습니다.', 'success');
                     Flag = true;
                 } else {
-                    alert('인증번호가 올바르지 않습니다.');
+                    Swal.fire('알림', '인증번호가 올바르지 않습니다.', 'error');
                     Flag = false;
                 }
             });

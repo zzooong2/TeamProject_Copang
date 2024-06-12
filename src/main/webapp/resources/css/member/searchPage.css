@@ -77,7 +77,8 @@
     margin-top: 20px;
 }
 
-.search_container input[type="text"] {
+.search_container input[type="text"], 
+.search_container input[type="password"] {
     width: 100%;
     padding: 5px;
     font-family: 'Roboto', sans-serif;
