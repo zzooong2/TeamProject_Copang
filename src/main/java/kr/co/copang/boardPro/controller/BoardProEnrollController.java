@@ -37,8 +37,8 @@ public class BoardProEnrollController extends HttpServlet {
 //		●------------------------------ << boardProEnroll.jsp 데이터 취합 >> ---------------------------------------●
 		
 		HttpSession session = request.getSession();
-//		int memberNo = (int)session.getAttribute("userNo");
-		int memberNo = 11;
+		/* int memberNo = (int)session.getAttribute("userNo"); */
+		int memberNo = 3;
 		
 //		----- Enroll Page1
 		String title = request.getParameter("enroll_Title");
@@ -52,7 +52,10 @@ public class BoardProEnrollController extends HttpServlet {
 		
 		String[] twoCategory = request.getParameterValues("enroll_Middle_Category");
 		String[] thirdCategory = request.getParameterValues("enroll_Subcat_Category");
-		System.out.println(twoCategory);
+		
+		System.out.println(Arrays.toString(twoCategory));
+		System.out.println(Arrays.toString(thirdCategory));
+		
 		
 		for(String item : twoCategory) {
 			System.out.println("a : " + item);
