@@ -243,7 +243,7 @@
 					<c:otherwise>
 						<li class="page-item" style="margin-right: 0px"><a
 							class="page-link"
-							href="/category/list.do?type=교육&cPage=${pi.cPage-1}"
+							href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${pi.cPage-1}"
 							aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 						</a></li>
 					</c:otherwise>
@@ -255,7 +255,7 @@
             -->
 				<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
 					<li class="page-item" style="margin-right: 0px"><a
-						class="page-link" href="/category/list.do?type=교육&cPage=${page}">${page}</a></li>
+						class="page-link" href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${page}">${page}</a></li>
 				</c:forEach>
 
 				<!-- 오른쪽 버튼 -->
@@ -270,7 +270,7 @@
 					<c:otherwise>
 						<li class="page-item" style="margin-right: 0px"><a
 							class="page-link"
-							href="/category/list.do?type=교육&cPage=${pi.cPage+1}"
+							href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${pi.cPage+1}"
 							aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 						</a></li>
 					</c:otherwise>
