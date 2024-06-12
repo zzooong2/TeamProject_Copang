@@ -40,14 +40,17 @@
 
 
 // /////////////////////////////////////////// 파일 업로드 JavaScript \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+const dataTransfer = new DataTransfer();
+
 document.addEventListener("DOMContentLoaded", function() {
     // 첫 번째 파일 업로드 input 요소
-    var fileInput1 = document.getElementById("Detail_right_Contents4_fileInput1");
-    var preview1 = document.getElementById("Detail_right_Contents4_imagePreviews1");
-    var imageCountDisplay1 = document.getElementById("imageCountDisplay1");
+    let fileInput1 = document.getElementById("Detail_right_Contents4_fileInput1");
+    let preview1 = document.getElementById("Detail_right_Contents4_imagePreviews1");
+    let imageCountDisplay1 = document.getElementById("imageCountDisplay1");
 
     fileInput1.addEventListener("change", function(event) {
-        var files = event.target.files;
+        let files = event.target.files;
 
         // 2개 이상의 파일이 등록되면 경고창을 띄우고 파일을 제거합니다.
         if (files.length > 1) {
@@ -59,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function() {
         preview1.style.backgroundImage = "none"; // 배경 이미지를 제거합니다.
         preview1.innerHTML = ""; // 기존의 프리뷰를 초기화합니다.
 
-        var file = files[0]; // 첫 번째 파일만 가져옵니다.
+        let file = files[0]; // 첫 번째 파일만 가져옵니다.
 
         if (file) {
             var reader = new FileReader();
@@ -80,49 +83,80 @@ document.addEventListener("DOMContentLoaded", function() {
         imageCountDisplay1.textContent = "1/1";
     });
 
-	// 프리뷰에 나타나는 이미지를 클릭하여 삭제합니다.
+    // 프리뷰에 나타나는 이미지를 클릭하여 삭제합니다.
     preview1.addEventListener("click", function(event) {
         if (event.target.tagName === "IMG") {
             event.target.remove();
+            fileInput1.value = ""; // 파일 입력 초기화
             // 파일 업로드 수량 표시를 갱신합니다.
             imageCountDisplay1.textContent = "0/1";
         }
     });
 
     // 두 번째 파일 업로드 input 요소
-    var fileInput2 = document.getElementById("Detail_right_Contents4_fileInput2");
-    var preview2 = document.getElementById("Detail_right_Contents4_imagePreviews2");
-    var imageCountDisplay2 = document.getElementById("imageCountDisplay2");
+    let fileInput2 = document.getElementById("Detail_right_Contents4_fileInput2");
+    let preview2 = document.getElementById("Detail_right_Contents4_imagePreviews2");
+    let imageCountDisplay2 = document.getElementById("imageCountDisplay2");
 
     fileInput2.addEventListener("change", function(event) {
-        var files = event.target.files;
+        let files = event.target.files;
 
-        // 6개 이상의 파일이 등록되면 경고창을 띄우고 파일을 제거합니다.
-        if (files.length > 5) {
-            alert("파일은 최대 5개까지 등록 가능합니다.");
-            fileInput2.value = "";
-            return;
+        // 기존에 선택된 파일과 새로운 파일을 합칩니다.
+        for (let i = 0; i < files.length; i++) {
+            dataTransfer.items.add(files[i]);
         }
 
-		preview2.style.backgroundImage = "none"; // 배경 이미지를 제거합니다.
+        // 5개 이상의 파일이 등록되면 경고창을 띄우고 파일을 제거합니다.
+        if (dataTransfer.files.length > 5) {
+            alert("파일은 최대 5개까지 등록 가능합니다.");
+            for (let i = dataTransfer.files.length - 1; i >= 5; i--) {
+                dataTransfer.items.remove(i);
+            }
+        }
 
-        // 기존의 프리뷰를 초기화하지 않고 새로운 이미지를 추가합니다.
-        Array.from(files).forEach(function(file) {
-            var reader = new FileReader();
+        fileInput2.files = dataTransfer.files;
+
+        // 프리뷰를 갱신합니다.
+        preview2.innerHTML = ""; // 기존의 프리뷰를 초기화합니다.
+        for (let i = 0; i < dataTransfer.files.length; i++) {
+            let file = dataTransfer.files[i];
+            let reader = new FileReader();
 
             reader.onload = function(e) {
-                var img = document.createElement("img");
+                let img = document.createElement("img");
                 img.src = e.target.result;
                 preview2.appendChild(img);
             };
 
             reader.readAsDataURL(file);
-        });
+        }
 
         // 파일 업로드 수량 표시를 갱신합니다.
-		var totalImages = preview2.querySelectorAll("img").length + files.length;
-    	imageCountDisplay2.textContent = totalImages + "/" + '5';
+        imageCountDisplay2.textContent = dataTransfer.files.length + "/5";
     });
+
+    // 프리뷰에 나타나는 이미지를 클릭하여 삭제합니다.
+    preview2.addEventListener("click", function(event) {
+        if (event.target.tagName === "IMG") {
+            let index = Array.from(preview2.children).indexOf(event.target);
+            dataTransfer.items.remove(index);
+            fileInput2.files = dataTransfer.files;
+
+            // 프리뷰에서 이미지를 제거합니다.
+            event.target.remove();
+
+            // 파일 업로드 수량 표시를 갱신합니다.
+            imageCountDisplay2.textContent = dataTransfer.files.length + "/5";
+        }
+    });
+
+    // 프리뷰를 클릭하면 파일 선택 창을 엽니다.
+    preview2.addEventListener("click", function() {
+        fileInput2.click();
+    });
+});
+
+
 
 // ==========================================================================================================
 

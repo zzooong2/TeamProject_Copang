@@ -1212,7 +1212,8 @@
 				                            </div>
 				                        </div>
 			                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
-			                   		 </div>
+		                   		 	</div>
+	                   		 	</div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
 			                        <span class="vat">(VAT포함)</span>
@@ -1590,8 +1591,11 @@
 		                   </c:if>
 		                </section>
 	                </c:when>
-	               </c:choose>
-			                        <button class="Detail_Edit_button" onclick="">수정하기</button>
+					</c:choose>
+					<button class="Detail_Edit_button" onclick="" name="Edit_Page_No">수정하기</button>
+					<input type="hidden" id="Detail_boardProNo" value="${result.boardProNo}" />
+					<input type="hidden" id="Detail_businessServiceType" value="${result.businessServiceType}" />
+					
                 </form>
             </div>
         </div>

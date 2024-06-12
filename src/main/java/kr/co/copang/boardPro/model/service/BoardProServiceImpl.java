@@ -110,4 +110,26 @@ public class BoardProServiceImpl implements BoardProService {
 		return boardProDao.getDetailFile(boardProNo);
 	}
 	
+	@Override
+	public ArrayList<BoardProDto> editPage(int boardProNo) {
+		
+		BoardProDto result = boardProDao.getDetail(boardProNo);
+		BoardProDto resultSingle = boardProDao.getDetailSingle(boardProNo);
+		BoardProDto resultS = boardProDao.getDetailS(boardProNo);
+		BoardProDto resultD = boardProDao.getDetailD(boardProNo);
+		BoardProDto resultP = boardProDao.getDetailP(boardProNo);
+		BoardProDto resultF = boardProDao.getDetailF(boardProNo);
+		
+		ArrayList<BoardProDto> list = new ArrayList<>();
+		list.add(result);
+		list.add(resultSingle);
+		list.add(resultS);
+		list.add(resultD);
+		list.add(resultP);
+		list.add(resultF);
+		
+		return list;
+	}
+	
+	
 }

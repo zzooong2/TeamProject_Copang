@@ -39,4 +39,6 @@ public interface BoardProService {
 	
 	public BoardProDto getDetailFile(int boardProNo);
 	
+	public ArrayList<BoardProDto> editPage(int boardProNo);
+	
 }
