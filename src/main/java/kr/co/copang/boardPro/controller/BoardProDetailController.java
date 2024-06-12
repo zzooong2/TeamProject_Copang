@@ -27,17 +27,12 @@ public class BoardProDetailController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-<<<<<<< HEAD
-	    int boardProNo = 12;
-//		int boardProNo = Integer.parseInt(request.getParameter("B_NO"));
-=======
 		int boardProNo;
 	    try {
 	        boardProNo = Integer.parseInt(request.getParameter("B_NO"));
 	    } catch (NumberFormatException e) {
 	        boardProNo = 11; // 기본 값 설정 또는 오류 처리
 	    }
->>>>>>> 2807d9babb24771914adb030e73d9c64b16f8200
 	
 		BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
 		
