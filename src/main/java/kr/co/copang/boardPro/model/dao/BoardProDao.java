@@ -5,8 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.servlet.http.Part;
+import java.util.Arrays;
 
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.common.DatabaseConnection;
@@ -256,9 +255,6 @@ public class BoardProDao {
 
 		String query = "INSERT INTO UPLOAD VALUES(UPLOAD_SEQ.NEXTVAL, ?, ?, ?)";
 
-		System.out.println("5. boardDto.getFilePath : " + boardDto.getFilePath());
-		System.out.println("6. boardDto.getFileName : " + boardDto.getFileName());
-
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, boardDto.getFilePath());
@@ -318,22 +314,24 @@ public class BoardProDao {
 
 	}
 
-	public BoardProDto getDetailN(int boardProNo) {
-		String query = "SELECT B_NO,"
-				+ "			   USER_NO,"
-				+ "			   B_COMPANY,"
-				+ "			   B_TITLE,"
-				+ "			   B_CATEGORY_MAIN,"
-				+ "			   B_CATEGORY_MIDDLE,"
-				+ "			   B_CATEGORY_SUBCAT,"
-				+ "			   B_SERVICESTYLE,"
-				+ "			   B_CONTENT,"
-				+ "			   B_INDATE,"
-				+ "			   B_UPDATE,"
-				+ "			   B_DELETE,"
-				+ "			   B_VIEWS "
-				+ "		FROM CATEGORY_BOARD" 
-				+ "		WHERE B_NO = ?";
+	public BoardProDto getDetail(int boardProNo) {
+		String query = "SELECT cb.B_NO,"
+				+ "			   cb.USER_NO,"
+				+ "			   cb.B_COMPANY,"
+				+ "			   cb.B_TITLE,"
+				+ "			   cb.B_CATEGORY_MAIN,"
+				+ "			   cb.B_CATEGORY_MIDDLE,"
+				+ "			   cb.B_CATEGORY_SUBCAT,"
+				+ "			   cb.B_SERVICESTYLE,"
+				+ "			   cb.B_CONTENT,"
+				+ "			   cb.B_INDATE,"
+				+ "			   cb.B_UPDATE,"
+				+ "			   cb.B_DELETE,"
+				+ "			   cb.B_VIEWS,"
+				+ "			   bs.BM_TYPE"
+				+ "		FROM CATEGORY_BOARD cb"
+				+ "		JOIN BUSINESS_MENU bs ON cb.B_NO = bs.B_NO" 
+				+ "		WHERE cb.B_NO = ?";
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -355,6 +353,7 @@ public class BoardProDao {
 				String bUpdate = rs.getString("B_UPDATE");
 				String bDelete = rs.getString("B_DELETE");
 				int bViews = rs.getInt("B_VIEWS");
+				String bType = rs.getString("BM_TYPE");
 				
 				BoardProDto nBoardProDto = new BoardProDto();
 				nBoardProDto.setBoardProNo(bNo);
@@ -370,6 +369,7 @@ public class BoardProDao {
 				nBoardProDto.setBoardProUpdate(bUpdate);
 				nBoardProDto.setBoardProDelete(bDelete);
 				nBoardProDto.setBoardProViews(bViews);
+				nBoardProDto.setBusinessServiceType(bType);;
 
 				return nBoardProDto;
 
@@ -381,11 +381,61 @@ public class BoardProDao {
 
 		return null;
 	}
+	
+	public BoardProDto getDetailSingle(int boardProNo) {
 
+		String standardQuery = "SELECT B_NO,"
+				+ "					   BM_TYPE,"
+				+ "					   BM_NAME,"
+				+ "					   BM_GUIDE,"
+				+ "					   BM_PAY,"
+				+ "					   BM_WORKDATE,"
+				+ "					   BM_RETOUCH,"
+				+ "					   BM_DATA,"
+				+ "					   BM_FUNCTION"
+				+ "				FROM BUSINESS_MENU" 
+				+ "				WHERE B_NO = ?"
+				+ "				AND BM_TYPE = 'SINGLE'";
+
+		try {
+			pstmt = con.prepareStatement(standardQuery);
+			pstmt.setInt(1, boardProNo);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int bNo = rs.getInt("B_NO");
+				String sType = rs.getString("BM_TYPE");
+				String sName = rs.getString("BM_NAME");
+				String sGuide = rs.getString("BM_GUIDE");
+				int sPay = rs.getInt("BM_PAY");
+				int sWorkdate = rs.getInt("BM_WORKDATE");
+				int sRetouch = rs.getInt("BM_RETOUCH");
+				int sData = rs.getInt("BM_DATA");
+				int sFuntion = rs.getInt("BM_FUNCTION");
+
+				BoardProDto sBoardProDto = new BoardProDto();
+				sBoardProDto.setBoardProNo(bNo);
+				sBoardProDto.setBusinessServiceType(sType);
+				sBoardProDto.setBusinessServiceName(sName);
+				sBoardProDto.setBusinessServiceGuide(sGuide);
+				sBoardProDto.setBusinessServicePay(sPay);
+				sBoardProDto.setBusinessServiceWorkDate(sWorkdate);
+				sBoardProDto.setBusinessServiceRetouch(sRetouch);
+				sBoardProDto.setBusinessServiceData(sData);
+				sBoardProDto.setBusinessServiceFunction(sFuntion);
+
+				return sBoardProDto;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public BoardProDto getDetailS(int boardProNo) {
 
-		String standardQuery = "SELECT BM_NO,"
-				+ "					   B_NO,"
+		String standardQuery = "SELECT B_NO,"
 				+ "					   BM_TYPE,"
 				+ "					   BM_NAME,"
 				+ "					   BM_GUIDE,"
@@ -405,8 +455,7 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int bNo = rs.getInt("BM_NO");
-				int uNo = rs.getInt("B_NO");
+				int bNo = rs.getInt("B_NO");
 				String sType = rs.getString("BM_TYPE");
 				String sName = rs.getString("BM_NAME");
 				String sGuide = rs.getString("BM_GUIDE");
@@ -418,7 +467,6 @@ public class BoardProDao {
 
 				BoardProDto sBoardProDto = new BoardProDto();
 				sBoardProDto.setBoardProNo(bNo);
-				sBoardProDto.setUserNo(uNo);
 				sBoardProDto.setBusinessServiceType(sType);
 				sBoardProDto.setBusinessServiceName(sName);
 				sBoardProDto.setBusinessServiceGuide(sGuide);
@@ -438,8 +486,7 @@ public class BoardProDao {
 
 	public BoardProDto getDetailD(int boardProNo) {
 
-		String deluxeQuery = "SELECT BM_NO,"
-				+ "					 B_NO,"
+		String deluxeQuery = "SELECT B_NO,"
 				+ "					 BM_TYPE,"
 				+ "					 BM_NAME,"
 				+ "					 BM_GUIDE,"
@@ -459,8 +506,7 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int bNo = rs.getInt("BM_NO");
-				int uNo = rs.getInt("B_NO");
+				int bNo = rs.getInt("B_NO");
 				String dType = rs.getString("BM_TYPE");
 				String dName = rs.getString("BM_NAME");
 				String dGuide = rs.getString("BM_GUIDE");
@@ -472,7 +518,6 @@ public class BoardProDao {
 
 				BoardProDto dBoardProDto = new BoardProDto();
 				dBoardProDto.setBoardProNo(bNo);
-				dBoardProDto.setUserNo(uNo);
 				dBoardProDto.setBusinessServiceType(dType);
 				dBoardProDto.setBusinessServiceName(dName);
 				dBoardProDto.setBusinessServiceGuide(dGuide);
@@ -492,8 +537,7 @@ public class BoardProDao {
 
 	public BoardProDto getDetailP(int boardProNo) {
 
-		String premiumQuery = "SELECT BM_NO,"
-				+ "					  B_NO,"
+		String premiumQuery = "SELECT B_NO,"
 				+ "					  BM_TYPE,"
 				+ "					  BM_NAME,"
 				+ "					  BM_GUIDE,"
@@ -513,8 +557,7 @@ public class BoardProDao {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int bNo = rs.getInt("BM_NO");
-				int uNo = rs.getInt("B_NO");
+				int bNo = rs.getInt("B_NO");
 				String pType = rs.getString("BM_TYPE");
 				String pName = rs.getString("BM_NAME");
 				String pGuide = rs.getString("BM_GUIDE");
@@ -526,7 +569,6 @@ public class BoardProDao {
 
 				BoardProDto pBoardProDto = new BoardProDto();
 				pBoardProDto.setBoardProNo(bNo);
-				pBoardProDto.setUserNo(uNo);
 				pBoardProDto.setBusinessServiceType(pType);
 				pBoardProDto.setBusinessServiceName(pName);
 				pBoardProDto.setBusinessServiceGuide(pGuide);
@@ -550,11 +592,13 @@ public class BoardProDao {
 				+ "			   FILE_NAME,"
 				+ "			   FILE_PATH"
 				+ "		FROM UPLOAD"
-				+ "		WHERE B_NO = ?";
+				+ "		WHERE B_NO = ?"
+				+ "		AND FILE_PATH LIKE ?";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setInt(1, boardProNo);
+			pstmt.setString(2, "%main");
 
 			ResultSet rs = pstmt.executeQuery();
 
@@ -565,7 +609,6 @@ public class BoardProDao {
 				String fPath = rs.getString("FILE_PATH");
 
 				BoardProDto fBoardProDto = new BoardProDto();
-
 				fBoardProDto.setFileNo(bNo);
 				fBoardProDto.setFileName(fName);
 				fBoardProDto.setFilePath(fPath);
@@ -578,7 +621,82 @@ public class BoardProDao {
 		}
 		return null;
 	}
+	
+	public BoardProDto getDetailFile(int boardProNo) {
 
+		String query = "SELECT B_NO,"
+                + "		       FILE_NAME,"
+                + "		       FILE_PATH"
+                + " 	FROM UPLOAD"
+                + "		WHERE B_NO = ?"
+                + "	    AND FILE_PATH LIKE ?";
+
+		   try {
+		       pstmt = con.prepareStatement(query);
+		       pstmt.setInt(1, boardProNo);
+		       pstmt.setString(2, "%main");
+		
+		       ResultSet rs = pstmt.executeQuery();
+		
+		       if (rs.next()) {
+		           int bNo = rs.getInt("B_NO");
+		           String fName = rs.getString("FILE_NAME");
+		           String fPath = rs.getString("FILE_PATH");
+		
+		           BoardProDto fBoardProDto = new BoardProDto();
+		           fBoardProDto.setFileNo(bNo);
+		           fBoardProDto.setFileName(fName);
+		           fBoardProDto.setFilePath(fPath);
+		
+		           return fBoardProDto;
+		       }
+		
+		   } catch (SQLException e) {
+		       e.printStackTrace();
+		   }
+		   return null;
+	}
+	
+	
+	
+	public ArrayList<BoardProDto> getFiles(int boardProNo) {
+		
+		ArrayList<BoardProDto> result = new ArrayList<>();
+		
+		String query = "SELECT B_NO,"
+				+ "			   FILE_NAME,"
+				+ "			   FILE_PATH"
+				+ "		FROM UPLOAD"
+				+ "		WHERE B_NO = ?"
+				+ "		AND FILE_PATH LIKE '%detail'";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				int boardNo = rs.getInt("B_NO");
+				String fileName = rs.getString("FILE_NAME");
+				String filePath = rs.getString("FILE_PATH");
+				
+				BoardProDto fileDto = new BoardProDto();
+				fileDto.setBoardProNo(boardNo);
+				fileDto.setFileName(fileName);
+				fileDto.setFilePath(filePath);
+				
+				result.add(fileDto);
+			}
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	
 	public int setViews(int boardProNo) {
 		
 		String query = "UPDATE CATEGORY_BOARD"
