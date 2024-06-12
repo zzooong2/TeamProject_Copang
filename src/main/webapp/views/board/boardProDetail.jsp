@@ -113,7 +113,7 @@
 						    	<c:when test="${result.businessServiceType.equals('SINGLE')}">
 						    		<section>
 					                	<c:if test="${result.boardProCategory.equals('IT·프로그래밍')}">
-					                		<div class="rightConbox rightCon1">
+					                		<div class="rightConbox rightCon1 rightConboxSingle">
 						                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 						                        <span class="vat">(VAT포함)</span>
 						                        <div class="rightBox_second_title">
@@ -151,11 +151,11 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button type="submit" class="rightBox_buy_button">구매하기</button>
+						                        <button type="submit" class="rightBox_buy_button rightBox_buy_button_Single">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('디자인')}">
-					                    	<div class="rightConbox rightCon1">
+					                    	<div class="rightConbox rightCon1 rightConboxSingle">
 						                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 						                        <span class="vat">(VAT포함)</span>
 						                        <div class="rightBox_second_title">
@@ -190,11 +190,11 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('영상')}">
-						                    <div class="rightConbox rightCon1">
+						                    <div class="rightConbox rightCon1 rightConboxSingle">
 						                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 						                        <span class="vat">(VAT포함)</span>
 						                        <div class="rightBox_second_title">
@@ -220,11 +220,11 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
-						                    <div class="rightConbox rightCon1">
+						                    <div class="rightConbox rightCon1 rightConboxSingle">
 						                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 						                        <span class="vat">(VAT포함)</span>
 						                        <div class="rightBox_second_title">
@@ -249,12 +249,12 @@
 							                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 							                            </div>
 							                        </div>
-						                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
+						                        	<button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                   		 </div>
 					                   		 </div>
 				                   		 </c:if>
 				                   		 <c:if test="${result.boardProCategory.equals('마케팅')}">
-						                    <div class="rightConbox rightCon1">
+						                    <div class="rightConbox rightCon1 rightConboxSingle">
 						                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 						                        <span class="vat">(VAT포함)</span>
 						                        <div class="rightBox_second_title">
@@ -269,11 +269,11 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('교육')}">
-						                    <div class="rightConbox rightCon1">
+						                    <div class="rightConbox rightCon1 rightConboxSingle">
 						                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 						                        <span class="vat">(VAT포함)</span>
 						                        <div class="rightBox_second_title">
@@ -294,7 +294,7 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                    </div>
 					                    </c:if>
 									</section>
@@ -618,7 +618,7 @@
 						<c:when test="${result.businessServiceType.equals('SINGLE')}">
 							<section class="right_payTabList">
 			                	<c:if test="${result.boardProCategory.equals('IT·프로그래밍')}">
-			                		<div class="rightConbox rightCon1">
+			                		<div class="rightConbox rightCon1 rightConboxSingle">
 				                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 				                        <span class="vat">(VAT포함)</span>
 				                        <div class="rightBox_second_title">
@@ -660,7 +660,7 @@
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('디자인')}">
-			                    	<div class="rightConbox rightCon1">
+			                    	<div class="rightConbox rightCon1 rightConboxSingle">
 				                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 				                        <span class="vat">(VAT포함)</span>
 				                        <div class="rightBox_second_title">
@@ -699,7 +699,7 @@
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('영상')}">
-				                    <div class="rightConbox rightCon1">
+				                    <div class="rightConbox rightCon1 rightConboxSingle">
 				                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 				                        <span class="vat">(VAT포함)</span>
 				                        <div class="rightBox_second_title">
@@ -729,7 +729,7 @@
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
-				                    <div class="rightConbox rightCon1">
+				                    <div class="rightConbox rightCon1 rightConboxSingle">
 				                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 				                        <span class="vat">(VAT포함)</span>
 				                        <div class="rightBox_second_title">
@@ -759,7 +759,7 @@
 			                   		 </div>
 		                   		 </c:if>
 		                   		 <c:if test="${result.boardProCategory.equals('마케팅')}">
-				                    <div class="rightConbox rightCon1">
+				                    <div class="rightConbox rightCon1 rightConboxSingle">
 				                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 				                        <span class="vat">(VAT포함)</span>
 				                        <div class="rightBox_second_title">
@@ -778,7 +778,7 @@
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('교육')}">
-				                    <div class="rightConbox rightCon1">
+				                    <div class="rightConbox rightCon1 rightConboxSingle">
 				                        <span class="rightBox_businessMenuPay businessServicePay">${resultSingle.businessServicePay}원</span>
 				                        <span class="vat">(VAT포함)</span>
 				                        <div class="rightBox_second_title">
@@ -1591,6 +1591,7 @@
 		                </section>
 	                </c:when>
 	               </c:choose>
+			                        <button class="Detail_Edit_button" onclick="">수정하기</button>
                 </form>
             </div>
         </div>
