@@ -31,7 +31,7 @@ public class BoardProDetailController extends HttpServlet {
 	    try {
 	        boardProNo = Integer.parseInt(request.getParameter("B_NO"));
 	    } catch (NumberFormatException e) {
-	        boardProNo = 11; // 기본 값 설정 또는 오류 처리
+	        boardProNo = 16; // 기본 값 설정 또는 오류 처리
 	    }
 	
 		BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
@@ -45,6 +45,7 @@ public class BoardProDetailController extends HttpServlet {
 			request.setAttribute("resultD", result.get(3));
 			request.setAttribute("resultP", result.get(4));
 			request.setAttribute("resultF", result.get(5));
+			request.setAttribute("boardProNo", boardProNo);
 		} else {
 			request.setAttribute("error", "잘못된 접근입니다.");
 		}

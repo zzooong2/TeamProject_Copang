@@ -613,7 +613,11 @@
                    	<img src="../../resources/img/Link_img.png" alt="공유하기_Link_img" class="img_link" id="shareButton">
                     <span class="right_up_text">${result.boardProTitle}</span>
                 </div>
-                <form>
+                <form id="type">
+                <input type="hidden" name="boardProNo" id="boardProNo" />
+                <input type="hidden" name="objectTitle" id="objectTitle" />
+                <input type="hidden" name="objectPrice" id="objectPrice" />
+                <input type="hidden" name="objectType" id="objectType" />
 					<c:choose>
 						<c:when test="${result.businessServiceType.equals('SINGLE')}">
 							<section class="right_payTabList">
@@ -656,7 +660,7 @@
 				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 				                            </div>
 				                        </div>
-				                        <button type="submit" class="rightBox_buy_button">구매하기</button>
+				                        <button type="button" class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('디자인')}">
@@ -857,7 +861,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -887,7 +891,6 @@
 			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
->>>>>>> 2807d9babb24771914adb030e73d9c64b16f8200
 		                            </div>
 			                        <div class="rightBox_check_list_inner">
 			                        	<div class="rightBox_check_list">
@@ -948,7 +951,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}');">구매하기</button>
 			                    </div>
 		                    </c:if>
 		                    <c:if test="${result.boardProCategory.equals('디자인')}">
@@ -999,7 +1002,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1598,5 +1601,10 @@
         </div>
     </main>
 	<%@ include file="/views/common/footer.jsp"%>
+	
+<script src="../../resources/js/payment/payment/paymentButton.js"></script>	
+	
 </body>
 </html>
+
+

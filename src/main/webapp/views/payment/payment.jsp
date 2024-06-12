@@ -67,7 +67,7 @@
                     </div>
                     <div class="item-2">
                         <h4 id="object-title">${result.boardTitle}</h4>
-                        <h6 id="object-celler">${result.company}</h6>
+                        <h6 id="object-celler"></h6>
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
                     </thead>
                     <tbody>
                         <tr style="font-size: 12px; font-weight: bold;">
-                            <td style="text-align: left;">B2B 전문 번역 회사의 고품질 대량 전문 번역 서비스</td>
+                            <td style="text-align: left;">${result.boardTitle}</td>
                             <td style="text-align: center;">
                                 <input type='button' onclick='count("minus")' class="table-object-count" value='-' />
                                 <div id='object-count' class="table-object-number">1</div>
@@ -92,7 +92,7 @@
                                 <div id='date-count'>1</div>
                             </td>
                             <td style="text-align: right;">
-                                <div id="price">60000</div>
+                                <div id="price">${result.businessPay}</div>
                             </td>
                         </tr>
                     </tbody>
@@ -126,7 +126,7 @@
             <div class="price">
                 <h4 class="order-price">
                     <span class="amount-item-1">주문 금액</span>
-                    <span class="amount-item-2" id="final-amount">60000<span>원</span></span>
+                    <span class="amount-item-2" id="final-amount">${result.boardTitle}<span>원</span></span>
                 </h4>
 
                 <h4 class="order-price">
@@ -155,8 +155,8 @@
         <h1 class="detail-request-text">의뢰내용</h1>
         <div class="request-detail">
             <div class="detail">
-	 			<input type="hidden" id="userNo" name="userNo" value="${result.userNo}">
-	 			<input type="hidden" id="requestNo" name="requestNo" value="${result.requestNo}">
+	 			<input type="hidden" id="userNo" name="userNo" value="">
+	 			<input type="hidden" id="requestNo" name="requestNo" value="">
                 <input type="text" id="title" name="request-title" placeholder=" 제목을 입력해주세요.(* 현재 페이지 내에서만 작성 및 수정 가능합니다.)" class="request-title">
                 <br>
                 <br>
