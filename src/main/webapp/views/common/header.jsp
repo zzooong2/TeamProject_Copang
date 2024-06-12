@@ -16,8 +16,8 @@
 			</li>
 		</ul>
 		<!-- 로고 -->
-		<a href="/">
-		<img class="Logo" src="/resources/img/Logo.png" alt="logo">
+		<a href="/"> <img class="Logo" src="/resources/img/Logo.png"
+			alt="logo">
 		</a>
 		<!-- Search(돋보기) -->
 

@@ -73,7 +73,7 @@ body{
 .thumb_container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    row-gap: 80px;
+    row-gap: 100px;
 }
 
 .detail_thumb{
@@ -123,8 +123,14 @@ body{
     float: left;
     width: 100%;
 }
-.company_name{
+.price > p {
+	font-weight: normal;
+	font-size: 15px;
+}
+
+.company_name > p{
     float: left;
     width: 100%;
     font-size: 10px;
+    color : #555;
 }

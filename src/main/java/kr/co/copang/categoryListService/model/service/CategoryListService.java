@@ -7,7 +7,7 @@ import kr.co.copang.common.PageInfo;
 
 public interface CategoryListService {
 	
-	public ArrayList<CategoryListDtoImpl>getList(String type, PageInfo pi);
+	public ArrayList<CategoryListDtoImpl>getList(String type, PageInfo pi, String middleCategory, String subCategory);
 
 	public int getListCount(String type);
 
