@@ -57,7 +57,8 @@ public class BoardProServiceImpl implements BoardProService {
 	@Override
 	public ArrayList<BoardProDto> getDetail(int boardProNo) {
 		
-		BoardProDto result = boardProDao.getDetailN(boardProNo);
+		BoardProDto result = boardProDao.getDetail(boardProNo);
+		BoardProDto resultSingle = boardProDao.getDetailSingle(boardProNo);
 		BoardProDto resultS = boardProDao.getDetailS(boardProNo);
 		BoardProDto resultD = boardProDao.getDetailD(boardProNo);
 		BoardProDto resultP = boardProDao.getDetailP(boardProNo);
@@ -65,6 +66,7 @@ public class BoardProServiceImpl implements BoardProService {
 
 		ArrayList<BoardProDto> list = new ArrayList<>();
 		list.add(result);
+		list.add(resultSingle);
 		list.add(resultS);
 		list.add(resultD);
 		list.add(resultP);
@@ -98,5 +100,14 @@ public class BoardProServiceImpl implements BoardProService {
 		return boardProDao.getReviewAvg(boardProNo);
 	}
 	
+	@Override
+	public ArrayList<BoardProDto> getFiles(int boardProNo) {
+		return boardProDao.getFiles(boardProNo);
+	}
+	
+	@Override
+	public BoardProDto getDetailFile(int boardProNo) {
+		return boardProDao.getDetailFile(boardProNo);
+	}
 	
 }
