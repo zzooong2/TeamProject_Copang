@@ -28,7 +28,6 @@ header {
     width: 100px;
     height: 100px;
     margin: 0;
-    padding-left: 50px;
 }
 
 /* 서치바 */
@@ -36,7 +35,7 @@ header {
 
 .search-box {
     height: 30px;
-    width: 500px;
+    width: 400px;
     margin-left: 20px;
     border: none;
     border: 5px solid #ff8e47;
@@ -54,13 +53,13 @@ header {
     color: #999;
     font-size: 16px;
     line-height: 30px;
-    width: 480px;
+    width: 380px;
     border-radius: 20px;
 }
 
 .search-btn {
     color: #ff8e47;
-    left: 92%;
+    left: 90%;
     width: 40px;
     height: 100%;
     border-radius: 0px 20px 20px 0px;
@@ -76,17 +75,17 @@ header {
 /* 네비게이션 영역 */
 
 .nav {
-    width: 25%;
+    width: 30%;
     margin: 0;
-    margin-right: 20px;
-    margin-left: 30px;
+    margin-right: 10px;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 .nav li{
     padding: 5px;
-    width: 70px;
+    width: 100px;
     display: inline-block;
     text-align: center;
 }

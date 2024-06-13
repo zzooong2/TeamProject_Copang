@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
 import kr.co.copang.categoryListService.model.service.CategoryListServiceImpl;
-import kr.co.copang.common.PageInfo;
-import kr.co.copang.common.Pagination;
 
 @WebServlet("/category/list.do")
 public class CategoryListController extends HttpServlet {
@@ -32,45 +30,63 @@ public class CategoryListController extends HttpServlet {
 //				2. 컨트롤러가 String type = request.getParameter("type")
 
 //		오청받은 파라미터값 type은 문자형변수 type에 지닌다.
-		String type = request.getParameter("type");		
+		String type = request.getParameter("type");	
 
-		int cPage = Integer.parseInt(request.getParameter("cPage"));
-		
-		int listCount = categoryListService.getListCount(type); 
-		
-		int pageLimit = 2;
-		
-		int boardLimit = 3;
-		
-		int row = listCount - (cPage-1) * boardLimit;
-		
-		PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit);
-		
-		ArrayList<CategoryListDtoImpl> list = categoryListService.getList(type, pi);
+//		중분류 값 요청받기
+		String middleCategory = request.getParameter("middleCategory");
 
-//		 리스트 잘 가져오는지 까지
-		request.setAttribute("list", list);
-		request.setAttribute("pi", pi);
+//		소분류 값 요청받기
+		String subCategory = request.getParameter("subCategory");
+
+//		int cPage = Integer.parseInt(request.getParameter("cPage"));
+//		
+//		int listCount = categoryListService.getListCount(type); 
+//		
+//		int pageLimit = 2;
+//		
+//		int boardLimit = 3;
+		
+//		PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit);
+		
+//		대분류 리스트 배열 
+		ArrayList<CategoryListDtoImpl> fCategory = categoryListService.getMainList(type);
+		request.setAttribute("fCategory", fCategory);
+		
+//		중분류 리스트 배열
+		ArrayList<CategoryListDtoImpl> sCategory = categoryListService.getMiddleList(middleCategory);
+		request.setAttribute("sCategory", sCategory);
+		
+//		소분류 리스트 배열
+		ArrayList<CategoryListDtoImpl> tCategory = categoryListService.getSubList(subCategory);
+		request.setAttribute("tCategory", tCategory);
+		
+//		request.setAttribute("pi", pi);
+//		request.setAttribute("middleCategory", middleCategory);
+//		request.setAttribute("subCategory", subCategory);
 		
 		
 		String nextPage = "";
-//		""은 "이 사이에 들어가있는 모든것을 해당한다."
+		String trimmedType = type != null ? type.trim() : "";
 		
 		
 		
-		
-		if(type.equals("ITㆍ프로그래밍")){
+		if(trimmedType.equals("IT·프로그래밍")){
 			nextPage = "/views/category/category_IT.jsp";
-		}else if(type.equals("디자인")){
+		}else if(trimmedType.equals("디자인")){
 			nextPage = "/views/category/category_design.jsp";
-		}else if(type.equals("영상ㆍ사진")){
+		}else if(trimmedType.equals("영상·사진")){
 			nextPage = "/views/category/category_media.jsp";
-		}else if(type.equals("마케팅")){
+		}else if(trimmedType.equals("마케팅")){
 			nextPage = "/views/category/category_marketing.jsp";
-		}else if(type.equals("교육")){
+		}else if(trimmedType.equals("교육")){
 			nextPage = "/views/category/category_edu.jsp";
+		}else {
+			nextPage = "views/category/default_category.jsp";
+			System.out.println("Type did not match any predefined categories");
 		}
-	
+		
+		System.out.println("Next Page : " + nextPage);
+		
 		RequestDispatcher view = request.getRequestDispatcher(nextPage);
 		view.forward(request, response);
 

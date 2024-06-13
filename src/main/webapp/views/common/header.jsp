@@ -7,17 +7,17 @@
 		<ul class="top_menu">
 			<li>분야 카테고리
 				<ul class="sub_menu">
-					<li><a href="/category/list.do?type=ITㆍ프로그래밍&cPage=1">ITㆍ프로그래밍</a></li>
+					<li><a href="/category/list.do?type=IT·프로그래밍&cPage=1">IT·프로그래밍</a></li>
 					<li><a href="/category/list.do?type=디자인&cPage=1">디자인</a></li>
-					<li><a href="/category/list.do?type=영상ㆍ사진&cPage=1">영상ㆍ사진</a></li>
+					<li><a href="/category/list.do?type=영상·사진&cPage=1">영상·사진</a></li>
 					<li><a href="/category/list.do?type=마케팅&cPage=1">마케팅</a></li>
 					<li><a href="/category/list.do?type=교육&cPage=1">교육</a></li>
 				</ul>
 			</li>
 		</ul>
 		<!-- 로고 -->
-		<a href="/">
-		<img class="Logo" src="/resources/img/Logo.png" alt="logo">
+		<a href="/"> <img class="Logo" src="/resources/img/Logo.png"
+			alt="logo">
 		</a>
 		<!-- Search(돋보기) -->
 
