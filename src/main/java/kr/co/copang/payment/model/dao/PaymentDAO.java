@@ -69,8 +69,8 @@ public class PaymentDAO {
 			ps = con.prepareStatement(query);
 			
 			ps.setString(1, pDTO.getOrderNo());
-			ps.setInt(2, 1);
-			ps.setInt(3, 1);
+			ps.setInt(2, 15);
+			ps.setInt(3, pDTO.getUserNo());
 			
 			int result = ps.executeUpdate();
 			
@@ -79,6 +79,15 @@ public class PaymentDAO {
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	
+	// 결제 정보 가져오기
+	public BoardDTO getPaymentInfo(BoardDTO bDTO) {
+		String query = "";
+		
+		
+		return null;
 	}
 	
 

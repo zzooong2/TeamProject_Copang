@@ -3,7 +3,6 @@ package kr.co.copang.payment.controller;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.servlet.ServletException;
@@ -11,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.copang.payment.model.dto.PaymentDTO;
 import kr.co.copang.payment.model.service.PaymentServiceImpl;
@@ -35,20 +35,24 @@ public class PaymentCompleteController extends HttpServlet {
 		
 		int price = Integer.parseInt(request.getParameter("priceArr"));
 		String objectTitle = request.getParameter("objectTitle");
-		String objectCeller = request.getParameter("objectCeller");
 		String orderNumber = generateOrderNumber();
 		
+		HttpSession session = request.getSession();
+		
+		int userNo = (int)session.getAttribute("userNo");
+		System.out.println("회원번호: " + userNo);
 		System.out.println("주문금액: " + price);
 		System.out.println("주문제품: " + objectTitle);
-		System.out.println("판매자명: " + objectCeller);
 		System.out.println("주문번호: " + orderNumber);
 		
 		PaymentDTO pDTO = new PaymentDTO();
 		
+		pDTO.setUserNo(userNo);
 		pDTO.setObjectPrice(price);
 		pDTO.setObjectTitle(objectTitle);
-		pDTO.setObjectCeller(objectCeller);
 		pDTO.setOrderNo(orderNumber);
+		
+		request.setAttribute("pDTO", pDTO);
 		
 		PaymentServiceImpl paymentService = new PaymentServiceImpl();
 		

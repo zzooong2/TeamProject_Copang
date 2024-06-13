@@ -151,7 +151,7 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button type="submit" class="rightBox_buy_button rightBox_buy_button_Single">구매하기</button>
+						                        <button type="button" class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('디자인')}">
@@ -190,7 +190,7 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
+						                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('영상')}">
@@ -220,7 +220,7 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
+						                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
@@ -249,7 +249,7 @@
 							                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 							                            </div>
 							                        </div>
-						                        	<button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
+						                        	<button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 						                   		 </div>
 					                   		 </div>
 				                   		 </c:if>
@@ -269,7 +269,7 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
+						                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('교육')}">
@@ -294,7 +294,7 @@
 						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 						                            </div>
 						                        </div>
-						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
+						                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 						                    </div>
 					                    </c:if>
 									</section>
@@ -618,6 +618,7 @@
                 <input type="hidden" name="objectTitle" id="objectTitle" />
                 <input type="hidden" name="objectPrice" id="objectPrice" />
                 <input type="hidden" name="objectType" id="objectType" />
+                <input type="hidden" name="fileName" id="fileName" />
 					<c:choose>
 						<c:when test="${result.businessServiceType.equals('SINGLE')}">
 							<section class="right_payTabList">
@@ -660,7 +661,7 @@
 				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 				                            </div>
 				                        </div>
-				                        <button type="button" class="rightBox_buy_button" onclick="">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('디자인')}">
@@ -699,7 +700,7 @@
 				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 				                            </div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('영상')}">
@@ -729,7 +730,7 @@
 				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 				                            </div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
@@ -758,7 +759,7 @@
 					                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 					                            </div>
 					                        </div>
-				                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
+				                        	<button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 				                   		 </div>
 			                   		 </div>
 		                   		 </c:if>
@@ -778,7 +779,7 @@
 				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 				                            </div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('교육')}">
@@ -803,7 +804,7 @@
 				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
 				                            </div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 				                    </div>
 			                    </c:if>
 						</section>
@@ -861,7 +862,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -906,7 +907,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -951,7 +952,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 		                    </c:if>
 		                    <c:if test="${result.boardProCategory.equals('디자인')}">
@@ -1002,7 +1003,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1044,7 +1045,7 @@
 				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
 				                            </div>
 			                        	</div>
-		                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
+		                        	<button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 		                    	</div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1086,7 +1087,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                   <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('영상')}">
@@ -1123,7 +1124,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1151,7 +1152,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1179,7 +1180,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                   <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
@@ -1215,7 +1216,7 @@
 				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 				                            </div>
 				                        </div>
-			                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        	<button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                   		 </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1243,7 +1244,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1271,7 +1272,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                   <c:if test="${result.boardProCategory.equals('마케팅')}">
@@ -1330,7 +1331,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1380,7 +1381,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1430,7 +1431,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                   <c:if test="${result.boardProCategory.equals('교육')}">
@@ -1489,7 +1490,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1539,7 +1540,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1589,7 +1590,7 @@
 			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
 			                            </div>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                </section>

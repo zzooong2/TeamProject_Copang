@@ -50,20 +50,13 @@
         <div class="payment-text">
             <h1>결제하기</h1> 
         </div>
-		
-		
-		<!-- <div id="create-order-number-space">
-			<p id="create-order-text">결제번호: </p>
-	        <p id="create-order-number">0</p>
-        </div> -->
-        
         
         <div class="payment">
             <div class="order-list">
                 <h4>주문 내역</h4> 
                 <div class="order-flex">
                     <div class="item-1">
-                        <img src="../../resources/img/item1.png" alt="제품사진">
+                        <img src="../../resources/upload/main/${result.fileName}" alt="${result.fileName}">
                     </div>
                     <div class="item-2">
                         <h4 id="object-title">${result.boardTitle}</h4>
@@ -126,7 +119,8 @@
             <div class="price">
                 <h4 class="order-price">
                     <span class="amount-item-1">주문 금액</span>
-                    <span class="amount-item-2" id="final-amount">${result.boardTitle}<span>원</span></span>
+                    <%-- <span class="amount-item-2" id="final-amount">${result.businessPay}<span>원</span></span> --%>
+                    <span class="amount-item-2" id="final-amount">100<span>원</span></span>
                 </h4>
 
                 <h4 class="order-price">
@@ -144,8 +138,7 @@
 
                 <h4 class="order-price">
                     <span class="total-item-1">총 결제 금액</span>
-                    <span class="total-item-2" id="total-amount">100<span>원</span>
-                    </span>
+                    <span class="total-item-2" id="total-amount"><span>원</span></span>
                 </h4>
             </div>
             
@@ -155,8 +148,8 @@
         <h1 class="detail-request-text">의뢰내용</h1>
         <div class="request-detail">
             <div class="detail">
-	 			<input type="hidden" id="userNo" name="userNo" value="">
-	 			<input type="hidden" id="requestNo" name="requestNo" value="">
+	 			<input type="hidden" id="userNo" name="userNo" value="${result.userNo}">
+	 			<input type="hidden" id="boardProNo" name="boardProNo" value="${result.boardNo}" />
                 <input type="text" id="title" name="request-title" placeholder=" 제목을 입력해주세요.(* 현재 페이지 내에서만 작성 및 수정 가능합니다.)" class="request-title">
                 <br>
                 <br>
@@ -175,8 +168,7 @@
        	
     </section>
     <%@ include file="/views/common/footer.jsp"%>
-</body>
-</html>
+    
 <script src="../../resources/js/payment/payment/objectCount.js"></script>
 <script src="../../resources/js/payment/payment/paymentRole.js"></script>
 
@@ -190,4 +182,22 @@
 
 <!-- 주문번호 생성파일 -->
 <script src="../../resources/js/payment/payment/createOrderNumber.js"></script>
+
+<!-- 수수료 계산 -->
+<script>
+$(document).ready(function (){
+	const amountVal = document.getElementById("final-amount").innerText;
+	let amount = amountVal.split("원"); // amount[0] 상품가격
+
+	let fee = 0; // 수수료 
 	
+	fee = Math.round(amount[0]*0.035);
+	
+	document.getElementById("fee").innerText = fee + "원";
+	document.getElementById("total-amount").innerText = parseInt(amount[0]) + fee;
+	
+});
+</script>	
+
+</body>
+</html>
