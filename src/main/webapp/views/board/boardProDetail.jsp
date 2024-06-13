@@ -10,14 +10,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COPANG</title>
-    <link rel="icon" href="../../resources/img/tapIcon.png">
-    <link rel="stylesheet" href="../../resources/css/common/header.css">
-    <link rel="stylesheet" href="../../resources/css/common/footer.css">
-    <link rel="stylesheet" type="text/css" href="../../resources/css/board/boardProDetail.css">
+    <link rel="icon" href="/resources/img/tapIcon.png">
+    <link rel="stylesheet" href="/resources/css/common/header.css">
+    <link rel="stylesheet" href="/resources/css/common/footer.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/board/boardProDetail.css">
     <%@ include file="/views/common/head.jsp"%>
     <script src="https://kit.fontawesome.com/1992e1ad9e.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../../resources/js/boardProDetail/boardProDetail.js"></script>
+    <script src="/resources/js/boardProDetail/boardProDetail.js"></script>
     
     <%
         BoardProDto result = (BoardProDto) request.getAttribute("result");
@@ -122,19 +122,19 @@
 						                        </div>
 						                        <div class="rightBox_check_list_IT">
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                        </div>
 						                        <div class="rightBox_check_list_inner">
@@ -164,19 +164,19 @@
 						                        </div>
 						                        <div class="rightBox_check_list_IT">
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">응용 디자인</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">응용 디자인</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                        </div>
 						                        <div class="rightBox_check_list_inner">
@@ -203,7 +203,7 @@
 						                        </div>
 						                        <div class="rightBox_check_list_IT">
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">배경 음악</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">배경 음악</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                            </div>
 						                        </div>
 						                        <div class="rightBox_check_list_inner">
@@ -233,7 +233,7 @@
 						                        </div>
 						                        <div class="rightBox_check_list_IT">
 						                            <div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">보정 작업</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+						                                <span class="rightBox_check_list_text">보정 작업</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 						                        	</div>
 							                        <div class="rightBox_check_list_inner">
 							                            <div class="rightBox_check_list">
@@ -610,7 +610,7 @@
     
             <div class="right_contents">
                 <div class="right_up">
-                   	<img src="../../resources/img/Link_img.png" alt="공유하기_Link_img" class="img_link" id="shareButton">
+                   	<img src="/resources/img/Link_img.png" alt="공유하기_Link_img" class="img_link" id="shareButton">
                     <span class="right_up_text">${result.boardProTitle}</span>
                 </div>
                 <form>
@@ -627,19 +627,19 @@
 				                        </div>
 				                        <div class="rightBox_check_list_IT">
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                        </div>
 				                        <div class="rightBox_check_list_inner">
@@ -669,19 +669,19 @@
 				                        </div>
 				                        <div class="rightBox_check_list_IT">
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">응용 디자인</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">응용 디자인</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                        </div>
 				                        <div class="rightBox_check_list_inner">
@@ -708,7 +708,7 @@
 				                        </div>
 				                        <div class="rightBox_check_list_IT">
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">배경 음악</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">배경 음악</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                            </div>
 				                        </div>
 				                        <div class="rightBox_check_list_inner">
@@ -738,7 +738,7 @@
 				                        </div>
 				                        <div class="rightBox_check_list_IT">
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">보정 작업</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                                <span class="rightBox_check_list_text">보정 작업</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                        	</div>
 					                        <div class="rightBox_check_list_inner">
 					                            <div class="rightBox_check_list">
@@ -823,23 +823,23 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>
@@ -868,23 +868,23 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 		                            </div>
@@ -913,23 +913,23 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 		                            </div>
@@ -967,23 +967,23 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">응용 디자인</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">응용 디자인</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>
@@ -1009,23 +1009,23 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">응용 디자인</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">응용 디자인</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 		                            </div>
@@ -1051,23 +1051,23 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">원본파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">고해상도 파일 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">응용 디자인</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">응용 디자인</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">상표등록 가능여부</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">상업적 이용 가능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>
@@ -1102,7 +1102,7 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">배경 음악</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+			                                <span class="rightBox_check_list_text">배경 음악</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
@@ -1130,7 +1130,7 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">배경 음악</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+			                                <span class="rightBox_check_list_text">배경 음악</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
@@ -1158,7 +1158,7 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">배경 음악</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+			                                <span class="rightBox_check_list_text">배경 음악</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
@@ -1195,7 +1195,7 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">보정 작업</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+			                                <span class="rightBox_check_list_text">보정 작업</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 			                        	</div>
 				                        <div class="rightBox_check_list_inner">
 				                            <div class="rightBox_check_list">
@@ -1223,7 +1223,7 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">보정 작업</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+			                                <span class="rightBox_check_list_text">보정 작업</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 			                        	</div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
@@ -1251,7 +1251,7 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">보정 작업</span><img src="../../resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+			                                <span class="rightBox_check_list_text">보정 작업</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 			                        	</div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
@@ -1288,31 +1288,31 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>
@@ -1338,31 +1338,31 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>
@@ -1388,31 +1388,31 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>
@@ -1447,31 +1447,31 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>
@@ -1497,31 +1497,31 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>
@@ -1547,31 +1547,31 @@
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="../../resources/img/check.png" alt="rightBox_check_png"
+			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
 			                                    class="rightBox_check_png">
 			                            </div>
 			                        </div>

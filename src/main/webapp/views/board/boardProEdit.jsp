@@ -320,7 +320,7 @@
 							</div>
 								<div class="Detail_right_Contents1_imgbox">
 									<img class="Detail_right_Contents1_img"
-										src="../../resources/img/Business-card.jpg" alt="Business_Card">
+										src="/resources/img/Business-card.jpg" alt="Business_Card">
 								</div>
 							</div>
 						</div>
@@ -851,10 +851,10 @@
     <%@ include file="/views/common/footer.jsp"%>
  
 </body>
-<script src="../../resources/js/boardProEnroll/boardProEnroll1.js"></script>
-<script src="../../resources/js/boardProEnroll/boardProEnroll2.js"></script>
-<script src="../../resources/js/boardProEnroll/boardProEnroll3.js"></script>
-<script src="../../resources/js/boardProEnroll/boardProEnroll_FileUpload.js"></script>
-<script src="../../resources/js/boardProEdit/boardProEdit.js"></script>
+<script src="/resources/js/boardProEnroll/boardProEnroll1.js"></script>
+<script src="/resources/js/boardProEnroll/boardProEnroll2.js"></script>
+<script src="/resources/js/boardProEnroll/boardProEnroll3.js"></script>
+<script src="/resources/js/boardProEnroll/boardProEnroll_FileUpload.js"></script>
+<script src="/resources/js/boardProEdit/boardProEdit.js"></script>
 </html>
 
