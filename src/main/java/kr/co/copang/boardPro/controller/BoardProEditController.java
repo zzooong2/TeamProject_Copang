@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import kr.co.copang.boardPro.model.dto.BoardProDto;
 import kr.co.copang.boardPro.model.service.BoardProServiceImpl;
 
-@WebServlet("/BoardProEditController")
+@WebServlet("/BoardPro/Edit.do")
 public class BoardProEditController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -30,7 +30,7 @@ public class BoardProEditController extends HttpServlet {
 		HttpSession session = request.getSession();
 		int userNo = (int)session.getAttribute("userNo");
 		
-		int boardProNo = Integer.parseInt(request.getParameter("Edit_Page_No"));
+		int boardProNo = Integer.parseInt(request.getParameter("boardProNo"));
 		
 		BoardProServiceImpl editDataService = new BoardProServiceImpl();
 		
@@ -62,19 +62,11 @@ public class BoardProEditController extends HttpServlet {
 		String boardTitle = request.getParameter("title");
 		String boardContent = request.getParameter("content");
 		
-		
-		
-		
-		
 		/*
 		 * if(result == 1) {
 		 * response.sendRedirect("/freeBoard/detail.do?boardNo="+boardNo); }
 		 */
 		
-	
-	
-	
-	
 	
 	}
 

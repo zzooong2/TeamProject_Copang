@@ -52,7 +52,7 @@
 						<div class="Detail_right_Contents1_Title">
 							<div class="Detail_right_Contents1_box1">
 								<span class="Detail_right_type_box">&nbsp;&nbsp;제목<span class="Detail_right_check">*</span></span> 
-								<input class="Detail_right_Contents1_Title_Input" type="text" placeholder="제목을 입력해주세요." name="enroll_Title" oninput="Counter(this, 90)">
+								<input class="Detail_right_Contents1_Title_Input" id="Detail_right_Contents1_Title_Input" type="text" placeholder="제목을 입력해주세요." name="enroll_Title" oninput="Counter(this, 90)">
 							</div>
 						</div>
 						<div class="Detail_right_Contents1_Category">
@@ -305,7 +305,7 @@
 								<div class="Detail_right_Contents1_Service" >
 									<div class="Detail_right_Contents1_box2">
 										<span class="Detail_right_type_box">&nbsp;&nbsp;서비스 타입<span class="Detail_right_check">*</span></span> 
-										<select class="Detail_right_Contents1_Category_Style" name="enroll_Service">
+										<select class="Detail_right_Contents1_Category_Style" id="Detail_right_Contents1_Category_Style" name="enroll_Service">
 											<option class="Detail_right_Contents1_Category_Style" value="">서비스 형태를 선택하여주세요</option>
 											<option class="Detail_right_Contents1_Category_Style" value="문서제공">문서제공</option>
 											<option class="Detail_right_Contents1_Category_Style" value="온라인제공">온라인제공</option>
@@ -316,7 +316,7 @@
 								</div>
 								<div class="Detail_right_Contents1_company">
 								<span class="Detail_right_type_box">&nbsp;&nbsp;기업명<span class="Detail_right_check">*</span></span> 
-								<input class="Detail_right_Contents1_Title_Input" type="text" placeholder="기업 이름을 입력해주세요." name="enroll_Company" oninput="Counter(this, 90)">
+								<input class="Detail_right_Contents1_Title_Input" id="Detail_right_Contents1_Title_Input" type="text" placeholder="기업 이름을 입력해주세요." name="enroll_Company" oninput="Counter(this, 90)">
 							</div>
 								<div class="Detail_right_Contents1_imgbox">
 									<img class="Detail_right_Contents1_img"
@@ -344,7 +344,7 @@
 									<div class="Detail_right_Type_Title">
 										<div class="Detail_right_type_box1">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;제목<span class="Detail_right_check">*</span></span> 
-											<input class="type_box_Input input_select" type="text" placeholder="제목을 입력해주세요." name="enroll_ServiceName" oninput="Counter(this, 60)">
+											<input class="type_box_Input input_select" id="Single_Title_Input" type="text" placeholder="제목을 입력해주세요." name="enroll_ServiceName" oninput="Counter(this, 60)">
 										</div>
 										<div class="Detail_right_type_box2">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;설명<span class="Detail_right_check">*</span></span> 
@@ -855,5 +855,6 @@
 <script src="../../resources/js/boardProEnroll/boardProEnroll2.js"></script>
 <script src="../../resources/js/boardProEnroll/boardProEnroll3.js"></script>
 <script src="../../resources/js/boardProEnroll/boardProEnroll_FileUpload.js"></script>
+<script src="../../resources/js/boardProEdit/boardProEdit.js"></script>
 </html>
 

@@ -37,8 +37,7 @@ public class BoardProEnrollController extends HttpServlet {
 //		●------------------------------ << boardProEnroll.jsp 데이터 취합 >> ---------------------------------------●
 		
 		HttpSession session = request.getSession();
-		/* int memberNo = (int)session.getAttribute("userNo"); */
-		int memberNo = 3;
+		int memberNo = (int)session.getAttribute("userNo");
 		
 //		----- Enroll Page1
 		String title = request.getParameter("enroll_Title");

@@ -83,14 +83,9 @@ document.addEventListener("DOMContentLoaded", function() {
         imageCountDisplay1.textContent = "1/1";
     });
 
-    // 프리뷰에 나타나는 이미지를 클릭하여 삭제합니다.
-    preview1.addEventListener("click", function(event) {
-        if (event.target.tagName === "IMG") {
-            event.target.remove();
-            fileInput1.value = ""; // 파일 입력 초기화
-            // 파일 업로드 수량 표시를 갱신합니다.
-            imageCountDisplay1.textContent = "0/1";
-        }
+    // 프리뷰를 클릭하면 파일 선택 창을 엽니다.
+    preview1.addEventListener("click", function() {
+        fileInput1.click();
     });
 
     // 두 번째 파일 업로드 input 요소
@@ -135,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
         imageCountDisplay2.textContent = dataTransfer.files.length + "/5";
     });
 
-    // 프리뷰에 나타나는 이미지를 클릭하여 삭제합니다.
+    // 프리뷰를 클릭하면 파일 선택 창을 엽니다.
     preview2.addEventListener("click", function(event) {
         if (event.target.tagName === "IMG") {
             let index = Array.from(preview2.children).indexOf(event.target);
@@ -147,14 +142,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // 파일 업로드 수량 표시를 갱신합니다.
             imageCountDisplay2.textContent = dataTransfer.files.length + "/5";
+        } else {
+            fileInput2.click();
         }
     });
-
-    // 프리뷰를 클릭하면 파일 선택 창을 엽니다.
-    preview2.addEventListener("click", function() {
-        fileInput2.click();
-    });
 });
+
 
 
 
@@ -239,7 +232,7 @@ uploadAllFilesButton.addEventListener("click", function() {
             imageCountDisplay2.textContent = preview2.querySelectorAll("img").length + "/" + Math.min(5, preview2.querySelectorAll("img").length);
         }
     });
-});
+/*});*/
 
 document.getElementById('Detail_right_Contents4_imagePreviews1').addEventListener('click', function() {
     document.getElementById('Detail_right_Contents4_fileInput1').click();

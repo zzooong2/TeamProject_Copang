@@ -1592,10 +1592,12 @@
 		                </section>
 	                </c:when>
 					</c:choose>
-					<button class="Detail_Edit_button" onclick="" name="Edit_Page_No">수정하기</button>
-					<input type="hidden" id="Detail_boardProNo" value="${result.boardProNo}" />
-					<input type="hidden" id="Detail_businessServiceType" value="${result.businessServiceType}" />
-					
+					<c:choose>
+						<c:when test="${sessionScope.userNo == result.userNo}">
+							<button type="button" class="Detail_Edit_button" onclick="location.href='/BoardPro/Edit.do?boardProNo=${result.boardProNo}'" name="Edit_Page_No">수정하기</button>
+							<input type="hidden" id="Detail_businessServiceType" value="${result.businessServiceType}" />
+						</c:when>
+					</c:choose>
                 </form>
             </div>
         </div>

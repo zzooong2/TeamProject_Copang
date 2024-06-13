@@ -20,20 +20,26 @@ public class CategoryListDao {
 		con = dc.connDB();
 	}
 	
-	
-	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi, String middleCategory, String subCategory) {
+public ArrayList<CategoryListDtoImpl> getMainCategoryList(String type) {
 		
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
 
-		String query = " SELECT cb.B_no, B_TITLE, BM_PAY, u.FILE_NAME, u.FILE_PATH, B_COMPANY, B_CATEGORY_MAIN, B_CATEGORY_MIDDLE, B_CATEGORY_SUBCAT, bm.BM_TYPE"
+		/*
+		 * String query =
+		 * " SELECT cb.B_no, B_TITLE, BM_PAY, B_COMPANY, B_CATEGORY_MAIN, B_CATEGORY_MIDDLE, B_CATEGORY_SUBCAT, bm.BM_TYPE"
+		 * + " FROM CATEGORY_BOARD cb" + " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
+		 * + " JOIN UPLOAD u ON u.B_NO = cb.B_NO" + " WHERE B_CATEGORY_MAIN = ?" +
+		 * " AND B_CATEGORY_MIDDLE LIKE '%' || ? || '%'" +
+		 * " AND B_CATEGORY_SUBCAT LIKE '%' || ? || '%'" +
+		 * " ORDER BY B_CATEGORY_MAIN DESC" + " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY" ;
+		 */
+		String query = "SELECT cb.B_no, B_TITLE, u.FILE_PATH, u.FILE_NAME, BM_PAY, B_COMPANY, B_CATEGORY_MAIN, B_CATEGORY_MIDDLE, B_CATEGORY_SUBCAT, bm.BM_TYPE"
 					 + " FROM CATEGORY_BOARD cb"
+					 + " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO"
 					 + " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
-					 + " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
-					 + " WHERE B_CATEGORY_MAIN = ?"
-					 + " AND B_CATEGORY_MIDDLE LIKE '%' || ? || '%'"
-					 + " AND B_CATEGORY_SUBCAT LIKE '%' || ? || '%'"
-					 + " ORDER BY B_CATEGORY_MAIN DESC"
-					 + " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY" ;
+					 + " WHERE u.FILE_PATH LIKE '%main'"
+					 + " AND B_CATEGORY_MAIN = ? "
+					 + " AND BM_TYPE IN ('SINGLE', 'STANDARD')";
 		
 
 		try {
@@ -41,10 +47,148 @@ public class CategoryListDao {
 			
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, type);
-			pstmt.setString(2, middleCategory);
-			pstmt.setString(3, subCategory);
-			pstmt.setInt(4, pi.getOffset());
-			pstmt.setInt(5, pi.getBoardLimit());
+			/*
+			 * pstmt.setInt(2, pi.getOffset()); pstmt.setInt(3, pi.getBoardLimit());
+			 */
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				int no = rs.getInt("B_NO");
+				String categoryType = rs.getString("B_CATEGORY_MAIN");
+				String title = rs.getString("B_TITLE");
+				String priceOption = rs.getString("BM_TYPE");
+				String price = rs.getString("BM_PAY");
+				String company = rs.getString("B_COMPANY");
+				String midCategory = rs.getString("B_CATEGORY_MIDDLE");
+				String subCatCategory = rs.getString("B_CATEGORY_SUBCAT");
+				String file = rs.getString("FILE_PATH");
+				String fileName = rs.getString("FILE_NAME");
+
+				CategoryListDtoImpl categoryListDto = new CategoryListDtoImpl();
+				categoryListDto.setBoardNo(no);
+				categoryListDto.setType(categoryType);
+				categoryListDto.setBoardTitle(title);
+				categoryListDto.setPriceOption(priceOption);
+				categoryListDto.setPrice(price);
+				categoryListDto.setCompany(company);
+				categoryListDto.setMiddleCategory(midCategory);
+				categoryListDto.setSubCategory(subCatCategory);
+				categoryListDto.setFilePath(file);
+				categoryListDto.setFileName(fileName);
+				
+				result.add(categoryListDto);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	
+public ArrayList<CategoryListDtoImpl> getMiddleCategoryList(String middleCategory) {
+	
+	ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
+
+	/*
+	 * String query =
+	 * " SELECT cb.B_no, B_TITLE, BM_PAY, B_COMPANY, B_CATEGORY_MAIN, B_CATEGORY_MIDDLE, B_CATEGORY_SUBCAT, bm.BM_TYPE"
+	 * + " FROM CATEGORY_BOARD cb" + " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
+	 * + " JOIN UPLOAD u ON u.B_NO = cb.B_NO" + " WHERE B_CATEGORY_MAIN = ?" +
+	 * " AND B_CATEGORY_MIDDLE LIKE '%' || ? || '%'" +
+	 * " AND B_CATEGORY_SUBCAT LIKE '%' || ? || '%'" +
+	 * " ORDER BY B_CATEGORY_MAIN DESC" + " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY" ;
+	 */
+	String query = "SELECT cb.B_no, B_TITLE, u.FILE_PATH, u.FILE_NAME, BM_PAY, B_COMPANY, B_CATEGORY_MAIN, B_CATEGORY_MIDDLE, B_CATEGORY_SUBCAT, bm.BM_TYPE"
+				 + " FROM CATEGORY_BOARD cb"
+				 + " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO"
+				 + " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
+				 + " WHERE u.FILE_PATH LIKE '%main'"
+				 + " AND B_CATEGORY_MIDDLE = ? "
+				 + " AND BM_TYPE IN ('SINGLE', 'STANDARD')";
+	
+
+	try {
+		
+		
+		pstmt = con.prepareStatement(query);
+		pstmt.setString(1, middleCategory);
+		/*
+		 * pstmt.setInt(2, pi.getOffset()); pstmt.setInt(3, pi.getBoardLimit());
+		 */
+		
+		ResultSet rs = pstmt.executeQuery();
+		
+		while (rs.next()) {
+			int no = rs.getInt("B_NO");
+			String categoryType = rs.getString("B_CATEGORY_MAIN");
+			String title = rs.getString("B_TITLE");
+			String priceOption = rs.getString("BM_TYPE");
+			String price = rs.getString("BM_PAY");
+			String company = rs.getString("B_COMPANY");
+			String midCategory = rs.getString("B_CATEGORY_MIDDLE");
+			String subCatCategory = rs.getString("B_CATEGORY_SUBCAT");
+			String file = rs.getString("FILE_PATH");
+			String fileName = rs.getString("FILE_NAME");
+
+			CategoryListDtoImpl categoryListDto = new CategoryListDtoImpl();
+			categoryListDto.setBoardNo(no);
+			categoryListDto.setType(categoryType);
+			categoryListDto.setBoardTitle(title);
+			categoryListDto.setPriceOption(priceOption);
+			categoryListDto.setPrice(price);
+			categoryListDto.setCompany(company);
+			categoryListDto.setMiddleCategory(midCategory);
+			categoryListDto.setSubCategory(subCatCategory);
+			categoryListDto.setFilePath(file);
+			categoryListDto.setFileName(fileName);
+			
+			result.add(categoryListDto);
+			
+		}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return result;
+}
+	
+	
+	
+	
+	
+	public ArrayList<CategoryListDtoImpl> getSubcatCategoryList(String subCategory) {
+		
+		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
+
+		/*
+		 * String query =
+		 * " SELECT cb.B_no, B_TITLE, BM_PAY, B_COMPANY, B_CATEGORY_MAIN, B_CATEGORY_MIDDLE, B_CATEGORY_SUBCAT, bm.BM_TYPE"
+		 * + " FROM CATEGORY_BOARD cb" + " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
+		 * + " JOIN UPLOAD u ON u.B_NO = cb.B_NO" + " WHERE B_CATEGORY_MAIN = ?" +
+		 * " AND B_CATEGORY_MIDDLE LIKE '%' || ? || '%'" +
+		 * " AND B_CATEGORY_SUBCAT LIKE '%' || ? || '%'" +
+		 * " ORDER BY B_CATEGORY_MAIN DESC" + " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY" ;
+		 */
+		String query = "SELECT cb.B_no, B_TITLE, u.FILE_PATH, u.FILE_NAME, BM_PAY, B_COMPANY, B_CATEGORY_MAIN, B_CATEGORY_MIDDLE, B_CATEGORY_SUBCAT, bm.BM_TYPE"
+					 + " FROM CATEGORY_BOARD cb"
+					 + " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO"
+					 + " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
+					 + " WHERE u.FILE_PATH LIKE '%main'"
+					 + " AND B_CATEGORY_SUBCAT = ? "
+					 + " AND BM_TYPE IN ('SINGLE', 'STANDARD')";
+		
+
+		try {
+			
+			
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, subCategory);
+			/*
+			 * pstmt.setInt(2, pi.getOffset()); pstmt.setInt(3, pi.getBoardLimit());
+			 */
 			
 			ResultSet rs = pstmt.executeQuery();
 			
