@@ -113,7 +113,7 @@ public class MemberDao {
 	
 	// 로그인
 	public MemberDto login(String id) {
-		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME, M.USER_NO, MT.PART_CODE"
+		String query = "SELECT M.USER_NAME, M.PASSWORD, M.USER_NO, MT.PART_CODE, M.EMAIL, M.PHONE"
 				+ "     FROM MEMBER M " 
                 + "     JOIN MEMBER_TYPE MT ON M.PART_CODE = MT.PART_CODE "
 				+ "     WHERE M.EMAIL = ?";
@@ -127,14 +127,16 @@ public class MemberDao {
 			while(rs.next()) {
 				String userName = rs.getString("USER_NAME");
 				String hashPassword = rs.getString("PASSWORD");
-				String partName = rs.getString("PART_NAME");
+				String userEmail = rs.getString("EMAIL");
+				String userPhone = rs.getString("PHONE");
 				int partCode = rs.getInt("PART_CODE");
 				int userNo = rs.getInt("USER_NO");
 				
 				MemberDto result = new MemberDto();
 				result.setUserName(userName);
 				result.setUserPwd(hashPassword);
-				result.setUsertype(partName);
+				result.setUserEmail(userEmail);
+				result.setUserPhone(userPhone);
 				result.setPartCode(partCode);
 				result.setUserNo(userNo);				
 				return result;
@@ -202,8 +204,6 @@ public class MemberDao {
     				+ " SET PASSWORD = ?"
     				+ " WHERE EMAIL = ?";
     	
-    	System.out.println(newPassword);
-    	System.out.println(userEmail);
     	
     	// 새로운 비밀번호를 해시하여 저장
         String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
@@ -214,10 +214,27 @@ public class MemberDao {
             pstmt.setString(2, userEmail);
             result = pstmt.executeUpdate();
             
-            System.out.println(result+"dao");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return result;
     }
+    
+	
+	// 핸드폰 번호 변경
+	public int updatePhone(String userName, String userEmail, String newPhone) {
+		String query = "UPDATE MEMBER SET PHONE = ? WHERE USER_NAME = ? AND EMAIL = ?";
+	    int result = 0;
+	    try {
+	        pstmt = con.prepareStatement(query);
+	        pstmt.setString(1, newPhone);
+	        pstmt.setString(2, userName);
+	        pstmt.setString(3, userEmail);
+	        result = pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return result;
+	}
+    
 }

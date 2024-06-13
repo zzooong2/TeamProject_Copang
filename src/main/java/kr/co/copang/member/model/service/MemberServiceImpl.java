@@ -55,4 +55,10 @@ public class MemberServiceImpl implements MemberService {
 	public int updatePwd(String userEmail, String newPassword) {
 		return memberDao.updatePwd(userEmail, newPassword);
 	}
+	
+	
+	@Override
+	public int updatePhone(String userName, String userEmail, String userPhone) {
+		return memberDao.updatePhone(userName, userEmail, userPhone);	
+	}
 }

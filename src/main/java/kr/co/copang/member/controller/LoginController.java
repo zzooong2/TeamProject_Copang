@@ -47,7 +47,8 @@ public class LoginController extends HttpServlet {
         if (BCrypt.checkpw(password, member.getUserPwd())) {
             HttpSession session = request.getSession();
             session.setAttribute("userName", member.getUserName());
-            session.setAttribute("partName", member.getUsertype());
+            session.setAttribute("userEmail", member.getUserEmail());
+            session.setAttribute("userPhone", member.getUserPhone());
             session.setAttribute("userNo", member.getUserNo());
             session.setAttribute("partCode", member.getPartCode());
 

@@ -5,7 +5,11 @@
     <head>
         <%@ include file="/views/common/head.jsp" %>
         <link rel="icon" href="/resources/img/tapIcon.png">
-            <link rel="stylesheet" href="/resources/css/member/myPage.css">
+        <link rel="stylesheet" href="/resources/css/member/myPage.css">
+        <!-- SweetAlert2 CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.min.css">
+		<!-- SweetAlert2 JavaScript -->
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.11.1/dist/sweetalert2.all.min.js"></script>
     </head>
 
     <body>
@@ -17,70 +21,59 @@
                         <ul>
                             <li onclick="showSection('profile')">내 정보 수정</li>
                             <li onclick="showSection('password')">비밀번호 변경</li>
-                            <li onclick="showSection('Field')">비즈니스 분야</li>
                             <li onclick="showSection('payment')">결제 내역</li>
                             <li onclick="showSection('delete')">회원 탈퇴</li>
                         </ul>
                     </div>
                     <div class="content">
-                        <div id="profile" class="section">
-                            <h2>내 정보 수정</h2>
-                            <form class="profile_page" id="profileForm">
-                                <div class="form_group">
-                                    <label for="name">이름</label><br>
-                                    <input type="text" id="name" name="name" value="사용자 이름" disabled>
-                                </div>
-                                <div class="form_group">
-                                    <label for="email">이메일</label><br>
-                                    <input type="email" id="email" name="email" value="user@example.com" disabled>
-                                </div>
-                                <div class="form_group">
-                                    <label for="phone">연락처</label><br>
-                                    <input type="text" id="phone" name="phone" value="010-1234-5678" disabled><br>
-                                    <button type="button" onclick="enablePhoneInput()">번호 변경</button>
-                                </div>
-                                <div id="phoneInputSection" style="display: none;">
-                                    <input type="text" id="newPhone" name="newPhone" placeholder="새 연락처 입력">
-                                    <button type="button" onclick="sendVerificationCode()">휴대폰 인증</button>
-                                </div>
-                            </form>
+                <div id="profile" class="section">
+                    <h2>내 정보 수정</h2>
+                    <form action="/member/phoneChange.do" class="profile_page" id="profileForm" method="POST">
+                        <div class="form_group">
+                            <label for="name">이름</label><br>
+                            <input type="text" id="name" name="name" value="${sessionScope.userName}" readonly>
                         </div>
+                        <div class="form_group">
+                            <label for="email">이메일</label><br>
+                            <input type="email" id="email" name="email" value="${sessionScope.userEmail}" readonly>
+                        </div>
+                            <label for="phone">연락처</label><br>
+                        <div class="form_group" id="currentPhoneSection">
+                            <input type="text" id="phone" name="phone" value="${sessionScope.userPhone}" readonly><br>
+                            <button type="button" onclick="enablePhoneInput()">번호 변경</button>
+                        </div>
+                        <div id="phoneInputSection" style="display: none;">
+                            <input type="text" id="newPhone" name="newPhone" placeholder="새 연락처 입력" oninput="inputphone()"><br>
+                            <span id="textphone"></span><br>
+                            <button type="button" id="sendCodeBtn_phone" onclick="inputphone()">번호 변경</button>
+                        </div>
+                        <div id="verificationModal" class="modal" style="display: none;">
+    						<div class="modal-content">
+        						<span class="close" onclick="closeModal()">&times;</span>
+        						<p>인증번호를 입력해주세요.</p><br>
+        						<input type="text" id="verificationCode" placeholder="인증번호 입력"><br>
+        						<button type="submit" id="verifyCodeBtn">번호 변경</button>
+    						</div>
+						</div>
+                        
+                    </form>
+                </div>
 
                         <div id="password" class="section">
                             <h2>비밀번호 변경</h2>
-                            <form class="password_page" id="passwordForm">
+                            <form action="/member/passwordChange.do" class="password_page" id="passwordForm" method="POST">
                                 <label for="currentPassword">현재 비밀번호</label>
-                                <input type="password" id="currentPassword" name="currentPassword"
-                                    placeholder="기존 비밀번호를 입력해주세요.">
+                                <input type="password" id="currentPassword" name="currentPassword" placeholder="기존 비밀번호를 입력해주세요.">
                                 <label for="newPassword">변경할 비밀번호</label>
-                                <input type="password" id="newPassword" name="newPassword"
-                                    placeholder="변경할 비밀번호를 입력해주세요.">
+                                <input type="password" id="newPassword" name="newPassword" placeholder="변경할 비밀번호를 입력해주세요.">
                                 <label for="confirmPassword">한번 더 입력</label>
-                                <input type="password" id="confirmPassword" name="confirmPassword"
-                                    placeholder="변경할 비밀번호를 한번더 입력해주세요.">
+                                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="변경할 비밀번호를 한번더 입력해주세요.">
                                 <button type="submit">비밀번호 변경</button>
                             </form>
                         </div>
 
-                        <div id="Field" class="section">
-                            <h2>비즈니스 분야 변경</h2><br><br>
-                            <form class="field_page" id="fieldForm">
-                                <div class="form_group">
-                                    <label for="business">비즈니스 분야</label><br>
-                                    <label><input type="checkbox" name="businessField" value="IT.프로그래밍" disabled>
-                                        IT.프로그래밍</label><br>
-                                    <label><input type="checkbox" name="businessField" value="영상 및 사진" disabled> 영상 및
-                                        사진</label><br>
-                                    <label><input type="checkbox" name="businessField" value="디자인" disabled>
-                                        디자인</label><br>
-                                    <label><input type="checkbox" name="businessField" value="마케팅" disabled> 마케팅</label><br>
-                                    <label><input type="checkbox" name="businessField" value="교육" disabled> 교육</label><br>
-                                    <button type="button" onclick="enableBusinessField()">변경하기</button>
-                                </div>
-                            </form>
-                        </div>
 
-                        <div id="payment" class="section">
+                        <div id="payment" class="section" style="width: 500px;">
                             <h2>결제 내역</h2>
                             <table class="payment_table">
                                 <thead>
@@ -121,9 +114,9 @@
 
                         <div id="delete" class="section">
                             <h2>회원 탈퇴</h2>
-                            <form class="delete_form" id="deleteForm">
+                            <form action="/member/userDelete.do" class="delete_form" id="deleteForm">
                                 <div class="reasons">
-                                    <p class="p_text">코팡을 떠나시는 이유를 선택해주세요.</p>
+                                    <h3 class="p_text">코팡을 떠나시는 이유를 선택해주세요.</h3><br>
                                     <label><input type="checkbox" name="reason" value="no_service"> 서비스 이용이
                                         불편해요</label>
                                     <label><input type="checkbox" name="reason" value="low_quality"> 서비스 퀄리티가
@@ -138,7 +131,8 @@
                                         적어요</label>
                                 </div>
                                 <label for="password">비밀번호를 입력해주세요</label><br>
-                                <input type="password" id="password" name="password">
+                                <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요."><br><br>
+                                <hr>
                                 <div class="additional_info">
                                     <p>주의사항:</p>
                                     <ul>
@@ -153,9 +147,18 @@
                     </div>
                 </div>
             </main>
+			
+			<script>
+    // JavaScript 변수에 값을 할당
+    var phoneStatus = "<%= request.getAttribute("phoneStatus") %>";
+    var pwdStatus = "<%= request.getAttribute("pwdStatus") %>";
+    var newPwdStatus = "<%= request.getAttribute("newPwdStatus") %>";
+    var pwdValidation = "<%= request.getAttribute("pwdValidation") %>";
+    var pwdChange = "<%= request.getAttribute("pwdChange") %>";
+    var status = "<%= request.getAttribute("status") %>";
 
-            <script src="script.js"></script>
-                <script src="/resources/js/member/myPage.js"></script>
+	</script>
+            <script src="/resources/js/member/myPage.js"></script>
             <%@ include file="/views/common/footer.jsp" %>
     </body>
 
