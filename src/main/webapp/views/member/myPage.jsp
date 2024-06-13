@@ -75,12 +75,12 @@
 
                         <div id="payment" class="section" style="width: 500px;">
                             <h2>결제 내역</h2>
+                            <form action="/member/payment.do" class="payment_page" id="paymentForm" method="GET">
                             <table class="payment_table">
                                 <thead>
                                     <tr>
                                         <th>결제코드</th>
                                         <th>결제일</th>
-                                        <th>결제명</th>
                                         <th>결제금액</th>
                                     </tr>
                                 </thead>
@@ -88,18 +88,17 @@
                                     <tr>
                                         <td>123456</td>
                                         <td>2024-05-01</td>
-                                        <td>서비스 A</td>
                                         <td>₩50,000</td>
                                     </tr>
                                     <tr>
                                         <td>789012</td>
                                         <td>2024-05-15</td>
-                                        <td>서비스 B</td>
                                         <td>₩75,000</td>
                                     </tr>
                                     <!-- 추가 결제 내역은 여기서 반복 -->
                                 </tbody>
                             </table>
+                            </form>
                             <div class="payment_notice">
                                 <p class="notice_title">꼭 확인해주세요!</p>
                                 <ol>
