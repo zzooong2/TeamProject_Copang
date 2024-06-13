@@ -6,6 +6,8 @@
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="../../resources/css/category/category.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/resources/js/categoryList/categoryList.js"></script>
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
@@ -15,7 +17,7 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> ><a href="/category/list.do?type=IT·프로그래밍">IT·프로그래밍</a>
+				<a href="/">홈</a> ><a href="/category/list.do?type=IT·프로그래밍">IT/프로그래밍</a>
 				<c:if test="${middleCategory != null}"> 
 				 ><a href="/category/list.do?type=IT·프로그래밍&middleCategory=${middleCategory}">${middleCategory}</a>
 				</c:if>
@@ -28,25 +30,67 @@
 		<!-- 카테고리 목록 모음 -->
 
 		<div class="category_area">
+			<!-- data-(Attribute값) -->
 		    <p class="Middle_Category" data-type="IT·프로그래밍" data-middle="UX기획">UX기획</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="스토리보드">스토리보드</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="기타기획">기타기획</p>
-		    <br>
-		    <p class="Middle_Category" data-type="IT·프로그래밍" data-middle="웹">웹</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="홈페이지">홈페이지</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="퍼블리싱">퍼블리싱</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="유지보수">유지보수</p>
-		    <br>
-		    <p class="Middle_Category" data-type="IT·프로그래밍" data-middle="프로그램">프로그램</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="PC·웹프로그램">PC·웹프로그램</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="서버·클라우드">서버·클라우드</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="봇·챗봇">봇·챗봇</p>
-		    <br>
-		    <p class="Middle_Category" data-type="IT·프로그래밍" data-middle="커머스">커머스</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰">쇼핑몰</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰(웹빌더·CMS)">쇼핑몰(웹빌더·CMS)</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰(카페24)">쇼핑몰(카페24)</p>
-		    <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰 수정·유지보수">쇼핑몰 수정·유지보수</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="스토리보드">스토리보드</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="기타기획">기타기획</p>
+            <br>
+            <p class="Middle_Category" data-type="IT·프로그래밍" data-middle="웹">웹</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="홈페이지">홈페이지</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="퍼블리싱">퍼블리싱</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="유지보수">유지보수</p>
+            <br>
+            <p class="Middle_Category" data-type="IT·프로그래밍" data-middle="프로그램">프로그램</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="PC·웹프로그램">PC·웹프로그램</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="서버·클라우드">서버·클라우드</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="봇·챗봇">봇·챗봇</p>
+            <br>
+            <p class="Middle_Category" data-type="IT·프로그래밍" data-middle="커머스">커머스</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰">쇼핑몰</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰(웹빌더·CMS)">쇼핑몰(웹빌더·CMS)</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰(카페24)">쇼핑몰(카페24)</p>
+            <p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰 수정·유지보수">쇼핑몰 수정·유지보수</p>
+			<!-- <ul>
+				<a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=UX 기획">UX
+					기획</a>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=UX 기획&subCategory=스토리보드">스토리보드</a></li>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=UX 기획&subCategory=기타 기획">기타
+						기획</a></li>
+			</ul>
+			<ul>
+				<a href="/category/list.do?type=IT·프로그래밍&middleCategory=웹">웹</a>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=웹&subCategory=홈페이지">홈페이지</a></li>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=웹&subCategory=퍼블리싱">퍼블리싱</a></li>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=웹&subCategory=유지보수">유지보수</a></li>
+			</ul>
+			<ul>
+				<a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램">프로그램</a>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=PC·웹프로그램">PC·웹프로그램</a></li>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=서버·클라우드">서버·클라우드</a></li>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=봇·챗봇">봇·챗봇</a></li>
+			</ul>
+			<ul>
+				<a href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스">커머스</a>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰">쇼핑몰</a></li>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰(웹빌더·CMS)">쇼핑몰(웹빌더·CMS)</a></li>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰(카페24)">쇼핑몰(카페24)</a></li>
+				<li><a
+					href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰 수정·유지보수">쇼핑몰
+						수정·유지보수</a></li>
+			</ul> -->
 		</div>
 
 
@@ -207,47 +251,17 @@
 						</a></li>
 					</c:otherwise>
 				</c:choose>
-
+				
+				
 			</ul>
 		</div>
+		<%-- 	<c:if test="${}">  --%>
+				<button class ="Page_enroll" onclick="location.href='/views/board/boardProEnroll.jsp'">등록</button>
+		<%-- 	</c:if>	 --%>
 	</main>
 
 	<%@ include file="/views/common/footer.jsp"%>
 
 </body>
-<script src="/resources/js/category/categoryList.js"></script>
-
 </html>
 
-
-<!-- <ul>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=UX 기획">UX기획</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=UX기획&subCategory=스토리보드">스토리보드</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=UX기획&subCategory=기타기획">기타기획</a></li>
-			</ul>
-			<ul>
-				<li onclick="location.href='/category/list.do?type=IT·프로그래밍'" name="middleCategory">웹</li>
-				<li><a href="/category/list.do?type=IT·프로그래밍">홈페이지</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍">퍼블리싱</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍">유지보수</a></li>
-
-			</ul>
-			<ul>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램">프로그램</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=PC·웹프로그램">PC·웹프로그램</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=서버·클라우드">서버·클라우드</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=봇·챗봇">봇·챗봇</a></li>
-			</ul>
-			<ul>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스">커머스</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰">쇼핑몰</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰(웹빌더·CMS)">쇼핑몰(웹빌더·CMS)</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰(카페24)">쇼핑몰(카페24)</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰 수정·유지보수">쇼핑몰 수정·유지보수</a></li>
-			</ul> -->
-
-
-<!-- 				<li><a href="/category/list.do?type=IT·프로그래밍">웹</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍">홈페이지</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍">퍼블리싱</a></li>
-				<li><a href="/category/list.do?type=IT·프로그래밍">유지보수</a></li> -->

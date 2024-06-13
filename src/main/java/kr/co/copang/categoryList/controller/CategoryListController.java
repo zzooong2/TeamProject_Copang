@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
 import kr.co.copang.categoryListService.model.service.CategoryListServiceImpl;
-import kr.co.copang.common.PageInfo;
-import kr.co.copang.common.Pagination;
 
 @WebServlet("/category/list.do")
 public class CategoryListController extends HttpServlet {
@@ -61,6 +59,7 @@ public class CategoryListController extends HttpServlet {
 		ArrayList<CategoryListDtoImpl> fCategory = categoryListService.getMainCategoryList(type);
 		request.setAttribute("fCategory", fCategory);
 
+<<<<<<< HEAD
 		ArrayList<CategoryListDtoImpl> sCategory = categoryListService.getMiddleCategoryList(middleCategory);
 		request.setAttribute("sCategory", sCategory);
 
@@ -69,26 +68,71 @@ public class CategoryListController extends HttpServlet {
 
 //		 리스트 잘 가져오는지 까지
 		/* request.setAttribute("pi", pi); */
+=======
+//		int cPage = Integer.parseInt(request.getParameter("cPage"));
+//		
+//		int listCount = categoryListService.getListCount(type); 
+//		
+//		int pageLimit = 2;
+//		
+//		int boardLimit = 3;
+		
+//		PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit);
+		
+//		대분류 리스트 배열 
+		ArrayList<CategoryListDtoImpl> fCategory = categoryListService.getMainList(type);
+		request.setAttribute("fCategory", fCategory);
+		
+//		중분류 리스트 배열
+		ArrayList<CategoryListDtoImpl> sCategory = categoryListService.getMiddleList(middleCategory);
+		request.setAttribute("sCategory", sCategory);
+		
+//		소분류 리스트 배열
+		ArrayList<CategoryListDtoImpl> tCategory = categoryListService.getSubList(subCategory);
+		request.setAttribute("tCategory", tCategory);
+		
+//		request.setAttribute("pi", pi);
+//		request.setAttribute("middleCategory", middleCategory);
+//		request.setAttribute("subCategory", subCategory);
+		
+>>>>>>> c5b58e5c72c4d76bbc77027093e022a48e9d9ba2
 		
 		String nextPage = "";
 		String trimmedType = type != null ? type.trim() : "";
 		
+<<<<<<< HEAD
+=======
+		
+		
+>>>>>>> c5b58e5c72c4d76bbc77027093e022a48e9d9ba2
 		if(trimmedType.equals("IT·프로그래밍")){
 			nextPage = "/views/category/category_IT.jsp";
 		}else if(trimmedType.equals("디자인")){
 			nextPage = "/views/category/category_design.jsp";
+<<<<<<< HEAD
 		}else if(trimmedType.equals("영상ㆍ사진")){
+=======
+		}else if(trimmedType.equals("영상·사진")){
+>>>>>>> c5b58e5c72c4d76bbc77027093e022a48e9d9ba2
 			nextPage = "/views/category/category_media.jsp";
 		}else if(trimmedType.equals("마케팅")){
 			nextPage = "/views/category/category_marketing.jsp";
 		}else if(trimmedType.equals("교육")){
 			nextPage = "/views/category/category_edu.jsp";
 		}else {
+<<<<<<< HEAD
 	        nextPage = "/views/category/default_category.jsp"; // Default page if no match
 	        System.out.println("Type did not match any predefined categories.");
 	    }
 		
 		System.out.println("Next Page: " + nextPage);
+=======
+			nextPage = "views/category/default_category.jsp";
+			System.out.println("Type did not match any predefined categories");
+		}
+		
+		System.out.println("Next Page : " + nextPage);
+>>>>>>> c5b58e5c72c4d76bbc77027093e022a48e9d9ba2
 		
 		RequestDispatcher view = request.getRequestDispatcher(nextPage);
 		view.forward(request, response);

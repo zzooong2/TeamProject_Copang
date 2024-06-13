@@ -17,8 +17,21 @@ public class CategoryListServiceImpl implements CategoryListService {
 	}
 	
 	@Override
+<<<<<<< HEAD
 	public ArrayList<CategoryListDtoImpl> getMainCategoryList(String type) {
 		return categoryListDao.getMainCategoryList(type);
+=======
+	public ArrayList<CategoryListDtoImpl> getMainList(String type){
+		return categoryListDao.getMainList(type);
+	}
+	@Override
+	public ArrayList<CategoryListDtoImpl> getMiddleList(String middleCategory) {
+		return categoryListDao.getMainList(middleCategory);
+	}
+	@Override
+	public ArrayList<CategoryListDtoImpl> getSubList(String subCategory) {
+		return categoryListDao.getMainList(subCategory);
+>>>>>>> c5b58e5c72c4d76bbc77027093e022a48e9d9ba2
 	}
 		
 	@Override
@@ -36,6 +49,8 @@ public class CategoryListServiceImpl implements CategoryListService {
 	public int getListCount(String type) {
 		return categoryListDao.getListCount(type);
 	}
+
+
 
 
 	

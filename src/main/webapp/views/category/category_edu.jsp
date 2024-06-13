@@ -37,27 +37,27 @@
 						외국어 레슨</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&cPage=1">미술ㆍ글쓰기</a>
+				<a href="/category/list.do?type=교육&middleCategory=미술·글쓰기&cPage=1">미술·글쓰기</a>
 				<li><a
-					href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&subCategory=미술ㆍ드로잉 레슨&cPage=1">미술ㆍ드로잉
+					href="/category/list.do?type=교육&middleCategory=미술·글쓰기&subCategory=미술·드로잉 레슨&cPage=1">미술·드로잉
 						레슨</a></li>
 				<li><a
-					href="/category/list.do?type=교육&middleCategory=미술ㆍ글쓰기&subCategory=글쓰기 레슨&cPage=1">글쓰기
+					href="/category/list.do?type=교육&middleCategory=미술·글쓰기&subCategory=글쓰기 레슨&cPage=1">글쓰기
 						레슨</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&cPage=1">댄스ㆍ뮤직</a>
+				<a href="/category/list.do?type=교육&middleCategory=댄스·뮤직&cPage=1">댄스·뮤직</a>
 				<li><a
-					href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=댄스 레슨&cPage=1">댄스
+					href="/category/list.do?type=교육&middleCategory=댄스·뮤직&subCategory=댄스 레슨&cPage=1">댄스
 						레슨</a></li>
 				<li><a
-					href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=보컬ㆍ랩 레슨&cPage=1">보컬ㆍ랩
+					href="/category/list.do?type=교육&middleCategory=댄스·뮤직&subCategory=보컬·랩 레슨&cPage=1">보컬·랩
 						레슨</a></li>
 				<li><a
-					href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=악기 레슨&cPage=1">악기
+					href="/category/list.do?type=교육&middleCategory=댄스·뮤직&subCategory=악기 레슨&cPage=1">악기
 						레슨</a></li>
 				<li><a
-					href="/category/list.do?type=교육&middleCategory=댄스ㆍ뮤직&subCategory=미디ㆍ작곡ㆍ편곡 레슨&cPage=1">미디ㆍ작곡ㆍ편곡
+					href="/category/list.do?type=교육&middleCategory=댄스·뮤직&subCategory=미디·작곡·편곡 레슨&cPage=1">미디·작곡·편곡
 						레슨</a></li>
 			</ul>
 		</div>

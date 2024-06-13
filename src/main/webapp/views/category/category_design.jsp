@@ -28,11 +28,12 @@
 
 		<div class="category_area">
 			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩">로고ㆍ브랜딩</a>
+				<a href="/category/list.do?type=디자인&middleCategory=로고·브랜딩&cPage=1">로고·브랜딩</a>
 				<li><a
-					href="/category/list.do?type=디자인">로고디자인</a></li>
+					href="/category/list.do?type=디자인&middleCategory=로고·브랜딩&subCategory=로고 디자인&cPage=1">로고
+						디자인</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=로고ㆍ브랜딩&subCategory=로고 디자인 가이드">브랜드
+					href="/category/list.do?type=디자인&middleCategory=로고·브랜딩&subCategory=로고 디자인 가이드&cPage=1">브랜드
 						디자인 가이드</a></li>
 			</ul>
 			<ul>
@@ -41,9 +42,9 @@
 				<li><a
 					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=명함">명함</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=전단지ㆍ포스터ㆍ인쇄물">전단지ㆍ포스터ㆍ인쇄물</a></li>
+					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=전단지·포스터·인쇄물&cPage=1">전단지·포스터·인쇄물</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=현수막ㆍX배너">현수막ㆍX배너</a></li>
+					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=현수막·X배너&cPage=1">현수막·X배너</a></li>
 				<li><a
 					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=메뉴판">메뉴판</a></li>
 			</ul>
@@ -53,7 +54,7 @@
 				<li><a
 					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=상세페이지">상세페이지</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=SNSㆍ썸네일 디자인">SNSㆍ썸네일
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=SNS·썸네일 디자인&cPage=1">SNS·썸네일
 						디자인</a></li>
 				<li><a
 					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=채널아트 디자인">채널아트
@@ -62,23 +63,23 @@
 					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=방송용 아바타">방송용
 						아바타</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=배너ㆍ배달어플">배너ㆍ배달어플</a></li>
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=배너·배달어플&cPage=1">배너·배달어플</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=블로그ㆍ카페 디자인">블로그ㆍ카페
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=블로그·카페 디자인&cPage=1">블로그·카페
 						디자인</a></li>
 			</ul>
 			<ul>
 				<a
-					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인">웹ㆍ모바일
+					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&cPage=1">웹·모바일
 					디자인</a>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=명함">명함</a></li>
+					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&subCategory=명함&cPage=1">명함</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=전단지ㆍ포스터ㆍ인쇄물">전단지ㆍ포스터ㆍ인쇄물</a></li>
+					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&subCategory=전단지·포스터·인쇄물&cPage=1">전단지·포스터·인쇄물</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=현수막ㆍX배너">현수막ㆍX배너</a></li>
+					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&subCategory=현수막·X배너&cPage=1">현수막·X배너</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=웹ㆍ모바일 디자인&subCategory=메뉴판">메뉴판</a></li>
+					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&subCategory=메뉴판&cPage=1">메뉴판</a></li>
 			</ul>
 		</div>
 
