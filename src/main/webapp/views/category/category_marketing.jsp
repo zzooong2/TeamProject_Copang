@@ -44,34 +44,34 @@
 						관리</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=마케팅&middleCategory=바이럴ㆍ체험단&cPage=1">바이럴ㆍ체험단</a>
+				<a href="/category/list.do?type=마케팅&middleCategory=바이럴·체험단&cPage=1">바이럴·체험단</a>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=바이럴ㆍ체험단&subCategory=체험단ㆍ기자단&cPage=1">체험단ㆍ기자단</a></li>
+					href="/category/list.do?type=마케팅&middleCategory=바이럴·체험단&subCategory=체험단·기자단&cPage=1">체험단·기자단</a></li>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=바이럴ㆍ체험단&subCategory=개인 인플루언서&cPage=1">개인
+					href="/category/list.do?type=마케팅&middleCategory=바이럴·체험단&subCategory=개인 인플루언서&cPage=1">개인
 						인플루언서</a></li>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=바이럴ㆍ체험단&subCategory=바이럴ㆍ포스팅&cPage=1">바이럴ㆍ포스팅</a></li>
+					href="/category/list.do?type=마케팅&middleCategory=바이럴·체험단&subCategory=바이럴·포스팅&cPage=1">바이럴·포스팅</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=마케팅&middleCategory=PRㆍ행사&cPage=1">PRㆍ행사</a>
+				<a href="/category/list.do?type=마케팅&middleCategory=PR·행사&cPage=1">PR·행사</a>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=PRㆍ행사&subCategory=언론홍보&cPage=1">언론홍보</a></li>
+					href="/category/list.do?type=마케팅&middleCategory=PR·행사&subCategory=언론홍보&cPage=1">언론홍보</a></li>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=PRㆍ행사&subCategory=행사ㆍ이벤트&cPage=1">행사ㆍ이벤트</a></li>
+					href="/category/list.do?type=마케팅&middleCategory=PR·행사&subCategory=행사·이벤트&cPage=1">행사·이벤트</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=마케팅&middleCategory=업종ㆍ목적별&cPage=1">업종ㆍ목적별</a>
+				<a href="/category/list.do?type=마케팅&middleCategory=업종·목적별&cPage=1">업종·목적별</a>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=업종ㆍ목적별&subCategory=종합광고대행&cPage=1">종합광고대행</a></li>
+					href="/category/list.do?type=마케팅&middleCategory=업종·목적별&subCategory=종합광고대행&cPage=1">종합광고대행</a></li>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=업종ㆍ목적별&subCategory=스토어 마케팅&cPage=1">스토어
+					href="/category/list.do?type=마케팅&middleCategory=업종·목적별&subCategory=스토어 마케팅&cPage=1">스토어
 						마케팅</a></li>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=업종ㆍ목적별&subCategory=지도 마케팅&cPage=1">지도
+					href="/category/list.do?type=마케팅&middleCategory=업종·목적별&subCategory=지도 마케팅&cPage=1">지도
 						마케팅</a></li>
 				<li><a
-					href="/category/list.do?type=마케팅&middleCategory=업종ㆍ목적별&subCategory=라이브커머스&cPage=1">라이브커머스</a></li>
+					href="/category/list.do?type=마케팅&middleCategory=업종·목적별&subCategory=라이브커머스&cPage=1">라이브커머스</a></li>
 			</ul>
 		</div>
 
