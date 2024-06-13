@@ -28,11 +28,11 @@
 			<div class="icon_container">
 
 				<div class="icon_space" alt="IT">
-					<a href="/category/list.do?type=ITㆍ프로그래밍&cPage=1">
+					<a href="/category/list.do?type=IT·프로그래밍&cPage=1">
 						<div class="icon_img">
 							<img src="/resources/img/it.png" alt="IT">
 						</div>
-						<p>ITㆍ프로그래밍</p>
+						<p>IT·프로그래밍</p>
 					</a>
 				</div>
 				<div class="icon_space" alt="디자인">
@@ -43,12 +43,12 @@
 						<p>디자인</p>
 					</a>
 				</div>
-				<div class="icon_space" alt="영상ㆍ사진">
-					<a href="/category/list.do?type=영상ㆍ사진&cPage=1">
+				<div class="icon_space" alt="영상·사진">
+					<a href="/category/list.do?type=영상·사진&cPage=1">
 						<div class="icon_img">
 							<img src="/resources/img/media.png" alt="media">
 						</div>
-						<p>영상ㆍ사진</p>
+						<p>영상·사진</p>
 					</a>
 				</div>
 				<div class="icon_space" alt="마케팅">

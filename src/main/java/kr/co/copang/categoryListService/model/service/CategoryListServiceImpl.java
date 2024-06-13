@@ -16,14 +16,24 @@ public class CategoryListServiceImpl implements CategoryListService {
 	}
 	
 	@Override
-	public ArrayList<CategoryListDtoImpl> getList(String type, PageInfo pi, String middleCategory, String subCategory){
-		return categoryListDao.getList(type, pi, middleCategory, subCategory);
+	public ArrayList<CategoryListDtoImpl> getMainList(String type){
+		return categoryListDao.getMainList(type);
+	}
+	@Override
+	public ArrayList<CategoryListDtoImpl> getMiddleList(String middleCategory) {
+		return categoryListDao.getMainList(middleCategory);
+	}
+	@Override
+	public ArrayList<CategoryListDtoImpl> getSubList(String subCategory) {
+		return categoryListDao.getMainList(subCategory);
 	}
 	
 	@Override
 	public int getListCount(String type) {
 		return categoryListDao.getListCount(type);
 	}
+
+
 
 
 	
