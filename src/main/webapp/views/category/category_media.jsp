@@ -14,9 +14,9 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> ><a href="/category/list.do?type=영상ㆍ사진&cPage=1">영상ㆍ사진</a>
+				<a href="/">홈</a> ><a href="/category/list.do?type=영상·사진&cPage=1">영상·사진</a>
 				<c:if test="${middleCategory != null}"> 
-				 ><a href="/category/list.do?type=영상ㆍ사진&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
+				 ><a href="/category/list.do?type=영상·사진&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
 				</c:if>
 				<c:if test="${subCategory != null}">
 				 ><a href="">${subCategory}</a>
@@ -28,29 +28,29 @@
 
 		<div class="category_area">
 			<ul>
-				<a href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&cPage=1">영상</a>
+				<a href="/category/list.do?type=영상·사진&middleCategory=영상&cPage=1">영상</a>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=광고ㆍ홍보영상&cPage=1">광고ㆍ홍보영상</a></li>
+					href="/category/list.do?type=영상·사진&middleCategory=영상&subCategory=광고·홍보영상&cPage=1">광고·홍보영상</a></li>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=업종별 영상&cPage=1">업종별
+					href="/category/list.do?type=영상·사진&middleCategory=영상&subCategory=업종별 영상&cPage=1">업종별
 						영상</a></li>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=제품영상&cPage=1">제품영상</a></li>
+					href="/category/list.do?type=영상·사진&middleCategory=영상&subCategory=제품영상&cPage=1">제품영상</a></li>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=교육영상&cPage=1">교육영상</a></li>
+					href="/category/list.do?type=영상·사진&middleCategory=영상&subCategory=교육영상&cPage=1">교육영상</a></li>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=영상&subCategory=애니메이션&cPage=1">애니메이션</a></li>
+					href="/category/list.do?type=영상·사진&middleCategory=영상&subCategory=애니메이션&cPage=1">애니메이션</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&cPage=1">사진</a>
+				<a href="/category/list.do?type=영상·사진&middleCategory=사진&cPage=1">사진</a>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=제품ㆍ홍보사진&cPage=1">제품ㆍ홍보사진</a></li>
+					href="/category/list.do?type=영상·사진&middleCategory=사진&subCategory=제품·홍보사진&cPage=1">제품·홍보사진</a></li>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=개인ㆍ프로필사진&cPage=1">개인ㆍ프로필사진</a></li>
+					href="/category/list.do?type=영상·사진&middleCategory=사진&subCategory=개인·프로필사진&cPage=1">개인·프로필사진</a></li>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=사진보정&cPage=1">사진보정</a></li>
+					href="/category/list.do?type=영상·사진&middleCategory=사진&subCategory=사진보정&cPage=1">사진보정</a></li>
 				<li><a
-					href="/category/list.do?type=영상ㆍ사진&middleCategory=사진&subCategory=이벤트 사진&cPage=1">이벤트
+					href="/category/list.do?type=영상·사진&middleCategory=사진&subCategory=이벤트 사진&cPage=1">이벤트
 						사진</a></li>
 			</ul>
 		</div>
@@ -258,7 +258,7 @@
 					<c:otherwise>
 						<li class="page-item" style="margin-right: 20px"><a
 							class="page-link"
-							href="/category/list.do?type=영상ㆍ사진&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${pi.cPage-1}"
+							href="/category/list.do?type=영상·사진&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${pi.cPage-1}"
 							aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 						</a></li>
 					</c:otherwise>
@@ -268,7 +268,7 @@
 				<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
 					<li class="page-item" style="margin-right: 20px"><a
 						class="page-link"
-						href="/category/list.do?type=영상ㆍ사진&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${page}">${page}</a></li>
+						href="/category/list.do?type=영상·사진&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${page}">${page}</a></li>
 				</c:forEach>
 
 				<!-- 오른쪽 버튼 -->
@@ -283,7 +283,7 @@
 					<c:otherwise>
 						<li class="page-item" style="margin-right: 20px"><a
 							class="page-link"
-							href="/category/list.do?type=영상ㆍ사진&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${pi.cPage+1}"
+							href="/category/list.do?type=영상·사진&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${pi.cPage+1}"
 							aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 						</a></li>
 					</c:otherwise>
