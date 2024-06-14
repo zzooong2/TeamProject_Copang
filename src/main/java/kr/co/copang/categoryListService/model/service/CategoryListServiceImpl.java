@@ -21,11 +21,11 @@ public class CategoryListServiceImpl implements CategoryListService {
 	}
 	@Override
 	public ArrayList<CategoryListDtoImpl> getMiddleList(String middleCategory) {
-		return categoryListDao.getMainList(middleCategory);
+		return categoryListDao.getMiddleList(middleCategory);
 	}
 	@Override
 	public ArrayList<CategoryListDtoImpl> getSubList(String subCategory) {
-		return categoryListDao.getMainList(subCategory);
+		return categoryListDao.getSubList(subCategory);
 	}
 	
 	@Override
