@@ -105,7 +105,7 @@
                                 </tbody>
                             </table>
                             <input type="hidden" id="activeSection" value="${activeSection}">
-                            <button type="submit" id="paymentCheckBtn">결제 내역 확인</button>
+                            <button type="submit" >결제 내역 확인</button>
                             </form>
                             <div class="payment_notice">
                                 <p class="notice_title">꼭 확인해주세요!</p>
