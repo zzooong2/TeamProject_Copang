@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css" href="/resources/css/category/category.css">
@@ -17,12 +17,13 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> ><a href="/category/list.do?type=IT·프로그래밍">IT/프로그래밍</a>
-				<c:if test="${middleCategory != null}"> 
-				 ><a href="/category/list.do?type=IT·프로그래밍&middleCategory=${middleCategory}">${middleCategory}</a>
+				<a href="/">홈</a>
+				><a href="/category/list.do?type=IT·프로그래밍&middleCategory=&subCategory=">IT/프로그래밍</a>
+				<c:if test="${not empty middleCategory}"> 
+				><a href="/category/list.do?type=IT·프로그래밍&middleCategory=${middleCategory}&subCategory=">${middleCategory}</a>
 				</c:if>
-				<c:if test="${subCategory != null}">
-				 ><a href="">${subCategory}</a>
+				<c:if test="${not empty subCategory}">
+				><a href="/category/list.do?type=IT·프로그래밍&middleCategory=${middleCategory}&subCategory=${subCategory}">${subCategory}</a>
 				</c:if>
 			</p>
 		</div>
@@ -96,7 +97,6 @@
 
 
 		<!-- 카테고리 게시글 모음 -->
-
 		<div class="detail_area" style="position: relative;">
 
 			<!-- grid 전체 -->

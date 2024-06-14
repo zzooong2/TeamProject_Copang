@@ -7,14 +7,25 @@ document.addEventListener("DOMContentLoaded", function() {
             const middleCategory = event.target.getAttribute('data-middle');
             const subCategory = event.target.getAttribute('data-sub');
 
-            let url = '/category/list.do';
+            /*let url = '/category/list.do';*/
+			let url = '/category/list.do?';
             let params = new URLSearchParams();
 
-            if (type) params.append('type', type);
-            if (middleCategory) params.append('middleCategory', middleCategory);
-            if (subCategory) params.append('subCategory', subCategory);
-
-            window.location.href = '${url}?${params.toString()}';
+            if (type && middleCategory === null && subCategory === null) {
+				params.append('type', type); // /category/list.do?type='IT프로그래밍'
+				params.append('middleCategory', ''); // /category/list.do?type='IT프로그래밍'&middleCategory=
+				params.append('subCategory', '');  // /category/list.do?type='IT프로그래밍'&middleCategory=&subCategory=
+			} else if (middleCategory && subCategory === null) {
+				params.append('type', type); // /category/list.do?type='IT프로그래밍'
+				params.append('middleCategory', middleCategory); // /category/list.do?type='IT프로그래밍'&middleCategory='UX 기획'
+				params.append('subCategory', ''); // /category/list.do?type='IT프로그래밍'&middleCategory='UX 기획'&subCategory=
+			} else {
+				params.append('type', type);
+				params.append('middleCategory', middleCategory);
+				params.append('subCategory', subCategory);
+			}
+            
+			window.location.href = url+params.toString();
         }
     });
 });
