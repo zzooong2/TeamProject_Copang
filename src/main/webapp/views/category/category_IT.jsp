@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 <%@ include file="/views/common/head.jsp"%>
-<link rel="stylesheet" type="text/css" href="../../resources/css/category/category.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/category/category.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="/resources/js/categoryList/categoryList.js"></script>
 </head>

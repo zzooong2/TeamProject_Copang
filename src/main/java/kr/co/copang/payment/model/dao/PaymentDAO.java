@@ -62,15 +62,16 @@ public class PaymentDAO {
 
 	// 결제하기
 	public int payment(PaymentDTO pDTO) {
-		String query = "INSERT INTO PAYMENT(P_NO, P_INDATE, P_ORDER_NO, B_NO, USER_NO)"
-					 + " VALUES(PAYMENT_SEQ.nextval, DEFAULT, ?, ?, ?)";
+		String query = "INSERT INTO PAYMENT(P_NO, P_INDATE, P_PRICE, P_ORDER_NO, B_NO, USER_NO)"
+					 + " VALUES(PAYMENT_SEQ.nextval, DEFAULT, ?, ?, ?, ?)";
 		
 		try {
 			ps = con.prepareStatement(query);
 			
-			ps.setString(1, pDTO.getOrderNo());
-			ps.setInt(2, 15);
-			ps.setInt(3, pDTO.getUserNo());
+			ps.setInt(1, pDTO.getObjectPrice());
+			ps.setString(2, pDTO.getOrderNo());
+			ps.setInt(3, pDTO.getObjectNo());
+			ps.setInt(4, pDTO.getUserNo());
 			
 			int result = ps.executeUpdate();
 			
@@ -83,12 +84,57 @@ public class PaymentDAO {
 
 	
 	// 결제 정보 가져오기
-	public BoardDTO getPaymentInfo(BoardDTO bDTO) {
-		String query = "";
+	public BoardDTO getPaymentInfo(int objectNo, int userNo) {
+		String query = "SELECT cb.B_NO, cb.B_TITLE, cb.B_COMPANY, p.P_PRICE, p.P_ORDER_NO, p.P_INDATE, p.USER_NO, u.FILE_NAME, u.FILE_PATH, rb.R_TITLE, rb.R_CONTENTS"
+					 + " FROM CATEGORY_BOARD cb"
+					 + " JOIN PAYMENT p ON cb.B_NO = p.B_NO"
+					 + " JOIN UPLOAD u ON cb.B_NO = u.B_NO"
+					 + " JOIN REQUEST_BOARD rb  ON cb.B_NO = rb.B_NO"
+					 + " WHERE cb.B_NO = ?"
+					 + " AND p.USER_NO = ?"
+					 + " AND u.FILE_PATH LIKE '%/main'";
 		
-		
+		try {
+			ps = con.prepareStatement(query);
+			
+			ps.setInt(1, objectNo);
+			ps.setInt(2, userNo);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int orderUserNo = rs.getInt("USER_NO");
+				int paymentBoardNo = rs.getInt("B_NO");
+				int price = rs.getInt("P_PRICE");
+				String paymentBoardTitle = rs.getString("B_TITLE");
+				String paymentBoardCompany = rs.getString("B_COMPANY");
+				String orderNo = rs.getString("P_ORDER_NO");
+				String orderIndate = rs.getString("P_INDATE");
+				String fileName = rs.getString("FILE_NAME");
+				String filePath = rs.getString("FILE_PATH");
+				String requestTitle = rs.getString("R_TITLE");
+				String requestContents = rs.getString("R_CONTENTS");
+				
+				BoardDTO bDTO = new BoardDTO();
+				
+				bDTO.setBoardNo(paymentBoardNo);
+				bDTO.setBoardTitle(paymentBoardTitle);
+				bDTO.setCompany(paymentBoardCompany);
+				bDTO.setOrderNo(orderNo);
+				bDTO.setOrderIndate(orderIndate);
+				bDTO.setUserNo(orderUserNo);
+				bDTO.setBusinessPay(price);
+				bDTO.setFileName(fileName);
+				bDTO.setFilePath(filePath);
+				bDTO.setRequestTitle(requestTitle);
+				bDTO.setRequestContents(requestContents);
+				
+				return bDTO;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	
-
 }

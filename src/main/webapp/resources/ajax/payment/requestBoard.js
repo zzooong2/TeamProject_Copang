@@ -1,12 +1,14 @@
 function requestBoardShow(){
 	const title = document.getElementById("title").value;
 	const contents = document.getElementById("editorTxt").value;
+	const boardNo = document.getElementById("boardProNo").value;
 	
 	$.ajax({
 		type: "POST",
 		url: "/request/enroll.do",
 		data: {title : title, // { key : value } 
-				contents : contents
+				contents : contents,
+				boardNo : boardNo
 			   },
 
 		success: function(success){

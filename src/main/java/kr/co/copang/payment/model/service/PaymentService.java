@@ -12,6 +12,6 @@ public interface PaymentService {
 	public int payment(PaymentDTO pDTO);
 
 	// 결제 완료 페이지
-	public BoardDTO getPaymentInfo(BoardDTO bDTO);
+	public BoardDTO getPaymentInfo(int objectNo, int userNo);
 	
 }

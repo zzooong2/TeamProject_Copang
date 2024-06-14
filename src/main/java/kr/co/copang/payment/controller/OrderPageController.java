@@ -32,12 +32,14 @@ public class OrderPageController extends HttpServlet {
 		String objectType = request.getParameter("objectType");
 		String fileName = request.getParameter("fileName");
 
+		System.out.println("------------OrderPageController-------------");
 		System.out.println("userNo: " + userNo);
 		System.out.println("boardProNo: " + boardProNo);
 		System.out.println("objectTitle: " + objectTitle);
 		System.out.println("objectPrice: " + objectPrice);
 		System.out.println("objectType: " + objectType);
 		System.out.println("fileName: " + fileName);
+		System.out.println("--------------------------------------------");
 		
 		BoardDTO bDTO = new BoardDTO();
 		

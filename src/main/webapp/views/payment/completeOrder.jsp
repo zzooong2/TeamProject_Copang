@@ -8,17 +8,17 @@
     <title>주문 완료</title>
 
 	 <!-- tab-icon -->
-    <link rel="icon" href="../../../resources/img/tapIcon.png" />
+    <link rel="icon" href="/resources/img/tapIcon.png" />
 	
-    <link rel="stylesheet" href="../../resources/css/payment/completeOrder/completeHeader.css">
-    <link rel="stylesheet" href="../../resources/css/payment/completeOrder/completeOrderList.css">
+    <link rel="stylesheet" href="/resources/css/payment/completeOrder/completeHeader.css">
+    <link rel="stylesheet" href="/resources/css/payment/completeOrder/completeOrderList.css">
     
-	<link rel="stylesheet" href="../../../resources/css/common/footer.css">
+	<link rel="stylesheet" href="/resources/css/common/footer.css">
 </head>
 <body>
     <header>
         <div class="header">
-            <img src="../../resources/img/Logo.png" alt="로고">
+            <a href="/"><img src="/resources/img/Logo.png" alt="로고" class="logo"></a>
             <div class="header-font-number-1">1</div>
             <span class="header-font-1"> 주문확인 및 결제 </span>
             <span class="header-font-next-arrow"> > </span>
@@ -33,59 +33,33 @@
 
     <section class="complete-order-section">
         <div class="order-list">
-            <h1>주문내역</h1>
-            <div class="order-flex">
-                <div class="item-1">
-                    <img src="../../resources/img/item1.png" alt="제품사진">
-                </div>
-                <div class="item-2">
-                    <h4>B2B 전문 번역 회사의 고품질 대량 전문 번역 서비스</h4>
-                    <h6>한국 아이시스</h6>
-                </div>
-                <div class="item-3">
-                    <h4>
-                        <span class="amount-item-1">주문금액</span>
-                    </h4>
-                    <h4>
-                        <span class="fee-item-1">수수료</span>
-                    </h4>
-                    <h4>
-                        <span class="point-item-1">코팡캐시</span>
-                    </h4>
-                    <h4>
-                        <span class="total-item-1">총 주문 금액</span>
-                    </h4>
-                </div>
-                <div class="item-4">
-                    <h4>
-                        <span class="amount-item-2" id="amount">60000<span>원</span></span>
-                    </h4>
-                    <h4>
-                        <span class="fee-item-2" id="fee">2100<span>원</span></span>
-                    </h4>
-                    <h4>
-                        <span class="point-item-2" id="point">0<span>원</span></span>
-                    </h4>
-                    <h4>
-                        <span class="total-item-2" id="total">62100<span>원</span></span>
-                    </h4>
-                </div>
-            </div>      
+            <h1 class="order-text">주문내역</h1>
+               <img src="/resources/upload/main/${result.fileName}" alt="${result.fileName}" class="img">
+               
+               <h4 class="item-2">${result.boardTitle}</h4>
+               
+               <div class="item-3">
+	               	<span class="amount-item-1">주문금액</span>
+			        <span class="amount-item-2" id="amount">${result.businessPay} 원</span>
+               </div>
+               
+               <div class="item-4">
+			        <span class="fee-item-1">주문번호</span>
+			        <span class="fee-item-2" id="fee">${result.orderNo}</span>
+               </div>
         </div>
-        
         <h1 class="complete-text">주문이 완료되었습니다.</h1>
     </section>
     
-    
     <section>
-    	<div class="request-space">
-    		<div class="request">
-    			<input class="request-title" value="" disabled>
-    			<br>
-    			<br>
-    			<input class="request-contents" value="" disabled></input>
-    		</div>
-    	</div>
+	    	<div class="request-space">
+	    		<div class="request">
+	    			<div class="request-title">${result.requestTitle}</div>
+	    			<br>
+	    			<br>
+	    			<div class="request-contents">${result.requestContents}</div>
+	    		</div>
+	    	</div>
     </section>
     <%@ include file="/views/common/footer.jsp"%>
 </body>

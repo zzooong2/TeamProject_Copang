@@ -6,14 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주문확인 및 결제</title>
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/header.css">
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/orderList.css">
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/paymentRole.css">
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/price.css">
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/requestDetail.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/header.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/orderList.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/paymentRole.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/price.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/requestDetail.css">
 
      <!-- tab-icon -->
-    <link rel="icon" href="../../../resources/img/tapIcon.png" />
+    <link rel="icon" href="/resources/img/tapIcon.png" />
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,19 +23,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- smart Editor -->
-    <script src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-    <script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
+    <script src="/resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script src="/resources/js/boardProEnroll/smartEditor.js"></script>
     
     <!-- ajax -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	
-	<link rel="stylesheet" href="../../../resources/css/common/footer.css">
+	<link rel="stylesheet" href="/resources/css/common/footer.css">
 </head>
 
 <body>
     <header>
         <div class="header">
-            <img src="../../resources/img/Logo.png" alt="로고">
+            <a href="/"><img src="/resources/img/Logo.png" alt="로고"></a>
             <div class="header-font-number-1">1</div>
             <span class="header-font-1"> 주문확인 및 결제 </span>
             <span class="header-font-next-arrow"> > </span>
@@ -56,7 +56,7 @@
                 <h4>주문 내역</h4> 
                 <div class="order-flex">
                     <div class="item-1">
-                        <img src="../../resources/upload/main/${result.fileName}" alt="${result.fileName}">
+                        <img src="/resources/upload/main/${result.fileName}" alt="${result.fileName}">
                     </div>
                     <div class="item-2">
                         <h4 id="object-title">${result.boardTitle}</h4>
@@ -119,8 +119,7 @@
             <div class="price">
                 <h4 class="order-price">
                     <span class="amount-item-1">주문 금액</span>
-                    <%-- <span class="amount-item-2" id="final-amount">${result.businessPay}<span>원</span></span> --%>
-                    <span class="amount-item-2" id="final-amount">100<span>원</span></span>
+                    <span class="amount-item-2" id="final-amount">${result.businessPay}<span>원</span></span>
                 </h4>
 
                 <h4 class="order-price">
@@ -150,6 +149,8 @@
             <div class="detail">
 	 			<input type="hidden" id="userNo" name="userNo" value="${result.userNo}">
 	 			<input type="hidden" id="boardProNo" name="boardProNo" value="${result.boardNo}" />
+	 			<input type="hidden" id="requestNo" name="requestNo" value="" />
+	 			
                 <input type="text" id="title" name="request-title" placeholder=" 제목을 입력해주세요.(* 현재 페이지 내에서만 작성 및 수정 가능합니다.)" class="request-title">
                 <br>
                 <br>

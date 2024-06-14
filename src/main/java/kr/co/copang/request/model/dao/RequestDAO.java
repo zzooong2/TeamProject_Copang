@@ -23,7 +23,7 @@ public class RequestDAO {
 	// 의뢰 등록
 	public int enroll(RequestDTO rDTO) {
 		String query = "INSERT INTO REQUEST_BOARD(R_NO, R_TITLE, R_CONTENTS, R_INDATE, R_STATUS, USER_NO, B_NO)"
-					 + " VALUES(REQUEST_BOARD_SEQ.nextval, ?, ?, default, default, ?, 1)";
+					 + " VALUES(REQUEST_BOARD_SEQ.nextval, ?, ?, default, default, ?, ?)";
 		
 		try {
 			ps = con.prepareStatement(query);
@@ -31,6 +31,7 @@ public class RequestDAO {
 			ps.setString(1, rDTO.getRequestTitle());
 			ps.setString(2, rDTO.getRequestContents());
 			ps.setInt(3, rDTO.getUserNo());
+			ps.setInt(4, rDTO.getBoardNo());
 			
 			int result = ps.executeUpdate();
 			

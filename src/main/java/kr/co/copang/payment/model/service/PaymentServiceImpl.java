@@ -19,8 +19,8 @@ public class PaymentServiceImpl implements PaymentService{
 	}
 	
 	@Override
-	public BoardDTO getPaymentInfo(BoardDTO bDTO) {
-		return pDAO.getPaymentInfo(bDTO);
+	public BoardDTO getPaymentInfo(int objectNo, int userNo) {
+		return pDAO.getPaymentInfo(objectNo, userNo);
 	}
 	
 }

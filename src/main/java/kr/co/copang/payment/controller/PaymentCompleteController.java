@@ -34,21 +34,26 @@ public class PaymentCompleteController extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		
 		int price = Integer.parseInt(request.getParameter("priceArr"));
+		int objectNo = Integer.parseInt(request.getParameter("objectNo"));
 		String objectTitle = request.getParameter("objectTitle");
 		String orderNumber = generateOrderNumber();
 		
 		HttpSession session = request.getSession();
 		
 		int userNo = (int)session.getAttribute("userNo");
+		
+		System.out.println("------------PaymentCompleteController-------------");
 		System.out.println("회원번호: " + userNo);
 		System.out.println("주문금액: " + price);
 		System.out.println("주문제품: " + objectTitle);
 		System.out.println("주문번호: " + orderNumber);
+		System.out.println("--------------------------------------------------");
 		
 		PaymentDTO pDTO = new PaymentDTO();
 		
 		pDTO.setUserNo(userNo);
 		pDTO.setObjectPrice(price);
+		pDTO.setObjectNo(objectNo);
 		pDTO.setObjectTitle(objectTitle);
 		pDTO.setOrderNo(orderNumber);
 		
