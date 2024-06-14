@@ -25,56 +25,55 @@ public class BoardProDetailController extends HttpServlet {
         super();
     }
 
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
-      int boardProNo;
-       try {
-          boardProNo = Integer.parseInt(request.getParameter("boardNo"));
-          
-       } catch (NumberFormatException e) {
-          boardProNo = Integer.parseInt(request.getParameter("businessNo"));
-       }
-   
-      BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
-      
-      ArrayList<BoardProDto> result = boardProService.getDetail(boardProNo);
-      
-      if(result != null && result.size() >= 6) {
-         request.setAttribute("result", result.get(0));
-         request.setAttribute("resultSingle", result.get(1));
-         request.setAttribute("resultS", result.get(2));
-         request.setAttribute("resultD", result.get(3));
-         request.setAttribute("resultP", result.get(4));
-         request.setAttribute("resultF", result.get(5));
-      } else {
-         request.setAttribute("error", "잘못된 접근입니다.");
-      }
-      
-      // 파일 정보 확인
-       BoardProDto mainFile = boardProService.getDetailFile(boardProNo);
-       if (mainFile != null) {
-           request.setAttribute("mainFile", mainFile);
-       } else {
-           request.setAttribute("error", "파일을 찾을 수 없습니다.");
-       }
-      
-      ArrayList<BoardProDto> fileList = boardProService.getFiles(boardProNo);
-      request.setAttribute("fileList", fileList);
-      
-      ArrayList<BoardProDto> reviewList = boardProService.getReviews(boardProNo);
-      float avgValue = boardProService.getReviewAvg(boardProNo);
-      String avg = String.format("%.1f", avgValue);
-      request.setAttribute("avg", avg);
-      
-      if(reviewList != null) {
-         request.setAttribute("reviewList", reviewList);
-      } else {
-         request.setAttribute("reviewList", new ArrayList<>());
-      }
-      
-      RequestDispatcher view = request.getRequestDispatcher("/views/board/boardProDetail.jsp");
-      view.forward(request, response);
-   }
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int boardProNo;
+	    try {
+	        boardProNo = Integer.parseInt(request.getParameter("boardNo"));
+	    } catch (NumberFormatException e) {
+	        boardProNo = Integer.parseInt(request.getParameter("businessNo")); // 기본 값 설정 또는 오류 처리
+	    }
+	
+		BoardProServiceImpl boardProService = new BoardProServiceImpl(); 
+		
+		ArrayList<BoardProDto> result = boardProService.getDetail(boardProNo);
+		
+		if(result != null && result.size() >= 6) {
+			request.setAttribute("result", result.get(0));
+			request.setAttribute("resultSingle", result.get(1));
+			request.setAttribute("resultS", result.get(2));
+			request.setAttribute("resultD", result.get(3));
+			request.setAttribute("resultP", result.get(4));
+			request.setAttribute("resultF", result.get(5));
+		} else {
+			request.setAttribute("error", "잘못된 접근입니다.");
+		}
+		
+		// 파일 정보 확인
+	    BoardProDto mainFile = boardProService.getDetailFile(boardProNo);
+	    if (mainFile != null) {
+	        request.setAttribute("mainFile", mainFile);
+	    } else {
+	        request.setAttribute("error", "파일을 찾을 수 없습니다.");
+	    }
+		
+		ArrayList<BoardProDto> fileList = boardProService.getFiles(boardProNo);
+		request.setAttribute("fileList", fileList);
+		
+		ArrayList<BoardProDto> reviewList = boardProService.getReviews(boardProNo);
+		float avgValue = boardProService.getReviewAvg(boardProNo);
+		String avg = String.format("%.1f", avgValue);
+		request.setAttribute("avg", avg);
+		
+		if(reviewList != null) {
+			request.setAttribute("reviewList", reviewList);
+		} else {
+			request.setAttribute("reviewList", new ArrayList<>());
+		}
+		
+		RequestDispatcher view = request.getRequestDispatcher("/views/board/boardProDetail.jsp");
+		view.forward(request, response);
+	}
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        request.setCharacterEncoding("UTF-8");

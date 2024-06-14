@@ -175,6 +175,8 @@ public class CategoryListDao {
 				result.add(categoryListDto);
 
 			}
+			pstmt.close();
+			con.close();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -196,6 +198,7 @@ public class CategoryListDao {
 			while (rs.next()) {
 				int result = rs.getInt("CNT");
 				return result;
+				
 			}
 
 		} catch (SQLException e) {

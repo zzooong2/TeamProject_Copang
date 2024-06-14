@@ -5,7 +5,7 @@
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css"
-	href="../../resources/css/category/category.css">
+	href="/resources/css/category/category.css">
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
