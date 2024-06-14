@@ -138,9 +138,11 @@
 						                            </div>
 						                        </div>
 						                        <div class="rightBox_check_list_inner">
-						                        	<div class="rightBox_check_list">
-						                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>개</span>
-						                            </div>
+						                        	<c:if test="${resultSingle.businessServiceFunction != 0}">
+							                        	<div class="rightBox_check_list">
+							                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>개</span>
+							                            </div>
+							                        </c:if>
 						                            <div class="rightBox_check_list">
 						                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>페이지</span>
 						                            </div>
@@ -317,17 +319,34 @@
 													<td class="tableLine">${resultD.businessServiceData}페이지</td>
 													<td class="tableLine">${resultP.businessServiceData}페이지</td>
 												</tr>
+												<c:if test="${resultS.businessServiceFunction != '0' && resultD.businessServiceFunction != '0' && resultP.businessServiceFunction != '0'}">
+													<tr>
+														<td class="tableLine">기능</td>
+														<td class="tableLine">${resultS.businessServiceFunction}개</td>
+														<td class="tableLine">${resultD.businessServiceFunction}개</td>
+														<td class="tableLine">${resultP.businessServiceFunction}개</td>
+													</tr>
+												</c:if>
 												<tr>
-													<td class="tableLine">기능</td>
-													<td class="tableLine">${resultS.businessServiceFunction}개</td>
-													<td class="tableLine">${resultD.businessServiceFunction}개</td>
-													<td class="tableLine">${resultP.businessServiceFunction}개</td>
-												</tr>
-												<tr>
-													<td class="tableLine">수정 횟수</td>
-													<td class="tableLine">${resultS.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultD.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultP.businessServiceRetouch}회</td>
+												    <td class="tableLine">수정 횟수</td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultS.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultD.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultP.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
 												</tr>
 												<tr>
 													<td class="tableLine">작업일</td>
@@ -359,9 +378,24 @@
 												</tr>
 												<tr>
 													<td class="tableLine">수정 횟수</td>
-													<td class="tableLine">${resultS.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultD.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultP.businessServiceRetouch}회</td>
+													<td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultS.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultD.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultP.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
 												</tr>
 												<tr>
 													<td class="tableLine">작업일</td>
@@ -399,9 +433,24 @@
 												</tr>
 												<tr>
 													<td class="tableLine">수정 횟수</td>
-													<td class="tableLine">${resultS.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultD.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultP.businessServiceRetouch}회</td>
+													<td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultS.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultD.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultP.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
 												</tr>
 												<tr>
 													<td class="tableLine">작업일</td>
@@ -439,9 +488,24 @@
 												</tr>
 												<tr>
 													<td class="tableLine">수정 횟수</td>
-													<td class="tableLine">${resultS.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultD.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultP.businessServiceRetouch}회</td>
+													<td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultS.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultD.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultP.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
 												</tr>
 												<tr>
 													<td class="tableLine">작업일</td>
@@ -473,9 +537,24 @@
 												</tr>
 												<tr>
 													<td class="tableLine">수정 횟수</td>
-													<td class="tableLine">${resultS.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultD.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultP.businessServiceRetouch}회</td>
+													<td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultS.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultD.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultP.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
 												</tr>
 												<tr>
 													<td class="tableLine">작업일</td>
@@ -501,9 +580,24 @@
 											<tbody id="Detail_Category_BusinessMenu_Study" class="categoryTable">
 												<tr>
 													<td class="tableLine">수정 횟수</td>
-													<td class="tableLine">${resultS.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultD.businessServiceRetouch}회</td>
-													<td class="tableLine">${resultP.businessServiceRetouch}회</td>
+													<td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultS.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultD.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
+												    <td class="tableLine">
+												        <c:choose>
+												            <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+												            <c:otherwise>${resultP.businessServiceRetouch}회</c:otherwise>
+												        </c:choose>
+												    </td>
 												</tr>
 												<tr>
 													<td class="tableLine">작업일</td>
@@ -643,18 +737,33 @@
 				                            </div>
 				                        </div>
 				                        <div class="rightBox_check_list_inner">
-				                        	<div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>개</span>
-				                            </div>
+											<c:if test="${resultSingle.businessServiceData != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">페이지 수</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>페이지</span>
+											    </div>
+											</c:if>
+				                        	<c:if test="${resultSingle.businessServiceFunction != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">기능 추가</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>개</span>
+											    </div>
+											</c:if>
+				                            <c:if test="${resultSingle.businessServiceWorkDate != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">작업일</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
+											    </div>
+											</c:if>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>페이지</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
-				                            </div>
+											    <span class="rightBox_check_list_text">수정 횟수</span>
+											    <span class="rightBox_business_inner">
+											        <c:choose>
+											            <c:when test="${resultSingle.businessServiceRetouch == '9999'}">제한없음</c:when>
+											            <c:otherwise><span>${resultSingle.businessServiceRetouch}</span>회</c:otherwise>
+											        </c:choose>
+											    </span>
+											</div>
 				                        </div>
 				                        <button type="submit" class="rightBox_buy_button">구매하기</button>
 				                    </div>
@@ -685,15 +794,27 @@
 				                            </div>
 				                        </div>
 				                        <div class="rightBox_check_list_inner">
+				                            <c:if test="${resultSingle.businessServiceData != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">시안 갯수</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>개</span>
+											    </div>
+											</c:if>
+				                            <c:if test="${resultSingle.businessServiceWorkDate != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">작업일</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
+											    </div>
+											</c:if>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">시안개수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>개</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
-				                            </div>
+											    <span class="rightBox_check_list_text">수정 횟수</span>
+											    <span class="rightBox_business_inner">
+											        <c:choose>
+											            <c:when test="${resultSingle.businessServiceRetouch == '9999'}">제한없음</c:when>
+											            <c:otherwise><span>${resultSingle.businessServiceRetouch}</span>회</c:otherwise>
+											        </c:choose>
+											    </span>
+											</div>
 				                        </div>
 				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
@@ -712,18 +833,34 @@
 				                            </div>
 				                        </div>
 				                        <div class="rightBox_check_list_inner">
+				                            
+											<c:if test="${resultSingle.businessServiceData != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">촬영시간(분)</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>분</span>
+											    </div>
+											</c:if>
+											<c:if test="${resultSingle.businessServiceFunction != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">런닝타입(초)</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>초</span>
+											    </div>
+											</c:if>
+				                            <c:if test="${resultSingle.businessServiceWorkDate != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">작업일</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
+											    </div>
+											</c:if>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">촬영시간(분)</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>분</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">러닝타임(초)</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>초</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
-				                            </div>
+											    <span class="rightBox_check_list_text">수정 횟수</span>
+											    <span class="rightBox_business_inner">
+											        <c:choose>
+											            <c:when test="${resultSingle.businessServiceRetouch == '9999'}">제한없음</c:when>
+											            <c:otherwise><span>${resultSingle.businessServiceRetouch}</span>회</c:otherwise>
+											        </c:choose>
+											    </span>
+											</div>
 				                        </div>
 				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
@@ -741,18 +878,33 @@
 				                                <span class="rightBox_check_list_text">보정 작업</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 				                        	</div>
 					                        <div class="rightBox_check_list_inner">
+					                            <c:if test="${resultSingle.businessServiceData != '0'}">
+												    <div class="rightBox_check_list">
+												        <span class="rightBox_check_list_text">촬영시간(분)</span>
+												        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>분</span>
+												    </div>
+												</c:if>
+												<c:if test="${resultSingle.businessServiceFunction != '0'}">
+												    <div class="rightBox_check_list">
+												        <span class="rightBox_check_list_text">컷수</span>
+												        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>장</span>
+												    </div>
+												</c:if>
+					                            <c:if test="${resultSingle.businessServiceWorkDate != '0'}">
+												    <div class="rightBox_check_list">
+												        <span class="rightBox_check_list_text">작업일</span>
+												        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
+												    </div>
+												</c:if>
 					                            <div class="rightBox_check_list">
-					                                <span class="rightBox_check_list_text">촬영시간(분)</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>분</span>
-					                            </div>
-					                            <div class="rightBox_check_list">
-					                                <span class="rightBox_check_list_text">컷 수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>컷</span>
-					                            </div>
-					                            <div class="rightBox_check_list">
-					                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
-					                            </div>
-					                            <div class="rightBox_check_list">
-					                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
-					                            </div>
+												    <span class="rightBox_check_list_text">수정 횟수</span>
+												    <span class="rightBox_business_inner">
+											        <c:choose>
+											            <c:when test="${resultSingle.businessServiceRetouch == '9999'}">제한없음</c:when>
+											            <c:otherwise><span>${resultSingle.businessServiceRetouch}</span>회</c:otherwise>
+											        </c:choose>
+											    </span>
+											</div>
 					                        </div>
 				                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
 				                   		 </div>
@@ -767,12 +919,21 @@
 				                            <span class="">${resultSingle.businessServiceGuide}</span>
 				                        </div>
 				                        <div class="rightBox_check_list_inner">
+				                            <c:if test="${resultSingle.businessServiceWorkDate != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">작업일</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
+											    </div>
+											</c:if>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
-				                            </div>
+											    <span class="rightBox_check_list_text">수정 횟수</span>
+											    <span class="rightBox_business_inner">
+										        <c:choose>
+										            <c:when test="${resultSingle.businessServiceRetouch == '9999'}">제한없음</c:when>
+										            <c:otherwise><span>${resultSingle.businessServiceRetouch}</span>회</c:otherwise>
+										        </c:choose>
+											    </span>
+											</div>
 				                        </div>
 				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
@@ -792,12 +953,21 @@
 				                            <div class="rightBox_check_list">
 				                                <span class="rightBox_check_list_text">레슨 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>회</span>
 				                            </div>
+				                            <c:if test="${resultSingle.businessServiceWorkDate != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">작업일</span>
+											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
+											    </div>
+											</c:if>
 				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
-				                            </div>
+											    <span class="rightBox_check_list_text">수정 횟수</span>
+											    <span class="rightBox_business_inner">
+										        <c:choose>
+										            <c:when test="${resultSingle.businessServiceRetouch == '9999'}">제한없음</c:when>
+										            <c:otherwise><span>${resultSingle.businessServiceRetouch}</span>회</c:otherwise>
+										        </c:choose>
+											    </span>
+											</div>
 				                        </div>
 				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
@@ -844,18 +1014,31 @@
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                        	<div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>개</span>
-			                            </div>
+			                        	<c:if test="${resultS.businessServiceFunction != '0'}">
+				                        	<div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>개</span>
+				                            </div>
+			                            </c:if>
 			                            <div class="rightBox_check_list">
 			                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>페이지</span>
 			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultS.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -889,18 +1072,31 @@
 			                            </div>
 		                            </div>
 			                        <div class="rightBox_check_list_inner">
-			                        	<div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>개</span>
-			                            </div>
+			                        	<c:if test="${resultD.businessServiceFunction != '0'}">
+				                        	<div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>개</span>
+				                            </div>
+			                            </c:if>
 			                            <div class="rightBox_check_list">
 			                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>페이지</span>
 			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultD.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -934,18 +1130,31 @@
 			                            </div>
 		                            </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>개</span>
-			                            </div>
+			                        	<c:if test="${resultP.businessServiceFunction != '0'}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>개</span>
+				                            </div>
+			                            </c:if>
 			                            <div class="rightBox_check_list">
 			                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>페이지</span>
 			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultP.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -991,12 +1200,23 @@
 			                            <div class="rightBox_check_list">
 			                                <span class="rightBox_check_list_text">시안개수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>개</span>
 			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultS.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1033,12 +1253,23 @@
 				                            <div class="rightBox_check_list">
 				                                <span class="rightBox_check_list_text">시안개수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>개</span>
 				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
-				                            </div>
+				                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+				                            <c:if test="${resultD.businessServiceRetouch != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">수정 횟수</span>
+											        <span class="rightBox_business_inner">
+											            <c:choose>
+											                <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+											                <c:otherwise><span>${resultD.businessServiceRetouch}</span>회</c:otherwise>
+											            </c:choose>
+											        </span>
+											    </div>
+											</c:if>
 			                        	</div>
 		                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
 		                    	</div>
@@ -1075,12 +1306,23 @@
 			                            <div class="rightBox_check_list">
 			                                <span class="rightBox_check_list_text">시안개수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>개</span>
 			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultP.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1106,18 +1348,35 @@
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">촬영시간(분)</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>분</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">러닝타임(초)</span><span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>초</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultS.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">촬영시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>분</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">러닝타임(초)</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>초</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultS.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1134,18 +1393,35 @@
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">촬영시간(분)</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>분</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">러닝타임(초)</span><span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>초</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultD.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">촬영시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>분</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">러닝타임(초)</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>초</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultD.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1162,18 +1438,35 @@
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">촬영시간(분)</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>분</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">러닝타임(초)</span><span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>초</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultP.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">촬영시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>분</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">러닝타임(초)</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>초</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultP.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1198,18 +1491,35 @@
 			                                <span class="rightBox_check_list_text">보정 작업</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 			                        	</div>
 				                        <div class="rightBox_check_list_inner">
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">촬영시간(분)</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>분</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">컷 수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>컷</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
-				                            </div>
-				                            <div class="rightBox_check_list">
-				                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
-				                            </div>
+				                            <c:if test="${resultS.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">촬영시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>분</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">컷수</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>컷</span>
+										    </div>
+										</c:if>
+				                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+				                            <c:if test="${resultS.businessServiceRetouch != '0'}">
+											    <div class="rightBox_check_list">
+											        <span class="rightBox_check_list_text">수정 횟수</span>
+											        <span class="rightBox_business_inner">
+											            <c:choose>
+											                <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+											                <c:otherwise><span>${resultS.businessServiceRetouch}</span>회</c:otherwise>
+											            </c:choose>
+											        </span>
+											    </div>
+											</c:if>
 				                        </div>
 			                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
 		                   		 	</div>
@@ -1227,18 +1537,35 @@
 			                        	</div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">촬영시간(분)</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>분</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">컷 수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>컷</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultD.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">촬영시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>분</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">컷수</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>컷</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultD.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1255,18 +1582,35 @@
 			                        	</div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">촬영시간(분)</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>분</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">컷 수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>컷</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultP.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">촬영시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>분</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">컷수</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>컷</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultP.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1286,46 +1630,41 @@
 			                            <span class="rightBox_sample1">${resultS.businessServiceName}</span>
 			                            <span class="">${resultS.businessServiceGuide}</span>
 			                        </div>
-			                        <div class="rightBox_check_list_IT">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                        </div>
+		                        	<c:if test="${result.boardProSubcatCategory.equals('언론홍보')}">
+				                        <div class="rightBox_check_list_IT">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">원고 수정</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+				                        </div>
+		                            </c:if>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>페이지</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                        	<c:if test="${result.boardProSubcatCategory.equals('인스타그램 관리')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">A/S기간</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>일</span>
+				                            </div>
+			                            </c:if>
+			                            <c:if test="${result.boardProSubcatCategory.equals('체험단·기자단')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">유지 기간(일)</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>일</span>
+				                            </div>
+			                            </c:if>
+			                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultS.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1336,46 +1675,41 @@
 			                            <span class="rightBox_sample1">${resultD.businessServiceName}</span>
 			                            <span class="">${resultD.businessServiceGuide}</span>
 			                        </div>
-			                        <div class="rightBox_check_list_IT">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                        </div>
+			                        <c:if test="${result.boardProSubcatCategory.equals('언론홍보')}">
+				                        <div class="rightBox_check_list_IT">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">원고 수정</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+				                        </div>
+		                            </c:if>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>페이지</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${result.boardProSubcatCategory.equals('인스타그램 관리')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">A/S기간</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>일</span>
+				                            </div>
+			                            </c:if>
+			                            <c:if test="${result.boardProSubcatCategory.equals('체험단·기자단')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">유지 기간(일)</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>일</span>
+				                            </div>
+			                            </c:if>
+			                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultD.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1386,46 +1720,41 @@
 			                            <span class="rightBox_sample1">${resultP.businessServiceName}</span>
 			                            <span class="">${resultP.businessServiceGuide}</span>
 			                        </div>
-			                        <div class="rightBox_check_list_IT">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                        </div>
+			                        <c:if test="${result.boardProSubcatCategory.equals('언론홍보')}">
+				                        <div class="rightBox_check_list_IT">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">원고 수정</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+				                        </div>
+		                            </c:if>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>페이지</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${result.boardProSubcatCategory.equals('인스타그램 관리')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">A/S보증기간</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>일</span>
+				                            </div>
+			                            </c:if>
+			                            <c:if test="${result.boardProSubcatCategory.equals('체험단·기자단')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">유지 기간(일)</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>일</span>
+				                            </div>
+			                            </c:if>
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultP.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1446,45 +1775,47 @@
 			                            <span class="">${resultS.businessServiceGuide}</span>
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
+			                        	<c:if test="${result.boardProMiddleCategory.equals('외국어 레슨' || '미술·글쓰기')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">강의자료제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+			                            </c:if>
+			                        	<c:if test="${result.boardProMiddleCategory.equals('댄스·뮤직')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">강의실 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+			                            </c:if>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>페이지</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultS.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">1회당 레슨시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>분</span>
+										    </div>
+										</c:if>
+										<c:if test="${resultS.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">레슨횟수</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>회</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultS.businessServiceRetouch != 0}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultS.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultS.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1496,45 +1827,47 @@
 			                            <span class="">${resultD.businessServiceGuide}</span>
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
+			                        	<c:if test="${result.boardProMiddleCategory.equals('외국어 레슨' || '미술·글쓰기')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">강의자료제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+			                            </c:if>
+			                            <c:if test="${result.boardProMiddleCategory.equals('댄스·뮤직')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">강의실 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+			                            </c:if>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>페이지</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultD.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">1회당 레슨시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>분</span>
+										    </div>
+										</c:if>
+										<c:if test="${resultD.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">레슨횟수</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>회</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultD.businessServiceRetouch != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultD.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultD.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
@@ -1546,45 +1879,47 @@
 			                            <span class="">${resultP.businessServiceGuide}</span>
 			                        </div>
 			                        <div class="rightBox_check_list_IT">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">맞춤 디자인 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">반응형 웹</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">크로스 브라우징</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">결제 기능 삽입</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">요건정의서</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">소스 코드 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png"
-			                                    class="rightBox_check_png">
-			                            </div>
+				                        <c:if test="${result.boardProMiddleCategory.equals('외국어 레슨' || '미술·글쓰기')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">강의자료제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+			                            </c:if>
+			                            <c:if test="${result.boardProMiddleCategory.equals('댄스·뮤직')}">
+				                            <div class="rightBox_check_list">
+				                                <span class="rightBox_check_list_text">강의실 제공</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
+				                            </div>
+			                            </c:if>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">페이지</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>페이지</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
-			                            </div>
-			                            <div class="rightBox_check_list">
-			                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceRetouch}</span>회</span>
-			                            </div>
+			                            <c:if test="${resultP.businessServiceData != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">1회당 레슨시간(분)</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>분</span>
+										    </div>
+										</c:if>
+										<c:if test="${resultP.businessServiceFunction != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">레슨횟수</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>회</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">작업일</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
+										    </div>
+										</c:if>
+			                            <c:if test="${resultP.businessServiceRetouch != 0}">
+										    <div class="rightBox_check_list">
+										        <span class="rightBox_check_list_text">수정 횟수</span>
+										        <span class="rightBox_business_inner">
+										            <c:choose>
+										                <c:when test="${resultP.businessServiceRetouch == '9999'}">제한없음</c:when>
+										                <c:otherwise><span>${resultP.businessServiceRetouch}</span>회</c:otherwise>
+										            </c:choose>
+										        </span>
+										    </div>
+										</c:if>
 			                        </div>
 			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>

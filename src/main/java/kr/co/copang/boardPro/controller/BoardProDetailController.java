@@ -33,7 +33,6 @@ public class BoardProDetailController extends HttpServlet {
           
        } catch (NumberFormatException e) {
           boardProNo = Integer.parseInt(request.getParameter("businessNo"));
-//           boardProNo = 11; // 기본 값 설정 또는 오류 처리
        }
    
       BoardProServiceImpl boardProService = new BoardProServiceImpl(); 

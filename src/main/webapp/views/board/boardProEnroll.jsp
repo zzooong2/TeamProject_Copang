@@ -47,8 +47,8 @@
 	                
 	
 	
-					<div class="Detail_right_Contents" id="Detail_right_Contents1" style="display: block;">
 	                <!-- =============================================================== Right Contents 1 =============================================================== -->
+					<div class="Detail_right_Contents" id="Detail_right_Contents1" style="display: block;">
 						<div class="Detail_right_Contents1_Title">
 							<div class="Detail_right_Contents1_box1">
 								<span class="Detail_right_type_box">&nbsp;&nbsp;제목<span class="Detail_right_check">*</span></span> 
@@ -358,7 +358,7 @@
 										
 										<div class="Detail_right_type_box1" id="Detail_right_SingleData">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;</span>
-											<input class="type_box_Input3 input_select" id="Detail_right_box1_text1_input" type="text" placeholder="제공할 자료수를 입력해주세요." name="enroll_Data" maxlength="9" value="0"><span class="Detail_right_unit">개</span>
+											<input class="type_box_Input3 input_select" id="Detail_right_box1_text1_input" type="text" placeholder="" name="enroll_Data" maxlength="9" value="0"><span class="Detail_right_unit"></span>
 										</div>
 												
 										<div class="Detail_right_type_box1" id="Detail_right_SingleData_IT">
@@ -374,15 +374,19 @@
 											<input class="type_box_Input3 input_select" id="Detail_right_box1_text1_input" type="text" placeholder="제공할 촬영시간(분)을 입력해주세요." name="enroll_Data" maxlength="9"><span class="Detail_right_unit">분</span>
 										</div>
 										<div class="Detail_right_type_box1" id="Detail_right_SingleData_Marketing">
-											<span class="Detail_right_box1_text">&nbsp;&nbsp;A/S기간</span>
+											<span class="Detail_right_box1_text">&nbsp;&nbsp;관리기간(일)</span>
 											<input class="type_box_Input3 input_select" id="Detail_right_box1_text1_input" type="text" placeholder="제공할 A/S기간을 입력해주세요." name="enroll_Data" maxlength="9"><span class="Detail_right_unit">일</span>
+										</div>
+										<div class="Detail_right_type_box1" id="Detail_right_SingleData_Edu">
+											<span class="Detail_right_box1_text">&nbsp;&nbsp;레슨시간(분)</span>
+											<input class="type_box_Input3 input_select" id="Detail_right_box1_text1_input" type="text" placeholder="제공할 레슨 시간을 입력해주세요." name="enroll_Data" maxlength="9"><span class="Detail_right_unit">분</span>
 										</div>
 										
 										
 										
 										<div class="Detail_right_type_box1" id="Detail_right_SingleFunction">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;</span>
-											<input class="type_box_Input3 input_select" id="Detail_right_box1_text2_input" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Function" maxlength="9" value="0"><span class="Detail_right_unit"></span>
+											<input class="type_box_Input3 input_select" id="Detail_right_box1_text2_input" type="text" placeholder="" name="enroll_Function" maxlength="9" value="0"><span class="Detail_right_unit"></span>
 										</div>
 										
 										<div class="Detail_right_type_box1" id="Detail_right_SingleFunction_IT">
@@ -396,6 +400,10 @@
 										<div class="Detail_right_type_box1" id="Detail_right_SingleFunction_Photo">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;컷수</span>
 											<input class="type_box_Input3 input_select" id="Detail_right_box1_text2_input" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Function" maxlength="9"><span class="Detail_right_unit">장</span>
+										</div>
+										<div class="Detail_right_type_box1" id="Detail_right_SingleFunction_Edu">
+											<span class="Detail_right_box1_text">&nbsp;&nbsp;레슨 횟수</span>
+											<input class="type_box_Input3 input_select" id="Detail_right_box1_text2_input" type="text" placeholder="제공할 레슨 횟수를 입력해주세요." name="enroll_Function" maxlength="9"><span class="Detail_right_unit">회</span>
 										</div>
 										
 										
@@ -531,7 +539,10 @@
 													<span class="Detail_right_Type2_Text">촬영시간(분)</span>
 												</div>
 												<div class="Detail_right_Type2_ON_smallbox2" id="Detail_right_Data_Marketing">
-													<span class="Detail_right_Type2_Text">A/S기간</span>
+													<span class="Detail_right_Type2_Text">관리기간</span>
+												</div>
+												<div class="Detail_right_Type2_ON_smallbox2" id="Detail_right_Data_edu">
+													<span class="Detail_right_Type2_Text">1회당 레슨시간(분)</span>
 												</div>
 												
 	
@@ -558,6 +569,10 @@
 												<div class="Detail_right_Type2_ON_smallbox2" id="Detail_right_Function_Photo">
 													<span class="Detail_right_Type2_Text">컷수</span>
 												</div>
+												<div class="Detail_right_Type2_ON_smallbox2" id="Detail_right_Function_edu">
+													<span class="Detail_right_Type2_Text">레슨횟수</span>
+												</div>
+												
 												<div class="Detail_right_Type2_ON_selectbox">
 													<input class=" Detail_right_Type2_input2" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Standard_Function" value="0">
 												</div>
@@ -574,7 +589,8 @@
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
 													<select class="Detail_right_Type2_select" name="enroll_Standard_WorkDay">
-														<option class="dropMenuStyle" value="">기간을 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">기간을 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">0</option>
 														<option class="dropMenuStyle" value="1">1</option>
 														<option class="dropMenuStyle" value="2">2</option>
 														<option class="dropMenuStyle" value="3">3</option>
@@ -629,7 +645,8 @@
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
 													<select class="Detail_right_Type2_select" name="enroll_Deluxe_WorkDay">
-														<option class="dropMenuStyle" value="">기간을 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">기간을 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">0</option>
 														<option class="dropMenuStyle" value="1">1</option>
 														<option class="dropMenuStyle" value="2">2</option>
 														<option class="dropMenuStyle" value="3">3</option>
@@ -684,7 +701,8 @@
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
 													<select class="Detail_right_Type2_select" name="enroll_Premium_WorkDay">
-														<option class="dropMenuStyle" value="">기간을 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">기간을 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">0</option>
 														<option class="dropMenuStyle" value="1">1</option>
 														<option class="dropMenuStyle" value="2">2</option>
 														<option class="dropMenuStyle" value="3">3</option>
@@ -745,7 +763,8 @@
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
 													<select class="Detail_right_Type2_select" name="enroll_Standard_Retouch">
-														<option class="dropMenuStyle" value="">수정 회수를 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">수정 회수를 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">0</option>
 														<option class="dropMenuStyle" value="1">1</option>
 														<option class="dropMenuStyle" value="2">2</option>
 														<option class="dropMenuStyle" value="3">3</option>
@@ -761,7 +780,8 @@
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
 													<select class="Detail_right_Type2_select" name="enroll_Deluxe_Retouch">
-														<option class="dropMenuStyle" value="">수정 회수를 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">수정 회수를 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">0</option>
 														<option class="dropMenuStyle" value="1">1</option>
 														<option class="dropMenuStyle" value="2">2</option>
 														<option class="dropMenuStyle" value="3">3</option>
@@ -777,7 +797,8 @@
 												</div>
 												<div class="Detail_right_Type2_ON_selectbox">
 													<select class="Detail_right_Type2_select" name="enroll_Premium_Retouch">
-														<option class="dropMenuStyle" value="">수정 회수를 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">수정 회수를 선택하여주세요</option>
+														<option class="dropMenuStyle" value="0">0</option>
 														<option class="dropMenuStyle" value="1">1</option>
 														<option class="dropMenuStyle" value="2">2</option>
 														<option class="dropMenuStyle" value="3">3</option>

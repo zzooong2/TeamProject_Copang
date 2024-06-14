@@ -52,22 +52,39 @@ public class BoardProEnrollController extends HttpServlet {
 		String[] twoCategory = request.getParameterValues("enroll_Middle_Category");
 		String[] thirdCategory = request.getParameterValues("enroll_Subcat_Category");
 		
+		
+		System.out.println("title: " + title);
+		System.out.println("category: " + category);
+		System.out.println("serviceStyle: " + serviceStyle);
+		System.out.println("company: " + company);
+		System.out.println("detailService: " + detailService);
+		System.out.println("middleCategory: " + middleCategory);
+		System.out.println("subcatCategory: " + subcatCategory);
+
+		
+		
 		System.out.println(Arrays.toString(twoCategory));
 		System.out.println(Arrays.toString(thirdCategory));
 		
 		
-		for(String item : twoCategory) {
-			System.out.println("a : " + item);
-			if(!item.equals("")) { 
-				middleCategory = item;
-			}
+		if (twoCategory != null && twoCategory.length > 0) {
+		    for (String item : twoCategory) {
+		        if (!item.equals("")) {
+		            middleCategory = item;
+		            break;  // 유효한 값을 찾으면 반복문 탈출
+		        }
+		    }
 		}
-		
-		for(String item : thirdCategory) {
-			if(!item.equals("")) { 
-				subcatCategory = item;
-			}
+
+		if (thirdCategory != null && thirdCategory.length > 0) {
+		    for (String item : thirdCategory) {
+		        if (!item.equals("")) {
+		            subcatCategory = item;
+		            break;  // 유효한 값을 찾으면 반복문 탈출
+		        }
+		    }
 		}
+
 		
 		BoardProDto boardDto = new BoardProDto(); 
 		boardDto.setUserNo(memberNo);

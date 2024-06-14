@@ -13,8 +13,25 @@ toggleSwitch.addEventListener('change', function () {
     }
 });
 
+// 설명 작성시 Enter를 입력하면 자동 <br>태그를 삽입해 주는 코드
+function insertBrOnEnter(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // 기본 엔터키 동작 방지
+        const textarea = event.target;
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
 
+        // 현재 커서 위치에 <br> 삽입
+        textarea.value = textarea.value.substring(0, start) + '<br>' + textarea.value.substring(end);
 
+        // 커서 위치를 <br> 뒤로 이동
+        textarea.selectionStart = textarea.selectionEnd = start + 4; // <br>의 길이
+
+        // 입력 이벤트를 강제로 발생시켜 oninput 이벤트 핸들러가 작동하도록 함
+        const event = new Event('input', { bubbles: true });
+        textarea.dispatchEvent(event);
+    }
+}
 
 // 요소들의 ID를 변수로 할당
 var toggleSwitch = document.getElementById("right_toggle_slider");
@@ -51,14 +68,14 @@ function handleCategoryChangeForToggleOn(value) {
     toggleDisplay(document.getElementById("Detail_right_Data_Design"), 'none');
     toggleDisplay(document.getElementById("Detail_right_Data_Media"), 'none');
     toggleDisplay(document.getElementById("Detail_right_Data_Marketing"), 'none');
+    toggleDisplay(document.getElementById("Detail_right_Data_edu"), 'none');
 
     // Function 항목 표시 여부를 변경
     toggleDisplay(document.getElementById("Detail_right_Function"), 'none');
     toggleDisplay(document.getElementById("Detail_right_Function_IT"), 'none');
-    toggleDisplay(document.getElementById("Detail_right_Function_Design"), 'none');
     toggleDisplay(document.getElementById("Detail_right_Function_Media"), 'none');
     toggleDisplay(document.getElementById("Detail_right_Function_Photo"), 'none');
-    toggleDisplay(document.getElementById("Detail_right_Function_Marketing"), 'none');
+    toggleDisplay(document.getElementById("Detail_right_Function_edu"), 'none');
 	
 
     // 대분류에 따라 표시할 Data 및 Function 항목 결정
@@ -67,7 +84,7 @@ function handleCategoryChangeForToggleOn(value) {
         toggleDisplay(document.getElementById("Detail_right_Function_IT"), 'flex');
     } else if (value === "디자인") {
         toggleDisplay(document.getElementById("Detail_right_Data_Design"), 'flex');
-        toggleDisplay(document.getElementById("Detail_right_function_list_package"), 'none');
+        toggleDisplay(document.getElementById("Detail_right_Function"), 'flex');
 		
     } else if (value === "영상·사진") {
         var mediaType = middleCategorySelect.value; // 중분류 선택 변수 사용
@@ -81,8 +98,10 @@ function handleCategoryChangeForToggleOn(value) {
         }
     } else if (value === "마케팅") {
         toggleDisplay(document.getElementById("Detail_right_Data_Marketing"), 'flex');
+		toggleDisplay(document.getElementById("Detail_right_Function"), 'flex');
     } else if (value === "교육") {
-
+		toggleDisplay(document.getElementById("Detail_right_Data_edu"), 'flex');
+		toggleDisplay(document.getElementById("Detail_right_Function_edu"), 'flex');
     }
 }
 
@@ -94,6 +113,7 @@ function handleCategoryChangeForToggleOff(value) {
     toggleDisplay(document.getElementById("Detail_right_SingleData_Design"), 'none');
     toggleDisplay(document.getElementById("Detail_right_SingleData_Media"), 'none');
     toggleDisplay(document.getElementById("Detail_right_SingleData_Marketing"), 'none');
+    toggleDisplay(document.getElementById("Detail_right_SingleData_Edu"), 'none');
 
     // Function 항목 표시 여부를 변경
     toggleDisplay(document.getElementById("Detail_right_SingleFunction"), 'none');
@@ -102,6 +122,7 @@ function handleCategoryChangeForToggleOff(value) {
     toggleDisplay(document.getElementById("Detail_right_SingleFunction_Media"), 'none');
     toggleDisplay(document.getElementById("Detail_right_SingleFunction_Photo"), 'none');
     toggleDisplay(document.getElementById("Detail_right_SingleFunction_Marketing"), 'none');
+    toggleDisplay(document.getElementById("Detail_right_SingleFunction_Edu"), 'none');
 
     // 대분류에 따라 표시할 Data 및 Function 항목 결정
     if (value === "IT·프로그래밍") {
@@ -109,6 +130,8 @@ function handleCategoryChangeForToggleOff(value) {
         toggleDisplay(document.getElementById("Detail_right_SingleFunction_IT"), 'flex');
     } else if (value === "디자인") {
         toggleDisplay(document.getElementById("Detail_right_SingleData_Design"), 'flex');
+        toggleDisplay(document.getElementById("Detail_right_SingleFunction"), 'flex');
+
     } else if (value === "영상·사진") {
         toggleDisplay(document.getElementById("Detail_right_SingleData_Media"), 'flex');
         var mediaType = middleCategorySelect.value; // 중분류 선택 변수 사용
@@ -119,7 +142,10 @@ function handleCategoryChangeForToggleOff(value) {
         }
     } else if (value === "마케팅") {
         toggleDisplay(document.getElementById("Detail_right_SingleData_Marketing"), 'flex');
+        toggleDisplay(document.getElementById("Detail_right_SingleFunction"), 'flex');
     } else if (value === "교육") {
+		toggleDisplay(document.getElementById("Detail_right_SingleData_Edu"), 'flex');
+		toggleDisplay(document.getElementById("Detail_right_SingleFunction_Edu"), 'flex');
     }
 }
 
