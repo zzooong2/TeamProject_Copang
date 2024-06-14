@@ -12,13 +12,21 @@ function showSection(sectionId) {
     }
 }
 
+ 
+
 // 페이지 로드 시 기본 섹션 보이기
 window.onload = function () {
-    const header = document.getElementsByTagName("header")[0];
-    header.style.position = "unset";
+	const activeSection = document.getElementById("activeSection").value;
+	if(activeSection === 'payment') {
+		showSection('payment')
+	} else {
+	    showSection('profile');
+	}
 
-    showSection('profile');
+
 }
+
+
 
 /* 번호 변경 클릭시 */
 function enablePhoneInput() {
@@ -29,12 +37,12 @@ function enablePhoneInput() {
 
 
 
-
-
 let Flag = false; // 인증 플래그
 let verificationCode = 0;
 
 $(document).ready(function() {
+	
+	
     // 인증번호 확인 버튼 클릭 이벤트
     $('#verifyCodeBtn').on('click', function() {
         var userInputCode = $('#verificationCode').val();
@@ -106,13 +114,6 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
-// 페이지 로드 시 기본 섹션 보이기
-window.onload = function () {
-    const header = document.getElementsByTagName("header")[0];
-    header.style.position = "unset";
-
-    showSection('profile');
-}
 
 // 모든 섹션 숨기기 및 선택된 섹션 보이기
 function showSection(sectionId) {
@@ -195,3 +196,30 @@ function showSection(sectionId) {
             Swal.fire('알림', '오류가 발생했습니다.', 'error').then(() => {
             });
 		}
+		
+		
+		document.addEventListener('DOMContentLoaded', function() {
+    let amountElements = document.querySelectorAll('.payment-amount');
+
+    amountElements.forEach(function(element) {
+        let amountString = element.getAttribute('data-amount');
+        let amount = parseFloat(amountString);
+
+        // 숫자가 아닌 경우 또는 NaN인 경우 처리
+        if (!isNaN(amount)) {
+            // 콤마 포함된 한국식 통화 포맷
+            let formattedAmount = new Intl.NumberFormat('ko-KR', {
+                style: 'currency',
+                currency: 'KRW'
+            }).format(amount);
+
+            element.textContent = formattedAmount;
+        } else {
+            console.error('Invalid number format: ' + amountString);
+        }
+    });
+});
+	
+	
+	
+		

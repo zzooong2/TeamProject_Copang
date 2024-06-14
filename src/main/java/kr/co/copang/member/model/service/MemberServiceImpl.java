@@ -1,5 +1,7 @@
 package kr.co.copang.member.model.service;
 
+import java.util.List;
+
 import kr.co.copang.member.model.dao.MemberDao;
 import kr.co.copang.member.model.dto.MemberDto;
 
@@ -60,5 +62,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int updatePhone(String userName, String userEmail, String userPhone) {
 		return memberDao.updatePhone(userName, userEmail, userPhone);	
+	}
+	
+	@Override
+	public List<MemberDto> getPaymentsByUserNo(int userNo) {
+		return memberDao.getPaymentsByUserNo(userNo);
 	}
 }

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -236,5 +238,35 @@ public class MemberDao {
 	    }
 	    return result;
 	}
-    
+	
+	// 결제내역 가져오기
+	public List<MemberDto> getPaymentsByUserNo(int userNo) {
+		List<MemberDto> payments = new ArrayList<>();
+		String query = "SELECT p.P_ORDER_NO, p.P_INDATE, bm.BM_PAY"
+					+ " FROM PAYMENT p"
+					+ " JOIN BUSINESS_MENU bm ON p.B_NO = bm.B_NO"
+					+ " WHERE p.USER_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, userNo);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				MemberDto payment = new MemberDto();
+                payment.setPaymentOrderNo(rs.getString("P_ORDER_NO"));
+                payment.setPaymentDate(rs.getString("P_INDATE"));
+                payment.setAmount(rs.getInt("BM_PAY"));
+                payments.add(payment);
+                
+             // 로그 추가
+                System.out.println("결제 내역 조회: P_ORDER_NO=" + payment.getPaymentOrderNo() +
+                                   ", P_INDATE=" + payment.getPaymentDate() +
+                                   ", BM_PAY=" + payment.getAmount());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return payments;
+	}
 }

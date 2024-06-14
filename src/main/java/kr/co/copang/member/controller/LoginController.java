@@ -1,7 +1,6 @@
 package kr.co.copang.member.controller;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,9 +50,11 @@ public class LoginController extends HttpServlet {
             session.setAttribute("userPhone", member.getUserPhone());
             session.setAttribute("userNo", member.getUserNo());
             session.setAttribute("partCode", member.getPartCode());
+            session.setAttribute("loggedInUser", member); // 여기서 "loggedInUser"는 세션에 저장될 사용자 객체의 이름입니다.
 
             // 로그인 성공 시 메인 페이지로 리다이렉트
             response.sendRedirect(request.getContextPath() + "/");
+            
         } else {
             // 비밀번호가 일치하지 않는 경우
             // 로그인 실패 메시지를 request에 저장하여 전달

@@ -65,7 +65,7 @@
                                 <label for="currentPassword">현재 비밀번호</label>
                                 <input type="password" id="currentPassword" name="currentPassword" placeholder="기존 비밀번호를 입력해주세요.">
                                 <label for="newPassword">변경할 비밀번호</label>
-                                <input type="password" id="newPassword" name="newPassword" placeholder="변경할 비밀번호를 입력해주세요.">
+                                <input type="password" id="newPassword" name="newPassword" placeholder="8~16자 대/소문자, 숫자, 특수문자">
                                 <label for="confirmPassword">한번 더 입력</label>
                                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="변경할 비밀번호를 한번더 입력해주세요.">
                                 <button type="submit">비밀번호 변경</button>
@@ -75,7 +75,7 @@
 
                         <div id="payment" class="section" style="width: 500px;">
                             <h2>결제 내역</h2>
-                            <form action="/member/payment.do" class="payment_page" id="paymentForm" method="GET">
+                            <form action="/member/paymentCheck.do" class="payment_page" id="paymentForm" method="GET">
                             <table class="payment_table">
                                 <thead>
                                     <tr>
@@ -85,19 +85,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>123456</td>
-                                        <td>2024-05-01</td>
-                                        <td>₩50,000</td>
-                                    </tr>
-                                    <tr>
-                                        <td>789012</td>
-                                        <td>2024-05-15</td>
-                                        <td>₩75,000</td>
-                                    </tr>
+                                	<c:choose>
+                    					<c:when test="${empty payments}">
+                        					<tr>
+                            					<td colspan="3">결제 내역확인을 눌러주세요</td>
+                        					</tr>
+                    					</c:when>
+                    					<c:otherwise>
+                        					<c:forEach var="payment" items="${payments}">
+                            					<tr>
+                                					<td>${payment.paymentOrderNo}</td>
+                                					<td>${payment.paymentDate}</td>
+                                					<td class="payment-amount" data-amount="${payment.amount}">${payment.amount}</td>
+                            					</tr>
+                        					</c:forEach>
+                    					</c:otherwise>
+                					</c:choose>
                                     <!-- 추가 결제 내역은 여기서 반복 -->
                                 </tbody>
                             </table>
+                            <input type="hidden" id="activeSection" value="${activeSection}">
+                            <button type="submit" id="paymentCheckBtn">결제 내역 확인</button>
                             </form>
                             <div class="payment_notice">
                                 <p class="notice_title">꼭 확인해주세요!</p>
@@ -155,7 +163,7 @@
     var pwdValidation = "<%= request.getAttribute("pwdValidation") %>";
     var pwdChange = "<%= request.getAttribute("pwdChange") %>";
     var status = "<%= request.getAttribute("status") %>";
-
+    
 	</script>
             <script src="/resources/js/member/myPage.js"></script>
             <%@ include file="/views/common/footer.jsp" %>

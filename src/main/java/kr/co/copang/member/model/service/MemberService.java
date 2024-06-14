@@ -1,5 +1,7 @@
 package kr.co.copang.member.model.service;
 
+import java.util.List;
+
 import kr.co.copang.member.model.dto.MemberDto;
 
 public interface MemberService {
@@ -25,5 +27,11 @@ public interface MemberService {
 	
 	// 핸드폰번호 변경
 	public int updatePhone(String userName, String userEmail, String userPhone);
+	
+	// 결제내역 가져오기
+	public List<MemberDto> getPaymentsByUserNo(int userNo);
+	    
+	   
+	
 	
 }
