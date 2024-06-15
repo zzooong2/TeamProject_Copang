@@ -251,15 +251,16 @@ public class BoardProDao {
 		return null;
 	}
 
-	public int fileUpload(BoardProDto boardDto, int businessNo) {
+	public int fileUpload(BoardProDto fileListDto, int businessNo) {
 
-		String query = "INSERT INTO UPLOAD VALUES(UPLOAD_SEQ.NEXTVAL, ?, ?, ?)";
+		String query = "INSERT INTO UPLOAD VALUES(UPLOAD_SEQ.NEXTVAL, ?, ?, ?, ?)";
 
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, boardDto.getFilePath());
-			pstmt.setString(2, boardDto.getFileName());
-			pstmt.setInt(3, businessNo);
+			pstmt.setString(1, fileListDto.getFilePath());
+			pstmt.setString(2, fileListDto.getFileName());
+			pstmt.setString(3, fileListDto.getFileContentType());
+			pstmt.setInt(4, businessNo);
 
 			int result = pstmt.executeUpdate();
 
@@ -626,7 +627,8 @@ public class BoardProDao {
 
 		String query = "SELECT B_NO,"
                 + "		       FILE_NAME,"
-                + "		       FILE_PATH"
+                + "		       FILE_PATH,"
+                + "			   FILE_CONTENT_TYPE"
                 + " 	FROM UPLOAD"
                 + "		WHERE B_NO = ?"
                 + "	    AND FILE_PATH LIKE ?";
@@ -642,11 +644,13 @@ public class BoardProDao {
 		           int bNo = rs.getInt("B_NO");
 		           String fName = rs.getString("FILE_NAME");
 		           String fPath = rs.getString("FILE_PATH");
+		           String fContentType = rs.getString("FILE_CONTENT_TYPE");
 		
 		           BoardProDto fBoardProDto = new BoardProDto();
 		           fBoardProDto.setFileNo(bNo);
 		           fBoardProDto.setFileName(fName);
 		           fBoardProDto.setFilePath(fPath);
+		           fBoardProDto.setFileContentType(fContentType);
 		
 		           return fBoardProDto;
 		       }
@@ -665,7 +669,8 @@ public class BoardProDao {
 		
 		String query = "SELECT B_NO,"
 				+ "			   FILE_NAME,"
-				+ "			   FILE_PATH"
+				+ "			   FILE_PATH,"
+				+ "			   FILE_CONTENT_TYPE"
 				+ "		FROM UPLOAD"
 				+ "		WHERE B_NO = ?"
 				+ "		AND FILE_PATH LIKE '%detail'";
@@ -680,11 +685,13 @@ public class BoardProDao {
 				int boardNo = rs.getInt("B_NO");
 				String fileName = rs.getString("FILE_NAME");
 				String filePath = rs.getString("FILE_PATH");
+				String fContentType = rs.getString("FILE_CONTENT_TYPE");
 				
 				BoardProDto fileDto = new BoardProDto();
 				fileDto.setBoardProNo(boardNo);
 				fileDto.setFileName(fileName);
 				fileDto.setFilePath(filePath);
+				fileDto.setFileContentType(fContentType);
 				
 				result.add(fileDto);
 			}

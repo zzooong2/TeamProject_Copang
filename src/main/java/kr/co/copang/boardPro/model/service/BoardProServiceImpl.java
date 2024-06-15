@@ -30,8 +30,8 @@ public class BoardProServiceImpl implements BoardProService {
 	}
 	
 	@Override
-	public int fileUpload(BoardProDto boardDto, int businessNo) {
-		return boardProDao.fileUpload(boardDto, businessNo);
+	public int fileUpload(BoardProDto fileListDto, int businessNo) {
+		return boardProDao.fileUpload(fileListDto, businessNo);
 	}
 	
 	@Override

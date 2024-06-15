@@ -380,6 +380,7 @@ input[id="tabList05"]:checked ~ .con5 {
 }
 
 .img_link {
+	margin: 0;
 	padding: 4px;
 	width: 25px;
 	border: 1px soli #fff;
@@ -427,6 +428,7 @@ input[id="tabList05"]:checked ~ .con5 {
 .rightConbox {
 	width: 350px;
 	height: 100%;
+	padding-top: 10px;
 	border-top: 1px solid black;
 	margin: 0 auto;
 	display: none;
@@ -459,8 +461,16 @@ input[id="rightTabList03"]:checked ~ .rightCon3 {
 
 .rightBox_sample1 {
 	margin-top: 20px;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: bold;
+	text-align: left;
+	display: block;
+}
+
+.rightBox_sample2 {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	font-size: 12px;
 	text-align: left;
 	display: block;
 }

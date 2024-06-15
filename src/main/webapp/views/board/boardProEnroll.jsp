@@ -258,7 +258,7 @@
 									</div>
 									<div class="Detail_right_Contents1_box2" id="Detail_right_SubcatCategory4-3" style="display: none;">
 										<span class="Detail_right_type_box">&nbsp;&nbsp;소분류<span class="Detail_right_check">*</span></span>
-										<select class="Detail_right_Contents_Category_Style_select" id="Detail_right_SubcatCategory_select4-3" name="enroll_Subcat_Category">
+										<select class="Detail_right_Contents1_Category_Style" id="Detail_right_SubcatCategory_select4-3" name="enroll_Subcat_Category">
 											<option class="Detail_right_Contents1_Category_Style" value="">소분류를 선택하여주세요</option>
 											<option class="Detail_right_Contents1_Category_Style" value="언론홍보">언론홍보</option>
 											<option class="Detail_right_Contents1_Category_Style" value="행사·이벤트">행사·이벤트</option>
@@ -394,7 +394,7 @@
 											<input class="type_box_Input3 input_select" id="Detail_right_box1_text2_input" type="text" placeholder="제공할 기능수를 입력해주세요." name="enroll_Function" maxlength="9"><span class="Detail_right_unit">개</span>
 										</div>
 										<div class="Detail_right_type_box1" id="Detail_right_SingleFunction_Media">
-											<span class="Detail_right_box1_text">&nbsp;&nbsp;런닝타입(초)</span>
+											<span class="Detail_right_box1_text">&nbsp;&nbsp;런닝타임(초)</span>
 											<input class="type_box_Input3 input_select" id="Detail_right_box1_text2_input" type="text" placeholder="런닝타입(초)을 입력해주세요." name="enroll_Function" maxlength="9"><span class="Detail_right_unit">초</span>
 										</div>
 										<div class="Detail_right_type_box1" id="Detail_right_SingleFunction_Photo">
@@ -412,7 +412,7 @@
 										<div class="Detail_right_type_box1">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;작업 기간<span class="Detail_right_check">*</span></span> 
 											<select class="Detail_right_workday dropMenuStyle_origin input_select" name="enroll_WorkDay">
-												<option class="dropMenuStyle_origin" value="">기간을 선택하여주세요</option>
+												<option class="dropMenuStyle_origin" value="0">기간을 선택하여주세요</option>
 												<option class="dropMenuStyle" value="1">1</option>
 												<option class="dropMenuStyle" value="2">2</option>
 												<option class="dropMenuStyle" value="3">3</option>
@@ -468,7 +468,7 @@
 										<div class="Detail_right_type_box1 Detail_right_Box_margin">
 											<span class="Detail_right_box1_text">&nbsp;&nbsp;수정 횟수<span class="Detail_right_check">*</span></span> 
 											<select class="Detail_right_retouch dropMenuStyle_origin input_select" name="enroll_Retouch">
-												<option class="dropMenuStyle_origin" value="">수정 회수를 선택하여주세요</option>
+												<option class="dropMenuStyle_origin" value="0">수정 회수를 선택하여주세요</option>
 												<option class="dropMenuStyle" value="1">1</option>
 												<option class="dropMenuStyle" value="2">2</option>
 												<option class="dropMenuStyle" value="3">3</option>
@@ -851,7 +851,7 @@
 										<label for="Detail_right_Contents4_fileInput2" class="Detail_right_Contents4_fileInput2">상세페이지 이미지 :</label>
 										<div id="imageCountDisplay2" class="imageCountDisplay">0/5</div>
 									</div>
-									<input class="Detail_right_Contents4_input" type="file" id="Detail_right_Contents4_fileInput2" accept="image/*" name="dUploadFile" multiple>
+									<input class="Detail_right_Contents4_input" type="file" id="Detail_right_Contents4_fileInput2" accept="image/*, video/*" name="dUploadFile" multiple>
 									<div class="Detail_right_Contents4_preview2" id="Detail_right_Contents4_imagePreviews2"></div>
 								</div>
 							</div>

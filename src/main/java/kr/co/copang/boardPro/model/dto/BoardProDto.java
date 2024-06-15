@@ -38,6 +38,7 @@ public class BoardProDto {
 	private int fileNo;
 	private String filePath;
 	private String fileName;
+	private String fileContentType;
 	
 	private int reviewStarPoint;
 	private String reviewContent;
@@ -45,11 +46,6 @@ public class BoardProDto {
 	
 	
 	
-	
-
-
-
-
 
 	public BoardProDto(String businessServiceName, String businessServiceGuide, int businessServicePay, int businessServiceWorkDate, int businessServiceRetouch, int businessServiceData, int businessServiceFunction) {
 		super();
@@ -319,7 +315,15 @@ public class BoardProDto {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+	
+	public String getFileContentType() {
+		return fileContentType;
+	}
 
+	public void setFileContentType(String fileContentType) {
+		this.fileContentType = fileContentType;
+	}
+	
 	public int getReviewStarPoint() {
 		return reviewStarPoint;
 	}

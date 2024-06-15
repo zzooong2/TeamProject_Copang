@@ -27,11 +27,22 @@ document.addEventListener("DOMContentLoaded", function() {
         if (file) {
             let reader = new FileReader();
 
-            reader.onload = function(e) {
-                let img = document.createElement("img");
-                img.src = e.target.result;
-                preview1.appendChild(img);
-            };
+            if (file.type.startsWith('image/')) {
+                // 이미지 파일인 경우
+                reader.onload = function(e) {
+                    let img = document.createElement("img");
+                    img.src = e.target.result;
+                    preview1.appendChild(img);
+                };
+            } else if (file.type.startsWith('video/')) {
+                // 동영상 파일인 경우
+                reader.onload = function(e) {
+                    let video = document.createElement("video");
+                    video.src = e.target.result;
+                    video.controls = true; // 동영상 컨트롤러 표시
+                    preview1.appendChild(video);
+                };
+            }
 
             reader.readAsDataURL(file);
 
@@ -89,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 dataTransfer.items.add(files[i]);
             }
         }
-	console.log(dataTransfer.files);
+
         fileInput2.files = dataTransfer.files;
 
         // 프리뷰를 갱신합니다.
@@ -99,11 +110,22 @@ document.addEventListener("DOMContentLoaded", function() {
             let file = dataTransfer.files[i];
             let reader = new FileReader();
 
-            reader.onload = function(e) {
-                let img = document.createElement("img");
-                img.src = e.target.result;
-                preview2.appendChild(img);
-            };
+            if (file.type.startsWith('image/')) {
+                // 이미지 파일인 경우
+                reader.onload = function(e) {
+                    let img = document.createElement("img");
+                    img.src = e.target.result;
+                    preview2.appendChild(img);
+                };
+            } else if (file.type.startsWith('video/')) {
+                // 동영상 파일인 경우
+                reader.onload = function(e) {
+                    let video = document.createElement("video");
+                    video.src = e.target.result;
+                    video.controls = true; // 동영상 컨트롤러 표시
+                    preview2.appendChild(video);
+                };
+            }
 
             reader.readAsDataURL(file);
         }
@@ -117,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 프리뷰를 클릭하면 파일 선택 창을 엽니다.
     preview2.addEventListener("click", function(event) {
-        if (event.target.tagName === "IMG") {
+        if (event.target.tagName === "IMG" || event.target.tagName === "VIDEO") {
             let index = Array.from(preview2.children).indexOf(event.target);
 
             // 선택한 파일 목록에서 클릭된 인덱스의 파일을 제거합니다.
@@ -132,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             fileInput2.files = dataTransfer.files;
 
-            // 프리뷰에서 이미지를 제거합니다.
+            // 프리뷰에서 이미지나 동영상을 제거합니다.
             event.target.remove();
 
             // 파일 업로드 수량 표시를 갱신합니다.
@@ -142,9 +164,4 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
-
-
-
-
 
