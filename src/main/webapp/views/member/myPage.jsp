@@ -121,7 +121,7 @@
 
                         <div id="delete" class="section">
                             <h2>회원 탈퇴</h2>
-                            <form action="/member/userDelete.do" class="delete_form" id="deleteForm">
+                            <form action="/member/userDelete.do" class="delete_form" id="deleteForm" method="POST">
                                 <div class="reasons">
                                     <h3 class="p_text">코팡을 떠나시는 이유를 선택해주세요.</h3><br>
                                     <label><input type="checkbox" name="reason" value="no_service"> 서비스 이용이
@@ -148,6 +148,7 @@
                                         <li>탈퇴 후 회원님의 정보는 전자상거래 소비자보호법에 의거한 코팡 개인정보처리방침에 따라 관리됩니다.</li>
                                     </ul>
                                 </div>
+                                <input type="hidden" id="errorSection" value="${errorSection}">
                                 <button type="submit" id="deleteButton">회원 탈퇴</button>
                             </form>
                         </div>
@@ -162,6 +163,8 @@
     var newPwdStatus = "<%= request.getAttribute("newPwdStatus") %>";
     var pwdValidation = "<%= request.getAttribute("pwdValidation") %>";
     var pwdChange = "<%= request.getAttribute("pwdChange") %>";
+    var passwordStatus = "<%= request.getAttribute("passwordStatus") %>";
+    var deleteError = "<%= request.getAttribute("deleteError") %>";
     var status = "<%= request.getAttribute("status") %>";
     
 	</script>

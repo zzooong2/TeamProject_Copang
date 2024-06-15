@@ -30,6 +30,9 @@ public interface MemberService {
 	
 	// 결제내역 가져오기
 	public List<MemberDto> getPaymentsByUserNo(int userNo);
+	
+	// 회원 탈퇴 
+	public int userDelete(String userEmail, String password);
 	    
 	   
 	

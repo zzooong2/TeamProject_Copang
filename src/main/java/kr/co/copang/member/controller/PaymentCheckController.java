@@ -45,8 +45,8 @@ public class PaymentCheckController extends HttpServlet {
 		 System.out.println("결제 내역 조회 결과: " + payments);
 		request.setAttribute("payments", payments);
 		
-		// 세션에 activeSection 값을 설정
-		session.setAttribute("activeSection", "payment");
+		//activeSection 값을 설정
+		request.setAttribute("activeSection", "payment");
 		request.getRequestDispatcher("/views/member/myPage.jsp").forward(request, response); // 결제 내역을 보여주는 JSP 페이지로 포워드
 	}
 		

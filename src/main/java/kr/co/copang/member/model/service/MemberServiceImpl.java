@@ -68,4 +68,9 @@ public class MemberServiceImpl implements MemberService {
 	public List<MemberDto> getPaymentsByUserNo(int userNo) {
 		return memberDao.getPaymentsByUserNo(userNo);
 	}
+	
+	@Override
+	public int userDelete(String userEmail, String password) {
+		return memberDao.userDelete(userEmail, password);
+	}
 }

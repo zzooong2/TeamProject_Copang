@@ -118,7 +118,7 @@ public class MemberDao {
 		String query = "SELECT M.USER_NAME, M.PASSWORD, M.USER_NO, MT.PART_CODE, M.EMAIL, M.PHONE"
 				+ "     FROM MEMBER M " 
                 + "     JOIN MEMBER_TYPE MT ON M.PART_CODE = MT.PART_CODE "
-				+ "     WHERE M.EMAIL = ?";
+				+ "     WHERE M.EMAIL = ? AND M.SECESSION = 'N'";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -269,4 +269,46 @@ public class MemberDao {
 		}
 		return payments;
 	}
+	
+	// 회원 탈퇴
+	public int userDelete(String userEmail, String password) {
+	    String query = "UPDATE MEMBER "
+	                 + "SET SECESSION = 'Y' "
+	                 + "WHERE EMAIL = ? AND PASSWORD = ?";
+	    int result = 0;
+	    
+	    try {
+	        // 비밀번호 검증을 위해 사용자 정보 조회
+	        String getPasswordQuery = "SELECT PASSWORD FROM MEMBER WHERE EMAIL = ?";
+	        pstmt = con.prepareStatement(getPasswordQuery);
+	        pstmt.setString(1, userEmail);
+	        ResultSet rs = pstmt.executeQuery();
+	        
+	        if (rs.next()) {
+	            String hashedPassword = rs.getString("PASSWORD");
+	            
+	            // BCrypt를 사용하여 비밀번호 일치 여부 확인
+	            if (BCrypt.checkpw(password, hashedPassword)) {
+	                pstmt = con.prepareStatement(query);
+	                pstmt.setString(1, userEmail);
+	                pstmt.setString(2, hashedPassword); // 비밀번호는 해시된 상태로 저장되어 있음
+	                result = pstmt.executeUpdate();
+	                
+	                if (result > 0) {
+	                    System.out.println("회원 탈퇴 성공: userEmail=" + userEmail);
+	                } else {
+	                    System.out.println("회원 탈퇴 실패: userEmail=" + userEmail);
+	                }
+	            } else {
+	                System.out.println("비밀번호 일치하지 않음: userEmail=" + userEmail);
+	            }
+	        } else {
+	            System.out.println("사용자 이메일에 해당하는 데이터 없음: userEmail=" + userEmail);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return result; // 탈퇴 처리 결과를 반환
+	}
+
 }

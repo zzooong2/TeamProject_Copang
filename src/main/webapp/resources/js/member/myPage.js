@@ -17,11 +17,17 @@ function showSection(sectionId) {
 // 페이지 로드 시 기본 섹션 보이기
 window.onload = function () {
 	const activeSection = document.getElementById("activeSection").value;
+	const errorSection = document.getElementById("errorSection").value;
+	
 	if(activeSection === 'payment') {
 		showSection('payment')
+	} else if (errorSection === 'error') {
+		showSection('delete')
 	} else {
 	    showSection('profile');
 	}
+	
+	
 
 
 }
@@ -167,7 +173,7 @@ function showSection(sectionId) {
                 event.preventDefault();
             }
         });
-
+		
 		if (pwdStatus === "false") {
 			pwdStatus = "";
             Swal.fire('알림', '현 비밀번호가 일치하지 않습니다.', 'error').then(() => {
@@ -185,7 +191,8 @@ function showSection(sectionId) {
             showSection(status);
             });
 		} 
-
+		
+		
 		if (pwdChange === "true") {
 			pwdChange = "";
             Swal.fire('알림', '비밀번호가 변경되었습니다.', 'success').then(() => {
@@ -194,6 +201,22 @@ function showSection(sectionId) {
         } else if(pwdChange === "false") {
 			pwdChange = "";
             Swal.fire('알림', '오류가 발생했습니다.', 'error').then(() => {
+            });
+		}
+		
+		// 탈퇴 관련
+		if (passwordStatus === "true") {
+			passwordStatus = "";
+            Swal.fire('알림', '회원 탈퇴 처리되었습니다.', 'success').then(() => {
+				window.location.href = "/views/member/login.jsp";
+            });
+        } else if(passwordStatus === "false") {
+			passwordStatus = "";
+            Swal.fire('알림', '비밀번호가 일치하지 않습니다.', 'error').then(() => {
+            });
+		} else if(deleteError === "false") {
+			deleteError = "";
+			Swal.fire('알림', '에러가 발생했습니다. 재 시도 해주세요.', 'error').then(() => {
             });
 		}
 		
