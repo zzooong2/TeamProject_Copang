@@ -131,5 +131,30 @@ public class BoardProServiceImpl implements BoardProService {
 		return list;
 	}
 	
+	@Override
+	public int setBMDelete(int boardProNo) {
+		return boardProDao.setBMDelete(boardProNo);
+	}
+	
+	@Override
+	public int setUDelete(int boardProNo) {
+		return boardProDao.setUDelete(boardProNo);
+	}
+	
+	@Override
+	public int setCBRDelete(int boardProNo) {
+		return boardProDao.setCBRDelete(boardProNo);
+	}
+	
+	@Override
+	public int setRBDelete(int boardProNo) {
+		return boardProDao.setRBDelete(boardProNo);
+	}
+	
+	
+	@Override
+	public int setCBDelete(int boardProNo) {
+		return boardProDao.setCBDelete(boardProNo);
+	}
 	
 }

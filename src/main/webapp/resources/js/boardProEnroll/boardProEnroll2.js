@@ -1,3 +1,40 @@
+// /////////////////////////////////////////// Enter Key Event JavaScript \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+// Enter 키 눌림을 막고 <br> 태그를 삽입하는 함수
+function insertLineBreak(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // 기본 동작인 form submit을 막음
+
+        // 현재 커서 위치에 <br> 태그 삽입
+        var textarea = event.target;
+        var start = textarea.selectionStart;
+        var end = textarea.selectionEnd;
+        
+        textarea.value = textarea.value.substring(0, start) + "<br>" + textarea.value.substring(end);
+        textarea.selectionStart = textarea.selectionEnd = start + 4; // <br> 길이는 4
+        
+        // 텍스트 영역의 높이를 자동으로 조절 (옵션)
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+    }
+}
+
+// 모든 textarea 요소에 Enter 키 이벤트를 추가하는 함수
+function addEnterKeyListener() {
+    var textareas = document.querySelectorAll('textarea');
+    textareas.forEach(function(textarea) {
+        textarea.addEventListener('keydown', insertLineBreak);
+    });
+}
+
+// 페이지가 로드될 때 이벤트 리스너 추가
+window.onload = addEnterKeyListener;
+
+
+// ==========================================================================================================
+
+
+// /////////////////////////////////////////// Toggle Event JavaScript \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 var toggleSwitch = document.getElementById("right_toggle_slider");
 var toggleContentOn = document.getElementById("toggleContentOn");
@@ -173,7 +210,7 @@ toggleSwitch.addEventListener('change', function () {
     toggleElementsDisplay(mainCategorySelect.value);
 });
 
-
+// ==========================================================================================================
 
 
 

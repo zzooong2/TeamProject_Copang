@@ -263,11 +263,19 @@ public class BoardProDao {
 			pstmt.setInt(4, businessNo);
 
 			int result = pstmt.executeUpdate();
+			
+			// 로그 추가: 파일 업로드 성공 시
+	        if (result == 1) {
+	            System.out.println("파일 업로드 성공: " + fileListDto.getFileName());
+	        } else {
+	            System.out.println("파일 업로드 실패");
+	        }
 
-			return result;
-
+	        return result;
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("파일 업로드 중 오류 발생: " + e.getMessage());
 		}
 
 		return 0;
@@ -858,5 +866,111 @@ public class BoardProDao {
 		
 		return 0;
 	}
+	
+	public int setBMDelete(int boardProNo) {
+		
+		String query = "DELETE FROM BUSINESS_MENU"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("setBMDelete : " + result);
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int setUDelete(int boardProNo) {
+		
+		String query = "DELETE FROM UPLOAD"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("setUDelete : " + result);
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int setCBRDelete(int boardProNo) {
+		
+		String query = "DELETE FROM CATEGORY_BOARD_REVIEW"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("setCBRDelete : " + result);
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int setRBDelete(int boardProNo) {
+		
+		String query = "DELETE FROM REQUEST_BOARD"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("setRBDelete : " + result);
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int setCBDelete(int boardProNo) {
+		
+		String query = "DELETE FROM CATEGORY_BOARD"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
+	
 	
 }

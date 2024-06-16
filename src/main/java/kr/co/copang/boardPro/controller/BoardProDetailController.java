@@ -30,9 +30,11 @@ public class BoardProDetailController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        // 세션에서 사용자 정보 확인
-        HttpSession session = request.getSession();
-        int userNo = (int) session.getAttribute("userNo");
+        HttpSession session = request.getSession(false);
+        Integer userNo = null;
+        if (session != null) {
+            userNo = (Integer) session.getAttribute("userNo");
+        }
 
         int boardProNo;
         try {

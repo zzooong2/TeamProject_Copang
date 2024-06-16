@@ -223,6 +223,7 @@
     border: none;
     font-weight: bold;
     color: rgb(80, 80, 80);
+    resize: none;
 }
 
 .type_box_Input2 {
@@ -231,6 +232,7 @@
     border: none;
     font-weight: bold;
     color: rgb(80, 80, 80);
+    resize: none;
 }
 
 .type_box_Input3 {
@@ -239,10 +241,11 @@
     border: none;
     font-weight: bold;
     color: rgb(80, 80, 80);
+    resize: none;
 }
 
 .Detail_right_unit {
-    width: 50px;
+    width: 80px;
     margin-right: 10px;
 }
 
@@ -252,7 +255,8 @@
 .type_box_Input4::placeholder,
 .type_box_Input5::placeholder,
 .type_box_Input6::placeholder {
-    font-weight: bold;
+	padding-top: 20px;
+	font-weight: bold;
     color: rgb(180, 180, 180);
 }
 
@@ -406,6 +410,7 @@
     height: 100%;
     border: none;
     border-right: 1px solid rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(218, 218, 218);
     background-color: none;
     font-size: 12px;
     word-wrap: break-word;
@@ -413,8 +418,6 @@
 
 .Detail_right_Type2_input3 {
     margin: 0;
-    padding: 0;
-    padding-left: 5px;
     width: 30%;
     height: 100%;
     border: none;
@@ -422,6 +425,7 @@
     background-color: none;
     font-size: 12px;
     word-break: break-all;
+    resize: none;
 }
 
 .Detail_right_Type2_input2 {
@@ -452,7 +456,8 @@
 
 .Detail_right_Type2_input::placeholder,
 .Detail_right_Type2_input2::placeholder,
-.type_box_Input6::placeholder {
+.type_box_Input6::placeholder,
+.Detail_right_Type2_input3::placeholder {
     font-weight: bold;
     color: rgb(180, 180, 180);
 }

@@ -227,7 +227,17 @@ public class BoardProEnrollController extends HttpServlet {
                 }
             }
         }
+        
+     // 파일 업로드 및 데이터베이스 삽입 전 로그 추가
+        System.out.println("파일 업로드 시작: " + fileListDto.getFileName());
+        System.out.println("파일 경로: " + fileListDto.getFilePath());
+        System.out.println("파일 MIME 타입: " + fileListDto.getFileContentType());
+        System.out.println("업로드할 비즈니스 번호: " + businessNo);
 
+        // 파일 업로드 및 데이터베이스 삽입 후 결과 확인 로그
+        System.out.println("파일 업로드 결과: " + fileResult);
+
+        
         // 파일 업로드 및 비즈니스 로직 처리가 성공한 경우 메인 페이지로 이동합니다.
         if (result == 1 && typeResult == 1 && (fileResult == 1 || fileResult == 2)) {
             response.sendRedirect("/BoardPro/Detail.do?businessNo=" + businessNo);

@@ -2217,14 +2217,19 @@
 					</c:choose>
 					<c:choose>
 						<c:when test="${sessionScope.userNo == result.userNo}">
-							<button type="button" class="Detail_Edit_button" onclick="location.href='/BoardPro/Edit.do?boardProNo=${result.boardProNo}'" name="Edit_Page_No">수정하기</button>
-							<input type="hidden" id="Detail_businessServiceType" value="${result.businessServiceType}" />
+							<div class="Detail_MasterPage">
+								<button type="button" class="Detail_Edit_button" onclick="location.href='/BoardPro/Edit.do?boardProNo=${result.boardProNo}'" name="Edit_Page_No">수정하기</button>
+								<button type="button" class="BoardPro_Delete_button" onclick="location.href='/boardPro/delete.do?boardProNo=${result.boardProNo}'">삭제하기</button>
+							</div>
 						</c:when>
 					</c:choose>
                 </form>
             </div>
         </div>
     </main>
+        <div class="Detail_TopButton">
+        	<a href="#" onclick="window.scrollTo(0, 0);"><img src="/resources/img/Up_Point.png" class="Detail_TopButton_Png"></a>
+        </div>
 	<%@ include file="/views/common/footer.jsp"%>
 </body>
 </html>

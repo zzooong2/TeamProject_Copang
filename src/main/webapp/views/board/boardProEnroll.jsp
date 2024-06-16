@@ -286,18 +286,18 @@
 										<span class="Detail_right_type_box">&nbsp;&nbsp;소분류<span class="Detail_right_check">*</span></span>
 										<select class="Detail_right_Contents1_Category_Style" id="Detail_right_SubcatCategory_select5-2" name="enroll_Subcat_Category">
 											<option class="Detail_right_Contents1_Category_Style" value="">소분류를 선택하여주세요</option>
-											<option class="Detail_right_Contents1_Category_Style" value="영어 레슨">미술·드로잉 레슨</option>
-											<option class="Detail_right_Contents1_Category_Style" value="기타 외국어 레슨">글쓰기 레슨</option>
+											<option class="Detail_right_Contents1_Category_Style" value="미술·드로잉 레슨">미술·드로잉 레슨</option>
+											<option class="Detail_right_Contents1_Category_Style" value="글쓰기 레슨">글쓰기 레슨</option>
 										</select>
 									</div>
 									<div class="Detail_right_Contents1_box2" id="Detail_right_SubcatCategory5-3" style="display: none;">
 										<span class="Detail_right_type_box">&nbsp;&nbsp;소분류<span class="Detail_right_check">*</span></span>
 										<select class="Detail_right_Contents1_Category_Style" id="Detail_right_SubcatCategory_select5-3" name="enroll_Subcat_Category">
 											<option class="Detail_right_Contents1_Category_Style" value="">소분류를 선택하여주세요</option>
-											<option class="Detail_right_Contents1_Category_Style" value="영어 레슨">댄스 레슨</option>
-											<option class="Detail_right_Contents1_Category_Style" value="기타 외국어 레슨">보컬·랩 레슨</option>
-											<option class="Detail_right_Contents1_Category_Style" value="기타 외국어 레슨">악기 레슨</option>
-											<option class="Detail_right_Contents1_Category_Style" value="기타 외국어 레슨">미디·작곡·편곡 레슨</option>
+											<option class="Detail_right_Contents1_Category_Style" value="댄스 레슨">댄스 레슨</option>
+											<option class="Detail_right_Contents1_Category_Style" value="보컬·랩 레슨">보컬·랩 레슨</option>
+											<option class="Detail_right_Contents1_Category_Style" value="악기 레슨">악기 레슨</option>
+											<option class="Detail_right_Contents1_Category_Style" value="미디·작곡·편곡 레슨">미디·작곡·편곡 레슨</option>
 										</select>
 									</div>
 								</div>
@@ -305,7 +305,7 @@
 								<div class="Detail_right_Contents1_Service" >
 									<div class="Detail_right_Contents1_box2">
 										<span class="Detail_right_type_box">&nbsp;&nbsp;서비스 타입<span class="Detail_right_check">*</span></span> 
-										<select class="Detail_right_Contents1_Category_Style" name="enroll_Service">
+										<select class="Detail_right_Contents1_Category_Style Detail_right_ServiceType" name="enroll_Service">
 											<option class="Detail_right_Contents1_Category_Style" value="">서비스 형태를 선택하여주세요</option>
 											<option class="Detail_right_Contents1_Category_Style" value="문서제공">문서제공</option>
 											<option class="Detail_right_Contents1_Category_Style" value="온라인제공">온라인제공</option>
@@ -316,7 +316,7 @@
 								</div>
 								<div class="Detail_right_Contents1_company">
 								<span class="Detail_right_type_box">&nbsp;&nbsp;기업명<span class="Detail_right_check">*</span></span> 
-								<input class="Detail_right_Contents1_Title_Input" type="text" placeholder="기업 이름을 입력해주세요." name="enroll_Company" oninput="Counter(this, 90)">
+								<input class="Detail_right_Contents1_Company_Input" type="text" placeholder="기업 이름을 입력해주세요." name="enroll_Company" oninput="Counter(this, 90)">
 							</div>
 								<div class="Detail_right_Contents1_imgbox">
 									<img class="Detail_right_Contents1_img"
