@@ -175,9 +175,9 @@ public class BoardProEnrollController extends HttpServlet {
 		// HTTP 요청으로부터 파일 업로드를 처리할 Part 컬렉션을 가져옵니다.
         Collection<Part> parts = request.getParts();
 
-        // 메인 이미지와 상세페이지 이미지를 업로드할 디렉토리 경로를 지정합니다.
-        String mUploadDirectory = "C:\\dev\\work-space\\semiProject\\semiProject\\src\\main\\webapp\\resources\\upload\\main";
-        String dUploadDirectory = "C:\\dev\\work-space\\semiProject\\semiProject\\src\\main\\webapp\\resources\\upload\\detail";
+		// 메인 이미지와 상세페이지 이미지를 업로드할 디렉토리 경로를 지정합니다.
+		String mUploadDirectory = "/Users/zzooong2/semiProject/semiProject/src/main/webapp/resources/upload/main";
+		String dUploadDirectory = "/Users/zzooong2/semiProject/semiProject/src/main/webapp/resources/upload/detail";
 
         // 파일 업로드 디렉토리가 존재하지 않으면 생성합니다.
         File mFilePath = new File(mUploadDirectory);

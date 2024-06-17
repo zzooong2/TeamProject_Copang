@@ -34,6 +34,7 @@ public class RequestEnrollController extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		int userNo = (int)session.getAttribute("userNo");
+		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 		String requestTitle = request.getParameter("title"); // ajax 로직에 데이터 던지는 key 값으로 받아올것
 		String requestContents = request.getParameter("contents");
 		
@@ -42,6 +43,7 @@ public class RequestEnrollController extends HttpServlet {
 		rDTO.setUserNo(userNo);
 		rDTO.setRequestTitle(requestTitle);
 		rDTO.setRequestContents(requestContents);
+		rDTO.setBoardNo(boardNo);
 		
 		RequestServiceImpl requestService = new RequestServiceImpl();
 		

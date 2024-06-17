@@ -1,8 +1,7 @@
 /* ============================== Category Middle ============================== */
-
+let testValue = "";
 document.getElementById("Detail_right_Contents1_Category_Style").addEventListener('change', function() {
-	
-	console.log(this.value);
+	testValue = this.value;
 	
 	if(this.value === "IT·프로그래밍") {
 		document.getElementById("Detail_right_middleCategory").style.display = 'none';

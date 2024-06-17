@@ -11,11 +11,11 @@
     <title>CoPang</title>
     
     <!-- tab-icon -->
-    <link rel="icon" href="../../../resources/img/tapIcon.png" />
+    <link rel="icon" href="/resources/img/tapIcon.png" />
 
 	<%@ include file="/views/common/head.jsp"%>
 
-	<link rel="stylesheet" href="../../../resources/css/customerService/customerService/customerServiceDetail.css">
+	<link rel="stylesheet" href="/resources/css/customerService/customerService/customerServiceDetail.css">
 	
 </head>
 <body>

@@ -6,14 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>주문확인 및 결제</title>
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/header.css">
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/orderList.css">
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/paymentRole.css">
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/price.css">
-    <link rel="stylesheet" href="../../resources/css/payment/paymentPage/requestDetail.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/header.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/orderList.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/paymentRole.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/price.css">
+    <link rel="stylesheet" href="/resources/css/payment/paymentPage/requestDetail.css">
 
      <!-- tab-icon -->
-    <link rel="icon" href="../../../resources/img/tapIcon.png" />
+    <link rel="icon" href="/resources/img/tapIcon.png" />
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,19 +23,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- smart Editor -->
-    <script src="../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-    <script src="../../resources/js/boardProEnroll/smartEditor.js"></script>
+    <script src="/resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script src="/resources/js/boardProEnroll/smartEditor.js"></script>
     
     <!-- ajax -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	
-	<link rel="stylesheet" href="../../../resources/css/common/footer.css">
+	<link rel="stylesheet" href="/resources/css/common/footer.css">
 </head>
 
 <body>
     <header>
         <div class="header">
-            <img src="../../resources/img/Logo.png" alt="로고">
+            <a href="/"><img src="/resources/img/Logo.png" alt="로고"></a>
             <div class="header-font-number-1">1</div>
             <span class="header-font-1"> 주문확인 및 결제 </span>
             <span class="header-font-next-arrow"> > </span>
@@ -50,24 +50,17 @@
         <div class="payment-text">
             <h1>결제하기</h1> 
         </div>
-		
-		
-		<div id="create-order-number-space">
-			<p id="create-order-text">결제번호: </p>
-	        <p id="create-order-number">0</p>
-        </div>
-        
         
         <div class="payment">
             <div class="order-list">
                 <h4>주문 내역</h4> 
                 <div class="order-flex">
                     <div class="item-1">
-                        <img src="../../resources/img/item1.png" alt="제품사진">
+                        <img src="/resources/upload/main/${result.fileName}" alt="${result.fileName}">
                     </div>
                     <div class="item-2">
-                        <h4 id="object-title">B2B 전문 번역 회사의 고품질 대량 전문 번역 서비스</h4>
-                        <h6 id="object-celler">한국 아이시스</h6>
+                        <h4 id="object-title">${result.boardTitle}</h4>
+                        <h6 id="object-celler"></h6>
                     </div>
                 </div>
 
@@ -82,7 +75,7 @@
                     </thead>
                     <tbody>
                         <tr style="font-size: 12px; font-weight: bold;">
-                            <td style="text-align: left;">B2B 전문 번역 회사의 고품질 대량 전문 번역 서비스</td>
+                            <td style="text-align: left;">${result.boardTitle}</td>
                             <td style="text-align: center;">
                                 <input type='button' onclick='count("minus")' class="table-object-count" value='-' />
                                 <div id='object-count' class="table-object-number">1</div>
@@ -92,7 +85,7 @@
                                 <div id='date-count'>1</div>
                             </td>
                             <td style="text-align: right;">
-                                <div id="price">60000</div>
+                                <div id="price">${result.businessPay}</div>
                             </td>
                         </tr>
                     </tbody>
@@ -126,7 +119,7 @@
             <div class="price">
                 <h4 class="order-price">
                     <span class="amount-item-1">주문 금액</span>
-                    <span class="amount-item-2" id="final-amount">60000<span>원</span></span>
+                    <span class="amount-item-2" id="final-amount">${result.businessPay}<span>원</span></span>
                 </h4>
 
                 <h4 class="order-price">
@@ -144,8 +137,7 @@
 
                 <h4 class="order-price">
                     <span class="total-item-1">총 결제 금액</span>
-                    <span class="total-item-2" id="total-amount">62100<span>원</span>
-                    </span>
+                    <span class="total-item-2" id="total-amount"><span>원</span></span>
                 </h4>
             </div>
             
@@ -156,7 +148,9 @@
         <div class="request-detail">
             <div class="detail">
 	 			<input type="hidden" id="userNo" name="userNo" value="${result.userNo}">
-	 			<input type="hidden" id="requestNo" name="requestNo" value="${result.requestNo}">
+	 			<input type="hidden" id="boardProNo" name="boardProNo" value="${result.boardNo}" />
+	 			<input type="hidden" id="requestNo" name="requestNo" value="" />
+	 			
                 <input type="text" id="title" name="request-title" placeholder=" 제목을 입력해주세요.(* 현재 페이지 내에서만 작성 및 수정 가능합니다.)" class="request-title">
                 <br>
                 <br>
@@ -175,19 +169,36 @@
        	
     </section>
     <%@ include file="/views/common/footer.jsp"%>
-</body>
-</html>
-<script src="../../resources/js/payment/payment/objectCount.js"></script>
-<script src="../../resources/js/payment/payment/paymentRole.js"></script>
+    
+<script src="/resources/js/payment/payment/objectCount.js"></script>
+<script src="/resources/js/payment/payment/paymentRole.js"></script>
 
 <!-- ajax -->
-<script src="../../resources/ajax/payment/requestBoard.js"></script>
+<script src="/resources/ajax/payment/requestBoard.js"></script>
 
 <!-- 결제 API -->
-<script src="../../resources/js/payment/payment/iamport.js"></script>
+<script src="/resources/js/payment/payment/iamport.js"></script>
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 
 <!-- 주문번호 생성파일 -->
-<script src="../../resources/js/payment/payment/createOrderNumber.js"></script>
+<script src="/resources/js/payment/payment/createOrderNumber.js"></script>
+
+<!-- 수수료 계산 -->
+<script>
+$(document).ready(function (){
+	const amountVal = document.getElementById("final-amount").innerText;
+	let amount = amountVal.split("원"); // amount[0] 상품가격
+
+	let fee = 0; // 수수료 
 	
+	fee = Math.round(amount[0]*0.035);
+	
+	document.getElementById("fee").innerText = fee + "원";
+	document.getElementById("total-amount").innerText = parseInt(amount[0]) + fee;
+	
+});
+</script>	
+
+</body>
+</html>
