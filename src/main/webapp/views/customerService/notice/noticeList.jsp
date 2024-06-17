@@ -12,7 +12,7 @@
     
 	<%@ include file="/views/common/head.jsp"%>
 	
-	<link rel="stylesheet" href="../../../resources/css/customerService/notice/noticeList.css">
+	<link rel="stylesheet" href="/resources/css/customerService/notice/noticeList.css">
 	
 </head>
 <body>

@@ -4,7 +4,7 @@ header{
     background-color: #fffdfd;
 }
 
-img{
+.logo{
     position: absolute;
     left: 5%;
     width: 150px;

@@ -17,7 +17,3 @@ function generateOrderNumber() {
   // 날짜, 랜덤 숫자, 순차 번호를 결합하여 주문 번호 생성
   return `${formattedDate}${randomNumber}${formattedSequenceNumber}`;
 }
-
-// 주문번호
-const orderNumber = document.getElementById("create-order-number");
-orderNumber.innerText = generateOrderNumber();
