@@ -62,7 +62,6 @@ public class CategoryListController extends HttpServlet {
 		 
 		 if(request.getParameter("cPage") != null) {
 			 cPage = Integer.parseInt(request.getParameter("cPage"));
-			 System.out.println(request.getParameter("cPage"));
 		 }
 		 request.setAttribute("cPage", cPage); 
 		  
@@ -111,7 +110,6 @@ public class CategoryListController extends HttpServlet {
 			System.out.println("Type did not match any predefined categories");
 		}
 		
-		System.out.println("Next Page : " + nextPage);
 		
 		
 		RequestDispatcher view = request.getRequestDispatcher(nextPage);

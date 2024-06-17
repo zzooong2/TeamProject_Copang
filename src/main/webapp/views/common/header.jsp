@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
 <div class="header_group">
 	<header class="header_all">
 <!-- sidebar button -->
@@ -44,9 +45,6 @@
 
 		<c:choose>
 			<c:when test="${sessionScope.userName != null}">
-				
-
-				<li><a href="/views/payment/payment.jsp">PAYMENT</a></li>
 				
 				<li><a href="/views/member/myPage.jsp">마이페이지</a></li>		
 

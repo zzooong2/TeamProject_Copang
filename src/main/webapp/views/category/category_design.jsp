@@ -32,45 +32,33 @@
 
 		<div class="category_area">
 
-			<p class="Middle_Category" data-type="디자인" data-middle="로고·브랜딩">로고·브랜딩</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="로고·브랜딩"
-				data-sub="로고 디자인">로고 디자인</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="로고·브랜딩"
-				data-sub="브랜드 디자인 가이드">브랜드 디자인 가이드</p>
+			<p class="Middle_Category" data-type="디자인" data-middle="로고·브랜딩" data-page="1">로고·브랜딩</p>
+			
+			<p class="Subcat_Category" data-type="디자인" data-middle="로고·브랜딩" data-sub="로고 디자인" data-page="1">로고 디자인</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="로고·브랜딩" data-sub="브랜드 디자인 가이드" data-page="1">브랜드 디자인 가이드</p>
 			<br>
-			<p class="Middle_Category" data-type="디자인" data-middle="인쇄 홍보물">인쇄 홍보물</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물"
-				data-sub="명함">명함</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물"
-				data-sub="전단지·포스터·인쇄물">전단지·포스터·인쇄물</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물"
-				data-sub="현수막·X배너">현수막·X배너</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물"
-				data-sub="메뉴판">메뉴판</p>
+			<p class="Middle_Category" data-type="디자인" data-middle="인쇄 홍보물" data-page="1">인쇄 홍보물</p>
+			
+			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물" data-sub="명함" data-page="1">명함</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물" data-sub="전단지·포스터·인쇄물" data-page="1">전단지·포스터·인쇄물</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물" data-sub="현수막·X배너" data-page="1">현수막·X배너</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물" data-sub="메뉴판" data-page="1">메뉴판</p>
 			<br>
-			<p class="Middle_Category" data-type="디자인" data-middle="마케팅 디자인">마케팅 디자인</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
-				data-sub="상세페이지">상세페이지</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
-				data-sub="SNS·썸네일 디자인">SNS·썸네일 디자인</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
-				data-sub="채널아트 디자인">채널아트 디자인</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
-				data-sub="방송용 아바타">방송용 아바타</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
-				data-sub="배너·배달어플">배너·배달어플</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
-			data-sub="블로그·카페 디자인">블로그·카페 디자인</p>
+			<p class="Middle_Category" data-type="디자인" data-middle="마케팅 디자인" data-page="1">마케팅 디자인</p>
+			
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인" data-sub="상세페이지" data-page="1">상세페이지</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인" data-sub="SNS·썸네일 디자인" data-page="1">SNS·썸네일 디자인</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인" data-sub="채널아트 디자인" data-page="1">채널아트 디자인</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인" data-sub="방송용 아바타" data-page="1">방송용 아바타</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인" data-sub="배너·배달어플" data-page="1">배너·배달어플</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인" data-sub="블로그·카페 디자인" data-page="1">블로그·카페 디자인</p>
 			<br>
-			<p class="Middle_Category" data-type="디자인" data-middle="웹·모바일 디자인">웹·모바일 디자인</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인"
-				data-sub="명함">명함</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인"
-				data-sub="전단지·포스터·인쇄물">전단지·포스터·인쇄물</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인"
-				data-sub="현수막·X배너">현수막·X배너</p>
-			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인"
-				data-sub="메뉴판">메뉴판</p>
+			<p class="Middle_Category" data-type="디자인" data-middle="웹·모바일 디자인" data-page="1">웹·모바일 디자인</p>
+			
+			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인" data-sub="명함" data-page="1">명함</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인" data-sub="전단지·포스터·인쇄물" data-page="1">전단지·포스터·인쇄물</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인" data-sub="현수막·X배너" data-page="1">현수막·X배너</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인" data-sub="메뉴판" data-page="1">메뉴판</p>
 		</div>
 
 		<!-- 카테고리 게시글 모음 -->
@@ -241,8 +229,10 @@
 
 			</ul>
 		</div>
+		<c:if test="${sessionScope.partCode == 2}">
 		<button class="Page_enroll"
 			onclick="location.href='/views/board/boardProEnroll.jsp'">등록</button>
+		</c:if>
 	</main>
 
 	<%@ include file="/views/common/footer.jsp"%>
