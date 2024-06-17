@@ -259,8 +259,8 @@ public class BoardProDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, fileListDto.getFilePath());
 			pstmt.setString(2, fileListDto.getFileName());
-			pstmt.setString(3, fileListDto.getFileContentType());
-			pstmt.setInt(4, businessNo);
+			pstmt.setInt(3, businessNo);
+			pstmt.setString(4, fileListDto.getFileContentType());
 
 			int result = pstmt.executeUpdate();
 			

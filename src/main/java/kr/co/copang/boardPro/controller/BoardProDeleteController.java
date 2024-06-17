@@ -41,7 +41,7 @@ public class BoardProDeleteController extends HttpServlet {
 		
 		
 		
-		if(BMresult == 1 && Uresult == 1 && CBRresult == 1 && RBresult == 1 && CBresult == 1) {
+		if(BMresult == 1 && Uresult == 1 && CBresult == 1) {
 			System.out.println("파일 삭제가 정상적으로 동작했습니다.");
 			response.sendRedirect("/category/list.do");
 		} else {
