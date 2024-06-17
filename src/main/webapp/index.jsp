@@ -44,7 +44,9 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="디자인">
+
 					<a href="/category/list.do?type=디자인&middleCategory=&subCategory=&cPage=1">
+
 						<div class="icon_img">
 							<img src="/resources/img/design.png" alt="design">
 						</div>
@@ -60,7 +62,9 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="마케팅">
+
 					<a href="/category/list.do?type=마케팅&middleCategory=&subCategory=&cPage=1">
+
 						<div class="icon_img">
 							<img src="/resources/img/market.png" alt="marketing">
 						</div>
@@ -68,7 +72,9 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="교육">
+
 					<a href="/category/list.do?type=교육&middleCategory=&subCategory=&cPage=1">
+
 						<div class="icon_img">
 							<img src="/resources/img/edu.png" alt="education">
 						</div>
