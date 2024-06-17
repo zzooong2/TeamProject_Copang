@@ -6,6 +6,9 @@
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css"
 	href="/resources/css/category/category.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/resources/js/categoryList/categoryList.js"></script>
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
@@ -14,12 +17,13 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> ><a href="/category/list.do?type=영상·사진&cPage=1">영상·사진</a>
-				<c:if test="${middleCategory != null}"> 
-				 ><a href="/category/list.do?type=영상·사진&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
+				<a href="/">홈</a> ><a
+					href="/category/list.do?type=영상·사진&middleCategory=&subCategory=">영상·사진</a>
+				<c:if test="${not empty middleCategory}"> 
+				><a href="/category/list.do?type=영상·사진&middleCategory=${middleCategory}&subCategory=">${middleCategory}</a>
 				</c:if>
-				<c:if test="${subCategory != null}">
-				 ><a href="">${subCategory}</a>
+				<c:if test="${not empty subCategory}">
+				><a href="/category/list.do?type=영상·사진&middleCategory=${middleCategory}&subCategory=${subCategory}">${subCategory}</a>
 				</c:if>
 			</p>
 		</div>
@@ -27,7 +31,30 @@
 		<!-- 카테고리 목록 모음 -->
 
 		<div class="category_area">
-			<ul>
+			<!-- data-(Attribute값) -->
+			<p class="Middle_Category" data-type="영상·사진" data-middle="영상">영상</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상"
+				data-sub="광고·홍보영상">스토리보드</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상"
+				data-sub="업종별 영상">업종별 영상</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상"
+				data-sub="제품영상">제품영상</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상"
+				data-sub="교육영상">교육영상</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상"
+				data-sub="애니메이션">애니메이션</p>
+			<br>
+			<p class="Middle_Category" data-type="영상·사진" data-middle="사진">사진</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="사진"
+				data-sub="제품·홍보사진">제품·홍보사진</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="사진"
+				data-sub="개인·프로필사진">개인·프로필사진</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="사진"
+				data-sub="사진보정">사진보정</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="사진"
+				data-sub="이벤트 사진">이벤트 사진</p>
+
+			<!-- <ul>
 				<a href="/category/list.do?type=영상·사진&middleCategory=영상&cPage=1">영상</a>
 				<li><a
 					href="/category/list.do?type=영상·사진&middleCategory=영상&subCategory=광고·홍보영상&cPage=1">광고·홍보영상</a></li>
@@ -52,190 +79,121 @@
 				<li><a
 					href="/category/list.do?type=영상·사진&middleCategory=사진&subCategory=이벤트 사진&cPage=1">이벤트
 						사진</a></li>
-			</ul>
+			</ul> -->
 		</div>
 
 		<!-- 카테고리 게시글 모음 -->
 
-		<div class="detail_area">
+		<div class="detail_area" style="position: relative;">
 
 			<!-- grid 전체 -->
 			<div class="thumb_container">
-				<c:forEach var="item" items="${list}">
-					<!-- grid 개별 영역 -->
-					<div class="detail_thumb" onclick="location.href='..'">
-						<div class="thumb_space">
-							<img src="../Semiproject(SH)/img/${item.fileName}" alt="">
-							<p>${item.boardTitle}</p>
-						</div>
+				<c:choose>
+					<c:when test="${not empty tCategory}">
+						<c:forEach var="item" items="${tCategory}">
+							<!-- setAttribute에서 작성한 이름 -->
+							<!-- grid 개별 영역 -->
+							<div class="detail_thumb"
+								onclick="location.href='/BoardPro/Detail.do?boardNo=${item.boardNo}'">
+								<div class="thumb_space">
+									<!-- item.DTO의 변수명 -->
+									<img
+										src="${pageContext.request.contextPath}/resources/upload/main/${item.fileName}"
+										alt="${item.fileName}">
+									<p>${item.boardTitle}</p>
+								</div>
+								<!-- 별점 -->
+								<div class="star_score">
+									<img src="/resources/img/star.png" alt="">
+									<p>(4.9)</p>
+								</div>
+								<!-- 가격 -->
+								<div class="price">
+									<c:if test="${item.priceOption == 'SINGLE'}">
+										<p>${item.price}원</p>
+									</c:if>
+									<c:if test="${item.priceOption == 'STANDARD'}">
+										<p>${item.price}원~</p>
+									</c:if>
+								</div>
+								<!-- 회사명 -->
+								<div class="company_name">
+									<p>${item.company}</p>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
 
-						<!-- 별점 -->
-						<div class="star_score">
-							<img src="/resources/img/star.png" alt="">
-							<p>(4.9)</p>
-						</div>
+					<c:when test="${not empty sCategory}">
+						<c:forEach var="item" items="${sCategory}">
+							<!-- setAttribute에서 작성한 이름 -->
+							<!-- grid 개별 영역 -->
+							<div class="detail_thumb"
+								onclick="location.href='/BoardPro/Detail.do?boardNo=${item.boardNo}'">
+								<div class="thumb_space">
+									<!-- item.DTO의 변수명 -->
+									<img
+										src="${pageContext.request.contextPath}/resources/upload/main/${item.fileName}"
+										alt="${item.fileName}">
+									<p>${item.boardTitle}</p>
+								</div>
+								<!-- 별점 -->
+								<div class="star_score">
+									<img src="/resources/img/star.png" alt="">
+									<p>(4.9)</p>
+								</div>
+								<!-- 가격 -->
+								<div class="price">
+									<c:if test="${item.priceOption == 'SINGLE'}">
+										<p>${item.price}원</p>
+									</c:if>
+									<c:if test="${item.priceOption == 'STANDARD'}">
+										<p>${item.price}원~</p>
+									</c:if>
+								</div>
+								<!-- 회사명 -->
+								<div class="company_name">
+									<p>${item.company}</p>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
 
-						<!-- 가격 -->
-						<div class="price">
-							<c:choose>
-								<c:when test="${item.priceOption == 'single'}">
-									<p>${item.price}</p>
-								</c:when>
-								<c:otherwise>
-									<p>${item.price}~</p>
-								</c:otherwise>
-							</c:choose>
-						</div>
-
-						<!-- 회사명 -->
-						<div class="company_name">
-							<p>${item.company}</p>
-						</div>
-					</div>
-
-				</c:forEach>
-
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb2.jpg" alt="">
-						<p>로고제작 전문기업</p>
-					</div>
-
-
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-
-					<div class="price">
-						<p>150,000 ~</p>
-					</div>
-
-
-					<div class="company_name">
-						<p>지구컴즈</p>
-					</div>
-				</div>
-
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb3.jpg" alt="">
-						<p>로고제작 랭킹 1위 어워즈 수상</p>
-					</div>
-
-
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.7)</p>
-					</div>
-
-
-					<div class="price">
-						<p>70,000 ~</p>
-					</div>
-
-
-					<div class="company_name">
-						<p>앨리스 디자인</p>
-					</div>
-				</div>
-
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-
-					<div class="price">
-						<p>55,000 ~</p>
-					</div>
-
-
-					<div class="company_name">
-						<p>에브리 PPT</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-
-					<div class="price">
-						<p>55,000 ~</p>
-					</div>
-
-
-					<div class="company_name">
-						<p>에브리 PPT</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-
-					<div class="price">
-						<p>55,000 ~</p>
-					</div>
-
-
-					<div class="company_name">
-						<p>에브리 PPT</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href='..'">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-
-					<div class="price">
-						<p>55,000 ~</p>
-					</div>
-
-
-					<div class="company_name">
-						<p>에브리 PPT</p>
-					</div>
-				</div>
-
+					<c:when test="${not empty fCategory}">
+						<c:forEach var="item" items="${fCategory}">
+							<!-- setAttribute에서 작성한 이름 -->
+							<!-- grid 개별 영역 -->
+							<div class="detail_thumb"
+								onclick="location.href='/BoardPro/Detail.do?boardNo=${item.boardNo}'">
+								<div class="thumb_space">
+									<!-- item.DTO의 변수명 -->
+									<img
+										src="${pageContext.request.contextPath}/resources/upload/main/${item.fileName}"
+										alt="${item.fileName}">
+									<p>${item.boardTitle}</p>
+								</div>
+								<!-- 별점 -->
+								<div class="star_score">
+									<img src="/resources/img/star.png" alt="">
+									<p>(4.9)</p>
+								</div>
+								<!-- 가격 -->
+								<div class="price">
+									<c:if test="${item.priceOption == 'SINGLE'}">
+										<p>${item.price}원</p>
+									</c:if>
+									<c:if test="${item.priceOption == 'STANDARD'}">
+										<p>${item.price}원~</p>
+									</c:if>
+								</div>
+								<!-- 회사명 -->
+								<div class="company_name">
+									<p>${item.company}</p>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 
@@ -291,6 +249,8 @@
 
 			</ul>
 		</div>
+		<button class="Page_enroll"
+			onclick="location.href='/views/board/boardProEnroll.jsp'">등록</button>
 	</main>
 
 	<%@ include file="/views/common/footer.jsp"%>

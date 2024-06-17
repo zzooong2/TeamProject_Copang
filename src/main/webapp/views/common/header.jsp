@@ -4,17 +4,29 @@
 
 <div class="header_group">
 	<header class="header_all">
-		<ul class="top_menu">
-			<li>분야 카테고리
-				<ul class="sub_menu">
-					<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=&subCategory=&cPage=1">IT·프로그래밍</a></li>
-					<li><a href="/category/list.do?type=디자인&middleCategory=&subCategory=&cPage=1">디자인</a></li>
-					<li><a href="/category/list.do?type=영상·사진&middleCategory=&subCategory=&cPage=1">영상·사진</a></li>
-					<li><a href="/category/list.do?type=마케팅&middleCategory=&subCategory=&cPage=1">마케팅</a></li>
-					<li><a href="/category/list.do?type=교육&middleCategory=&subCategory=&cPage=1">교육</a></li>
-				</ul>
-			</li>
-		</ul>
+<!-- sidebar button -->
+		<input type="checkbox" id="side_button">
+		<label for="side_button">
+		<span></span>
+		<span></span>
+		<span></span>
+		</label>
+<!-- sidebar -->
+ 		<div class="left_side_bar">
+ 			<div class="side_logo">
+ 				<img src="/resources/img/Logo.png" alt="side_logo">
+ 			</div>
+ 				<div class="side_nav">
+					<ul>
+						<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=&subCategory=&cPage=1">IT·프로그래밍</a></li>
+						<li><a href="/category/list.do?type=디자인&middleCategory=&subCategory=&cPage=1">디자인</a></li>
+						<li><a href="/category/list.do?type=영상·사진&middleCategory=&subCategory=&cPage=1">영상·사진</a></li>
+						<li><a href="/category/list.do?type=마케팅&middleCategory=&subCategory=&cPage=1">마케팅</a></li>
+						<li><a href="/category/list.do?type=교육&middleCategory=&subCategory=&cPage=1">교육</a></li>
+					</ul>
+ 				</div>
+			</div>
+			
 		<!-- 로고 -->
 		<a href="/"> <img class="Logo" src="/resources/img/Logo.png"
 			alt="logo">
@@ -32,29 +44,24 @@
 
 		<c:choose>
 			<c:when test="${sessionScope.userName != null}">
-				<li><a href="/customerService/list.do?cPage=1&category=Q_TITLE&search-text=">SERVICE</a></li>
 				
-				<li><a href="/notice/list.do?cPage=1&category=N_TITLE&earch-text=">NOTICE</a></li>
-				
+
 				<li><a href="/views/payment/payment.jsp">PAYMENT</a></li>
 				
-				<li><a href="/member/logout.do">로그아웃</a></li>
-	
 				<li><a href="/views/member/myPage.jsp">마이페이지</a></li>		
+
+				<li class="log"><a href="/member/logout.do">로그아웃</a></li>
+
 			</c:when>
 			<c:otherwise>
-				<li><a href="/customerService/list.do?cPage=1&category=Q_TITLE&search-text=">SERVICE</a></li>
-				
-				<li><a href="/notice/list.do?cPage=1&category=N_TITLE&earch-text=">NOTICE</a></li>
-				
-				<li><a href="/form/loginForm.do">로그인</a></li>
 				
 				<li><a href="/form/registerForm.do">회원가입</a></li>
+
+				<li class="log"><a href="/form/loginForm.do">로그인</a></li>
+
 			</c:otherwise>
 		</c:choose>
 
 		</div>
 	</header>
 </div>
-<!-- 헤더 구분 선 -->
-<hr>
