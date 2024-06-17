@@ -89,22 +89,21 @@ h4 {
 
 .request-title{
 	position: relative;
-    border: 0.1px solid #e0e0e0;
-    border-radius: 5px;
     width: 87%;
     height: 50px;
-    font-size: 15px;
-    background-color: #e0e0e0;
+    font-size: 20px;
+  	color: #ff8e47
+  	/* border: 0.1px solid #e0e0e0;
+    border-radius: 5px; */
 }
 
 .request-contents{
 	position: relative;
-    border: 0.1px solid #e0e0e0;
-    border-radius: 5px;
     width: 87%;
     height: 350px;
     font-size: 15px;
-    background-color: #e0e0e0;
+    /* border: 0.1px solid #e0e0e0;
+    border-radius: 5px; */
 }
 
 .request{

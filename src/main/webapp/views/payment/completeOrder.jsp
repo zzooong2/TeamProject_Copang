@@ -54,10 +54,10 @@
     <section>
 	    	<div class="request-space">
 	    		<div class="request">
-	    			<div class="request-title">${result.requestTitle}</div>
+	    			<div class="request-title">${result.requestTitle} 안녕하세요 안녕하세요.</div>
 	    			<br>
 	    			<br>
-	    			<div class="request-contents">${result.requestContents}</div>
+	    			<div class="request-contents">${result.requestContents} 안녕하세요이이용 여기는 내용이 들어갑니다.</div>
 	    		</div>
 	    	</div>
     </section>

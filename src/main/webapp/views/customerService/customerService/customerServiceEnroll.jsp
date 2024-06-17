@@ -10,17 +10,17 @@
 	
 	
     <!-- tab-icon -->
-    <link rel="icon" href="../../../resources/img/tapIcon.png" />
+    <link rel="icon" href="/resources/img/tapIcon.png" />
 
     <!-- jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- smarteditor js -->
-    <script src="../../../resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-    <script src="../../../resources/js/payment/payment/smartEditor.js"></script>
+    <script src="/resources/static/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script src="/resources/js/payment/payment/smartEditor.js"></script>
 
 	<%@ include file="/views/common/head.jsp"%>
-	<link rel="stylesheet" href="../../../resources/css/customerService/customerService/customerServiceEnroll.css">
+	<link rel="stylesheet" href="/resources/css/customerService/customerService/customerServiceEnroll.css">
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>

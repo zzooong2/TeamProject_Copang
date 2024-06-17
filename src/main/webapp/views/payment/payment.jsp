@@ -170,19 +170,19 @@
     </section>
     <%@ include file="/views/common/footer.jsp"%>
     
-<script src="../../resources/js/payment/payment/objectCount.js"></script>
-<script src="../../resources/js/payment/payment/paymentRole.js"></script>
+<script src="/resources/js/payment/payment/objectCount.js"></script>
+<script src="/resources/js/payment/payment/paymentRole.js"></script>
 
 <!-- ajax -->
-<script src="../../resources/ajax/payment/requestBoard.js"></script>
+<script src="/resources/ajax/payment/requestBoard.js"></script>
 
 <!-- 결제 API -->
-<script src="../../resources/js/payment/payment/iamport.js"></script>
+<script src="/resources/js/payment/payment/iamport.js"></script>
 <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
 
 <!-- 주문번호 생성파일 -->
-<script src="../../resources/js/payment/payment/createOrderNumber.js"></script>
+<script src="/resources/js/payment/payment/createOrderNumber.js"></script>
 
 <!-- 수수료 계산 -->
 <script>

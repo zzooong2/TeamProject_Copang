@@ -1,6 +1,8 @@
 function searchType(boardProNo, boardProTitle, businessServicePay, fileName) {
 	let objectTypeArr = document.getElementsByName("rightTabList01");
 	
+	console.log("boardProNo: " + boardProNo);
+	
 	const setBoardProNo = document.getElementById("boardProNo");
 	const setObjectTitle = document.getElementById("objectTitle");
 	const setObjectPrice = document.getElementById("objectPrice"); 
@@ -23,6 +25,9 @@ function searchType(boardProNo, boardProTitle, businessServicePay, fileName) {
 	} else {
 		setObjectType.value = "SINGLE";
 	}
+
+	console.log("setBoardProNo: " + setBoardProNo);
+	console.log("setBoardProNo.value: " + setBoardProNo.value);
 
 	const typeForm = document.getElementById("type");
 		
