@@ -133,6 +133,15 @@
     color: rgb(80, 80, 80);
 }
 
+.Detail_right_Contents1_Company_Input {
+	margin: 0;
+	height: 45px;
+    width: 62%;
+    border: none;
+    font-weight: bold;
+    color: rgb(80, 80, 80);
+}
+
 .Detail_right_Contents1_Title_Input:focus {
 	outline: none;
 }
@@ -223,6 +232,11 @@
     outline: none;
 }
 
+.Detail_right_ServiceType {
+	margin: 0;
+	width: 62%;
+}
+
 .Detail_right_Contents1_imgbox {
     margin: 20px 0;
     text-align: center;
@@ -293,3 +307,20 @@
     color: white;
     font-weight: bolder;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
