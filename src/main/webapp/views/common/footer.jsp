@@ -7,7 +7,7 @@
             <div class="team_imgBox">
 			<img class="team_member" src="/resources/img/HJ.jpg"
 			alt="team_member">
-			<img class="team_member" src="/resources/img/IS.jpg"
+			<img class="team_member" src="/resources/img/LS.jpg"
 			alt="team_member">            
 			<img class="team_member" src="/resources/img/SH.jpg"
 			alt="team_member">            
