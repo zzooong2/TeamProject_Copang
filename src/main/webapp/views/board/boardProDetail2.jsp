@@ -160,23 +160,17 @@
 							                                <span class="rightBox_check_list_text">기능 추가</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceFunction}</span>개</span>
 							                            </div>
 							                        </c:if>
-							                        <c:if test="${resultSingle.businessServiceData != 0}">
-							                            <div class="rightBox_check_list">
-							                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>페이지</span>
-							                            </div>
-						                            </c:if>
-						                            <c:if test="${resultSingle.businessServiceWorkDate != 0}">
-							                            <div class="rightBox_check_list">
-							                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
-							                            </div>
-						                            </c:if>
-						                            <c:if test="${resultSingle.businessServiceRetouch != 0}">
-							                            <div class="rightBox_check_list">
-							                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
-							                            </div>
-						                            </c:if>
+						                            <div class="rightBox_check_list">
+						                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>페이지</span>
+						                            </div>
+						                            <div class="rightBox_check_list">
+						                                <span class="rightBox_check_list_text">작업일</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
+						                            </div>
+						                            <div class="rightBox_check_list">
+						                                <span class="rightBox_check_list_text">수정 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceRetouch}</span>회</span>
+						                            </div>
 						                        </div>
-						                        <button type="button" class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+						                        <button type="submit" class="rightBox_buy_button rightBox_buy_button_Single">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('디자인')}">
@@ -232,7 +226,7 @@
 												        </div>
 												    </c:if>
 												</div>
-						                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('영상')}">
@@ -284,7 +278,7 @@
 												        </div>
 												    </c:if>
 												</div>
-						                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
@@ -334,7 +328,7 @@
 													        </div>
 													    </c:if>
 													</div>
-						                        	<button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+						                        	<button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                   		 </div>
 					                   		 </div>
 				                   		 </c:if>
@@ -388,7 +382,7 @@
 													    </div>
 													</c:if>
 						                        </div>
-						                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                    </div>
 					                    </c:if>
 					                    <c:if test="${result.boardProCategory.equals('교육')}">
@@ -434,7 +428,7 @@
 												        </div>
 												    </c:if>
 												</div>
-						                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+						                        <button class="rightBox_buy_button rightBox_buy_button_Single" onclick="">구매하기</button>
 						                    </div>
 					                    </c:if>
 									</section>
@@ -488,30 +482,23 @@
 												        </td>
 												    </tr>
 												</c:if>
-												<tr>
-												    <c:if test="${resultS.businessServiceWorkDate != 0}">
-												        <td class="tableLine">작업일</td>
-												        <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
-												    </c:if>
-												</tr>
-												<tr class="tableLine2">
-												    <c:if test="${resultS.businessServicePay != 0}">
+												<c:if test="${resultS.businessServiceWorkDate != 0 || resultD.businessServiceWorkDate != 0 || resultP.businessServiceWorkDate != 0}">
+												    <tr>
+											            <td class="tableLine">작업일</td>
+											            <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+												    </tr>
+												</c:if>
+												<c:if test="${resultS.businessServicePay != 0 || resultD.businessServicePay != 0 || resultP.businessServicePay != 0}">
+												    <tr class="tableLine2">
 												        <td class="tableLine">금액</td>
 												        <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
-												    </c:if>
-												</tr>
+												    </tr>
+												</c:if>
+												<tr>
 												<tr>
 													<td></td>
 													<td><button onclick="" class="leftBuy">구매</button></td>
@@ -557,30 +544,23 @@
 												        </td>
 												    </tr>
 												</c:if>
-												<tr>
-												    <c:if test="${resultS.businessServiceWorkDate != 0}">
-												        <td class="tableLine">작업일</td>
-												        <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
-												    </c:if>
-												</tr>
-												<tr class="tableLine2">
-												    <c:if test="${resultS.businessServicePay != 0}">
+												<c:if test="${resultS.businessServiceWorkDate != 0 || resultD.businessServiceWorkDate != 0 || resultP.businessServiceWorkDate != 0}">
+												    <tr>
+											            <td class="tableLine">작업일</td>
+											            <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+												    </tr>
+												</c:if>
+												<c:if test="${resultS.businessServicePay != 0 || resultD.businessServicePay != 0 || resultP.businessServicePay != 0}">
+												    <tr class="tableLine2">
 												        <td class="tableLine">금액</td>
 												        <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
-												    </c:if>
-												</tr>
+												    </tr>
+												</c:if>
+												<tr>
 												<tr>
 													<td></td>
 													<td><button onclick="" class="leftBuy">구매</button></td>
@@ -642,30 +622,23 @@
 												        </td>
 												    </tr>
 												</c:if>
-												<tr>
-												    <c:if test="${resultS.businessServiceWorkDate != 0}">
-												        <td class="tableLine">작업일</td>
-												        <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
-												    </c:if>
-												</tr>
-												<tr class="tableLine2">
-												    <c:if test="${resultS.businessServicePay != 0}">
+												<c:if test="${resultS.businessServiceWorkDate != 0 || resultD.businessServiceWorkDate != 0 || resultP.businessServiceWorkDate != 0}">
+												    <tr>
+											            <td class="tableLine">작업일</td>
+											            <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+												    </tr>
+												</c:if>
+												<c:if test="${resultS.businessServicePay != 0 || resultD.businessServicePay != 0 || resultP.businessServicePay != 0}">
+												    <tr class="tableLine2">
 												        <td class="tableLine">금액</td>
 												        <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
-												    </c:if>
-												</tr>
+												    </tr>
+												</c:if>
+												<tr>
 												<tr>
 													<td></td>
 													<td><button onclick="" class="leftBuy">구매</button></td>
@@ -676,26 +649,20 @@
 										</c:if>
 										<c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
 											<tbody id="Detail_Category_BusinessMenu_Photo" class="categoryTable">
-												<tr>
-												    <c:if test="${resultS.businessServiceData != 0}">
+												<c:if test="${resultS.businessServiceData != 0 || resultD.businessServiceData != 0 || resultP.businessServiceData != 0}">
+												    <tr>
 												        <td class="tableLine">촬영시간(분)</td>
-												        <c:if test="${resultS.businessServiceData != 0}">
-												            <td class="tableLine">${resultS.businessServiceData}분</td>
-												        </c:if>
-												        <c:if test="${resultD.businessServiceData != 0}">
-												            <td class="tableLine">${resultD.businessServiceData}분</td>
-												        </c:if>
-												        <c:if test="${resultP.businessServiceData != 0}">
-												            <td class="tableLine">${resultP.businessServiceData}분</td>
-												        </c:if>
-												    </c:if>
-												</tr>
+												        <td class="tableLine">${resultS.businessServiceData != 0 ? resultS.businessServiceData + '분' : ''}</td>
+												        <td class="tableLine">${resultD.businessServiceData != 0 ? resultD.businessServiceData + '분' : ''}</td>
+												        <td class="tableLine">${resultP.businessServiceData != 0 ? resultP.businessServiceData + '분' : ''}</td>
+												    </tr>
+												</c:if>
 												<c:if test="${resultS.businessServiceFunction != 0 || resultD.businessServiceFunction != 0 || resultP.businessServiceFunction != 0}">
 												    <tr>
 												        <td class="tableLine">컷수</td>
-												        <td class="tableLine">${resultS.businessServiceFunction}장</td>
-												        <td class="tableLine">${resultD.businessServiceFunction}장</td>
-												        <td class="tableLine">${resultP.businessServiceFunction}장</td>
+												        <td class="tableLine">${resultS.businessServiceFunction != 0 ? resultS.businessServiceFunction + '장' : ''}</td>
+												        <td class="tableLine">${resultD.businessServiceFunction != 0 ? resultD.businessServiceFunction + '장' : ''}</td>
+												        <td class="tableLine">${resultP.businessServiceFunction != 0 ? resultP.businessServiceFunction + '장' : ''}</td>
 												    </tr>
 												</c:if>
 												<c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
@@ -721,30 +688,23 @@
 												        </td>
 												    </tr>
 												</c:if>
-												<tr>
-												    <c:if test="${resultS.businessServiceWorkDate != 0}">
-												        <td class="tableLine">작업일</td>
-												        <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
-												    </c:if>
-												</tr>
-												<tr class="tableLine2">
-												    <c:if test="${resultS.businessServicePay != 0}">
+												<c:if test="${resultS.businessServiceWorkDate != 0 || resultD.businessServiceWorkDate != 0 || resultP.businessServiceWorkDate != 0}">
+												    <tr>
+											            <td class="tableLine">작업일</td>
+											            <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+												    </tr>
+												</c:if>
+												<c:if test="${resultS.businessServicePay != 0 || resultD.businessServicePay != 0 || resultP.businessServicePay != 0}">
+												    <tr class="tableLine2">
 												        <td class="tableLine">금액</td>
 												        <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
-												    </c:if>
-												</tr>
+												    </tr>
+												</c:if>
+												<tr>
 												<tr>
 													<td></td>
 													<td><button onclick="" class="leftBuy">구매</button></td>
@@ -797,30 +757,22 @@
 												        </td>
 												    </tr>
 												</c:if>
-												<tr>
-												    <c:if test="${resultS.businessServiceWorkDate != 0}">
-												        <td class="tableLine">작업일</td>
-												        <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
-												    </c:if>
-												</tr>
-												<tr class="tableLine2">
-												    <c:if test="${resultS.businessServicePay != 0}">
+												<c:if test="${resultS.businessServiceWorkDate != 0 || resultD.businessServiceWorkDate != 0 || resultP.businessServiceWorkDate != 0}">
+												    <tr>
+											            <td class="tableLine">작업일</td>
+											            <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+												    </tr>
+												</c:if>
+												<c:if test="${resultS.businessServicePay != 0 || resultD.businessServicePay != 0 || resultP.businessServicePay != 0}">
+												    <tr class="tableLine2">
 												        <td class="tableLine">금액</td>
 												        <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
-												    </c:if>
-												</tr>
+												    </tr>
+												</c:if>
 												<tr>
 													<td></td>
 													<td><button onclick="" class="leftBuy">구매</button></td>
@@ -831,33 +783,6 @@
 										</c:if>
 										<c:if test="${result.boardProCategory.equals('교육')}">
 											<tbody id="Detail_Category_BusinessMenu_Study" class="categoryTable">
-												<tr>
-													<c:if test="${resultS.businessServiceData != 0}">
-												        <td class="tableLine">1회당 레슨시간(분)</td>
-												        <c:if test="${resultS.businessServiceData != 0}">
-												            <td class="tableLine">${resultS.businessServiceData}분</td>
-												        </c:if>
-												        <c:if test="${resultD.businessServiceData != 0}">
-												            <td class="tableLine">${resultD.businessServiceData}분</td>
-												        </c:if>
-												        <c:if test="${resultP.businessServiceData != 0}">
-												            <td class="tableLine">${resultP.businessServiceData}분</td>
-												        </c:if>
-												    </c:if>
-												</tr>
-												<tr>
-												    <c:if test="${resultS.businessServiceFunction != 0}">
-												        <td class="tableLine">레슨횟수</td>
-												        <c:if test="${resultS.businessServiceFunction != 0}">
-												            <td class="tableLine">${resultS.businessServiceFunction}장</td>
-												        </c:if>
-												        <c:if test="${resultD.businessServiceFunction != 0}">
-												            <td class="tableLine">${resultD.businessServiceFunction}장</td>
-												        </c:if>
-												        <c:if test="${resultP.businessServiceFunction != 0}">
-												            <td class="tableLine">${resultP.businessServiceFunction}장</td>
-												        </c:if>
-												    </c:if>
 												<c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
 												    <tr>
 												        <td class="tableLine">수정 횟수</td>
@@ -881,30 +806,22 @@
 												        </td>
 												    </tr>
 												</c:if>
-												<tr>
-												    <c:if test="${resultS.businessServiceWorkDate != 0}">
-												        <td class="tableLine">작업일</td>
-												        <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServiceWorkDate != 0}">
-												        <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
-												    </c:if>
-												</tr>
-												<tr class="tableLine2">
-												    <c:if test="${resultS.businessServicePay != 0}">
+												<c:if test="${resultS.businessServiceWorkDate != 0 || resultD.businessServiceWorkDate != 0 || resultP.businessServiceWorkDate != 0}">
+												    <tr>
+											            <td class="tableLine">작업일</td>
+											            <td class="tableLine">${resultS.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultD.businessServiceWorkDate}일</td>
+											            <td class="tableLine">${resultP.businessServiceWorkDate}일</td>
+												    </tr>
+												</c:if>
+												<c:if test="${resultS.businessServicePay != 0 || resultD.businessServicePay != 0 || resultP.businessServicePay != 0}">
+												    <tr class="tableLine2">
 												        <td class="tableLine">금액</td>
 												        <td class="tableLine businessServicePay">${resultS.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultD.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultD.businessServicePay}원</td>
-												    </c:if>
-												    <c:if test="${resultP.businessServicePay != 0}">
 												        <td class="tableLine businessServicePay">${resultP.businessServicePay}원</td>
-												    </c:if>
-												</tr>
+												    </tr>
+												</c:if>
 												<tr>
 													<td></td>
 													<td><button onclick="" class="leftBuy">구매</button></td>
@@ -995,18 +912,13 @@
 	            </div>
     
             <!---------------------------- Contents Right ---------------------------->
-    		
+    
             <div class="right_contents">
                 <div class="right_up">
                    	<img src="/resources/img/Link_img.png" alt="공유하기_Link_img" class="img_link" id="shareButton">
                     <span class="right_up_text">${result.boardProTitle}</span>
                 </div>
-                <form id="type">
-                <input type="hidden" name="boardProNo" id="boardProNo" />
-                <input type="hidden" name="objectTitle" id="objectTitle" />
-                <input type="hidden" name="objectPrice" id="objectPrice" />
-                <input type="hidden" name="objectType" id="objectType" />
-                <input type="hidden" name="fileName" id="fileName" />
+                <form>
 					<c:choose>
 						<c:when test="${result.businessServiceType.equals('SINGLE')}">
 							<section class="right_payTabList">
@@ -1064,7 +976,7 @@
 											    </span>
 											</div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+				                        <button type="submit" class="rightBox_buy_button">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('디자인')}">
@@ -1115,7 +1027,7 @@
 											    </span>
 											</div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('영상')}">
@@ -1161,7 +1073,7 @@
 											    </span>
 											</div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
@@ -1205,7 +1117,7 @@
 											    </span>
 											</div>
 					                        </div>
-				                        	<button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+				                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
 				                   		 </div>
 			                   		 </div>
 		                   		 </c:if>
@@ -1234,7 +1146,7 @@
 											    </span>
 											</div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
 			                    </c:if>
 			                    <c:if test="${result.boardProCategory.equals('교육')}">
@@ -1252,7 +1164,7 @@
 				                            <div class="rightBox_check_list">
 				                                <span class="rightBox_check_list_text">레슨 횟수</span><span class="rightBox_business_inner"><span>${resultSingle.businessServiceData}</span>회</span>
 				                            </div>
-				                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+				                            <c:if test="${resultSingle.businessServiceWorkDate != '0'}">
 											    <div class="rightBox_check_list">
 											        <span class="rightBox_check_list_text">작업일</span>
 											        <span class="rightBox_business_inner"><span>${resultSingle.businessServiceWorkDate}</span>일</span>
@@ -1268,7 +1180,7 @@
 											    </span>
 											</div>
 				                        </div>
-				                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultSingle.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+				                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 				                    </div>
 			                    </c:if>
 						</section>
@@ -1321,13 +1233,13 @@
 			                            <div class="rightBox_check_list">
 			                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>페이지</span>
 			                            </div>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultS.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1339,7 +1251,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1379,13 +1291,13 @@
 			                            <div class="rightBox_check_list">
 			                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>페이지</span>
 			                            </div>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultD.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1397,7 +1309,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1437,13 +1349,13 @@
 			                            <div class="rightBox_check_list">
 			                                <span class="rightBox_check_list_text">페이지 수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>페이지</span>
 			                            </div>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1455,7 +1367,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 		                    </c:if>
 		                    <c:if test="${result.boardProCategory.equals('디자인')}">
@@ -1501,13 +1413,13 @@
 				                                <span class="rightBox_check_list_text">시안개수</span><span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>개</span>
 				                            </div>
 			                            </c:if>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultS.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1519,7 +1431,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1556,13 +1468,13 @@
 					                                <span class="rightBox_check_list_text">시안개수</span><span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>개</span>
 					                            </div>
 				                            </c:if>
-				                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+				                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-				                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+				                            <c:if test="${resultD.businessServiceRetouch != '0'}">
 											    <div class="rightBox_check_list">
 											        <span class="rightBox_check_list_text">수정 횟수</span>
 											        <span class="rightBox_business_inner">
@@ -1574,7 +1486,7 @@
 											    </div>
 											</c:if>
 			                        	</div>
-		                        	<button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+		                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
 		                    	</div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1611,13 +1523,13 @@
 				                                <span class="rightBox_check_list_text">시안개수</span><span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>개</span>
 				                            </div>
 			                            </c:if>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1629,7 +1541,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                   <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('영상')}">
@@ -1653,25 +1565,25 @@
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <c:if test="${resultS.businessServiceData != '0' || resultD.businessServiceData != '0' || resultP.businessServiceData != '0'}">
+			                            <c:if test="${resultS.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">촬영시간(분)</span>
 										        <span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceFunction != '0' || resultD.businessServiceFunction != '0' || resultP.businessServiceFunction != '0'}">
+			                            <c:if test="${resultS.businessServiceFunction != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">러닝타임(초)</span>
 										        <span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>초</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultS.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1683,7 +1595,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -1698,25 +1610,25 @@
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <c:if test="${resultS.businessServiceData != '0' || resultD.businessServiceData != '0' || resultP.businessServiceData != '0'}">
+			                            <c:if test="${resultD.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">촬영시간(분)</span>
 										        <span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceFunction != '0' || resultD.businessServiceFunction != '0' || resultP.businessServiceFunction != '0'}">
+			                            <c:if test="${resultD.businessServiceFunction != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">러닝타임(초)</span>
 										        <span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>초</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultD.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1728,7 +1640,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1743,25 +1655,25 @@
 			                            </div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <c:if test="${resultS.businessServiceData != '0' || resultD.businessServiceData != '0' || resultP.businessServiceData != '0'}">
+			                            <c:if test="${resultP.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">촬영시간(분)</span>
 										        <span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceFunction != '0' || resultD.businessServiceFunction != '0' || resultP.businessServiceFunction != '0'}">
+			                            <c:if test="${resultP.businessServiceFunction != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">러닝타임(초)</span>
 										        <span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>초</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1773,7 +1685,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                   <c:if test="${result.boardProCategory.equals('영상·사진') && result.boardProMiddleCategory.equals('사진')}">
@@ -1796,25 +1708,25 @@
 			                                <span class="rightBox_check_list_text">보정 작업</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
 			                        	</div>
 				                        <div class="rightBox_check_list_inner">
-				                            <c:if test="${resultS.businessServiceData != '0' || resultD.businessServiceData != '0' || resultP.businessServiceData != '0'}">
+				                            <c:if test="${resultS.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">촬영시간(분)</span>
 										        <span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceFunction != '0' || resultD.businessServiceFunction != '0' || resultP.businessServiceFunction != '0'}">
+			                            <c:if test="${resultS.businessServiceFunction != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">컷수</span>
 										        <span class="rightBox_business_inner"><span>${resultS.businessServiceFunction}</span>컷</span>
 										    </div>
 										</c:if>
-				                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+				                            <c:if test="${resultS.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-				                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+				                            <c:if test="${resultS.businessServiceRetouch != '0'}">
 											    <div class="rightBox_check_list">
 											        <span class="rightBox_check_list_text">수정 횟수</span>
 											        <span class="rightBox_business_inner">
@@ -1826,7 +1738,7 @@
 											    </div>
 											</c:if>
 				                        </div>
-			                        	<button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        	<button class="rightBox_buy_button" onclick="">구매하기</button>
 		                   		 	</div>
 	                   		 	</div>
 			                    <div class="rightConbox rightCon2">
@@ -1842,25 +1754,25 @@
 			                        	</div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <c:if test="${resultS.businessServiceData != '0' || resultD.businessServiceData != '0' || resultP.businessServiceData != '0'}">
+			                            <c:if test="${resultD.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">촬영시간(분)</span>
 										        <span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceFunction != '0' || resultD.businessServiceFunction != '0' || resultP.businessServiceFunction != '0'}">
+			                            <c:if test="${resultD.businessServiceFunction != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">컷수</span>
 										        <span class="rightBox_business_inner"><span>${resultD.businessServiceFunction}</span>컷</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultD.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultD.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1872,7 +1784,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -1887,25 +1799,25 @@
 			                        	</div>
 			                        </div>
 			                        <div class="rightBox_check_list_inner">
-			                            <c:if test="${resultS.businessServiceData != '0' || resultD.businessServiceData != '0' || resultP.businessServiceData != '0'}">
+			                            <c:if test="${resultP.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">촬영시간(분)</span>
 										        <span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceFunction != '0' || resultD.businessServiceFunction != '0' || resultP.businessServiceFunction != '0'}">
+			                            <c:if test="${resultP.businessServiceFunction != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">컷수</span>
 										        <span class="rightBox_business_inner"><span>${resultP.businessServiceFunction}</span>컷</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceWorkDate != '0' || resultD.businessServiceWorkDate != '0' || resultP.businessServiceWorkDate != '0'}">
+			                            <c:if test="${resultP.businessServiceWorkDate != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">작업일</span>
 										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>일</span>
 										    </div>
 										</c:if>
-			                            <c:if test="${resultS.businessServiceRetouch != '0' || resultD.businessServiceRetouch != '0' || resultP.businessServiceRetouch != '0'}">
+			                            <c:if test="${resultP.businessServiceRetouch != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">수정 횟수</span>
 										        <span class="rightBox_business_inner">
@@ -1917,7 +1829,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                   <c:if test="${result.boardProCategory.equals('마케팅')}">
@@ -1978,7 +1890,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -2030,7 +1942,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -2082,7 +1994,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                   <c:if test="${result.boardProCategory.equals('교육')}">
@@ -2143,7 +2055,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultS.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon2">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultD.businessServicePay}원</span>
@@ -2195,7 +2107,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultD.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 			                    <div class="rightConbox rightCon3">
 			                        <span class="rightBox_businessMenuPay businessServicePay">${resultP.businessServicePay}원</span>
@@ -2247,7 +2159,7 @@
 										    </div>
 										</c:if>
 			                        </div>
-			                        <button class="rightBox_buy_button" onclick="searchType('${boardProNo}','${result.boardProTitle}','${resultP.businessServicePay}', '${resultF.fileName}');">구매하기</button>
+			                        <button class="rightBox_buy_button" onclick="">구매하기</button>
 			                    </div>
 		                   </c:if>
 		                </section>
@@ -2269,10 +2181,5 @@
         	<a href="#" onclick="window.scrollTo(0, 0);"><img src="/resources/img/Up_Point.png" class="Detail_TopButton_Png"></a>
         </div>
 	<%@ include file="/views/common/footer.jsp"%>
-	
-<script src="../../resources/js/payment/payment/paymentButton.js"></script>	
-	
 </body>
 </html>
-
-

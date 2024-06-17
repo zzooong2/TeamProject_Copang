@@ -44,7 +44,7 @@ public class BoardProDetailController extends HttpServlet {
         }
         
         request.setAttribute("boardProNo", boardProNo);
-        
+
         BoardProServiceImpl boardProService = new BoardProServiceImpl();
 
         ArrayList<BoardProDto> result = boardProService.getDetail(boardProNo);
