@@ -5,7 +5,6 @@ public class Pagination {
 	public static PageInfo getPageInfo(int listCount, int cPage, int pageLimit, int boardLimit) {
 		// 전체 페이지 수
 		int maxPage = (int)(Math.ceil((double) listCount / boardLimit));
-		
 		// 시작 페이지
 		int startPage = (cPage - 1) / pageLimit * pageLimit + 1;
 		

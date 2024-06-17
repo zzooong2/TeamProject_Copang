@@ -1,8 +1,17 @@
 /* 헤더영역 */
+a {
+	display:block;
+    color: #000;
+    text-decoration: none;
+}
+
 .header_group {
     display: flex;
     justify-content: center;
     height: 100px;
+    width: 100%;
+    background-color: white;
+    border-bottom: 3px solid #ff8e47;
 }
 
 header {
@@ -29,6 +38,107 @@ header {
     height: 100px;
     margin: 0;
 }
+/* 사이드바 버튼 */
+/* input[id="side_button"] : input의 id요소 */
+/* 체크박스 효과를 사용하되 안보이게하기 */
+input[id="side_button"]{
+	display:none;
+}
+/* 사이드바 버튼의 크기 */
+input[id="side_button"] + label{
+	display:block;
+	width:60px;
+	height:40px;
+	position:relative;
+	cursor:pointer;
+}
+/* 사이드 바의 막대기 아이콘 label안 span */
+input[id="side_button"] + label span{
+	display:block;
+	position:absolute;
+	width:100%;
+	height:4px;
+	border-radius:30px;
+	background:#000;
+	transition:all .35s; 
+}
+/* span의 아이콘 막대기 상단 */
+input[id="side_button"] + label span:nth-child(1){
+	top: 0px;
+}
+/* span의 아이콘 막대기 중앙 */
+input[id="side_button"] + label span:nth-child(2){
+	top: 50%;
+	transform:translateY(-50%);
+	/* transform:translateY(-50%) : 해당span이 y축으로 정확히 오게하기 위해서 */
+}
+/* span의 아이콘 막대기 하단 */
+input[id="side_button"] + label span:nth-child(3){
+	bottom: 0px;
+}
+/* :checked = input박스의 체크박스를 실행할 때 */
+input[id="side_button"]:checked + label span:nth-child(1){
+	top: 50%;
+	transform: translateY(-50%) rotate(45deg);
+}
+/* opacity: 0; 투명도 */
+input[id="side_button"]:checked + label span:nth-child(2){
+	opacity: 0; 
+}
+
+input[id="side_button"]:checked + label span:nth-child(3){
+ 	bottom: 50%;
+ 	transform: translateY(50%) rotate(-45deg);
+}
+
+/* 사이드바 */
+.left_side_bar{
+	background-color: #fff;
+    height: 100vh;
+    width: 180px;
+    position: absolute;
+    left: -180px;
+    transition: all .35s;
+    top: 0;
+}
+
+#side_button:checked + label + div{
+	left: 0;
+}
+.side_logo img{
+	height: 180px;
+    width: 180px;
+}
+.side_nav{
+	height: 500px;
+    width: 180px;
+    z-index: 1;
+}
+.side_nav ul{
+	width: 100%;
+	height: 50px;
+	list-style: none;
+	padding: 0;
+}
+.side_nav li{
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+	list-style: none;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;	
+}
+
+.side_nav li:hover{
+	background-color: #ff8e47;
+}
+.side_nav li a:hover{
+	color:#fff;
+}
+
+
+
 
 /* 서치바 */
 
@@ -83,44 +193,47 @@ header {
     align-items: center;
     gap: 20px;
 }
-.nav li{
-    padding: 5px;
+.nav li {
+	list-style:none;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav li > a{
     width: 100px;
     display: inline-block;
     text-align: center;
 }
-/* 로그인 버튼 효과 */
-.login a:hover{
-    padding-bottom: 32px;
-    border-bottom: 10px solid #ff8e47;
+
+/* 로그인&로그아웃 */
+.log{
+	 width: 100px;
+	 height: 40px;
+	 border-radius: 10px;
+	 background-color: #ff8e47;
+}
+.log a{
+	font-weight: bold;
+	padding: 10px;
+	 color: #fff;
+}
+.log:hover{
+	 width: 100px;
+	 height: 40px;
+	 border-radius: 10px;
+	 background-color: #fff;
+	 color : #ff8e47;
+}
+.log a:hover{
+	 color: #ff8e47;
+	 font-weight: bold;
 }
 
-/* 회원가입 버튼 */
-.register{
-    padding: 5px;
-    height: 100%;
-    width: 70px;
-    background-color: #ff8e47;
-    border-radius: 10px;
-}
-.register a{
-    color: #fff;
-}
 
-.register:hover{
-    height: 100%;
-    width: 70px;
-    border:none;
-    background-color: #fff;
-}
-
-.register:hover > a{
-    color: #000;
-}
 
 /* 2Depth */
 
-.top_menu {
+/*   .top_menu {
     padding : 0;
     list-style: none;
     width: 150px;
@@ -131,7 +244,6 @@ header {
 .top_menu > li {
     list-style: none;
     text-align: center;
-    position: relative;
 }
 
 .top_menu > li:hover .sub_menu {
@@ -145,7 +257,7 @@ header {
 
 .sub_menu {
     padding: 0;
-    position: absolute;
+    height: 50px;
     width: 100%;
     background-color: #fff;
 }
@@ -156,9 +268,8 @@ header {
     text-align: center;
     line-height: 50px;
 }
+.sub_menu li a{
+	color: #fff;
+}	 */
 
 
-a {
-    color: #000;
-    text-decoration: none;
-}
