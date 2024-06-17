@@ -39,4 +39,16 @@ public interface BoardProService {
 	
 	public BoardProDto getDetailFile(int boardProNo);
 	
+	public ArrayList<BoardProDto> editPage(int boardProNo);
+	
+	public int setBMDelete(int boardProNo);
+
+	public int setUDelete(int boardProNo);
+	
+	public int setCBRDelete(int boardProNo);
+	
+	public int setRBDelete(int boardProNo);
+	
+	public int setCBDelete(int boardProNo);
+	
 }

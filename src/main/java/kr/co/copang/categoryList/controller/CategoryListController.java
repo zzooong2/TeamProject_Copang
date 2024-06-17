@@ -15,14 +15,14 @@ import kr.co.copang.categoryListService.model.service.CategoryListServiceImpl;
 
 @WebServlet("/category/list.do")
 public class CategoryListController extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
        
     public CategoryListController() {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CategoryListServiceImpl categoryListService = new CategoryListServiceImpl();
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      CategoryListServiceImpl categoryListService = new CategoryListServiceImpl();
 
 //		1. jsp 카테고리 클릭하면 /category/list.do로 요청  ->  누가 요청했냐?
 //				   요청할 때 /category/list.do?type=IT       /category/list.do?type=design 
@@ -96,8 +96,8 @@ public class CategoryListController extends HttpServlet {
 	}
 	
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	}
+   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   
+   }
 
 }

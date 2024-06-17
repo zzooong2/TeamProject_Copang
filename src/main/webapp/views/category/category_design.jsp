@@ -14,9 +14,9 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> ><a href="/category/list.do?type=디자인&cPage=1">디자인</a>
+				<a href="/">홈</a> ><a href="/category/list.do?type=디자인">디자인</a>
 				<c:if test="${middleCategory != null}"> 
-				 ><a href="/category/list.do?type=디자인&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
+				 ><a href="/category/list.do?type=디자인&middleCategory=${middleCategory}">${middleCategory}</a>
 				</c:if>
 				<c:if test="${subCategory != null}">
 				 ><a href="">${subCategory}</a>
@@ -37,30 +37,30 @@
 						디자인 가이드</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&cPage=1">인쇄
+				<a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물">인쇄
 					홍보물</a>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=명함&cPage=1">명함</a></li>
+					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=명함">명함</a></li>
 				<li><a
 					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=전단지·포스터·인쇄물&cPage=1">전단지·포스터·인쇄물</a></li>
 				<li><a
 					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=현수막·X배너&cPage=1">현수막·X배너</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=메뉴판&cPage=1">메뉴판</a></li>
+					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=메뉴판">메뉴판</a></li>
 			</ul>
 			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&cPage=1">마케팅
+				<a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인">마케팅
 					디자인</a>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=상세페이지&cPage=1">상세페이지</a></li>
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=상세페이지">상세페이지</a></li>
 				<li><a
 					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=SNS·썸네일 디자인&cPage=1">SNS·썸네일
 						디자인</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=채널아트 디자인&cPage=1">채널아트
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=채널아트 디자인">채널아트
 						디자인</a></li>
 				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=방송용 아바타&cPage=1">방송용
+					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=방송용 아바타">방송용
 						아바타</a></li>
 				<li><a
 					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=배너·배달어플&cPage=1">배너·배달어플</a></li>

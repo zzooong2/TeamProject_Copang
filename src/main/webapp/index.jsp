@@ -5,7 +5,7 @@
 <head>
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css"
-	href="../../resources/css/common/index.css">
+	href="/resources/css/common/index.css">
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
@@ -36,7 +36,7 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="디자인">
-					<a href="/category/list.do?type=디자인&cPage=1">
+					<a href="/category/list.do?type=디자인">
 						<div class="icon_img">
 							<img src="/resources/img/design.png" alt="design">
 						</div>
@@ -52,7 +52,7 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="마케팅">
-					<a href="/category/list.do?type=마케팅&cPage=1">
+					<a href="/category/list.do?type=마케팅">
 						<div class="icon_img">
 							<img src="/resources/img/market.png" alt="marketing">
 						</div>
@@ -60,7 +60,7 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="교육">
-					<a href="/category/list.do?type=교육&cPage=1">
+					<a href="/category/list.do?type=교육">
 						<div class="icon_img">
 							<img src="/resources/img/edu.png" alt="education">
 						</div>
