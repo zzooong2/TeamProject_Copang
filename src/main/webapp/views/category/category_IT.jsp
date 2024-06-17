@@ -35,9 +35,9 @@
 			<!-- data-(Attribute값) -->
 			<p class="Middle_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-page="1">UX기획</p>
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="스토리보드" data-page="1">스토리보드 </p>
-			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="기타기획" data-page="1">기타기획</p>
+			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="기타 기획" data-page="1">기타 기획</p>
 			<br>
-			<p class="Middle_Category" data-type="IT·프로그래밍" data-middle="웹">웹</p>
+			<p class="Middle_Category" data-type="IT·프로그래밍" data-middle="웹" data-page="1">웹</p>
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="홈페이지" data-page="1">홈페이지</p>
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="퍼블리싱" data-page="1">퍼블리싱</p>
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="유지보수" data-page="1">유지보수</p>
@@ -58,47 +58,7 @@
 				data-sub="쇼핑몰(카페24)" data-page="1">쇼핑몰(카페24)</p>
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스"
 				data-sub="쇼핑몰 수정·유지보수" data-page="1">쇼핑몰 수정·유지보수</p>
-			<!-- <ul>
-				<a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=UX 기획">UX
-					기획</a>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=UX 기획&subCategory=스토리보드">스토리보드</a></li>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=UX 기획&subCategory=기타 기획">기타
-						기획</a></li>
-			</ul>
-			<ul>
-				<a href="/category/list.do?type=IT·프로그래밍&middleCategory=웹">웹</a>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=웹&subCategory=홈페이지">홈페이지</a></li>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=웹&subCategory=퍼블리싱">퍼블리싱</a></li>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=웹&subCategory=유지보수">유지보수</a></li>
-			</ul>
-			<ul>
-				<a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램">프로그램</a>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=PC·웹프로그램">PC·웹프로그램</a></li>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=서버·클라우드">서버·클라우드</a></li>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=프로그램&subCategory=봇·챗봇">봇·챗봇</a></li>
-			</ul>
-			<ul>
-				<a href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스">커머스</a>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰">쇼핑몰</a></li>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰(웹빌더·CMS)">쇼핑몰(웹빌더·CMS)</a></li>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰(카페24)">쇼핑몰(카페24)</a></li>
-				<li><a
-					href="/category/list.do?type=IT·프로그래밍&middleCategory=커머스&subCategory=쇼핑몰 수정·유지보수">쇼핑몰
-						수정·유지보수</a></li>
-			</ul> -->
+
 		</div>
 
 

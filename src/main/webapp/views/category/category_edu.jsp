@@ -17,12 +17,12 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> ><a href="/category/list.do?type=교육&middleCategory=&subCategory=">교육</a>
+				<a href="/">홈</a> ><a href="/category/list.do?type=교육&middleCategory=&subCategory=&cPage=${cPage}">교육</a>
 				<c:if test="${not empty middleCategory}"> 
-				><a href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=">${middleCategory}</a>
+				><a href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=&cPage=${cPage}">${middleCategory}</a>
 				</c:if>
 				<c:if test="${not empty subCategory}">
-				><a href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}">${subCategory}</a>
+				><a href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${cPage}">${subCategory}</a>
 				</c:if>
 			</p>
 		</div>
@@ -31,11 +31,11 @@
 
 		<div class="category_area">
 		
-		<p class="Middle_Category" data-type="교육" data-middle="외국어">외국어</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="외국어"
+		<p class="Middle_Category" data-type="교육" data-middle="외국어" data-page="1">외국어</p>
+		<p class="Subcat_Category" data-type="교육" data-middle="외국어" data-page="1"
 			data-sub="영어 레슨">영어 레슨</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="외국어"
-			data-sub="기타 외국어 레슨">기타 외국어 레슨</p>
+		<p class="Subcat_Category" data-type="교육" data-middle="외국어" data-page="1"
+			data-sub="기타 외국어 레슨" data-page="1">기타 외국어 레슨</p>
 		<br>
 		<p class="Middle_Category" data-type="교육" data-middle="미술·글쓰기">웹</p>
 		<p class="Subcat_Category" data-type="교육" data-middle="미술·글쓰기"

@@ -18,11 +18,11 @@
  			</div>
  				<div class="side_nav">
 					<ul>
-						<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=&subCategory=&cPage=${cPage}">IT·프로그래밍</a></li>
-						<li><a href="/category/list.do?type=디자인&middleCategory=&subCategory=&cPage=${cPage}">디자인</a></li>
-						<li><a href="/category/list.do?type=영상·사진&middleCategory=&subCategory=&cPage=${cPage}">영상·사진</a></li>
-						<li><a href="/category/list.do?type=마케팅&middleCategory=&subCategory=&cPage=${cPage}">마케팅</a></li>
-						<li><a href="/category/list.do?type=교육&middleCategory=&subCategory=&cPage=${cPage}">교육</a></li>
+						<li><a href="/category/list.do?type=IT·프로그래밍&middleCategory=&subCategory=&cPage=1">IT·프로그래밍</a></li>
+						<li><a href="/category/list.do?type=디자인&middleCategory=&subCategory=&cPage=1">디자인</a></li>
+						<li><a href="/category/list.do?type=영상·사진&middleCategory=&subCategory=&cPage=1">영상·사진</a></li>
+						<li><a href="/category/list.do?type=마케팅&middleCategory=&subCategory=&cPage=1">마케팅</a></li>
+						<li><a href="/category/list.do?type=교육&middleCategory=&subCategory=&cPage=1">교육</a></li>
 					</ul>
  				</div>
 			</div>

@@ -97,7 +97,7 @@ public class CategoryListDao {
 			pstmt.setString(1, middleCategory);
 			pstmt.setInt(2, pi.getOffset());
 			pstmt.setInt(3, pi.getBoardLimit());
-
+			
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -154,7 +154,8 @@ public class CategoryListDao {
 			pstmt.setString(1, subCategory);
 			pstmt.setInt(2, pi.getOffset());
 			pstmt.setInt(3, pi.getBoardLimit());
-			
+			System.out.println(subCategory);
+				
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {

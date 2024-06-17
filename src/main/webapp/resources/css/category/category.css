@@ -137,11 +137,6 @@ body{
 }
 
 
-<<<<<<< HEAD
-
-/* =================================================================================== */
-
-/* /////////////// Left Category \\\\\\\\\\\\\\\\\\\\ */
 
 .Middle_Category {
 	margin-top: 20px;
@@ -161,32 +156,15 @@ body{
 .Middle_Category:hover,
 .Subcat_Category:hover {
 	cursor: pointer;
-	text-decoration: underline;
+	text-decoration: none;
+	font-weight:bold;
 	color: black;
-=======
+}
 /* category_area0  */
 /* 중분류 카테고리 css 속성 */
-.Middle_Category {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 20px;
-    font-weight: bolder;
-    color: rgb(80, 80, 80);
-}
+
 /* 소분류 카테고리 css 속성 */
-.Subcat_Category {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 14px;
-    color: rgb(80, 80, 80);
-}
-/* 중분류&소분류 카테고리 hover css 속성 */
-.Middle_Category:hover,
-.Subcat_Category:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    color: black;
-}
+
 
 .Page_enroll{
 	float: right;
@@ -196,19 +174,4 @@ body{
 	color: #fff;
 	border-radius: 10px;
 	border-style: none;
->>>>>>> c5b58e5c72c4d76bbc77027093e022a48e9d9ba2
 }
-
-
-
-
-<<<<<<< HEAD
-
-
-
-
-
-
-
-=======
->>>>>>> c5b58e5c72c4d76bbc77027093e022a48e9d9ba2

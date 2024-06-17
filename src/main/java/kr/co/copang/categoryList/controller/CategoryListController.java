@@ -58,14 +58,13 @@ public class CategoryListController extends HttpServlet {
 		 
 		 
 //		 int cPage = Integer.parseInt(request.getParameter("cPage"));
-		  
 		 int cPage = 1;
-		 if(request.getParameter("cPage") == null) {
+		 
+		 if(request.getParameter("cPage") != null) {
 			 cPage = Integer.parseInt(request.getParameter("cPage"));
+			 System.out.println(request.getParameter("cPage"));
 		 }
 		 request.setAttribute("cPage", cPage); 
-		  
-		  
 		  
 		 int pageLimit = 2;
 		  

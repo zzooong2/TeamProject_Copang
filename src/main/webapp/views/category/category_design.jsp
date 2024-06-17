@@ -31,7 +31,7 @@
 		<!-- 카테고리 목록 모음 -->
 
 		<div class="category_area">
-<<<<<<< HEAD
+
 			<p class="Middle_Category" data-type="디자인" data-middle="로고·브랜딩">로고·브랜딩</p>
 			<p class="Subcat_Category" data-type="디자인" data-middle="로고·브랜딩"
 				data-sub="로고 디자인">로고 디자인</p>
