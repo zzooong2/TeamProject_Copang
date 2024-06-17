@@ -6,6 +6,9 @@
 <%@ include file="/views/common/head.jsp"%>
 <link rel="stylesheet" type="text/css"
 	href="/resources/css/category/category.css">
+	<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/resources/js/categoryList/categoryList.js"></script>
 </head>
 <body>
 	<%@ include file="/views/common/header.jsp"%>
@@ -14,12 +17,13 @@
 
 		<div class="bar">
 			<p>
-				<a href="/">홈</a> ><a href="/category/list.do?type=디자인&cPage=1">디자인</a>
-				<c:if test="${middleCategory != null}"> 
-				 ><a href="/category/list.do?type=디자인&middleCategory=${middleCategory}&cPage=1">${middleCategory}</a>
+				<a href="/">홈</a> ><a
+					href="/category/list.do?type=디자인&middleCategory=&subCategory=">디자인</a>
+				<c:if test="${not empty middleCategory}"> 
+				><a href="/category/list.do?type=디자인&middleCategory=${middleCategory}&subCategory=">${middleCategory}</a>
 				</c:if>
-				<c:if test="${subCategory != null}">
-				 ><a href="">${subCategory}</a>
+				<c:if test="${not empty subCategory}">
+				><a href="/category/list.do?type=디자인&middleCategory=${middleCategory}&subCategory=${subCategory}">${subCategory}</a>
 				</c:if>
 			</p>
 		</div>
@@ -27,60 +31,45 @@
 		<!-- 카테고리 목록 모음 -->
 
 		<div class="category_area">
-			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=로고·브랜딩&cPage=1">로고·브랜딩</a>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=로고·브랜딩&subCategory=로고 디자인&cPage=1">로고
-						디자인</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=로고·브랜딩&subCategory=로고 디자인 가이드&cPage=1">브랜드
-						디자인 가이드</a></li>
-			</ul>
-			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&cPage=1">인쇄
-					홍보물</a>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=명함&cPage=1">명함</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=전단지·포스터·인쇄물&cPage=1">전단지·포스터·인쇄물</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=현수막·X배너&cPage=1">현수막·X배너</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=인쇄 홍보물&subCategory=메뉴판&cPage=1">메뉴판</a></li>
-			</ul>
-			<ul>
-				<a href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&cPage=1">마케팅
-					디자인</a>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=상세페이지&cPage=1">상세페이지</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=SNS·썸네일 디자인&cPage=1">SNS·썸네일
-						디자인</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=채널아트 디자인&cPage=1">채널아트
-						디자인</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=방송용 아바타&cPage=1">방송용
-						아바타</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=배너·배달어플&cPage=1">배너·배달어플</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=마케팅 디자인&subCategory=블로그·카페 디자인&cPage=1">블로그·카페
-						디자인</a></li>
-			</ul>
-			<ul>
-				<a
-					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&cPage=1">웹·모바일
-					디자인</a>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&subCategory=명함&cPage=1">명함</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&subCategory=전단지·포스터·인쇄물&cPage=1">전단지·포스터·인쇄물</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&subCategory=현수막·X배너&cPage=1">현수막·X배너</a></li>
-				<li><a
-					href="/category/list.do?type=디자인&middleCategory=웹·모바일 디자인&subCategory=메뉴판&cPage=1">메뉴판</a></li>
-			</ul>
+			<p class="Middle_Category" data-type="디자인" data-middle="로고·브랜딩">로고·브랜딩</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="로고·브랜딩"
+				data-sub="로고 디자인">로고 디자인</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="로고·브랜딩"
+				data-sub="브랜드 디자인 가이드">브랜드 디자인 가이드</p>
+			<br>
+			<p class="Middle_Category" data-type="디자인" data-middle="인쇄 홍보물">인쇄 홍보물</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물"
+				data-sub="명함">명함</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물"
+				data-sub="전단지·포스터·인쇄물">전단지·포스터·인쇄물</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물"
+				data-sub="현수막·X배너">현수막·X배너</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="인쇄 홍보물"
+				data-sub="메뉴판">메뉴판</p>
+			<br>
+			<p class="Middle_Category" data-type="디자인" data-middle="마케팅 디자인">마케팅 디자인</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
+				data-sub="상세페이지">상세페이지</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
+				data-sub="SNS·썸네일 디자인">SNS·썸네일 디자인</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
+				data-sub="채널아트 디자인">채널아트 디자인</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
+				data-sub="방송용 아바타">방송용 아바타</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
+				data-sub="배너·배달어플">배너·배달어플</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="마케팅 디자인"
+			data-sub="블로그·카페 디자인">블로그·카페 디자인</p>
+			<br>
+			<p class="Middle_Category" data-type="디자인" data-middle="웹·모바일 디자인">웹·모바일 디자인</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인"
+				data-sub="명함">명함</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인"
+				data-sub="전단지·포스터·인쇄물">전단지·포스터·인쇄물</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인"
+				data-sub="현수막·X배너">현수막·X배너</p>
+			<p class="Subcat_Category" data-type="디자인" data-middle="웹·모바일 디자인"
+				data-sub="메뉴판">메뉴판</p>
 		</div>
 
 		<!-- 카테고리 게시글 모음 -->
@@ -89,182 +78,112 @@
 
 			<!-- grid 전체 -->
 			<div class="thumb_container">
+				<c:choose>
+					<c:when test="${not empty tCategory}">
+						<c:forEach var="item" items="${tCategory}">
+							<!-- setAttribute에서 작성한 이름 -->
+							<!-- grid 개별 영역 -->
+							<div class="detail_thumb"
+								onclick="location.href='/BoardPro/Detail.do?boardNo=${item.boardNo}'">
+								<div class="thumb_space">
+									<!-- item.DTO의 변수명 -->
+									<img
+										src="${pageContext.request.contextPath}/resources/upload/main/${item.fileName}"
+										alt="${item.fileName}">
+									<p>${item.boardTitle}</p>
+								</div>
+								<!-- 별점 -->
+								<div class="star_score">
+									<img src="/resources/img/star.png" alt="">
+									<p>(4.9)</p>
+								</div>
+								<!-- 가격 -->
+								<div class="price">
+									<c:if test="${item.priceOption == 'SINGLE'}">
+										<p>${item.price}원</p>
+									</c:if>
+									<c:if test="${item.priceOption == 'STANDARD'}">
+										<p>${item.price}원~</p>
+									</c:if>
+								</div>
+								<!-- 회사명 -->
+								<div class="company_name">
+									<p>${item.company}</p>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
 
-				<c:forEach var="item" items="${list}">
-					<!-- grid 개별 영역 -->
-					<div class="detail_thumb" onclick="location.href=''">
-						<div class="thumb_space">
-							<img src="/resources/img/${item.fileName}" alt="">
-							<p>${item.boardTitle}</p>
-						</div>
+					<c:when test="${not empty sCategory}">
+						<c:forEach var="item" items="${sCategory}">
+							<!-- setAttribute에서 작성한 이름 -->
+							<!-- grid 개별 영역 -->
+							<div class="detail_thumb"
+								onclick="location.href='/BoardPro/Detail.do?boardNo=${item.boardNo}'">
+								<div class="thumb_space">
+									<!-- item.DTO의 변수명 -->
+									<img
+										src="${pageContext.request.contextPath}/resources/upload/main/${item.fileName}"
+										alt="${item.fileName}">
+									<p>${item.boardTitle}</p>
+								</div>
+								<!-- 별점 -->
+								<div class="star_score">
+									<img src="/resources/img/star.png" alt="">
+									<p>(4.9)</p>
+								</div>
+								<!-- 가격 -->
+								<div class="price">
+									<c:if test="${item.priceOption == 'SINGLE'}">
+										<p>${item.price}원</p>
+									</c:if>
+									<c:if test="${item.priceOption == 'STANDARD'}">
+										<p>${item.price}원~</p>
+									</c:if>
+								</div>
+								<!-- 회사명 -->
+								<div class="company_name">
+									<p>${item.company}</p>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
 
-						<!-- 별점 -->
-						<div class="star_score">
-							<img src="/resources/img/star.png" alt="">
-							<p>(4.9)</p>
-						</div>
-
-						<!-- 가격 -->
-						<div class="price">
-							<c:choose>
-								<c:when test="${item.priceOption == single}">
-									<p>${item.price}</p>
-								</c:when>
-								<c:otherwise>
-									<p>${item.price}~</p>
-								</c:otherwise>
-							</c:choose>
-						</div>
-
-						<!-- 회사명 -->
-						<div class="company_name">
-							<p>${item.company}</p>
-						</div>
-					</div>
-
-				</c:forEach>
-
-				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href=''">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb2.jpg" alt="">
-						<p>로고제작 전문기업</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						<p>150,000 ~</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						<p>지구컴즈</p>
-					</div>
-				</div>
-
-				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href=''">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb3.jpg" alt="">
-						<p>로고제작 랭킹 1위 어워즈 수상</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.7)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						<p>70,000 ~</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						<p>앨리스 디자인</p>
-					</div>
-				</div>
-
-				<!-- grid 개별 영역 -->
-				<div class="detail_thumb" onclick="location.href=''">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						<p>55,000 ~</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						<p>에브리 PPT</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href=''">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						<p>55,000 ~</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						<p>에브리 PPT</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href=''">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						<p>55,000 ~</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						<p>에브리 PPT</p>
-					</div>
-				</div>
-
-				<div class="detail_thumb" onclick="location.href=''">
-					<div class="thumb_space">
-						<img src="../Semiproject(SH)/img/thumb4.jpg" alt="">
-						<p>초고속 ppt 제작</p>
-					</div>
-
-					<!-- 별점 -->
-					<div class="star_score">
-						<img src="/resources/img/star.png" alt="">
-						<p>(4.9)</p>
-					</div>
-
-					<!-- 가격 -->
-					<div class="price">
-						<p>55,000 ~</p>
-					</div>
-
-					<!-- 회사명 -->
-					<div class="company_name">
-						<p>${item.company}</p>
-					</div>
-				</div>
-
+					<c:when test="${not empty fCategory}">
+						<c:forEach var="item" items="${fCategory}">
+							<!-- setAttribute에서 작성한 이름 -->
+							<!-- grid 개별 영역 -->
+							<div class="detail_thumb"
+								onclick="location.href='/BoardPro/Detail.do?boardNo=${item.boardNo}'">
+								<div class="thumb_space">
+									<!-- item.DTO의 변수명 -->
+									<img
+										src="${pageContext.request.contextPath}/resources/upload/main/${item.fileName}"
+										alt="${item.fileName}">
+									<p>${item.boardTitle}</p>
+								</div>
+								<!-- 별점 -->
+								<div class="star_score">
+									<img src="/resources/img/star.png" alt="">
+									<p>(4.9)</p>
+								</div>
+								<!-- 가격 -->
+								<div class="price">
+									<c:if test="${item.priceOption == 'SINGLE'}">
+										<p>${item.price}원</p>
+									</c:if>
+									<c:if test="${item.priceOption == 'STANDARD'}">
+										<p>${item.price}원~</p>
+									</c:if>
+								</div>
+								<!-- 회사명 -->
+								<div class="company_name">
+									<p>${item.company}</p>
+								</div>
+							</div>
+						</c:forEach>
+					</c:when>
+				</c:choose>
 			</div>
 		</div>
 
@@ -321,6 +240,8 @@
 
 			</ul>
 		</div>
+		<button class="Page_enroll"
+			onclick="location.href='/views/board/boardProEnroll.jsp'">등록</button>
 	</main>
 
 	<%@ include file="/views/common/footer.jsp"%>

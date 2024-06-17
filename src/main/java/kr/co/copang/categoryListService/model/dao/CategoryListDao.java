@@ -21,7 +21,7 @@ public class CategoryListDao {
 	}
 
 //	대분류
-	public ArrayList<CategoryListDtoImpl> getMainList(String type) {
+	public ArrayList<CategoryListDtoImpl> getMainList(String type, PageInfo pi) {
 
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
 
@@ -31,12 +31,15 @@ public class CategoryListDao {
 				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO" 
 				+ " WHERE u.FILE_PATH LIKE '%main'"
 				+ " AND cb.B_CATEGORY_MAIN = ? "
-				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')";
+				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')"
+				+ " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 		try {
 
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, type);
+			pstmt.setInt(2, pi.getOffset());
+			pstmt.setInt(3, pi.getBoardLimit());
 
 			ResultSet rs = pstmt.executeQuery();
 
@@ -75,7 +78,7 @@ public class CategoryListDao {
 	}
 
 // 중분류	
-	public ArrayList<CategoryListDtoImpl> getMiddleList(String middleCategory) {
+	public ArrayList<CategoryListDtoImpl> getMiddleList(String middleCategory, PageInfo pi) {
 
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
 
@@ -85,12 +88,15 @@ public class CategoryListDao {
 				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO" 
 				+ " WHERE u.FILE_PATH LIKE '%main'"
 				+ " AND B_CATEGORY_MIDDLE = ? " 
-				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')";
+				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')"
+				+ " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 		try {
 
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, middleCategory);
+			pstmt.setInt(2, pi.getOffset());
+			pstmt.setInt(3, pi.getBoardLimit());
 
 			ResultSet rs = pstmt.executeQuery();
 
@@ -129,7 +135,7 @@ public class CategoryListDao {
 	}
 
 //	소분류
-	public ArrayList<CategoryListDtoImpl> getSubList(String subCategory) {
+	public ArrayList<CategoryListDtoImpl> getSubList(String subCategory, PageInfo pi) {
 
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
 
@@ -139,13 +145,16 @@ public class CategoryListDao {
 				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO" 
 				+ " WHERE u.FILE_PATH LIKE '%main'"
 				+ " AND B_CATEGORY_SUBCAT = ? " 
-				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')";
+				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')"
+				+ " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 		try {
 
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, subCategory);
-
+			pstmt.setInt(2, pi.getOffset());
+			pstmt.setInt(3, pi.getBoardLimit());
+			
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -184,14 +193,20 @@ public class CategoryListDao {
 		return result;
 	}
 
-	public int getListCount(String type) {
-		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" + " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
-				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO " + " JOIN MEMBER m ON m.USER_NO = cb.USER_NO"
-				+ " where B_CATEGORY_MAIN = ? ";
+	public int getListCount(String type, String middleCategory, String subCategory) {
+		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" 
+				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
+				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
+				+ " WHERE u.FILE_PATH LIKE '%main'"
+				+ " and B_CATEGORY_MAIN = ? "
+				+ " and B_CATEGORY_MIDDLE = ? "
+				+ " and B_CATEGORY_SUBCAT = ? ";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, type);
+			pstmt.setString(2, middleCategory);
+			pstmt.setString(3, subCategory);
 
 			ResultSet rs = pstmt.executeQuery();
 

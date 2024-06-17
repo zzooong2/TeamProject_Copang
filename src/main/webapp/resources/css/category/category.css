@@ -26,6 +26,7 @@ body{
 }
 
 .bar p , .bar a{
+	display: inline-block;
     padding-top: 5px;
     margin-left: 10px;
     font-weight: bold;
