@@ -1,29 +1,82 @@
-/*푸터 영역*/
 footer {
-    width: 100%;
-    height: 200px;
-    background-color: #ff8e47;
-
+	width: 100%;
+	height: 200px;
+	background-color: #ff8e47;
 }
 
 .footer_tag h3 {
-    color: #fff;
+	color: #fff;
 }
 
 .footer_tag p {
-    color: #fff;
+	color: #fff;
 }
 
 .team {
-    margin-top: 30px;
-    margin-left: 50px;
-    width: 40%;
-    float: left;
+	width: 35%;
+	height: 100%;
+	float: left;
+}
+
+.team h3 {
+	margin: 20px 0px 0px 40px;
+}
+
+.team_imgBox {
+	width: 100%;
+	height: 50%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.team_member {
+	width: 80px;
+	height: 80px;
+	border-radius: 5px;
+	margin: 20px 15px 0px 15px;
+	float: left;
+}
+
+.team > p {
+	width : 100%;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	word-spacing:75px;
 }
 
 .academy {
-    margin-top: 30px;
-    margin-left: 50px;
-    width: 40%;
-    float: left;
+	width: 30%;
+	float: left;
+}
+
+.academy h3 {
+	margin: 20px 0px 0px 20px;
+}
+
+.academy p {
+	margin-left: 20px;
+}
+
+.footer_nav {
+	width: 35%;
+	height: 100%;
+	float: left;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.footer_nav li {
+	list-style: none;
+	width: 100px;
+	margin: 80px 20px 20px 20px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.footer_nav li a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 25px;
+	font-weight: bold;
 }
