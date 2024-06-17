@@ -140,7 +140,7 @@ document.getElementById("Detail_right_middleCategory_select4").addEventListener(
 		document.getElementById("Detail_right_SubcatCategory4-3").style.display = 'none';
 		document.getElementById("Detail_right_SubcatCategory4-4").style.display = 'none';
 	} else if(this.value === "바이럴·체험단") {
-		ddocument.getElementById("Detail_right_SubcatCategory").style.display = 'none';
+		document.getElementById("Detail_right_SubcatCategory").style.display = 'none';
 		document.getElementById("Detail_right_SubcatCategory4-1").style.display = 'none';
 		document.getElementById("Detail_right_SubcatCategory4-2").style.display = 'flex';
 		document.getElementById("Detail_right_SubcatCategory4-3").style.display = 'none';

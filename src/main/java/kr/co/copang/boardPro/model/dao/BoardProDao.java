@@ -251,22 +251,31 @@ public class BoardProDao {
 		return null;
 	}
 
-	public int fileUpload(BoardProDto boardDto, int businessNo) {
+	public int fileUpload(BoardProDto fileListDto, int businessNo) {
 
-		String query = "INSERT INTO UPLOAD VALUES(UPLOAD_SEQ.NEXTVAL, ?, ?, ?)";
+		String query = "INSERT INTO UPLOAD VALUES(UPLOAD_SEQ.NEXTVAL, ?, ?, ?, ?)";
 
 		try {
 			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, boardDto.getFilePath());
-			pstmt.setString(2, boardDto.getFileName());
+			pstmt.setString(1, fileListDto.getFilePath());
+			pstmt.setString(2, fileListDto.getFileName());
 			pstmt.setInt(3, businessNo);
+			pstmt.setString(4, fileListDto.getFileContentType());
 
 			int result = pstmt.executeUpdate();
+			
+			// 로그 추가: 파일 업로드 성공 시
+	        if (result == 1) {
+	            System.out.println("파일 업로드 성공: " + fileListDto.getFileName());
+	        } else {
+	            System.out.println("파일 업로드 실패");
+	        }
 
-			return result;
-
+	        return result;
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("파일 업로드 중 오류 발생: " + e.getMessage());
 		}
 
 		return 0;
@@ -626,7 +635,8 @@ public class BoardProDao {
 
 		String query = "SELECT B_NO,"
                 + "		       FILE_NAME,"
-                + "		       FILE_PATH"
+                + "		       FILE_PATH,"
+                + "			   FILE_CONTENT_TYPE"
                 + " 	FROM UPLOAD"
                 + "		WHERE B_NO = ?"
                 + "	    AND FILE_PATH LIKE ?";
@@ -642,11 +652,13 @@ public class BoardProDao {
 		           int bNo = rs.getInt("B_NO");
 		           String fName = rs.getString("FILE_NAME");
 		           String fPath = rs.getString("FILE_PATH");
+		           String fContentType = rs.getString("FILE_CONTENT_TYPE");
 		
 		           BoardProDto fBoardProDto = new BoardProDto();
 		           fBoardProDto.setFileNo(bNo);
 		           fBoardProDto.setFileName(fName);
 		           fBoardProDto.setFilePath(fPath);
+		           fBoardProDto.setFileContentType(fContentType);
 		
 		           return fBoardProDto;
 		       }
@@ -665,7 +677,8 @@ public class BoardProDao {
 		
 		String query = "SELECT B_NO,"
 				+ "			   FILE_NAME,"
-				+ "			   FILE_PATH"
+				+ "			   FILE_PATH,"
+				+ "			   FILE_CONTENT_TYPE"
 				+ "		FROM UPLOAD"
 				+ "		WHERE B_NO = ?"
 				+ "		AND FILE_PATH LIKE '%detail'";
@@ -680,11 +693,13 @@ public class BoardProDao {
 				int boardNo = rs.getInt("B_NO");
 				String fileName = rs.getString("FILE_NAME");
 				String filePath = rs.getString("FILE_PATH");
+				String fContentType = rs.getString("FILE_CONTENT_TYPE");
 				
 				BoardProDto fileDto = new BoardProDto();
 				fileDto.setBoardProNo(boardNo);
 				fileDto.setFileName(fileName);
 				fileDto.setFilePath(filePath);
+				fileDto.setFileContentType(fContentType);
 				
 				result.add(fileDto);
 			}
@@ -851,5 +866,111 @@ public class BoardProDao {
 		
 		return 0;
 	}
+	
+	public int setBMDelete(int boardProNo) {
+		
+		String query = "DELETE FROM BUSINESS_MENU"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("setBMDelete : " + result);
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int setUDelete(int boardProNo) {
+		
+		String query = "DELETE FROM UPLOAD"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("setUDelete : " + result);
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int setCBRDelete(int boardProNo) {
+		
+		String query = "DELETE FROM CATEGORY_BOARD_REVIEW"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("setCBRDelete : " + result);
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int setRBDelete(int boardProNo) {
+		
+		String query = "DELETE FROM REQUEST_BOARD"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			System.out.println("setRBDelete : " + result);
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	public int setCBDelete(int boardProNo) {
+		
+		String query = "DELETE FROM CATEGORY_BOARD"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			int result = pstmt.executeUpdate();
+			
+			return result;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
+	
 	
 }
