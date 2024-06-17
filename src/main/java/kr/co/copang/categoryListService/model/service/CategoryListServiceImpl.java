@@ -29,9 +29,20 @@ public class CategoryListServiceImpl implements CategoryListService {
 	}
 	
 	@Override
-	public int getListCount(String type, String middleCategory, String subCategory) {
-		return categoryListDao.getListCount(type, middleCategory, subCategory);
+	public int getMainListCount(String type) {
+		return categoryListDao.getMainListCount(type);
 	}
+
+	@Override
+	public int getMiddleListCount(String middleCategoy) {
+		return categoryListDao.getMiddleListCount(middleCategoy);
+	}
+	
+	@Override
+	public int getSubListCount(String subCategoy) {
+		return categoryListDao.getSubListCount(subCategoy);
+	}
+
 
 
 

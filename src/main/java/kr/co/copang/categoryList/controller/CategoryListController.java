@@ -40,11 +40,20 @@ public class CategoryListController extends HttpServlet {
 		
 		
 		
+//		리스트 카운트 변수 초기화
+		int listCount = 0;
 		
-		
-		 int listCount = categoryListService.getListCount(type, middleCategory,
-		  subCategory);
-		  
+//		 소분류가 비어있지 
+		 if(!subCategory.equals("")) {
+//		 	 
+			 listCount = categoryListService.getSubListCount(subCategory);
+		 } else if(!middleCategory.equals("")) {
+//			중분류 리스트 배열
+			 listCount = categoryListService.getMiddleListCount(middleCategory);
+		 } else {
+//			대분류 리스트 배열 
+			 listCount = categoryListService.getMainListCount(type);
+		}  
 		 
 		 
 		 
@@ -82,7 +91,6 @@ public class CategoryListController extends HttpServlet {
 			fCategory = categoryListService.getMainList(type, pi);
 			request.setAttribute("fCategory", fCategory);
 		}
-		
 		
 		
 		String nextPage = "";

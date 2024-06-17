@@ -193,20 +193,67 @@ public class CategoryListDao {
 		return result;
 	}
 
-	public int getListCount(String type, String middleCategory, String subCategory) {
-		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" 
-				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
-				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
-				+ " WHERE u.FILE_PATH LIKE '%main'"
-				+ " and B_CATEGORY_MAIN = ? "
-				+ " and B_CATEGORY_MIDDLE = ? "
-				+ " and B_CATEGORY_SUBCAT = ? ";
+	public int getMainListCount(String type) {
+			String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" 
+					+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
+					+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
+					+ " WHERE u.FILE_PATH LIKE '%main'"
+					+ " and B_CATEGORY_MAIN = ? ";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, type);
-			pstmt.setString(2, middleCategory);
-			pstmt.setString(3, subCategory);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int result = rs.getInt("CNT");
+				return result;
+				
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+	
+	public int getMiddleListCount(String middleCategory) {
+		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" 
+				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
+				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
+				+ " WHERE u.FILE_PATH LIKE '%main'"
+				+ " and B_CATEGORY_MIDDLE = ? ";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, middleCategory);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				int result = rs.getInt("CNT");
+				return result;
+				
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return 0;
+	}
+	public int getSubListCount(String subCategory) {
+		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" 
+				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
+				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
+				+ " WHERE u.FILE_PATH LIKE '%main'"
+				+ " and B_CATEGORY_SUBCAT = ? ";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, subCategory);
 
 			ResultSet rs = pstmt.executeQuery();
 
