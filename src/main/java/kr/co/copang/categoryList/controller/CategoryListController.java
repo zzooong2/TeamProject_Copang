@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.co.copang.boardPro.model.service.BoardProServiceImpl;
 import kr.co.copang.categoryListService.model.dto.CategoryListDtoImpl;
 import kr.co.copang.categoryListService.model.service.CategoryListServiceImpl;
 import kr.co.copang.common.PageInfo;
@@ -71,21 +72,39 @@ public class CategoryListController extends HttpServlet {
 		 PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit); 
 		 request.setAttribute("pi", pi);
 			 
-		 
+		 BoardProServiceImpl boardProService = new BoardProServiceImpl();
 		 
 		ArrayList<CategoryListDtoImpl> fCategory = new ArrayList<>();
 
 //		소분류 리스트 배열
 		if(!subCategory.equals("")) {
 			ArrayList<CategoryListDtoImpl> tCategory = categoryListService.getSubList(subCategory, pi);
+			// 각 게시물의 평균 별점 추가
+		    for (CategoryListDtoImpl item : tCategory) {
+		        float avgValue = boardProService.getReviewAvg(item.getBoardNo());
+		        String avg = String.format("%.1f", avgValue);
+		        item.setAvgRating(avg); // avgRating 필드를 CategoryListDtoImpl에 추가해야 함
+		    }
 			request.setAttribute("tCategory", tCategory);
 		} else if(!middleCategory.equals("")) {
 //		중분류 리스트 배열
 			ArrayList<CategoryListDtoImpl> sCategory = categoryListService.getMiddleList(middleCategory, pi);
+			// 각 게시물의 평균 별점 추가  
+			for (CategoryListDtoImpl item : sCategory) {
+			        float avgValue = boardProService.getReviewAvg(item.getBoardNo());
+			        String avg = String.format("%.1f", avgValue);
+			        item.setAvgRating(avg); // avgRating 필드를 CategoryListDtoImpl에 추가해야 함
+			    }
 			request.setAttribute("sCategory", sCategory);
 		} else {
 //		대분류 리스트 배열 
 			fCategory = categoryListService.getMainList(type, pi);
+			  // 각 게시물의 평균 별점 추가
+		    for (CategoryListDtoImpl item : fCategory) {
+		        float avgValue = boardProService.getReviewAvg(item.getBoardNo());
+		        String avg = String.format("%.1f", avgValue);
+		        item.setAvgRating(avg); // avgRating 필드를 CategoryListDtoImpl에 추가해야 함
+		    }
 			request.setAttribute("fCategory", fCategory);
 		}
 		
