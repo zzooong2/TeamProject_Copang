@@ -34,7 +34,7 @@
                 <div id="textemail"></div>
 
                 <label for="password">비밀번호</label> <br>
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력해 주세요.(8자리 이상)" onkeyup="inputpwd()" required>
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력해 주세요.(8-16자 사이의 문자, 숫자, 특수문자)" onkeyup="inputpwd()" required>
                 <div id="textpwd"></div>
                 <label for="password">비밀번호 확인</label> <br>
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="비밀번호를 한번 더 입력해 주세요." onkeyup="inputpwd()" required>
@@ -130,6 +130,7 @@
                 }
             });
         }); 
+        
     </script>
         
         

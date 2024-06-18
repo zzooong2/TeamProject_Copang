@@ -40,7 +40,6 @@ public class SearchIdController extends HttpServlet {
         
         
         if (sessionCode == null || !sessionCode.toString().equals(userInputCode)) {
-        	System.out.println("zz");
             response.getWriter().write("<script> { history.back();}</script>");
             return;
         }
@@ -57,10 +56,7 @@ public class SearchIdController extends HttpServlet {
             
             RequestDispatcher view = request.getRequestDispatcher("/views/member/searchPage.jsp");
             view.forward(request, response);
-			/*
-			 * response.getWriter().write("<script>alert('아이디 : " + userEmail +
-			 * " 입니다.'); location.href='/views/member/searchPage.jsp';</script>");
-			 */
+			
         } else {
             // 일치하는 정보가 없는 경우
             request.setAttribute("alertStatus", "false");

@@ -26,9 +26,9 @@ public class DuplicateController extends HttpServlet {
 	
 	request.setCharacterEncoding("UTF-8");
 	
-	String id = request.getParameter("email");
+	String email = request.getParameter("email");
 	MemberServiceImpl memberService = new MemberServiceImpl();
-	int duplicateCheck = memberService.duplicateId(id);
+	int duplicateCheck = memberService.duplicateId(email);
 	
 	if(duplicateCheck == 1) {  // 중복
 		response.getWriter().write("unavailable");

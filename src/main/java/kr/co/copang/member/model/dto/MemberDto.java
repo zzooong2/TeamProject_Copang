@@ -17,7 +17,30 @@ public class MemberDto {
 	private int partCode;
 	private String[] businessFields;
 	
+	private String paymentOrderNo;  // 결제코드
+    private String paymentDate;     // 결제
+    private int amount;             // 결제 금액
 	
+    
+	
+	public String getPaymentOrderNo() {
+		return paymentOrderNo;
+	}
+	public void setPaymentOrderNo(String paymentOrderNo) {
+		this.paymentOrderNo = paymentOrderNo;
+	}
+	public String getPaymentDate() {
+		return paymentDate;
+	}
+	public void setPaymentDate(String paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 	public String getUsertype() {
 		return usertype;
 	}
