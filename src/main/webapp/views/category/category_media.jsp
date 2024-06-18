@@ -33,7 +33,7 @@
 			<!-- data-(Attribute값) -->
 			<p class="Middle_Category" data-type="영상·사진" data-middle="영상" data-page="1">영상</p>
 			
-			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상" data-sub="광고·홍보영상" data-page="1">스토리보드</p>
+			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상" data-sub="광고·홍보영상" data-page="1">광고·홍보영상</p>
 			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상" data-sub="업종별 영상" data-page="1">업종별 영상</p>
 			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상" data-sub="제품영상" data-page="1">제품영상</p>
 			<p class="Subcat_Category" data-type="영상·사진" data-middle="영상" data-sub="교육영상" data-page="1">교육영상</p>

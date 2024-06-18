@@ -205,8 +205,6 @@ public class MemberDao {
     	String query = "UPDATE MEMBER "
     				+ " SET PASSWORD = ?"
     				+ " WHERE EMAIL = ?";
-    	
-    	
     	// 새로운 비밀번호를 해시하여 저장
         String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
         int result = 0;
@@ -242,10 +240,9 @@ public class MemberDao {
 	// 결제내역 가져오기
 	public List<MemberDto> getPaymentsByUserNo(int userNo) {
 		List<MemberDto> payments = new ArrayList<>();
-		String query = "SELECT p.P_ORDER_NO, p.P_INDATE, bm.BM_PAY"
-					+ " FROM PAYMENT p"
-					+ " JOIN BUSINESS_MENU bm ON p.B_NO = bm.B_NO"
-					+ " WHERE p.USER_NO = ?";
+		String query = "SELECT P_ORDER_NO, P_INDATE, P_PRICE"
+					+ " FROM PAYMENT"
+					+ " WHERE USER_NO = ?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -256,13 +253,13 @@ public class MemberDao {
 				MemberDto payment = new MemberDto();
                 payment.setPaymentOrderNo(rs.getString("P_ORDER_NO"));
                 payment.setPaymentDate(rs.getString("P_INDATE"));
-                payment.setAmount(rs.getInt("BM_PAY"));
+                payment.setAmount(rs.getInt("P_PRICE"));
                 payments.add(payment);
                 
              // 로그 추가
                 System.out.println("결제 내역 조회: P_ORDER_NO=" + payment.getPaymentOrderNo() +
                                    ", P_INDATE=" + payment.getPaymentDate() +
-                                   ", BM_PAY=" + payment.getAmount());
+                                   ", P_PRICE=" + payment.getAmount());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -64,6 +64,7 @@ function inputemail() {
         success: function(res) {   // 요청이 성공했을 때  
         	console.log(res);
         if(res === "available") {
+        	duplicateCheck.value = "available";
 			emailFlag = true;
         	} else {
         	duplicateCheck.value = "unavailable";

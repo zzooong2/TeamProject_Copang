@@ -45,6 +45,8 @@
 
 		<c:choose>
 			<c:when test="${sessionScope.userName != null}">
+			
+				<li><a href="/views/member/myPage.jsp"><span style="color: blue; font-weight: bold;">${sessionScope.userName}</span> 님</a></li>		
 				
 				<li><a href="/views/member/myPage.jsp">마이페이지</a></li>		
 
