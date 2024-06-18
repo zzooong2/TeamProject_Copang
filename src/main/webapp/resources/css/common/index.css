@@ -35,18 +35,6 @@ body{
   font-weight: bold;
 }
 
-
-/* .img_animaion {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    background-size: cover;
-    animation: fade 10s ease-in infinite;
-}
-
-
-
 /* 메인영역 */
 .main{
     width: 60%;
@@ -54,12 +42,9 @@ body{
 }
 
 
-/* 메인 아래 아이콘 ( 24/5/30 작업 )*/
-
 .icons{
     width: 60%;
     height: 100vh;
-    /* border: 1px solid #999; */
     display: flex;
     justify-content: center;
     align-items:center;
@@ -77,7 +62,6 @@ body{
     color: #444;
     animation: titleDown 5s;
     animation-delay: 5s;
-    /* border: 1px solid #999; */
 
 }
 
@@ -97,7 +81,6 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items:center;
-    /* border: 1px solid #999; */
 
 
 }
@@ -106,7 +89,7 @@ body{
     width: 150px;
     height: 150px;
     animation: iconDown 5s;
-    animation-delay: 8s;
+    animation-delay: 7s;
 }
 
 @keyframes iconDown {
@@ -124,7 +107,6 @@ body{
     margin-top: 10px;
     width: 70px;
     height: 70px;
-    /* border: 1px solid yellow; */
     display: flex;
     justify-content: center;
 }

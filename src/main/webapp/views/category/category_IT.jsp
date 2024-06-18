@@ -34,30 +34,28 @@
 		<div class="category_area">
 			<!-- data-(Attribute값) -->
 			<p class="Middle_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-page="1">UX기획</p>
+			
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="스토리보드" data-page="1">스토리보드 </p>
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="UX기획" data-sub="기타 기획" data-page="1">기타 기획</p>
 			<br>
 			<p class="Middle_Category" data-type="IT·프로그래밍" data-middle="웹" data-page="1">웹</p>
+			
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="홈페이지" data-page="1">홈페이지</p>
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="퍼블리싱" data-page="1">퍼블리싱</p>
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="웹" data-sub="유지보수" data-page="1">유지보수</p>
 			<br>
 			<p class="Middle_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-page="1">프로그램</p>
+			
 			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="PC·웹프로그램" data-page="1">PC·웹프로그램</p>
-			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램"
-				data-sub="서버·클라우드" data-page="1">서버·클라우드</p>
-			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램"
-				data-sub="봇·챗봇" data-page="1">봇·챗봇</p>
+			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="서버·클라우드" data-page="1">서버·클라우드</p>
+			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="프로그램" data-sub="봇·챗봇" data-page="1">봇·챗봇</p>
 			<br>
 			<p class="Middle_Category" data-type="IT·프로그래밍" data-middle="커머스" data-page="1">커머스</p>
-			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스"
-				data-sub="쇼핑몰" data-page="1">쇼핑몰</p>
-			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스"
-				data-sub="쇼핑몰(웹빌더·CMS)" data-page="1">쇼핑몰(웹빌더·CMS)</p>
-			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스"
-				data-sub="쇼핑몰(카페24)" data-page="1">쇼핑몰(카페24)</p>
-			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스"
-				data-sub="쇼핑몰 수정·유지보수" data-page="1">쇼핑몰 수정·유지보수</p>
+			
+			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰" data-page="1">쇼핑몰</p>
+			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰(웹빌더·CMS)" data-page="1">쇼핑몰(웹빌더·CMS)</p>
+			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰(카페24)" data-page="1">쇼핑몰(카페24)</p>
+			<p class="Subcat_Category" data-type="IT·프로그래밍" data-middle="커머스" data-sub="쇼핑몰 수정·유지보수" data-page="1">쇼핑몰 수정·유지보수</p>
 
 		</div>
 
@@ -232,10 +230,10 @@
 
 			</ul>
 		</div>
-		<%-- 	<c:if test="${}">  --%>
+		<c:if test="${sessionScope.partCode == 2}">
 		<button class="Page_enroll"
 			onclick="location.href='/views/board/boardProEnroll.jsp'">등록</button>
-		<%-- 	</c:if>	 --%>
+		</c:if>
 	</main>
 
 	<%@ include file="/views/common/footer.jsp"%>

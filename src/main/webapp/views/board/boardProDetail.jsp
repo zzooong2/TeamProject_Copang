@@ -1033,7 +1033,7 @@
 				                            </div>
 				                            <div class="rightBox_check_list">
 				                                <span class="rightBox_check_list_text">광고 기능</span><img src="/resources/img/check.png" alt="rightBox_check_png" class="rightBox_check_png">
-				                            </div>
+				                            </div> 
 				                        </div>
 				                        <div class="rightBox_check_list_inner">
 											<c:if test="${resultSingle.businessServiceData != '0'}">

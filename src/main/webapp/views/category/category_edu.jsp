@@ -32,26 +32,21 @@
 		<div class="category_area">
 		
 		<p class="Middle_Category" data-type="교육" data-middle="외국어" data-page="1">외국어</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="외국어" data-page="1"
-			data-sub="영어 레슨">영어 레슨</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="외국어" data-page="1"
-			data-sub="기타 외국어 레슨" data-page="1">기타 외국어 레슨</p>
+		
+		<p class="Subcat_Category" data-type="교육" data-middle="외국어" data-sub="영어 레슨" data-page="1">영어 레슨</p>
+		<p class="Subcat_Category" data-type="교육" data-middle="외국어" data-sub="기타 외국어 레슨" data-page="1">기타 외국어 레슨</p>
 		<br>
-		<p class="Middle_Category" data-type="교육" data-middle="미술·글쓰기">웹</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="미술·글쓰기"
-			data-sub="미술·드로잉 레슨">미술·드로잉 레슨</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="미술·글쓰기"
-			data-sub="글쓰기 레슨">글쓰기 레슨</p>
+		<p class="Middle_Category" data-type="교육" data-middle="미술·글쓰기" data-page="1">웹</p>
+		
+		<p class="Subcat_Category" data-type="교육" data-middle="미술·글쓰기" data-sub="미술·드로잉 레슨" data-page="1">미술·드로잉 레슨</p>
+		<p class="Subcat_Category" data-type="교육" data-middle="미술·글쓰기" data-sub="글쓰기 레슨" data-page="1">글쓰기 레슨</p>
 		<br>
-		<p class="Middle_Category" data-type="교육" data-middle="댄스·뮤직">댄스·뮤직</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="댄스·뮤직"
-			data-sub="댄스 레슨">댄스 레슨</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="댄스·뮤직"
-			data-sub="보컬·랩 레슨">보컬·랩 레슨</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="댄스·뮤직"
-			data-sub="악기 레슨">악기 레슨</p>
-		<p class="Subcat_Category" data-type="교육" data-middle="댄스·뮤직"
-			data-sub="미디·작곡·편곡 레슨">미디·작곡·편곡 레슨</p>
+		<p class="Middle_Category" data-type="교육" data-middle="댄스·뮤직" data-page="1">댄스·뮤직</p>
+		
+		<p class="Subcat_Category" data-type="교육" data-middle="댄스·뮤직" data-sub="댄스 레슨" data-page="1">댄스 레슨</p>
+		<p class="Subcat_Category" data-type="교육" data-middle="댄스·뮤직" data-sub="보컬·랩 레슨" data-page="1">보컬·랩 레슨</p>
+		<p class="Subcat_Category" data-type="교육" data-middle="댄스·뮤직" data-sub="악기 레슨" data-page="1">악기 레슨</p>
+		<p class="Subcat_Category" data-type="교육" data-middle="댄스·뮤직" data-sub="미디·작곡·편곡 레슨" data-page="1">미디·작곡·편곡 레슨</p>
 		
 		</div>
 
@@ -224,8 +219,10 @@
 
 			</ul>
 		</div>
+		<c:if test="${sessionScope.partCode == 2}">
 		<button class="Page_enroll"
 			onclick="location.href='/views/board/boardProEnroll.jsp'">등록</button>
+		</c:if>
 	</main>
 
 	<%@ include file="/views/common/footer.jsp"%>
