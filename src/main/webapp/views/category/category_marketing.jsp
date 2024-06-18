@@ -178,13 +178,13 @@
 			style="background-color: white;">
 
 			<ul class="pagination"
-				style="justify-content: center; list-style: none; display: flex; margin: 0 auto; padding: 0; text-align: center; position: absolute; right: 41%; bottom: -30%;">
+				style="justify-content: center; list-style: none; display: flex; margin: 0 auto; padding: 0; text-align: center; position: absolute; right: 41%; bottom: -5%;">
 				<!-- 왼쪽 버튼 -->
 				<c:choose>
 					<c:when test="${pi.cPage == 1}">
 						<li class="page-item" style="margin-right: 20px"><a
 							class="page-link" href="#" aria-label="Previous"> <span
-								aria-hidden="true">&laquo;</span>
+aria-hidden="true">&laquo;</span>
 						</a></li>
 					</c:when>
 

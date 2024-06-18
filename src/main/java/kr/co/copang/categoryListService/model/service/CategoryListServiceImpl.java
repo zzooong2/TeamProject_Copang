@@ -34,13 +34,13 @@ public class CategoryListServiceImpl implements CategoryListService {
 	}
 
 	@Override
-	public int getMiddleListCount(String middleCategoy) {
-		return categoryListDao.getMiddleListCount(middleCategoy);
+	public int getMiddleListCount(String middleCategory) {
+		return categoryListDao.getMiddleListCount(middleCategory);
 	}
 	
 	@Override
-	public int getSubListCount(String subCategoy) {
-		return categoryListDao.getSubListCount(subCategoy);
+	public int getSubListCount(String subCategory) {
+		return categoryListDao.getSubListCount(subCategory);
 	}
 
 

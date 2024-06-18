@@ -91,12 +91,14 @@ public class CategoryListDao {
 				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')"
 				+ " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
+
 		try {
 
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, middleCategory);
 			pstmt.setInt(2, pi.getOffset());
 			pstmt.setInt(3, pi.getBoardLimit());
+
 			
 			ResultSet rs = pstmt.executeQuery();
 
@@ -147,14 +149,14 @@ public class CategoryListDao {
 				+ " AND B_CATEGORY_SUBCAT = ? " 
 				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')"
 				+ " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
-
+		
+		
 		try {
 
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, subCategory);
 			pstmt.setInt(2, pi.getOffset());
 			pstmt.setInt(3, pi.getBoardLimit());
-			System.out.println(subCategory);
 				
 			ResultSet rs = pstmt.executeQuery();
 
