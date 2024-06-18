@@ -12,6 +12,8 @@ public class CategoryListDto {
 	private String subCategory;
 	private String fileName;
 	private String filePath;
+	
+	private String avgRating;
 
 	
 	public int getBoardNo() {
@@ -75,5 +77,11 @@ public class CategoryListDto {
 		this.filePath = filePath;
 	}
 
+	public String getAvgRating() {
+		return avgRating;
+	}
+	public void setAvgRating(String avgRating) {
+		this.avgRating = avgRating;
+	}
 	
 }

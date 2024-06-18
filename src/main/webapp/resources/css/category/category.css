@@ -12,7 +12,7 @@ body{
 /* 메인영역 */
 .main{
     width: 60%;
-    height: 1000px;
+    height: 100vh;
 }
 
 /* 상위 카테고리 > 하위 카테고리*/
