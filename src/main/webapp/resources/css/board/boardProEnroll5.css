@@ -164,6 +164,11 @@
     background-position: center;
 }
 
+.Detail_right_Contents4_preview2 > video {
+	width: 150px;
+    height: 250px;
+}
+
 .Detail_right_Contents4_preview1 img {
     max-width: 280px;
     height: 220px;
