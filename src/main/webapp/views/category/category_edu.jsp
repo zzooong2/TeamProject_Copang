@@ -36,7 +36,7 @@
 		<p class="Subcat_Category" data-type="교육" data-middle="외국어" data-sub="영어 레슨" data-page="1">영어 레슨</p>
 		<p class="Subcat_Category" data-type="교육" data-middle="외국어" data-sub="기타 외국어 레슨" data-page="1">기타 외국어 레슨</p>
 		<br>
-		<p class="Middle_Category" data-type="교육" data-middle="미술·글쓰기" data-page="1">웹</p>
+		<p class="Middle_Category" data-type="교육" data-middle="미술·글쓰기" data-page="1">미술·글쓰기</p>
 		
 		<p class="Subcat_Category" data-type="교육" data-middle="미술·글쓰기" data-sub="미술·드로잉 레슨" data-page="1">미술·드로잉 레슨</p>
 		<p class="Subcat_Category" data-type="교육" data-middle="미술·글쓰기" data-sub="글쓰기 레슨" data-page="1">글쓰기 레슨</p>
