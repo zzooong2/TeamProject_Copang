@@ -24,7 +24,11 @@ public class CategoryListController extends HttpServlet {
     }
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      CategoryListServiceImpl categoryListService = new CategoryListServiceImpl();
+
+	   request.setCharacterEncoding("UTF-8");
+       response.setContentType("text/html;charset=UTF-8");
+	   
+	   CategoryListServiceImpl categoryListService = new CategoryListServiceImpl();
 
 //
 
