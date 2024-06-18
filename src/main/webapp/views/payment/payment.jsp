@@ -166,7 +166,7 @@
    			<input type="text" id="title" name="request-title" placeholder="의뢰내용이 성공적으로 저장되었습니다." class="success" disabled>
     		<button type="button" class="edit-btn" onclick="requestEditShow()">수정하기</button>	
        	</div>
-       	
+	       	
     </section>
     <%@ include file="/views/common/footer.jsp"%>
     
