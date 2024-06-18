@@ -176,8 +176,10 @@ public class BoardProEnrollController extends HttpServlet {
         Collection<Part> parts = request.getParts();
 
 		// 메인 이미지와 상세페이지 이미지를 업로드할 디렉토리 경로를 지정합니다.
-		String mUploadDirectory = "C:\\dev\\work-space\\semiProject\\semiProject\\src\\main\\webapp\\resources\\upload\\main";
-		String dUploadDirectory = "C:\\dev\\work-space\\semiProject\\semiProject\\src\\main\\webapp\\resources\\upload\\detail";
+
+		String mUploadDirectory = "C:\\dev\\workspace\\semiProject\\semiProject\\src\\main\\webapp\\resources\\upload\\main";
+		String dUploadDirectory = "C:\\dev\\workspace\\semiProject\\semiProject\\src\\main\\webapp\\resources\\upload\\detail";
+
 
         // 파일 업로드 디렉토리가 존재하지 않으면 생성합니다.
         File mFilePath = new File(mUploadDirectory);

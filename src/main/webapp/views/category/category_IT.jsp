@@ -14,7 +14,6 @@
 <body>
 	<%@ include file="/views/common/header.jsp"%>
 
-
 	<main class="main">
 
 		<div class="bar">
@@ -83,7 +82,14 @@
 								<!-- 별점 -->
 								<div class="star_score">
 									<img src="/resources/img/star.png" alt="">
-									<p>(4.9)</p>
+									<c:choose>
+										<c:when test="${item.avgRating != '0.0'}">
+											<p>${item.avgRating}</p>
+										</c:when>
+										<c:otherwise>
+											<p>0.0</p>
+										</c:otherwise>
+									</c:choose>		
 								</div>
 								<!-- 가격 -->
 								<div class="price">
@@ -118,7 +124,14 @@
 								<!-- 별점 -->
 								<div class="star_score">
 									<img src="/resources/img/star.png" alt="">
-									<p>(4.9)</p>
+									<c:choose>
+										<c:when test="${item.avgRating != '0.0'}">
+											<p>${item.avgRating}</p>
+										</c:when>
+										<c:otherwise>
+											<p>0.0</p>
+										</c:otherwise>
+									</c:choose>		
 								</div>
 								<!-- 가격 -->
 								<div class="price">
@@ -153,7 +166,14 @@
 								<!-- 별점 -->
 								<div class="star_score">
 									<img src="/resources/img/star.png" alt="">
-									<p>(4.9)</p>
+									<c:choose>
+										<c:when test="${item.avgRating != '0.0'}">
+											<p>${item.avgRating}</p>
+										</c:when>
+										<c:otherwise>
+											<p>0.0</p>
+										</c:otherwise>
+									</c:choose>		
 								</div>
 								<!-- 가격 -->
 								<div class="price">
@@ -235,7 +255,6 @@
 			onclick="location.href='/views/board/boardProEnroll.jsp'">등록</button>
 		</c:if>
 	</main>
-
 	<%@ include file="/views/common/footer.jsp"%>
 
 </body>
