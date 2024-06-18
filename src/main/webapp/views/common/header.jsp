@@ -34,7 +34,7 @@
 		</a>
 		<!-- Search(돋보기) -->
 
-		<form class="search-box" method="" class="formSetting">
+		<form class="search-box" action="/category/list.do" method="get" class="formSetting">
 			<input class="search-txt" type="text" name="searchTxt" value="">
 			<button class="search-btn" type="submit">
 				<i class="fa-solid fa-magnifying-glass" style="color: #ff8e47;"></i>

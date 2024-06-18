@@ -180,7 +180,7 @@
 			
 			
 			<ul class="pagination"
-				style="justify-content: center; list-style: none; display: flex; margin: 0 auto; padding: 0; text-align: center; position: absolute; right: 40%; bottom: -30%;">
+				style="justify-content: center; list-style: none; display: flex; margin: 0 auto; padding: 0; text-align: center; position: absolute; right: 40%; bottom: -5%;">
 				<!-- 왼쪽 버튼 -->
 				<c:choose>
 					<c:when test="${pi.cPage == 1}">

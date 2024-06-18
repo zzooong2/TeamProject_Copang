@@ -45,7 +45,6 @@ public class CategoryListController extends HttpServlet {
 		
 //		 소분류가 비어있지 
 		 if(!subCategory.equals("")) {
-//		 	 
 			 listCount = categoryListService.getSubListCount(subCategory);
 		 } else if(!middleCategory.equals("")) {
 //			중분류 리스트 배열
@@ -54,10 +53,6 @@ public class CategoryListController extends HttpServlet {
 //			대분류 리스트 배열 
 			 listCount = categoryListService.getMainListCount(type);
 		}  
-		 
-		 
-		 
-//		 int cPage = Integer.parseInt(request.getParameter("cPage"));
 		 int cPage = 1;
 		 
 		 if(request.getParameter("cPage") != null) {
@@ -65,9 +60,9 @@ public class CategoryListController extends HttpServlet {
 		 }
 		 request.setAttribute("cPage", cPage); 
 		  
-		 int pageLimit = 2;
+		 int pageLimit = 9;
 		  
-		 int boardLimit = 3;
+		 int boardLimit = 6;
 		  
 		 PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit); 
 		 request.setAttribute("pi", pi);

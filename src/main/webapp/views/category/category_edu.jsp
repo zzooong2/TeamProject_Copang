@@ -170,18 +170,18 @@
 			style="background-color: white;">
 
 			<ul class="pagination"
-				style="justify-content: center; list-style: none; display: flex; margin: 0 auto; padding: 0; text-align: center; position: absolute; right: 41%; bottom: -65%;">
+				style="justify-content: center; list-style: none; display: flex; margin: 0 auto; padding: 0; text-align: center; position: absolute; right: 41%; bottom: -5%;">
 				<!-- 왼쪽 버튼 -->
 				<c:choose>
 					<c:when test="${pi.cPage == 1}">
-						<li class="page-item" style="margin-right: 0px"><a
+						<li class="page-item" style="margin-right: 20px"><a
 							class="page-link" href="#" aria-label="Previous"> <span
 								aria-hidden="true">&laquo;</span>
 						</a></li>
 					</c:when>
 
 					<c:otherwise>
-						<li class="page-item" style="margin-right: 0px"><a
+						<li class="page-item" style="margin-right: 20px"><a
 							class="page-link"
 							href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${pi.cPage-1}"
 							aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
@@ -194,7 +194,7 @@
                for(int i=0; i<10; i++) {  } 
             -->
 				<c:forEach var="page" begin="${pi.startPage}" end="${pi.endPage}">
-					<li class="page-item" style="margin-right: 0px"><a
+					<li class="page-item" style="margin-right: 20px"><a
 						class="page-link"
 						href="/category/list.do?type=교육&middleCategory=${middleCategory}&subCategory=${subCategory}&cPage=${page}">${page}</a></li>
 				</c:forEach>
@@ -202,7 +202,7 @@
 				<!-- 오른쪽 버튼 -->
 				<c:choose>
 					<c:when test="${pi.cPage == pi.maxPage}">
-						<li class="page-item" style="margin-right: 0px"><a
+						<li class="page-item" style="margin-right: 20px"><a
 							class="page-link" href="#" aria-label="Next"> <span
 								aria-hidden="true">&raquo;</span>
 						</a></li>
