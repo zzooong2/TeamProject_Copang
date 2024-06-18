@@ -74,7 +74,14 @@
 								<!-- 별점 -->
 								<div class="star_score">
 									<img src="/resources/img/star.png" alt="">
-									<p>(4.9)</p>
+									<c:choose>
+											<c:when test="${item.avgRating != '0.0'}">
+												<p>${item.avgRating}</p>
+											</c:when>
+											<c:otherwise>
+												<p>0.0</p>
+											</c:otherwise>
+										</c:choose>		
 								</div>
 								<!-- 가격 -->
 								<div class="price">
@@ -109,7 +116,14 @@
 								<!-- 별점 -->
 								<div class="star_score">
 									<img src="/resources/img/star.png" alt="">
-									<p>(4.9)</p>
+									<c:choose>
+											<c:when test="${item.avgRating != '0.0'}">
+												<p>${item.avgRating}</p>
+											</c:when>
+											<c:otherwise>
+												<p>0.0</p>
+											</c:otherwise>
+										</c:choose>		
 								</div>
 								<!-- 가격 -->
 								<div class="price">
@@ -144,7 +158,14 @@
 								<!-- 별점 -->
 								<div class="star_score">
 									<img src="/resources/img/star.png" alt="">
-									<p>(4.9)</p>
+									<c:choose>
+											<c:when test="${item.avgRating != '0.0'}">
+												<p>${item.avgRating}</p>
+											</c:when>
+											<c:otherwise>
+												<p>0.0</p>
+											</c:otherwise>
+										</c:choose>		
 								</div>
 								<!-- 가격 -->
 								<div class="price">
