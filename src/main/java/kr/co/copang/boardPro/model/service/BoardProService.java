@@ -51,4 +51,6 @@ public interface BoardProService {
 	
 	public int setCBDelete(int boardProNo);
 	
+	public String getMainCategory(int boardProNo);
+	
 }

@@ -19,12 +19,20 @@ public class BoardProDeleteController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+		
 		int boardProNo = Integer.parseInt(request.getParameter("boardProNo"));
 		
 		System.out.println(boardProNo);
 		
 		BoardProServiceImpl boardProService = new BoardProServiceImpl();
+		
+		String type = boardProService.getMainCategory(boardProNo);
+		
+		System.out.println("Controller : " + type);
 		
 		int BMresult = boardProService.setBMDelete(boardProNo);
 		int Uresult = boardProService.setUDelete(boardProNo);
@@ -41,9 +49,10 @@ public class BoardProDeleteController extends HttpServlet {
 		
 		
 		
-		if(BMresult == 1 && Uresult == 1 && CBresult == 1) {
+		if(BMresult == 1 && Uresult >= 1 && CBresult == 1) {
 			System.out.println("파일 삭제가 정상적으로 동작했습니다.");
-			response.sendRedirect("/category/list.do");
+			response.sendRedirect("/");
+			
 		} else {
 			System.out.println("파일이 삭제되지 않았습니다.");
 		}

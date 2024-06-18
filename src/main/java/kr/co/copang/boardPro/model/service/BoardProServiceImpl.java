@@ -157,4 +157,9 @@ public class BoardProServiceImpl implements BoardProService {
 		return boardProDao.setCBDelete(boardProNo);
 	}
 	
+	@Override
+	public String getMainCategory(int boardProNo) {
+		return boardProDao.getMainCategory(boardProNo);
+	}
+	
 }
