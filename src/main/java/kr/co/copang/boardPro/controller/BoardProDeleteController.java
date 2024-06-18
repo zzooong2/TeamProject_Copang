@@ -26,6 +26,8 @@ public class BoardProDeleteController extends HttpServlet {
 		
 		BoardProServiceImpl boardProService = new BoardProServiceImpl();
 		
+		String type = boardProService.getMainCategory(boardProNo);
+		
 		int BMresult = boardProService.setBMDelete(boardProNo);
 		int Uresult = boardProService.setUDelete(boardProNo);
 		int CBRresult = boardProService.setCBRDelete(boardProNo);
@@ -41,9 +43,10 @@ public class BoardProDeleteController extends HttpServlet {
 		
 		
 		
-		if(BMresult == 1 && Uresult == 1 && CBresult == 1) {
+		if(BMresult == 1 && Uresult >= 1 && CBresult == 1) {
 			System.out.println("파일 삭제가 정상적으로 동작했습니다.");
-			response.sendRedirect("/category/list.do");
+			response.sendRedirect("/category/list.do?type="+type+"&middleCategory=&subCategory=&cPage=1");
+			
 		} else {
 			System.out.println("파일이 삭제되지 않았습니다.");
 		}

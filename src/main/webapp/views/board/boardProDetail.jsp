@@ -2116,7 +2116,7 @@
 			                            <c:if test="${resultS.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">1회당 레슨시간(분)</span>
-										        <span class="rightBox_business_inner"><span>${resultS.businessServiceWorkDate}</span>분</span>
+										        <span class="rightBox_business_inner"><span>${resultS.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
 										<c:if test="${resultS.businessServiceFunction != '0'}">
@@ -2168,7 +2168,7 @@
 			                            <c:if test="${resultD.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">1회당 레슨시간(분)</span>
-										        <span class="rightBox_business_inner"><span>${resultD.businessServiceWorkDate}</span>분</span>
+										        <span class="rightBox_business_inner"><span>${resultD.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
 										<c:if test="${resultD.businessServiceFunction != '0'}">
@@ -2220,7 +2220,7 @@
 			                            <c:if test="${resultP.businessServiceData != '0'}">
 										    <div class="rightBox_check_list">
 										        <span class="rightBox_check_list_text">1회당 레슨시간(분)</span>
-										        <span class="rightBox_business_inner"><span>${resultP.businessServiceWorkDate}</span>분</span>
+										        <span class="rightBox_business_inner"><span>${resultP.businessServiceData}</span>분</span>
 										    </div>
 										</c:if>
 										<c:if test="${resultP.businessServiceFunction != '0'}">

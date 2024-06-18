@@ -970,7 +970,30 @@ public class BoardProDao {
 		return 0;
 	}
 	
-	
+	public String getMainCategory(int boardProNo) {
+		
+		String query = "SELECT B_CATEGORY_MAIN"
+				+ "		FROM CATEGORY_BOARD"
+				+ "		WHERE B_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, boardProNo);
+			
+			ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+            	String type = rs.getString("B_CATEGORY_MAIN");
+            	return type;
+            }
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
 	
 	
 }
