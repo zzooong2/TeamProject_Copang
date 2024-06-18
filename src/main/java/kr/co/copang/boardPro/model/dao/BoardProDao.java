@@ -984,6 +984,9 @@ public class BoardProDao {
 
             while (rs.next()) {
             	String type = rs.getString("B_CATEGORY_MAIN");
+            	
+            	System.out.println("DAO : " + type);
+            	
             	return type;
             }
 			

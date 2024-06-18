@@ -28,6 +28,8 @@ public class BoardProDeleteController extends HttpServlet {
 		
 		String type = boardProService.getMainCategory(boardProNo);
 		
+		System.out.println("Controller : " + type);
+		
 		int BMresult = boardProService.setBMDelete(boardProNo);
 		int Uresult = boardProService.setUDelete(boardProNo);
 		int CBRresult = boardProService.setCBRDelete(boardProNo);
