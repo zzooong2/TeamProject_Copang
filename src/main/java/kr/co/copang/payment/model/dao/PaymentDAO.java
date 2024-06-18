@@ -92,7 +92,7 @@ public class PaymentDAO {
 					 + " JOIN REQUEST_BOARD rb  ON cb.B_NO = rb.B_NO"
 					 + " WHERE cb.B_NO = ?"
 					 + " AND p.USER_NO = ?"
-					 + " AND u.FILE_PATH LIKE '%/main'";
+					 + " AND u.FILE_PATH LIKE '%\\main'";
 		
 		try {
 			ps = con.prepareStatement(query);

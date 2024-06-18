@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -113,10 +115,10 @@ public class MemberDao {
 	
 	// 로그인
 	public MemberDto login(String id) {
-		String query = "SELECT M.USER_NAME, M.PASSWORD, MT.PART_NAME, M.USER_NO, MT.PART_CODE"
+		String query = "SELECT M.USER_NAME, M.PASSWORD, M.USER_NO, MT.PART_CODE, M.EMAIL, M.PHONE"
 				+ "     FROM MEMBER M " 
                 + "     JOIN MEMBER_TYPE MT ON M.PART_CODE = MT.PART_CODE "
-				+ "     WHERE M.EMAIL = ?";
+				+ "     WHERE M.EMAIL = ? AND M.SECESSION = 'N'";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -127,14 +129,16 @@ public class MemberDao {
 			while(rs.next()) {
 				String userName = rs.getString("USER_NAME");
 				String hashPassword = rs.getString("PASSWORD");
-				String partName = rs.getString("PART_NAME");
+				String userEmail = rs.getString("EMAIL");
+				String userPhone = rs.getString("PHONE");
 				int partCode = rs.getInt("PART_CODE");
 				int userNo = rs.getInt("USER_NO");
 				
 				MemberDto result = new MemberDto();
 				result.setUserName(userName);
 				result.setUserPwd(hashPassword);
-				result.setUsertype(partName);
+				result.setUserEmail(userEmail);
+				result.setUserPhone(userPhone);
 				result.setPartCode(partCode);
 				result.setUserNo(userNo);				
 				return result;
@@ -201,10 +205,6 @@ public class MemberDao {
     	String query = "UPDATE MEMBER "
     				+ " SET PASSWORD = ?"
     				+ " WHERE EMAIL = ?";
-    	
-    	System.out.println(newPassword);
-    	System.out.println(userEmail);
-    	
     	// 새로운 비밀번호를 해시하여 저장
         String hashedPassword = BCrypt.hashpw(newPassword, BCrypt.gensalt());
         int result = 0;
@@ -214,10 +214,98 @@ public class MemberDao {
             pstmt.setString(2, userEmail);
             result = pstmt.executeUpdate();
             
-            System.out.println(result+"dao");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return result;
     }
+    
+	
+	// 핸드폰 번호 변경
+	public int updatePhone(String userName, String userEmail, String newPhone) {
+		String query = "UPDATE MEMBER SET PHONE = ? WHERE USER_NAME = ? AND EMAIL = ?";
+	    int result = 0;
+	    try {
+	        pstmt = con.prepareStatement(query);
+	        pstmt.setString(1, newPhone);
+	        pstmt.setString(2, userName);
+	        pstmt.setString(3, userEmail);
+	        result = pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return result;
+	}
+	
+	// 결제내역 가져오기
+	public List<MemberDto> getPaymentsByUserNo(int userNo) {
+		List<MemberDto> payments = new ArrayList<>();
+		String query = "SELECT P_ORDER_NO, P_INDATE, P_PRICE"
+					+ " FROM PAYMENT"
+					+ " WHERE USER_NO = ?";
+		
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, userNo);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				MemberDto payment = new MemberDto();
+                payment.setPaymentOrderNo(rs.getString("P_ORDER_NO"));
+                payment.setPaymentDate(rs.getString("P_INDATE"));
+                payment.setAmount(rs.getInt("P_PRICE"));
+                payments.add(payment);
+                
+             // 로그 추가
+                System.out.println("결제 내역 조회: P_ORDER_NO=" + payment.getPaymentOrderNo() +
+                                   ", P_INDATE=" + payment.getPaymentDate() +
+                                   ", P_PRICE=" + payment.getAmount());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return payments;
+	}
+	
+	// 회원 탈퇴
+	public int userDelete(String userEmail, String password) {
+	    String query = "UPDATE MEMBER "
+	                 + "SET SECESSION = 'Y' "
+	                 + "WHERE EMAIL = ? AND PASSWORD = ?";
+	    int result = 0;
+	    
+	    try {
+	        // 비밀번호 검증을 위해 사용자 정보 조회
+	        String getPasswordQuery = "SELECT PASSWORD FROM MEMBER WHERE EMAIL = ?";
+	        pstmt = con.prepareStatement(getPasswordQuery);
+	        pstmt.setString(1, userEmail);
+	        ResultSet rs = pstmt.executeQuery();
+	        
+	        if (rs.next()) {
+	            String hashedPassword = rs.getString("PASSWORD");
+	            
+	            // BCrypt를 사용하여 비밀번호 일치 여부 확인
+	            if (BCrypt.checkpw(password, hashedPassword)) {
+	                pstmt = con.prepareStatement(query);
+	                pstmt.setString(1, userEmail);
+	                pstmt.setString(2, hashedPassword); // 비밀번호는 해시된 상태로 저장되어 있음
+	                result = pstmt.executeUpdate();
+	                
+	                if (result > 0) {
+	                    System.out.println("회원 탈퇴 성공: userEmail=" + userEmail);
+	                } else {
+	                    System.out.println("회원 탈퇴 실패: userEmail=" + userEmail);
+	                }
+	            } else {
+	                System.out.println("비밀번호 일치하지 않음: userEmail=" + userEmail);
+	            }
+	        } else {
+	            System.out.println("사용자 이메일에 해당하는 데이터 없음: userEmail=" + userEmail);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return result; // 탈퇴 처리 결과를 반환
+	}
+
 }
