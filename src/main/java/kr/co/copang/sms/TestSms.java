@@ -46,11 +46,11 @@ public class TestSms extends HttpServlet {
         // 문자 메시지 텍스트 생성
         String text = "코팡 인증문자[" + verificationCode + "] 입니다.";
 
-		/* SingleMessageSentResponse result = sendOne(phone, text); */
+		SingleMessageSentResponse result = sendOne(phone, text);
         
         // 여기에 실제로 SMS를 보내는 코드를 구현합니다.
         // 이 코드는 임시로 출력하도록 했습니다.
-		/* String result1 = verificationCode; */
+		String result1 = verificationCode; 
         request.getSession().setAttribute("verificationCode", verificationCode);
 
         // 응답으로 결과를 반환합니다.
