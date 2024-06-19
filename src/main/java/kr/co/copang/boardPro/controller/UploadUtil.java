@@ -20,7 +20,7 @@ public class UploadUtil {
 		
 		UploadUtil uploadUtil = new UploadUtil();
 		uploadUtil.setApp(app);
-		uploadUtil.setUploadPath(app.getRealPath("C:\\dev\\work-space\\SemiProject\\SemiProject\\src\\main\\webapp\\resources\\upload"));
+		uploadUtil.setUploadPath(app.getRealPath("C:\\dev\\work-space\\semiProject\\semiProject\\src\\main\\webapp\\resources\\upload"));
 		
 		return uploadUtil;
 		
