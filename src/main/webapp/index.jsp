@@ -36,7 +36,7 @@
 			<div class="icon_container">
 
 				<div class="icon_space" alt="IT">
-					<a href="/category/list.do?type=IT·프로그래밍&middleCategory=&subCategory=&cPage=1">
+					<a href="/category/list.do?type=IT·프로그래밍&middleCategory=&subCategory=&cPage=1&searchTxt=">
 						<div class="icon_img">
 							<img src="/resources/img/it.png" alt="IT">
 						</div>
@@ -45,7 +45,7 @@
 				</div>
 				<div class="icon_space" alt="디자인">
 
-					<a href="/category/list.do?type=디자인&middleCategory=&subCategory=&cPage=1">
+					<a href="/category/list.do?type=디자인&middleCategory=&subCategory=&cPage=1&searchTxt=">
 
 						<div class="icon_img">
 							<img src="/resources/img/design.png" alt="design">
@@ -54,7 +54,7 @@
 					</a>
 				</div>
 				<div class="icon_space" alt="영상·사진">
-					<a href="/category/list.do?type=영상·사진&middleCategory=&subCategory=&cPage=1">
+					<a href="/category/list.do?type=영상·사진&middleCategory=&subCategory=&cPage=1&searchTxt=">
 						<div class="icon_img">
 							<img src="/resources/img/media.png" alt="media">
 						</div>
@@ -63,7 +63,7 @@
 				</div>
 				<div class="icon_space" alt="마케팅">
 
-					<a href="/category/list.do?type=마케팅&middleCategory=&subCategory=&cPage=1">
+					<a href="/category/list.do?type=마케팅&middleCategory=&subCategory=&cPage=1&searchTxt=">
 
 						<div class="icon_img">
 							<img src="/resources/img/market.png" alt="marketing">
@@ -73,7 +73,7 @@
 				</div>
 				<div class="icon_space" alt="교육">
 
-					<a href="/category/list.do?type=교육&middleCategory=&subCategory=&cPage=1">
+					<a href="/category/list.do?type=교육&middleCategory=&subCategory=&cPage=1&searchTxt=">
 
 						<div class="icon_img">
 							<img src="/resources/img/edu.png" alt="education">

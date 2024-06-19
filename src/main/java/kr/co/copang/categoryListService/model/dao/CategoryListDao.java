@@ -21,7 +21,7 @@ public class CategoryListDao {
 	}
 
 //	대분류
-	public ArrayList<CategoryListDtoImpl> getMainList(String type, PageInfo pi) {
+	public ArrayList<CategoryListDtoImpl> getMainList(String type, PageInfo pi, String searchText) {
 
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
 
@@ -32,14 +32,16 @@ public class CategoryListDao {
 				+ " WHERE u.FILE_PATH LIKE '%main'"
 				+ " AND cb.B_CATEGORY_MAIN = ? "
 				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')"
+				+ " AND B_TITLE LIKE '%' || ? || '%'"
 				+ " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 		try {
 
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, type);
-			pstmt.setInt(2, pi.getOffset());
-			pstmt.setInt(3, pi.getBoardLimit());
+			pstmt.setString(2, searchText);
+			pstmt.setInt(3, pi.getOffset());
+			pstmt.setInt(4, pi.getBoardLimit());
 
 			ResultSet rs = pstmt.executeQuery();
 
@@ -78,7 +80,7 @@ public class CategoryListDao {
 	}
 
 // 중분류	
-	public ArrayList<CategoryListDtoImpl> getMiddleList(String middleCategory, PageInfo pi) {
+	public ArrayList<CategoryListDtoImpl> getMiddleList(String middleCategory, PageInfo pi, String searchText) {
 
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
 
@@ -89,6 +91,7 @@ public class CategoryListDao {
 				+ " WHERE u.FILE_PATH LIKE '%main'"
 				+ " AND B_CATEGORY_MIDDLE = ? " 
 				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')"
+				+ " AND B_TITLE LIKE '%' || ? || '%'"
 				+ " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 
 
@@ -96,8 +99,9 @@ public class CategoryListDao {
 
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, middleCategory);
-			pstmt.setInt(2, pi.getOffset());
-			pstmt.setInt(3, pi.getBoardLimit());
+			pstmt.setString(2, searchText);
+			pstmt.setInt(3, pi.getOffset());
+			pstmt.setInt(4, pi.getBoardLimit());
 
 			
 			ResultSet rs = pstmt.executeQuery();
@@ -137,7 +141,7 @@ public class CategoryListDao {
 	}
 
 //	소분류
-	public ArrayList<CategoryListDtoImpl> getSubList(String subCategory, PageInfo pi) {
+	public ArrayList<CategoryListDtoImpl> getSubList(String subCategory, PageInfo pi, String searchText) {
 
 		ArrayList<CategoryListDtoImpl> result = new ArrayList<>();
 
@@ -148,6 +152,7 @@ public class CategoryListDao {
 				+ " WHERE u.FILE_PATH LIKE '%main'"
 				+ " AND B_CATEGORY_SUBCAT = ? " 
 				+ " AND BM_TYPE IN ('SINGLE', 'STANDARD')"
+				+ " AND B_TITLE LIKE '%' || ? || '%'"
 				+ " OFFSET ? ROWS FETCH FIRST ? ROWS ONLY";
 		
 		
@@ -155,8 +160,9 @@ public class CategoryListDao {
 
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, subCategory);
-			pstmt.setInt(2, pi.getOffset());
-			pstmt.setInt(3, pi.getBoardLimit());
+			pstmt.setString(2, searchText);
+			pstmt.setInt(3, pi.getOffset());
+			pstmt.setInt(4, pi.getBoardLimit());
 				
 			ResultSet rs = pstmt.executeQuery();
 
@@ -196,16 +202,18 @@ public class CategoryListDao {
 		return result;
 	}
 
-	public int getMainListCount(String type) {
+	public int getMainListCount(String type, String searchText) {
 			String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" 
 					+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 					+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
 					+ " WHERE u.FILE_PATH LIKE '%main'"
-					+ " and B_CATEGORY_MAIN = ? ";
+					+ " and B_CATEGORY_MAIN = ? "
+					+ " AND B_TITLE LIKE '%' || ? || '%'";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, type);
+			pstmt.setString(2, searchText);
 
 			ResultSet rs = pstmt.executeQuery();
 
@@ -222,16 +230,18 @@ public class CategoryListDao {
 		return 0;
 	}
 	
-	public int getMiddleListCount(String middleCategory) {
+	public int getMiddleListCount(String middleCategory, String searchText) {
 		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" 
 				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
 				+ " WHERE u.FILE_PATH LIKE '%main'"
-				+ " and B_CATEGORY_MIDDLE = ? ";
+				+ " AND B_CATEGORY_MIDDLE = ? "
+				+ " AND B_TITLE LIKE '%' || ? || '%'";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, middleCategory);
+			pstmt.setString(2, searchText);
 
 			ResultSet rs = pstmt.executeQuery();
 
@@ -247,16 +257,18 @@ public class CategoryListDao {
 
 		return 0;
 	}
-	public int getSubListCount(String subCategory) {
+	public int getSubListCount(String subCategory, String searchText) {
 		String query = "SELECT COUNT(*) AS cnt FROM CATEGORY_BOARD cb" 
 				+ " JOIN UPLOAD u ON u.B_NO = cb.B_NO"
 				+ " JOIN BUSINESS_MENU bm ON bm.B_NO = cb.B_NO "
 				+ " WHERE u.FILE_PATH LIKE '%main'"
-				+ " and B_CATEGORY_SUBCAT = ? ";
+				+ " AND B_CATEGORY_SUBCAT = ? "
+				+ " AND B_TITLE LIKE '%' || ? || '%'";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, subCategory);
+			pstmt.setString(2, searchText);
 
 			ResultSet rs = pstmt.executeQuery();
 
