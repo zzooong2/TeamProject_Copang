@@ -3,17 +3,17 @@
 
 
 ### 🖥 프로젝트 소개
- - JAVA 기반 풀스택 웹개발자 실무 양성과정을 수강하며 공부했던 내용들을 최대한 활용해보는 프로젝트입니다.
- - Front-End: HTML5, CSS3, JavaScript(ES6), Ajax
- - Back-End: Java(11), JSP/Servlet
- - DataBase: Oracle(21C)
- - Server: Apatche Tomcat(9.0.82)
- - API: PortOne, coolSMS
+ - *JAVA 기반 풀스택 웹개발자 실무 양성과정을 수강하며 공부했던 내용들을 최대한 활용해보는 프로젝트입니다.*
+ - *Front-End*: HTML5, CSS3, JavaScript(ES6), Ajax
+ - *Back-End*: Java(11), JSP/Servlet
+ - *DataBase*: Oracle(21C)
+ - *Server*: Apatche Tomcat(9.0.82)
+ - *API*: PortOne, coolSMS
 
 
 ### ⏱ 개발 기간
 * 2024.04.22 ~ 2024.05.21
-
+  
 
 ### 👍🏻 팀 구성
  - 김현중(팀장): 공지사항 & 고객센터 게시판(CRUD), 결제기능(API 연동), PPT 제작
