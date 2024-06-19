@@ -34,7 +34,11 @@
 		</a>
 		<!-- Search(돋보기) -->
 
-		<form class="search-box" action="/category/list.do" method="get" class="formSetting">
+		<form class="search-box" action="/category/list.do?" method="get" class="formSetting">
+			<!-- 각 분류별의 카테고리 값 -->
+			<input type="hidden" name="type" value="${type}">
+			<input type="hidden" name="middleCategory" value="${middleCategory}" >
+			<input type="hidden" name="subCategory" value="${subCategory}" >
 			<input class="search-txt" type="text" name="searchTxt" value="">
 			<button class="search-btn" type="submit">
 				<i class="fa-solid fa-magnifying-glass" style="color: #ff8e47;"></i>

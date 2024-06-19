@@ -43,30 +43,34 @@ public class CategoryListController extends HttpServlet {
 		String subCategory = request.getParameter("subCategory");
 		request.setAttribute("subCategory", subCategory);
 		
-		
+		String searchText = request.getParameter("searchTxt");
 		
 //		리스트 카운트 변수 초기화
 		int listCount = 0;
 		
-//		 소분류가 비어있지 
+//		 소분류 리스트 배열
 		 if(!subCategory.equals("")) {
-			 listCount = categoryListService.getSubListCount(subCategory);
+			 listCount = categoryListService.getSubListCount(subCategory, searchText);
 		 } else if(!middleCategory.equals("")) {
 //			중분류 리스트 배열
-			 listCount = categoryListService.getMiddleListCount(middleCategory);
+			 listCount = categoryListService.getMiddleListCount(middleCategory, searchText);
 		 } else {
 //			대분류 리스트 배열 
-			 listCount = categoryListService.getMainListCount(type);
+			 listCount = categoryListService.getMainListCount(type, searchText);
 		}  
+		 
+		 
 		 int cPage = 1;
 		 
 		 if(request.getParameter("cPage") != null) {
 			 cPage = Integer.parseInt(request.getParameter("cPage"));
 		 }
 		 request.setAttribute("cPage", cPage); 
-		  
+		 
+		 
+// 		 최대 페이지
 		 int pageLimit = 9;
-		  
+//		 한 페이지에 부여될 페이지 수 
 		 int boardLimit = 6;
 		  
 		 PageInfo pi = Pagination.getPageInfo(listCount, cPage, pageLimit, boardLimit); 
@@ -78,7 +82,7 @@ public class CategoryListController extends HttpServlet {
 
 //		소분류 리스트 배열
 		if(!subCategory.equals("")) {
-			ArrayList<CategoryListDtoImpl> tCategory = categoryListService.getSubList(subCategory, pi);
+			ArrayList<CategoryListDtoImpl> tCategory = categoryListService.getSubList(subCategory, pi, searchText);
 			// 각 게시물의 평균 별점 추가
 		    for (CategoryListDtoImpl item : tCategory) {
 		        float avgValue = boardProService.getReviewAvg(item.getBoardNo());
@@ -88,7 +92,7 @@ public class CategoryListController extends HttpServlet {
 			request.setAttribute("tCategory", tCategory);
 		} else if(!middleCategory.equals("")) {
 //		중분류 리스트 배열
-			ArrayList<CategoryListDtoImpl> sCategory = categoryListService.getMiddleList(middleCategory, pi);
+			ArrayList<CategoryListDtoImpl> sCategory = categoryListService.getMiddleList(middleCategory, pi, searchText);
 			// 각 게시물의 평균 별점 추가  
 			for (CategoryListDtoImpl item : sCategory) {
 			        float avgValue = boardProService.getReviewAvg(item.getBoardNo());
@@ -98,7 +102,7 @@ public class CategoryListController extends HttpServlet {
 			request.setAttribute("sCategory", sCategory);
 		} else {
 //		대분류 리스트 배열 
-			fCategory = categoryListService.getMainList(type, pi);
+			fCategory = categoryListService.getMainList(type, pi, searchText);
 			  // 각 게시물의 평균 별점 추가
 		    for (CategoryListDtoImpl item : fCategory) {
 		        float avgValue = boardProService.getReviewAvg(item.getBoardNo());
