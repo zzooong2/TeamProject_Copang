@@ -41,6 +41,7 @@
 		<c:if test="${partCode == 3}">
 			<button class="write-notice" onclick="location.href='/form/noticeEnrollForm.do'">글쓰기</button>
 		</c:if>
+		<br><br><br><br><br><br>
 		
         <div class="board-table">
             <table>

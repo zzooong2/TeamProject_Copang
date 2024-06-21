@@ -38,7 +38,11 @@
 	        <input type="text" id="serach-keyword" name="search-text" class="search" placeholder="검색할 키워드를 입력해주세요.">
 			<button type="submit" class="customer-search-btn">검 색</button>			
 		</form>
-		<button class="write-notice" type="button" onclick="location.href='/form/customerServiceEnrollForm.do'">글쓰기</button>
+		<c:if test="${sessionScope.userName != null}">
+			<button class="write-notice" type="button" onclick="location.href='/form/customerServiceEnrollForm.do'">글쓰기</button>
+		</c:if>
+		<br><br><br><br><br><br>
+		
         <div class="board-table">
             <table>
                 <thead>
