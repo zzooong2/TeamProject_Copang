@@ -9,7 +9,7 @@
  - *DataBase*: Oracle(21C)
  - *Server*: Apatche Tomcat(9.0.82)
  - *API*: PortOne, coolSMS
-
+ - https://buttery-melon-952.notion.site/1ff573e962e64b83a67617f08716b799
 
 ### ⏱ 개발 기간
 * 2024.04.22 ~ 2024.05.21
