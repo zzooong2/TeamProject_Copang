@@ -77,9 +77,10 @@
  <tbody>
   <tr>
    <td style="text-align: center">
-     <img width="400" alt="비밀번호 변경" src="https://github.com/user-attachments/assets/c5d09067-f829-43cd-a40c-1d2ecfbaaba6">
+    <img width="400" alt="비밀번호 변경" src="https://github.com/user-attachments/assets/c5d09067-f829-43cd-a40c-1d2ecfbaaba6">
+   </td>
+   <td style="text-align: center">
     <img width="400" alt="아이디 찾기" src="https://github.com/user-attachments/assets/ac2a4bef-d607-4327-965c-448268461be8">
-    
    </td>
   </tr>
  </tbody>
