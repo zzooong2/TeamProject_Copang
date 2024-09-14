@@ -178,7 +178,6 @@
   <tr>
    <td style="text-align: center">수정 등록페이지 - 서비스 설명</td>
    <td style="text-align: center">수정 등록페이지 - 이미지등록</td>
-   <td style="text-align: center">수정 등록페이지 - 기본정보</td>
   </tr>
  </thead>
  <tbody>
@@ -189,7 +188,17 @@
    <td style="text-align: center">
     <img width="400" alt="수정 등록페이지 - 이미지등록" src="https://github.com/user-attachments/assets/c07bc27a-5283-47e9-83de-2a26f0406573">
    </td>
-      <td style="text-align: center">
+  </tr>
+ </tbody>
+
+  <thead>
+  <tr>
+   <td style="text-align: center">수정 등록페이지 - 기본정보</td>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="text-align: center">
     <img width="400" alt="수정 등록페이지 - 기본정보" src="https://github.com/user-attachments/assets/ecd00f04-9aef-4839-87f7-40eb2a5cd159">
    </td>
   </tr>
@@ -204,7 +213,6 @@
   <tr>
    <td style="text-align: center">결제페이지 주문 및 결제 1</td>
    <td style="text-align: center">결제페이지 주문 및 결제 2</td>
-   <td style="text-align: center">결제페이지</td>
   </tr>
  </thead>
  <tbody>
@@ -215,6 +223,16 @@
    <td style="text-align: center">
     <img width="400" alt="결제페이지 주문 및 결제 2" src="https://github.com/user-attachments/assets/795b9ade-69b8-4d1d-a935-a24be9ae7267">
    </td>
+  </tr>
+ </tbody>
+
+  <thead>
+  <tr>
+   <td style="text-align: center">결제페이지</td>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
    <td style="text-align: center">
     <img width="400" alt="결제페이지" src="https://github.com/user-attachments/assets/31ea0c44-c32b-4279-8739-1c11e68852ab">
    </td>
