@@ -207,8 +207,26 @@
 
 
 
-##### 결제기능, 공지사항 & 고객센터 게시판
+##### 공지사항 & 고객센터 게시판, 결제기능
 <table style="width: 100%; border-collapse: collapse;">
+ 
+ <thead>
+  <tr>
+   <td style="text-align: center">고객센터 페이지</td>
+   <td style="text-align: center">고객센터 페이지 - 글쓰기</td>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td style="text-align: center">
+    <img width="400" alt="고객센터 페이지" src="https://github.com/user-attachments/assets/de4e765a-f21b-4567-bdf6-c3b9ff730ca0">
+   </td> 
+   <td style="text-align: center">
+    <img width="400" alt="고객센터 페이지 - 글쓰기" src="https://github.com/user-attachments/assets/75dbf3c8-2221-4a7b-9b4b-73fb26a1acb5">
+   </td>
+  </tr>
+ </tbody>
+
  <thead>
   <tr>
    <td style="text-align: center">결제페이지 주문 및 결제 1</td>
@@ -235,23 +253,6 @@
   <tr>
    <td style="text-align: center">
     <img width="400" alt="결제페이지" src="https://github.com/user-attachments/assets/31ea0c44-c32b-4279-8739-1c11e68852ab">
-   </td>
-  </tr>
- </tbody>
- 
- <thead>
-  <tr>
-   <td style="text-align: center">고객센터 페이지</td>
-   <td style="text-align: center">고객센터 페이지 - 글쓰기</td>
-  </tr>
- </thead>
- <tbody>
-  <tr>
-   <td style="text-align: center">
-    <img width="400" alt="고객센터 페이지" src="https://github.com/user-attachments/assets/de4e765a-f21b-4567-bdf6-c3b9ff730ca0">
-   </td> 
-   <td style="text-align: center">
-    <img width="400" alt="고객센터 페이지 - 글쓰기" src="https://github.com/user-attachments/assets/75dbf3c8-2221-4a7b-9b4b-73fb26a1acb5">
    </td>
   </tr>
  </tbody>
