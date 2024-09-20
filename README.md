@@ -13,7 +13,6 @@
 
 
 ### 🖥 프로젝트 소개
- - *JAVA 기반 풀스택 웹개발자 실무 양성과정을 수강하며 공부했던 내용들을 최대한 활용해보는 프로젝트입니다.*
  - *Front-End*: HTML5, CSS3, JavaScript(ES6)
  - *Back-End*: Java(11), JSP/Servlet
  - *DataBase*: Oracle(21C)
